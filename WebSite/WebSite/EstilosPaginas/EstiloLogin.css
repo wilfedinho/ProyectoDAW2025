@@ -1,0 +1,134 @@
+﻿body {
+    background: radial-gradient(circle at center, #1a2233 0%, #00081a 100%);
+    color: #fff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.login-box {
+    background: rgba(15, 25, 40, 0.97);
+    border-radius: 12px;
+    box-shadow: 0 0 40px 10px #001a33;
+    padding: 32px 32px 24px 32px;
+    width: 340px;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 1.6em;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    font-weight: 400;
+}
+
+.login-divider {
+    border: none;
+    border-top: 1px solid #274472;
+    margin-bottom: 18px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.login-input {
+    background: #16213a;
+    border: 1px solid #274472;
+    border-radius: 6px;
+    color: #fff;
+    padding: 10px 14px;
+    font-size: 1em;
+    margin-bottom: 0;
+    outline: none;
+    transition: border 0.2s;
+}
+
+    .login-input:focus {
+        border-color: #3a5a99;
+    }
+
+.login-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.95em;
+    margin-top: -8px;
+    margin-bottom: 4px;
+}
+
+.login-checkbox {
+    accent-color: #274472;
+    margin-right: 4px;
+}
+
+.remember-label {
+    color: #7da0ca;
+    margin-right: auto;
+    margin-left: 4px;
+}
+
+.forgot-link {
+    color: #b8c6e0;
+    font-style: italic;
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: color 0.2s;
+}
+
+    .forgot-link:hover {
+        color: #3a5a99;
+    }
+
+.login-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.login-btn {
+    background: linear-gradient(90deg, #274472 0%, #4169a1 100%);
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    padding: 8px 24px;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #001a3388;
+    transition: background 0.2s, color 0.2s;
+}
+
+    .login-btn:hover {
+        background: linear-gradient(90deg, #3a5a99 0%, #274472 100%);
+        color: #fff;
+    }
+
+.register-btn {
+    background: linear-gradient(90deg, #16213a 0%, #274472 100%);
+    border: 1px solid #3a5a99;
+}
+
+.login-or {
+    background: #16213a;
+    border-radius: 50%;
+    border: 2px solid #274472;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 8px;
+    box-shadow: 0 0 8px #001a33aa;
+}
