@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BE;
 using DAL;
+using SERVICIOS;
 
 namespace BLL.Tecnica
 {
@@ -28,6 +29,14 @@ namespace BLL.Tecnica
             gestorUsuario.Modificar(UsuarioModificado);
         }
         
+        public bool VerificarCredenciales(string username, string clave)
+        {
+            UsuarioDAL gestorUsuario = new UsuarioDAL();
+            Encryptador cifrador = new Encryptador();
+            clave = cifrador.EncryptadorIrreversible(clave);
+            return gestorUsuario.VerificarCredenciales (username, clave);
+        }
+
         #endregion
 
         #region Busquedas De Usuarios 

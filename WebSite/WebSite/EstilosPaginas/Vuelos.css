@@ -1,0 +1,187 @@
+﻿body {
+    background: #1a2233;
+    color: #fff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-header {
+    background: #16213a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    box-shadow: 0 2px 8px #001a3388;
+}
+
+.logo {
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #7da0ca;
+    letter-spacing: 2px;
+}
+
+.nav-link {
+    color: #b8c6e0;
+    text-decoration: none;
+    margin: 0 18px;
+    font-size: 1.1em;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border 0.2s;
+}
+
+    .nav-link.active,
+    .nav-link:hover {
+        color: #fff;
+        border-bottom: 2px solid #4169a1;
+    }
+
+.user-icon {
+    font-size: 1.7em;
+    color: #4169a1;
+    background: #fff2;
+    border-radius: 50%;
+    padding: 6px 12px;
+}
+
+.search-section {
+    background: linear-gradient(90deg, #274472 0%, #4169a1 100%);
+    padding: 36px 0 24px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.search-box {
+    background: #16213a;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px #001a3388;
+    padding: 28px 32px;
+    min-width: 700px;
+    max-width: 900px;
+}
+
+    .search-box h2 {
+        margin-top: 0;
+        margin-bottom: 18px;
+        color: #fff;
+        font-weight: 400;
+        letter-spacing: 1px;
+    }
+
+.search-fields {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.search-input {
+    background: #1a2233;
+    border: 1px solid #3a5a99;
+    border-radius: 6px;
+    color: #fff;
+    padding: 10px 14px;
+    font-size: 1em;
+    min-width: 140px;
+    outline: none;
+    transition: border 0.2s;
+}
+
+    .search-input:focus {
+        border-color: #7da0ca;
+    }
+
+.search-btn {
+    background: linear-gradient(90deg, #274472 0%, #4169a1 100%);
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    padding: 10px 28px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 8px #001a3388;
+    transition: background 0.2s;
+}
+
+    .search-btn:hover {
+        background: linear-gradient(90deg, #3a5a99 0%, #274472 100%);
+    }
+
+.destinos-section {
+    background: #f4f6fa;
+    color: #1a2233;
+    padding: 36px 0 48px 0;
+    min-height: 400px;
+}
+
+    .destinos-section h2 {
+        text-align: center;
+        font-size: 2em;
+        font-weight: 500;
+        margin-bottom: 32px;
+        color: #1a2233;
+    }
+
+.destinos-grid {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.destino-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px #001a3322;
+    overflow: hidden;
+    width: 260px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+    .destino-card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 6px 32px #001a3344;
+    }
+
+    .destino-card img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+    }
+
+.destino-info {
+    padding: 18px 16px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.destino-label {
+    color: #4169a1;
+    font-size: 0.85em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.destino-info h3 {
+    margin: 0;
+    font-size: 1.15em;
+    color: #1a2233;
+}
+
+.destino-info p {
+    margin: 0;
+    color: #3a5a99;
+    font-size: 0.98em;
+}
+
+.destino-precio {
+    margin-top: 8px;
+    font-size: 1.2em;
+    color: #274472;
+    font-weight: bold;
+}

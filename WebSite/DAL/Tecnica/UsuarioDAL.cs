@@ -7,6 +7,33 @@ namespace DAL
     public class UsuarioDAL
     {
         #region Operaciones Usuario 490WC
+        public bool VerificarCredenciales(string username, string clave)
+        {
+            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            {
+                cone.Open();
+                string query = "SELECT * FROM Usuario WHERE Username = @Username AND Contraseña = @Contraseña";
+                using (SqlCommand comando = new SqlCommand(query, cone))
+                {
+                    comando.Parameters.AddWithValue("@Username", username);
+                    comando.Parameters.AddWithValue("@Contraseña", clave);
+                    using (SqlDataReader reader = comando.ExecuteReader())
+                    {
+                        if (reader != null)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false; 
+                        }
+                    }
+
+
+
+                }
+            }
+        }
         public void Alta(Usuario UsuarioAlta)
         {
             using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
@@ -23,7 +50,7 @@ namespace DAL
                     comando.Parameters.AddWithValue("@Contraseña", UsuarioAlta.Contraseña);
                     comando.Parameters.AddWithValue("@Email", UsuarioAlta.Email);
                     comando.Parameters.AddWithValue("@Rol", UsuarioAlta.Rol);
-                
+
 
                     comando.ExecuteNonQuery();
                 }
@@ -62,10 +89,10 @@ namespace DAL
                 }
             }
         }
-        
-        
-        
-        
+
+
+
+
         #endregion
 
         #region Busquedas De Usuarios 490WC
@@ -83,13 +110,13 @@ namespace DAL
                         while (lector.Read())
                         {
                             Usuario usuarioLectura = new Usuario(
-                                                                             lector["Username490WC"].ToString(),
-                                                                             lector["Nombre490WC"].ToString(),
-                                                                             lector["Apellido490WC"].ToString(),
-                                                                             lector["DNI490WC"].ToString(),
-                                                                             lector["Contraseña490WC"].ToString(),
-                                                                             lector["Email490WC"].ToString(),
-                                                                             lector["Rol490WC"].ToString()
+                                                                             lector["Username"].ToString(),
+                                                                             lector["Nombre"].ToString(),
+                                                                             lector["Apellido"].ToString(),
+                                                                             lector["DNI"].ToString(),
+                                                                             lector["Contraseña"].ToString(),
+                                                                             lector["Email"].ToString(),
+                                                                             lector["Rol"].ToString()
                                                                            );
                             ListaUsuario.Add(usuarioLectura);
                         }
@@ -111,13 +138,13 @@ namespace DAL
                         if (lector490WC.Read())
                         {
                             Usuario usuarioLectura = new Usuario(
-                                                                                lector490WC["Username490WC"].ToString(),
-                                                                                lector490WC["Nombre490WC"].ToString(),
-                                                                                lector490WC["Apellido490WC"].ToString(),
-                                                                                lector490WC["DNI490WC"].ToString(),
-                                                                                lector490WC["Contraseña490WC"].ToString(),
-                                                                                lector490WC["Email490WC"].ToString(),
-                                                                                lector490WC["Rol490WC"].ToString()
+                                                                                lector490WC["Username"].ToString(),
+                                                                                lector490WC["Nombre"].ToString(),
+                                                                                lector490WC["Apellido"].ToString(),
+                                                                                lector490WC["DNI"].ToString(),
+                                                                                lector490WC["Contraseña"].ToString(),
+                                                                                lector490WC["Email"].ToString(),
+                                                                                lector490WC["Rol"].ToString()
                                                                             );
                             return usuarioLectura;
                         }
