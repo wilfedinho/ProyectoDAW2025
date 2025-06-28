@@ -20,11 +20,11 @@
                     <div class="login-options">
                         <asp:CheckBox ID="chkRemember" runat="server" CssClass="login-checkbox" />
                         <label for="chkRemember" class="remember-label">Recordar Usuario</label>
-                        <a href="#" class="forgot-link">Forgot Password?</a>
+                       
                     </div>
                     <div class="login-actions">
                         <asp:Button ID="btnSignIn" runat="server" Text="Iniciar Sesion" CssClass="login-btn" />
-                        <span class="login-or">OR</span>
+                        
                         <asp:Button ID="btnRegister" runat="server" Text="Registrar" CssClass="login-btn register-btn" />
                     </div>
                 </div>

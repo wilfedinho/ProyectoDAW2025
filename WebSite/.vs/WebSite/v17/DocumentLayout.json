@@ -3,40 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\website\\registro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\registro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{9917B20E-8DAB-4FF3-BAAA-D0320B94BD2E}|BLL\\BLL.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\bll\\tecnica\\usuariobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9917B20E-8DAB-4FF3-BAAA-D0320B94BD2E}|BLL\\BLL.csproj|solutionrelative:bll\\tecnica\\usuariobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\website\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\William C\u00E0rdenas\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_dizl5top.0.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\website\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\William C\u00E0rdenas\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_0fxa4cwy.2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\William C\u00E0rdenas\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_5qca0pxe.0.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\dal\\tecnica\\usuariodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|solutionrelative:dal\\tecnica\\usuariodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\website\\estilospaginas\\estilologin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\estilospaginas\\estilologin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\William C\u00E0rdenas\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_1vhmyz1z.2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\website\\estilospaginas\\estilologin.css.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\estilospaginas\\estilologin.css.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\website\\estilospaginas\\registro.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\estilospaginas\\registro.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\website\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,128 +26,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "App_Web_dizl5top.0.cs",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_dizl5top.0.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_dizl5top.0.cs",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_dizl5top.0.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_dizl5top.0.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAAAvwMcAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "UsuarioDAL.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Tecnica\\UsuarioDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\Tecnica\\UsuarioDAL.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Tecnica\\UsuarioDAL.cs",
+              "RelativeToolTip": "DAL\\Tecnica\\UsuarioDAL.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAIwIoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T20:23:54.57Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "App_Web_0fxa4cwy.2.cs",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_0fxa4cwy.2.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_0fxa4cwy.2.cs",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_0fxa4cwy.2.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_0fxa4cwy.2.cs",
-              "ViewState": "AgIAALgAAAAAAAAAAAAvwMcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T20:22:45.893Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "App_Web_5qca0pxe.0.cs",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_5qca0pxe.0.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_5qca0pxe.0.cs",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_5qca0pxe.0.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_5qca0pxe.0.cs",
-              "ViewState": "AgIAAKwAAAAAAAAAAAAvwMcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T20:21:15.725Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Login.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Login.aspx.cs",
-              "RelativeDocumentMoniker": "WebSite\\Login.aspx.cs",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Login.aspx.cs",
-              "RelativeToolTip": "WebSite\\Login.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T20:18:51.446Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "App_Web_1vhmyz1z.2.cs",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_1vhmyz1z.2.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_1vhmyz1z.2.cs",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_1vhmyz1z.2.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\root.vswh\\5bbc81f0\\6981f037\\App_Web_1vhmyz1z.2.cs",
-              "ViewState": "AgIAAK8AAAAAAAAAAIAwwMcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T20:17:55.182Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EstiloLogin.css.cs",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\EstilosPaginas\\EstiloLogin.css.cs",
-              "RelativeDocumentMoniker": "WebSite\\EstilosPaginas\\EstiloLogin.css.cs",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\EstilosPaginas\\EstiloLogin.css.cs",
-              "RelativeToolTip": "WebSite\\EstilosPaginas\\EstiloLogin.css.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T20:15:14.745Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Registro.css",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\EstilosPaginas\\Registro.css",
-              "RelativeDocumentMoniker": "WebSite\\EstilosPaginas\\Registro.css",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\EstilosPaginas\\Registro.css",
-              "RelativeToolTip": "WebSite\\EstilosPaginas\\Registro.css",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-28T20:13:52.106Z",
+              "WhenOpened": "2025-06-28T21:10:00.545Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Registro.aspx",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Registro.aspx",
-              "RelativeDocumentMoniker": "WebSite\\Registro.aspx",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Registro.aspx",
-              "RelativeToolTip": "WebSite\\Registro.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-06-28T20:12:35.494Z",
+              "Title": "UsuarioBLL.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BLL\\Tecnica\\UsuarioBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\Tecnica\\UsuarioBLL.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BLL\\Tecnica\\UsuarioBLL.cs",
+              "RelativeToolTip": "BLL\\Tecnica\\UsuarioBLL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T21:06:49.911Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "EstiloLogin.css",
               "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\EstilosPaginas\\EstiloLogin.css",
               "RelativeDocumentMoniker": "WebSite\\EstilosPaginas\\EstiloLogin.css",
               "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\EstilosPaginas\\EstiloLogin.css",
               "RelativeToolTip": "WebSite\\EstilosPaginas\\EstiloLogin.css",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAGYAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAC4AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-28T19:50:03.408Z",
+              "WhenOpened": "2025-06-28T21:05:09.194Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Login.aspx",
               "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Login.aspx",
               "RelativeDocumentMoniker": "WebSite\\Login.aspx",
@@ -175,7 +77,7 @@
               "RelativeToolTip": "WebSite\\Login.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-06-28T19:08:16.188Z",
+              "WhenOpened": "2025-06-28T21:04:15.686Z",
               "EditorCaption": ""
             }
           ]
