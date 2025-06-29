@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\dal\\tecnica\\bitacoradal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|solutionrelative:dal\\tecnica\\bitacoradal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9917B20E-8DAB-4FF3-BAAA-D0320B94BD2E}|BLL\\BLL.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\bll\\tecnica\\bitacorabll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9917B20E-8DAB-4FF3-BAAA-D0320B94BD2E}|BLL\\BLL.csproj|solutionrelative:bll\\tecnica\\bitacorabll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\be\\bitacora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|solutionrelative:be\\bitacora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\website\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,11 +27,7 @@
       "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\vuelos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\dal\\tecnica\\usuariodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|solutionrelative:dal\\tecnica\\usuariodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\website\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\website\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
@@ -34,11 +42,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "BitacoraBLL.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BLL\\Tecnica\\BitacoraBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\Tecnica\\BitacoraBLL.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BLL\\Tecnica\\BitacoraBLL.cs",
+              "RelativeToolTip": "BLL\\Tecnica\\BitacoraBLL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAADKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T18:18:21.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BitacoraDAL.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Tecnica\\BitacoraDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\Tecnica\\BitacoraDAL.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Tecnica\\BitacoraDAL.cs",
+              "RelativeToolTip": "DAL\\Tecnica\\BitacoraDAL.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowFsAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T18:11:33.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Bitacora.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\Bitacora.cs",
+              "RelativeDocumentMoniker": "BE\\Bitacora.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\Bitacora.cs",
+              "RelativeToolTip": "BE\\Bitacora.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAACQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T18:08:56.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Login.aspx",
               "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Login.aspx",
               "RelativeDocumentMoniker": "WebSite\\Login.aspx",
@@ -51,20 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UsuarioDAL.cs",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Tecnica\\UsuarioDAL.cs",
-              "RelativeDocumentMoniker": "DAL\\Tecnica\\UsuarioDAL.cs",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Tecnica\\UsuarioDAL.cs",
-              "RelativeToolTip": "DAL\\Tecnica\\UsuarioDAL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T22:09:41.354Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Vuelos.aspx.cs",
               "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Vuelos.aspx.cs",
               "RelativeDocumentMoniker": "WebSite\\Vuelos.aspx.cs",
@@ -76,20 +110,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Login.aspx.cs",
               "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Login.aspx.cs",
               "RelativeDocumentMoniker": "WebSite\\Login.aspx.cs",
               "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Login.aspx.cs",
               "RelativeToolTip": "WebSite\\Login.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACMAAABgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-28T21:27:15.464Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "EstiloLogin.css",
               "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\EstilosPaginas\\EstiloLogin.css",
               "RelativeDocumentMoniker": "WebSite\\EstilosPaginas\\EstiloLogin.css",
@@ -97,12 +131,11 @@
               "RelativeToolTip": "WebSite\\EstilosPaginas\\EstiloLogin.css",
               "ViewState": "AgIAACcAAAAAAAAAAAAAAFQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-28T21:05:09.194Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-28T21:05:09.194Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Vuelos.aspx",
               "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Vuelos.aspx",
               "RelativeDocumentMoniker": "WebSite\\Vuelos.aspx",
@@ -110,8 +143,7 @@
               "RelativeToolTip": "WebSite\\Vuelos.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-06-28T21:56:14.768Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-28T21:56:14.768Z"
             }
           ]
         }
