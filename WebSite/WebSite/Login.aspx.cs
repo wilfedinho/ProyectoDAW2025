@@ -20,7 +20,7 @@ public partial class Login : System.Web.UI.Page
   
     protected void btnRegister_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("Registro.aspx"); 
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ public partial class Login : System.Web.UI.Page
                 lblError.Visible = true;
             }
         }
-        catch { }
+         catch { }
     }
     public void AlmacenarSesion(Usuario usuarioSesion)
     {

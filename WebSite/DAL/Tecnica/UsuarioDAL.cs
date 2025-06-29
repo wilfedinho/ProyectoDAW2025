@@ -12,25 +12,14 @@ namespace DAL
             using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
             {
                 cone.Open();
-                string query = "SELECT * FROM Usuario WHERE Username = @Username AND Contraseña = @Contraseña";
+                string query = "SELECT COUNT(*) FROM Usuario WHERE Username = @Username AND Contraseña = @Contraseña";
+
                 using (SqlCommand comando = new SqlCommand(query, cone))
                 {
                     comando.Parameters.AddWithValue("@Username", username);
                     comando.Parameters.AddWithValue("@Contraseña", clave);
-                    using (SqlDataReader reader = comando.ExecuteReader())
-                    {
-                        if (reader != null)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false; 
-                        }
-                    }
-
-
-
+                    int cantidad = (int)comando.ExecuteScalar();
+                    return cantidad > 0;
                 }
             }
         }
