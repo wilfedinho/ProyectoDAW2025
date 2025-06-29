@@ -1,0 +1,66 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Eventos.aspx.cs" Inherits="Eventos" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>Eventos</title>
+    <link rel="stylesheet" type="text/css" href="EstilosPaginas/Eventos.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="eventos-container">
+            <div class="eventos-table-container">
+                <asp:GridView ID="gvEventos" runat="server" CssClass="eventos-table" AutoGenerateColumns="True">
+                </asp:GridView>
+            </div>
+            <div class="filtros-form">
+                <div class="filtro-group">
+                    <label for="txtDNI" class="filtro-label">Usuario</label>
+                    <asp:TextBox ID="txtUsuario" runat="server" CssClass="filtro-input" placeholder="Usuario"></asp:TextBox>
+                </div>
+                <div class="filtro-group">
+                    <label for="txtFechaInicio" class="filtro-label">Fecha Desde</label>
+                    <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha inicio"></asp:TextBox>
+                </div>
+                <div class="filtro-group">
+                    <label for="txtFechaFin" class="filtro-label">Fecha Hasta</label>
+                    <asp:TextBox ID="txtFechaFin" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha fin"></asp:TextBox>
+                </div>
+                <div class="filtro-group">
+                    <label for="chkFiltrarFecha"  class="filtro-label">Filtrar por Fecha</label>
+                    <asp:CheckBox ID="chkFiltrarFecha" runat="server" CssClass="filtro-checkbox" onclick="toggleFechas()"/>
+                </div>
+                <div class="filtro-group">
+                    <label for="ddlModulo" class="filtro-label">Módulo</label>
+                    <asp:DropDownList ID="ddlModulo" runat="server" CssClass="filtro-input">
+                        <asp:ListItem Text="-- Seleccione --" Value="" />
+                    </asp:DropDownList>
+                </div>
+                <div class="filtro-group">
+                    <label for="ddlEvento" class="filtro-label">Descripción</label>
+                    <asp:DropDownList ID="ddlEvento" runat="server" CssClass="filtro-input">
+                        <asp:ListItem Text="-- Seleccione --" Value="" />
+                    </asp:DropDownList>
+                </div>
+                <div class="filtro-group">
+                    <label for="ddlCriticidad" class="filtro-label">Criticidad</label>
+                    <asp:DropDownList ID="ddlCriticidad" runat="server" CssClass="filtro-input">
+                        <asp:ListItem Text="-- Seleccione --" Value="" />
+
+                    </asp:DropDownList>
+                </div>
+                <div class="filtro-group filtro-botones">
+                    <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="filtro-btn" OnClick="btnFiltrar_Click" />
+                    <asp:Button ID="btnRestablecer" runat="server" Text="Restablecer" CssClass="filtro-btn" OnClick="btnRestablecer_Click" />
+                </div>
+            </div>
+    </form>
+  <script type="text/javascript">
+      var chkFiltrarFechaId = '<%= chkFiltrarFecha.ClientID %>';
+      var txtFechaInicioId = '<%= txtFechaInicio.ClientID %>';
+    var txtFechaFinId = '<%= txtFechaFin.ClientID %>';
+  </script>
+<script src="Scripts/filtrosEventos.js"></script>
+</body>
+</html>

@@ -16,7 +16,7 @@ namespace DAL.Tecnica
             {
                 cone.Open();
 
-                string query = @"INSERT INTO Bitacora (Username, Fecha, Hora, Modulo, Descripcion, Criticidad) VALUES (@Username, @Fecha, @Hora, @Modulo, @Descripcion, @Criticidad)";
+                string query = @"INSERT INTO Bitacora (NombreUsuario, Fecha, Hora, Modulo, Descripcion, Criticidad) VALUES (@Username, @Fecha, @Hora, @Modulo, @Descripcion, @Criticidad)";
 
                 using (SqlCommand comando = new SqlCommand(query, cone))
                 {
@@ -44,11 +44,11 @@ namespace DAL.Tecnica
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = cone;
 
-                string query = "SELECT IdBitacora, Username, Fecha, Hora, Modulo, Descripcion, Criticidad FROM Bitacora WHERE 1=1";
+                string query = "SELECT ID_Bitacora, NombreUsuario, Fecha, Hora, Modulo, Descripcion, Criticidad FROM Bitacora WHERE 1=1";
 
                 if (!string.IsNullOrEmpty(usuarioFiltrar))
                 {
-                    condiciones.Add("Username = @Username");
+                    condiciones.Add("NombreUsuario = @Username");
                     comando.Parameters.AddWithValue("@Username", usuarioFiltrar);
                 }
                 if (!string.IsNullOrEmpty(moduloFiltrar))
