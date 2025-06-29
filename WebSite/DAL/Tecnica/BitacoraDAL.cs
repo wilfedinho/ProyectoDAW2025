@@ -32,7 +32,7 @@ namespace DAL.Tecnica
             }
         }
 
-        public List<Bitacora> ObtenerEventosPorConsulta490WC(string usuarioFiltrar490WC = "", string moduloFiltrar490WC = "", string descripcionFiltrar490WC = "", string criticidadFiltrar490WC = "", DateTime? fechaInicioFiltrar490WC = null, DateTime? fechaFinFiltrar490WC = null)
+        public List<Bitacora> ObtenerEventosPorConsulta490WC(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)
         {
             List<Bitacora> listaBitacora490WC = new List<Bitacora>();
 
@@ -46,35 +46,35 @@ namespace DAL.Tecnica
 
                 string query = "SELECT IdBitacora, Username, Fecha, Hora, Modulo, Descripcion, Criticidad FROM Bitacora WHERE 1=1";
 
-                if (!string.IsNullOrEmpty(usuarioFiltrar490WC))
+                if (!string.IsNullOrEmpty(usuarioFiltrar))
                 {
                     condiciones.Add("Username = @Username");
-                    comando.Parameters.AddWithValue("@Username", usuarioFiltrar490WC);
+                    comando.Parameters.AddWithValue("@Username", usuarioFiltrar);
                 }
-                if (!string.IsNullOrEmpty(moduloFiltrar490WC))
+                if (!string.IsNullOrEmpty(moduloFiltrar))
                 {
                     condiciones.Add("Modulo = @Modulo");
-                    comando.Parameters.AddWithValue("@Modulo", moduloFiltrar490WC);
+                    comando.Parameters.AddWithValue("@Modulo", moduloFiltrar);
                 }
-                if (!string.IsNullOrEmpty(descripcionFiltrar490WC))
+                if (!string.IsNullOrEmpty(descripcionFiltrar))
                 {
                     condiciones.Add("Descripcion = @Descripcion");
-                    comando.Parameters.AddWithValue("@Descripcion", descripcionFiltrar490WC);
+                    comando.Parameters.AddWithValue("@Descripcion", descripcionFiltrar);
                 }
-                if (!string.IsNullOrEmpty(criticidadFiltrar490WC))
+                if (!string.IsNullOrEmpty(criticidadFiltrar))
                 {
                     condiciones.Add("Criticidad = @Criticidad");
-                    comando.Parameters.AddWithValue("@Criticidad", criticidadFiltrar490WC);
+                    comando.Parameters.AddWithValue("@Criticidad", criticidadFiltrar);
                 }
-                if (fechaInicioFiltrar490WC.HasValue)
+                if (fechaInicioFiltrar.HasValue)
                 {
                     condiciones.Add("Fecha >= @FechaInicio");
-                    comando.Parameters.AddWithValue("@FechaInicio", fechaInicioFiltrar490WC.Value.Date);
+                    comando.Parameters.AddWithValue("@FechaInicio", fechaInicioFiltrar.Value.Date);
                 }
-                if (fechaFinFiltrar490WC.HasValue)
+                if (fechaFinFiltrar.HasValue)
                 {
                     condiciones.Add("Fecha <= @FechaFin");
-                    comando.Parameters.AddWithValue("@FechaFin", fechaFinFiltrar490WC.Value.Date);
+                    comando.Parameters.AddWithValue("@FechaFin", fechaFinFiltrar.Value.Date);
                 }
 
                 if (condiciones.Count > 0)

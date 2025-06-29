@@ -17,10 +17,10 @@ namespace BLL.Tecnica
             BitacoraDAL gestorBitacora = new BitacoraDAL();
             gestorBitacora.Alta490WC(bitacoraAlta);
         }
-        public List<Bitacora> ObtenerEventosPorConsulta490WC(string usuarioFiltrar490WC = "", string moduloFiltrar490WC = "", string descripcionFiltrar490WC = "", string criticidadFiltrar490WC = "", DateTime? fechaInicioFiltrar490WC = null, DateTime? fechaFinFiltrar490WC = null)
+        public List<Bitacora> ObtenerEventosPorConsulta490WC(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)
         {
             BitacoraDAL gestorBitacora = new BitacoraDAL();
-            return gestorBitacora.ObtenerEventosPorConsulta490WC(usuarioFiltrar490WC, moduloFiltrar490WC, descripcionFiltrar490WC, criticidadFiltrar490WC, fechaInicioFiltrar490WC, fechaFinFiltrar490WC);
+            return gestorBitacora.ObtenerEventosPorConsulta490WC(usuarioFiltrar, moduloFiltrar, descripcionFiltrar, criticidadFiltrar, fechaInicioFiltrar, fechaFinFiltrar);
         }
     }
 }
