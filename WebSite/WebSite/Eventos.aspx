@@ -10,10 +10,6 @@
 <body>
     <form id="form1" runat="server">
         <div class="eventos-container">
-            <div class="eventos-table-container">
-                <asp:GridView ID="gvEventos" runat="server" CssClass="eventos-table" AutoGenerateColumns="True">
-                </asp:GridView>
-            </div>
             <div class="filtros-form">
                 <div class="filtro-group">
                     <label for="txtDNI" class="filtro-label">Usuario</label>
@@ -28,8 +24,8 @@
                     <asp:TextBox ID="txtFechaFin" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha fin"></asp:TextBox>
                 </div>
                 <div class="filtro-group">
-                    <label for="chkFiltrarFecha"  class="filtro-label">Filtrar por Fecha</label>
-                    <asp:CheckBox ID="chkFiltrarFecha" runat="server" CssClass="filtro-checkbox" onclick="toggleFechas()"/>
+                    <label for="chkFiltrarFecha" class="filtro-label">Filtrar por Fecha</label>
+                    <asp:CheckBox ID="chkFiltrarFecha" runat="server" CssClass="filtro-checkbox" onclick="toggleFechas()" />
                 </div>
                 <div class="filtro-group">
                     <label for="ddlModulo" class="filtro-label">Módulo</label>
@@ -47,20 +43,24 @@
                     <label for="ddlCriticidad" class="filtro-label">Criticidad</label>
                     <asp:DropDownList ID="ddlCriticidad" runat="server" CssClass="filtro-input">
                         <asp:ListItem Text="-- Seleccione --" Value="" />
-
                     </asp:DropDownList>
                 </div>
                 <div class="filtro-group filtro-botones">
                     <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="filtro-btn" OnClick="btnFiltrar_Click" />
                     <asp:Button ID="btnRestablecer" runat="server" Text="Restablecer" CssClass="filtro-btn" OnClick="btnRestablecer_Click" />
                 </div>
+
+                <div class="eventos-table-container">
+                    <asp:GridView ID="gvEventos" runat="server" CssClass="eventos-table" AutoGenerateColumns="True">
+                    </asp:GridView>
+                </div>
             </div>
     </form>
-  <script type="text/javascript">
-      var chkFiltrarFechaId = '<%= chkFiltrarFecha.ClientID %>';
-      var txtFechaInicioId = '<%= txtFechaInicio.ClientID %>';
-    var txtFechaFinId = '<%= txtFechaFin.ClientID %>';
-  </script>
-<script src="Scripts/filtrosEventos.js"></script>
+    <script type="text/javascript">
+        var chkFiltrarFechaId = '<%= chkFiltrarFecha.ClientID %>';
+        var txtFechaInicioId = '<%= txtFechaInicio.ClientID %>';
+        var txtFechaFinId = '<%= txtFechaFin.ClientID %>';
+    </script>
+    <script src="Scripts/filtrosEventos.js"></script>
 </body>
 </html>

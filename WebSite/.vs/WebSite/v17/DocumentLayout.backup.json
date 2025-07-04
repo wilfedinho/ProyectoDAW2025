@@ -3,32 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9917B20E-8DAB-4FF3-BAAA-D0320B94BD2E}|BLL\\BLL.csproj|c:\\users\\agust\\documents\\github\\proyectodaw2025\\website\\bll\\tecnica\\usuariobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9917B20E-8DAB-4FF3-BAAA-D0320B94BD2E}|BLL\\BLL.csproj|solutionrelative:bll\\tecnica\\usuariobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\agust\\documents\\github\\proyectodaw2025\\website\\website\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|c:\\users\\agust\\documents\\github\\proyectodaw2025\\website\\dal\\tecnica\\usuariodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|solutionrelative:dal\\tecnica\\usuariodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\agust\\documents\\github\\proyectodaw2025\\website\\website\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|c:\\users\\agust\\documents\\github\\proyectodaw2025\\website\\dal\\gestorconexion490wc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|solutionrelative:dal\\gestorconexion490wc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\agust\\documents\\github\\proyectodaw2025\\website\\website\\registro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\registro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\agust\\documents\\github\\proyectodaw2025\\website\\website\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\agust\\documents\\github\\proyectodaw2025\\website\\website\\eventos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\eventos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,97 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UsuarioDAL.cs",
-              "DocumentMoniker": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\DAL\\Tecnica\\UsuarioDAL.cs",
-              "RelativeDocumentMoniker": "DAL\\Tecnica\\UsuarioDAL.cs",
-              "ToolTip": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\DAL\\Tecnica\\UsuarioDAL.cs",
-              "RelativeToolTip": "DAL\\Tecnica\\UsuarioDAL.cs",
-              "ViewState": "AgIAAJAAAAAAAAAAAAAvwJcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-04T20:56:16.646Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite\\Web.config",
-              "RelativeDocumentMoniker": "WebSite\\Web.config",
-              "ToolTip": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite\\Web.config",
-              "RelativeToolTip": "WebSite\\Web.config",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAtwA8AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-07-04T20:45:51.707Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UsuarioBLL.cs",
-              "DocumentMoniker": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\BLL\\Tecnica\\UsuarioBLL.cs",
-              "RelativeDocumentMoniker": "BLL\\Tecnica\\UsuarioBLL.cs",
-              "ToolTip": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\BLL\\Tecnica\\UsuarioBLL.cs",
-              "RelativeToolTip": "BLL\\Tecnica\\UsuarioBLL.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBIAAABnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-04T20:37:55.752Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Login.aspx",
-              "DocumentMoniker": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite\\Login.aspx",
-              "RelativeDocumentMoniker": "WebSite\\Login.aspx",
-              "ToolTip": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite\\Login.aspx",
-              "RelativeToolTip": "WebSite\\Login.aspx",
+              "Title": "Eventos.aspx",
+              "DocumentMoniker": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite\\Eventos.aspx",
+              "RelativeDocumentMoniker": "WebSite\\Eventos.aspx",
+              "ToolTip": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite\\Eventos.aspx",
+              "RelativeToolTip": "WebSite\\Eventos.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-04T20:37:47.995Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Registro.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite\\Registro.aspx.cs",
-              "RelativeDocumentMoniker": "WebSite\\Registro.aspx.cs",
-              "ToolTip": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite\\Registro.aspx.cs",
-              "RelativeToolTip": "WebSite\\Registro.aspx.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAowBsAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-04T20:37:25.637Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Registro.aspx",
-              "DocumentMoniker": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite\\Registro.aspx",
-              "RelativeDocumentMoniker": "WebSite\\Registro.aspx",
-              "ToolTip": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\WebSite\\Registro.aspx",
-              "RelativeToolTip": "WebSite\\Registro.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-04T20:32:30.438Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GestorConexion490WC.cs",
-              "DocumentMoniker": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\DAL\\GestorConexion490WC.cs",
-              "RelativeDocumentMoniker": "DAL\\GestorConexion490WC.cs",
-              "ToolTip": "C:\\Users\\agust\\Documents\\GitHub\\ProyectoDAW2025\\WebSite\\DAL\\GestorConexion490WC.cs",
-              "RelativeToolTip": "DAL\\GestorConexion490WC.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAvwA8AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-04T20:28:19.796Z",
+              "WhenOpened": "2025-07-04T21:24:46.417Z",
               "EditorCaption": ""
             }
           ]
