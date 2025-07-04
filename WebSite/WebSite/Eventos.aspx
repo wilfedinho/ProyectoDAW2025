@@ -51,8 +51,23 @@
                 </div>
 
                 <div class="eventos-table-container">
-                    <asp:GridView ID="gvEventos" runat="server" CssClass="eventos-table" AutoGenerateColumns="True">
+                    <asp:GridView ID="gvEventos" runat="server" CssClass="eventos-table" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="NumeroEvento" HeaderText="N° Evento" />
+                            <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
+
+
+                            <asp:BoundField DataField="FechaEvento" HeaderText="Fecha" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="False" />
+
+
+                            <asp:BoundField DataField="Hora" HeaderText="Hora" DataFormatString="{0:HH:mm:ss}" HtmlEncode="False" />
+
+                            <asp:BoundField DataField="Modulo" HeaderText="Módulo" />
+                            <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
+                            <asp:BoundField DataField="Criticidad" HeaderText="Criticidad" />
+                        </Columns>
                     </asp:GridView>
+
                 </div>
             </div>
     </form>
