@@ -28,7 +28,7 @@ namespace DAL
             using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
             {
                 cone.Open();
-                string query = "INSERT INTO Usuario490WC (Username,Nombre,Apellido,DNI,Contraseña,Email,Rol)" +
+                string query = "INSERT INTO Usuario (Username,Nombre,Apellido,DNI,Contraseña,Email,Rol)" +
                                     " VALUES (@Username,@Nombre,@Apellido,@DNI,@Contraseña,@Email,@Rol)";
                 using (SqlCommand comando = new SqlCommand(query, cone))
                 {
@@ -95,18 +95,17 @@ namespace DAL
                     cone.Open();
                     using (SqlDataReader lector = comando.ExecuteReader())
                     {
-
                         while (lector.Read())
                         {
                             Usuario usuarioLectura = new Usuario(
-                                                                             lector["Username"].ToString(),
-                                                                             lector["Nombre"].ToString(),
-                                                                             lector["Apellido"].ToString(),
-                                                                             lector["DNI"].ToString(),
-                                                                             lector["Contraseña"].ToString(),
-                                                                             lector["Email"].ToString(),
-                                                                             lector["Rol"].ToString()
-                                                                           );
+                                lector["Username"].ToString(),
+                                lector["Nombre"].ToString(),
+                                lector["Apellido"].ToString(),
+                                lector["DNI"].ToString(),
+                                lector["Contraseña"].ToString(),
+                                lector["Email"].ToString(),
+                                lector["Rol"].ToString()
+                            );
                             ListaUsuario.Add(usuarioLectura);
                         }
                     }
@@ -127,20 +126,19 @@ namespace DAL
                         if (lector490WC.Read())
                         {
                             Usuario usuarioLectura = new Usuario(
-                                                                                lector490WC["Username"].ToString(),
-                                                                                lector490WC["Nombre"].ToString(),
-                                                                                lector490WC["Apellido"].ToString(),
-                                                                                lector490WC["DNI"].ToString(),
-                                                                                lector490WC["Contraseña"].ToString(),
-                                                                                lector490WC["Email"].ToString(),
-                                                                                lector490WC["Rol"].ToString()
-                                                                            );
+                                lector490WC["Username"].ToString(),
+                                lector490WC["Nombre"].ToString(),
+                                lector490WC["Apellido"].ToString(),
+                                lector490WC["DNI"].ToString(),
+                                lector490WC["Contraseña"].ToString(),
+                                lector490WC["Email"].ToString(),
+                                lector490WC["Rol"].ToString()
+                            );
                             return usuarioLectura;
                         }
                     }
                 }
             }
-
             return null;
         }
         public Usuario BuscarUsuarioPorUsername(string Username)
@@ -154,7 +152,7 @@ namespace DAL
 
         public Usuario BuscarUsuarioPorEmail(string Email)
         {
-            return BuscarUsuario("SELECT * FROM Usuario490WC WHERE Email = @Email", "@Email", Email);
+            return BuscarUsuario("SELECT * FROM Usuario WHERE Email = @Email", "@Email", Email);
         }
         #endregion
     }

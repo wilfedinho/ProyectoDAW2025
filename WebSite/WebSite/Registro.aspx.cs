@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BE;
+using BLL.Tecnica;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,5 +12,22 @@ public partial class Registro : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+    }
+
+    protected void btnRegistrar_Click(object sender, EventArgs e)
+    {
+        try
+        {
+           UsuarioBLL usuarioBLL = new UsuarioBLL();
+            if(!usuarioBLL.VerificarDNI(txtDNI.Text)) throw new Exception();
+            if(!usuarioBLL.VerificarEmail(txtEmail.Text)) throw new Exception();
+            if(usuarioBLL.VerificarDNIDuplicado(txtDNI.Text)) throw new Exception();
+            if(usuarioBLL.VerificarEmailDuplicado(txtEmail.Text)) throw new Exception();
+            if(usuarioBLL.VerificarUsernameDuplicado490WC(txtUsuario.Text)) throw new Exception();
+            Usuario usuario = new Usuario(txtUsuario.Text, txtNombre.Text, txtApellido.Text, txtDNI.Text, txtPassword.Text, txtEmail.Text, "cliente");
+            usuarioBLL.Alta(usuario);
+            Response.Redirect("Login.aspx");
+        }
+        catch (Exception ex){}
     }
 }

@@ -11,7 +11,8 @@ namespace DAL
     {
         public static SqlConnection DevolverConexion()
         {
-            return new SqlConnection("Data Source=.;Initial Catalog=BD_PROYECTODAW;Integrated Security=True");
+            //return new SqlConnection("Data Source=.;Initial Catalog=BD_PROYECTODAW;Integrated Security=True");
+            return new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=BD_PROYECTODAW;User ID=sa;Password=.;");
         }
     }
 }

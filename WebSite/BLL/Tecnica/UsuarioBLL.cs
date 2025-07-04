@@ -16,6 +16,7 @@ namespace BLL.Tecnica
         public void Alta(Usuario UsuarioAlta)
         {
             UsuarioDAL gestorUsuario = new UsuarioDAL();
+            UsuarioAlta.Contraseña = new Encryptador().EncryptadorIrreversible(UsuarioAlta.Contraseña);
             gestorUsuario.Alta(UsuarioAlta);
         }
         public void Baja(string username)
@@ -95,7 +96,6 @@ namespace BLL.Tecnica
         public bool VerificarDNIDuplicado(string DNI)
         {
             Usuario usuario = BuscarUsuarioPorDNI(DNI);
-
             if (usuario != null)
             {
                 return true;
