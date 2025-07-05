@@ -1,6 +1,8 @@
 ﻿using BE;
+using DAL.Negocio;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Net;
 
 namespace DAL
 {
@@ -28,8 +30,8 @@ namespace DAL
             using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
             {
                 cone.Open();
-                string query = "INSERT INTO Usuario (Username,Nombre,Apellido,DNI,Contraseña,Email,Rol)" +
-                                    " VALUES (@Username,@Nombre,@Apellido,@DNI,@Contraseña,@Email,@Rol)";
+                string query = "INSERT INTO Usuario (Username,Nombre,Apellido,DNI,Contraseña,Email,Rol,EstrellasCliente)" +
+                                    " VALUES (@Username,@Nombre,@Apellido,@DNI,@Contraseña,@Email,@Rol,@EstrellasCliente)";
                 using (SqlCommand comando = new SqlCommand(query, cone))
                 {
                     comando.Parameters.AddWithValue("@Username", UsuarioAlta.Username);
@@ -39,7 +41,7 @@ namespace DAL
                     comando.Parameters.AddWithValue("@Contraseña", UsuarioAlta.Contraseña);
                     comando.Parameters.AddWithValue("@Email", UsuarioAlta.Email);
                     comando.Parameters.AddWithValue("@Rol", UsuarioAlta.Rol);
-
+                    comando.Parameters.AddWithValue("@EstrellasCliente", UsuarioAlta.EstrellasCliente490WC);
 
                     comando.ExecuteNonQuery();
                 }
@@ -63,7 +65,7 @@ namespace DAL
             using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
             {
                 cone.Open();
-                string query490WC = "UPDATE Usuario SET Nombre = @Nombre, Apellido = @Apellido, DNI = @DNI, Contraseña = @Contraseña, Email = @Email, Rol = @Rol";
+                string query490WC = "UPDATE Usuario SET Nombre = @Nombre, Apellido = @Apellido, DNI = @DNI, Contraseña = @Contraseña, Email = @Email, Rol = @Rol, EstrellasCliente = @EstrellasCliente";
 
                 using (SqlCommand comando490WC = new SqlCommand(query490WC, cone))
                 {
@@ -74,6 +76,7 @@ namespace DAL
                     comando490WC.Parameters.AddWithValue("@Contraseña", UsuarioModificado.Contraseña);
                     comando490WC.Parameters.AddWithValue("@Email", UsuarioModificado.Email);
                     comando490WC.Parameters.AddWithValue("@Rol", UsuarioModificado.Rol);
+                    comando490WC.Parameters.AddWithValue("@EstrellasCliente", UsuarioModificado.EstrellasCliente490WC);
                     comando490WC.ExecuteNonQuery();
                 }
             }
@@ -97,6 +100,9 @@ namespace DAL
                     {
                         while (lector.Read())
                         {
+                            string dni = lector["DNI"].ToString();
+                            BeneficioDAL490WC gestorBeneficio490WC = new BeneficioDAL490WC();
+                            List<Beneficio490WC> beneficios = gestorBeneficio490WC.ObtenerBeneficiosPorCliente490WC(dni);
                             Usuario usuarioLectura = new Usuario(
                                 lector["Username"].ToString(),
                                 lector["Nombre"].ToString(),
@@ -104,7 +110,9 @@ namespace DAL
                                 lector["DNI"].ToString(),
                                 lector["Contraseña"].ToString(),
                                 lector["Email"].ToString(),
-                                lector["Rol"].ToString()
+                                lector["Rol"].ToString(),
+                                beneficios,
+                                int.Parse(lector["EstrellasCliente"].ToString())
                             );
                             ListaUsuario.Add(usuarioLectura);
                         }
@@ -125,6 +133,9 @@ namespace DAL
                     {
                         if (lector490WC.Read())
                         {
+                            string dni = lector490WC["DNI490WC"].ToString();
+                            BeneficioDAL490WC gestorBeneficio490WC = new BeneficioDAL490WC();
+                            List<Beneficio490WC> beneficios = gestorBeneficio490WC.ObtenerBeneficiosPorCliente490WC(dni);
                             Usuario usuarioLectura = new Usuario(
                                 lector490WC["Username"].ToString(),
                                 lector490WC["Nombre"].ToString(),
@@ -132,7 +143,9 @@ namespace DAL
                                 lector490WC["DNI"].ToString(),
                                 lector490WC["Contraseña"].ToString(),
                                 lector490WC["Email"].ToString(),
-                                lector490WC["Rol"].ToString()
+                                lector490WC["Rol"].ToString(),
+                                beneficios,
+                                int.Parse(lector490WC["EstrellasCliente"].ToString())
                             );
                             return usuarioLectura;
                         }

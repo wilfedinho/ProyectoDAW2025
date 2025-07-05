@@ -15,9 +15,10 @@ namespace BE
         public string Contraseña { get; set; }
         public string Email { get; set; }
         public string Rol { get; set; }
-        
+        public int EstrellasCliente490WC { get; set; }
+        public List<Beneficio490WC> BeneficiosCliente490WC { get; set; }
 
-        public Usuario(string nUsername, string nNombre, string nApellido, string nDNI, string nContraseña, string nEmail, string rOL)
+        public Usuario(string nUsername, string nNombre, string nApellido, string nDNI, string nContraseña, string nEmail, string rOL, List<Beneficio490WC> beneficiosCliente490WC = null, int estrellasCliente490WC = 0)
         {
             Username = nUsername;
             Nombre = nNombre;
@@ -26,7 +27,16 @@ namespace BE
             Contraseña = nContraseña;
             Email = nEmail;
             Rol = rOL;
-        
+            EstrellasCliente490WC = estrellasCliente490WC;
+            if (beneficiosCliente490WC != null)
+            {
+                BeneficiosCliente490WC = beneficiosCliente490WC;
+            }
+            else
+            {
+                BeneficiosCliente490WC = new List<Beneficio490WC>();
+            }
+            
         }
     }
 }
