@@ -8,10 +8,10 @@ namespace DAL
 {
     public class UsuarioDAL
     {
-        #region Operaciones Usuario 490WC
+        #region Operaciones Usuario 
         public bool VerificarCredenciales(string username, string clave)
         {
-            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 cone.Open();
                 string query = "SELECT COUNT(*) FROM Usuario WHERE Username = @Username AND Contraseña = @Contraseña";
@@ -27,7 +27,7 @@ namespace DAL
         }
         public void Alta(Usuario UsuarioAlta)
         {
-            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 cone.Open();
                 string query = "INSERT INTO Usuario (Username,Nombre,Apellido,DNI,Contraseña,Email,Rol,EstrellasCliente)" +
@@ -41,7 +41,7 @@ namespace DAL
                     comando.Parameters.AddWithValue("@Contraseña", UsuarioAlta.Contraseña);
                     comando.Parameters.AddWithValue("@Email", UsuarioAlta.Email);
                     comando.Parameters.AddWithValue("@Rol", UsuarioAlta.Rol);
-                    comando.Parameters.AddWithValue("@EstrellasCliente", UsuarioAlta.EstrellasCliente490WC);
+                    comando.Parameters.AddWithValue("@EstrellasCliente", UsuarioAlta.EstrellasCliente);
 
                     comando.ExecuteNonQuery();
                 }
@@ -49,35 +49,35 @@ namespace DAL
         }
         public void Baja(string username)
         {
-            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 cone.Open();
-                string query490WC = "DELETE FROM Usuario WHERE Username = @Username";
-                using (SqlCommand comando490WC = new SqlCommand(query490WC, cone))
+                string query = "DELETE FROM Usuario WHERE Username = @Username";
+                using (SqlCommand comando = new SqlCommand(query, cone))
                 {
-                    comando490WC.Parameters.AddWithValue("@Username", username);
-                    comando490WC.ExecuteNonQuery();
+                    comando.Parameters.AddWithValue("@Username", username);
+                    comando.ExecuteNonQuery();
                 }
             }
         }
         public void Modificar(Usuario UsuarioModificado)
         {
-            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 cone.Open();
-                string query490WC = "UPDATE Usuario SET Nombre = @Nombre, Apellido = @Apellido, DNI = @DNI, Contraseña = @Contraseña, Email = @Email, Rol = @Rol, EstrellasCliente = @EstrellasCliente";
+                string query = "UPDATE Usuario SET Nombre = @Nombre, Apellido = @Apellido, DNI = @DNI, Contraseña = @Contraseña, Email = @Email, Rol = @Rol, EstrellasCliente = @EstrellasCliente";
 
-                using (SqlCommand comando490WC = new SqlCommand(query490WC, cone))
+                using (SqlCommand comando = new SqlCommand(query, cone))
                 {
-                    comando490WC.Parameters.AddWithValue("@Username", UsuarioModificado.Username);
-                    comando490WC.Parameters.AddWithValue("@Nombre", UsuarioModificado.Nombre);
-                    comando490WC.Parameters.AddWithValue("@Apellido", UsuarioModificado.Apellido);
-                    comando490WC.Parameters.AddWithValue("@DNI", UsuarioModificado.DNI);
-                    comando490WC.Parameters.AddWithValue("@Contraseña", UsuarioModificado.Contraseña);
-                    comando490WC.Parameters.AddWithValue("@Email", UsuarioModificado.Email);
-                    comando490WC.Parameters.AddWithValue("@Rol", UsuarioModificado.Rol);
-                    comando490WC.Parameters.AddWithValue("@EstrellasCliente", UsuarioModificado.EstrellasCliente490WC);
-                    comando490WC.ExecuteNonQuery();
+                    comando.Parameters.AddWithValue("@Username", UsuarioModificado.Username);
+                    comando.Parameters.AddWithValue("@Nombre", UsuarioModificado.Nombre);
+                    comando.Parameters.AddWithValue("@Apellido", UsuarioModificado.Apellido);
+                    comando.Parameters.AddWithValue("@DNI", UsuarioModificado.DNI);
+                    comando.Parameters.AddWithValue("@Contraseña", UsuarioModificado.Contraseña);
+                    comando.Parameters.AddWithValue("@Email", UsuarioModificado.Email);
+                    comando.Parameters.AddWithValue("@Rol", UsuarioModificado.Rol);
+                    comando.Parameters.AddWithValue("@EstrellasCliente", UsuarioModificado.EstrellasCliente);
+                    comando.ExecuteNonQuery();
                 }
             }
         }
@@ -87,11 +87,11 @@ namespace DAL
 
         #endregion
 
-        #region Busquedas De Usuarios 490WC
+        #region Busquedas De Usuarios 
         public List<Usuario> DevolverTodosLosUsuarios()
         {
             List<Usuario> ListaUsuario = new List<Usuario>();
-            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 using (SqlCommand comando = new SqlCommand("SELECT * FROM Usuario", cone))
                 {
@@ -101,8 +101,8 @@ namespace DAL
                         while (lector.Read())
                         {
                             string dni = lector["DNI"].ToString();
-                            BeneficioDAL490WC gestorBeneficio490WC = new BeneficioDAL490WC();
-                            List<Beneficio490WC> beneficios = gestorBeneficio490WC.ObtenerBeneficiosPorCliente490WC(dni);
+                            BeneficioDAL gestorBeneficio = new BeneficioDAL();
+                            List<Beneficio> beneficios = gestorBeneficio.ObtenerBeneficiosPorCliente(dni);
                             Usuario usuarioLectura = new Usuario(
                                 lector["Username"].ToString(),
                                 lector["Nombre"].ToString(),
@@ -123,29 +123,29 @@ namespace DAL
         }
         private Usuario BuscarUsuario(string query, string parametro, string valorBusqueda)
         {
-            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 using (SqlCommand comando = new SqlCommand(query, cone))
                 {
                     cone.Open();
                     comando.Parameters.AddWithValue(parametro, valorBusqueda);
-                    using (SqlDataReader lector490WC = comando.ExecuteReader())
+                    using (SqlDataReader lector = comando.ExecuteReader())
                     {
-                        if (lector490WC.Read())
+                        if (lector.Read())
                         {
-                            string dni = lector490WC["DNI490WC"].ToString();
-                            BeneficioDAL490WC gestorBeneficio490WC = new BeneficioDAL490WC();
-                            List<Beneficio490WC> beneficios = gestorBeneficio490WC.ObtenerBeneficiosPorCliente490WC(dni);
+                            string dni = lector["DNI"].ToString();
+                            BeneficioDAL gestorBeneficio = new BeneficioDAL();
+                            List<Beneficio> beneficios = gestorBeneficio.ObtenerBeneficiosPorCliente(dni);
                             Usuario usuarioLectura = new Usuario(
-                                lector490WC["Username"].ToString(),
-                                lector490WC["Nombre"].ToString(),
-                                lector490WC["Apellido"].ToString(),
-                                lector490WC["DNI"].ToString(),
-                                lector490WC["Contraseña"].ToString(),
-                                lector490WC["Email"].ToString(),
-                                lector490WC["Rol"].ToString(),
+                                lector["Username"].ToString(),
+                                lector["Nombre"].ToString(),
+                                lector["Apellido"].ToString(),
+                                lector["DNI"].ToString(),
+                                lector["Contraseña"].ToString(),
+                                lector["Email"].ToString(),
+                                lector["Rol"].ToString(),
                                 beneficios,
-                                int.Parse(lector490WC["EstrellasCliente"].ToString())
+                                int.Parse(lector["EstrellasCliente"].ToString())
                             );
                             return usuarioLectura;
                         }

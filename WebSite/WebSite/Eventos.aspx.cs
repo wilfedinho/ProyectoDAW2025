@@ -25,7 +25,7 @@ public partial class Eventos : System.Web.UI.Page
     public void CargarEventos(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)
     {
         BitacoraBLL gestorBitacora = new BitacoraBLL();
-        var lista = gestorBitacora.ObtenerEventosPorConsulta490WC(usuarioFiltrar, moduloFiltrar, descripcionFiltrar, criticidadFiltrar, fechaInicioFiltrar, fechaFinFiltrar);
+        var lista = gestorBitacora.ObtenerEventosPorConsulta(usuarioFiltrar, moduloFiltrar, descripcionFiltrar, criticidadFiltrar, fechaInicioFiltrar, fechaFinFiltrar);
 
         var listaAdaptada = lista.Select(e => new
         {
@@ -40,21 +40,21 @@ public partial class Eventos : System.Web.UI.Page
 
         gvEventos.DataSource = listaAdaptada;
         gvEventos.DataBind();
-        LLenarCB490WC();
+        LLenarCB();
     }
 
-    public void LLenarCB490WC()
+    public void LLenarCB()
     {
         BitacoraBLL gestorBitacora = new BitacoraBLL();
-        foreach (Bitacora bitacora490WC in gestorBitacora.ObtenerEventosPorConsulta490WC())
+        foreach (Bitacora bitacora in gestorBitacora.ObtenerEventosPorConsulta())
         {
-            if (ddlModulo.Items.FindByText(bitacora490WC.Modulo) == null)
-                ddlModulo.Items.Add(new ListItem(bitacora490WC.Modulo));
+            if (ddlModulo.Items.FindByText(bitacora.Modulo) == null)
+                ddlModulo.Items.Add(new ListItem(bitacora.Modulo));
 
-            if (ddlEvento.Items.FindByText(bitacora490WC.Descripcion) == null)
-                ddlEvento.Items.Add(new ListItem(bitacora490WC.Descripcion));
+            if (ddlEvento.Items.FindByText(bitacora.Descripcion) == null)
+                ddlEvento.Items.Add(new ListItem(bitacora.Descripcion));
 
-            string criticidadStr = bitacora490WC.Criticidad.ToString();
+            string criticidadStr = bitacora.Criticidad.ToString();
             if (ddlCriticidad.Items.FindByText(criticidadStr) == null)
                 ddlCriticidad.Items.Add(new ListItem(criticidadStr));
         }
@@ -80,42 +80,42 @@ public partial class Eventos : System.Web.UI.Page
 
     protected void btnFiltrar_Click(object sender, EventArgs e)
     {
-        string usuarioFiltrar490WC = txtUsuario.Text;
-        string moduloFiltrar490WC = ddlModulo.SelectedValue;
-        string descripcionFiltrar490WC = ddlEvento.SelectedValue;
-        string criticidadFiltrar490WC = ddlCriticidad.SelectedValue;
+        string usuarioFiltrar = txtUsuario.Text;
+        string moduloFiltrar = ddlModulo.SelectedValue;
+        string descripcionFiltrar = ddlEvento.SelectedValue;
+        string criticidadFiltrar = ddlCriticidad.SelectedValue;
         DateTime fechaMinSql = new DateTime(1753, 1, 1);
         DateTime fechaMaxSql = new DateTime(9999, 12, 31);
         if (chkFiltrarFecha.Checked)
         {
-            if (DateTime.TryParse(txtFechaInicio.Text, out DateTime fechaInicioFiltrar490WC))
+            if (DateTime.TryParse(txtFechaInicio.Text, out DateTime fechaInicioFiltrar))
             {
-                if (DateTime.TryParse(txtFechaFin.Text, out DateTime fechaFinFiltrar490WC))
+                if (DateTime.TryParse(txtFechaFin.Text, out DateTime fechaFinFiltrar))
                 {
-                    CargarEventos(usuarioFiltrar490WC, moduloFiltrar490WC, descripcionFiltrar490WC, criticidadFiltrar490WC, fechaInicioFiltrar490WC, fechaFinFiltrar490WC);
+                    CargarEventos(usuarioFiltrar, moduloFiltrar, descripcionFiltrar, criticidadFiltrar, fechaInicioFiltrar, fechaFinFiltrar);
                 }
                 else
                 {
-                    CargarEventos(usuarioFiltrar490WC, moduloFiltrar490WC, descripcionFiltrar490WC, criticidadFiltrar490WC, fechaInicioFiltrar490WC, fechaMaxSql);
+                    CargarEventos(usuarioFiltrar, moduloFiltrar, descripcionFiltrar, criticidadFiltrar, fechaInicioFiltrar, fechaMaxSql);
                 }
             }
             else
             {
-                CargarEventos(usuarioFiltrar490WC, moduloFiltrar490WC, descripcionFiltrar490WC, criticidadFiltrar490WC, fechaMinSql, fechaMaxSql);
-                if (DateTime.TryParse(txtFechaFin.Text, out DateTime fechaFinFiltrar490WC))
+                CargarEventos(usuarioFiltrar, moduloFiltrar, descripcionFiltrar, criticidadFiltrar, fechaMinSql, fechaMaxSql);
+                if (DateTime.TryParse(txtFechaFin.Text, out DateTime fechaFinFiltrar))
                 {
-                    CargarEventos(usuarioFiltrar490WC, moduloFiltrar490WC, descripcionFiltrar490WC, criticidadFiltrar490WC, fechaMinSql, fechaFinFiltrar490WC);
+                    CargarEventos(usuarioFiltrar, moduloFiltrar, descripcionFiltrar, criticidadFiltrar, fechaMinSql, fechaFinFiltrar);
                 }
                 else
                 {
-                    CargarEventos(usuarioFiltrar490WC, moduloFiltrar490WC, descripcionFiltrar490WC, criticidadFiltrar490WC, fechaInicioFiltrar490WC, fechaMaxSql);
+                    CargarEventos(usuarioFiltrar, moduloFiltrar, descripcionFiltrar, criticidadFiltrar, fechaInicioFiltrar, fechaMaxSql);
                 }
             }
 
         }
         else
         {
-            CargarEventos(usuarioFiltrar490WC, moduloFiltrar490WC, descripcionFiltrar490WC, criticidadFiltrar490WC, fechaMinSql, fechaMaxSql);
+            CargarEventos(usuarioFiltrar, moduloFiltrar, descripcionFiltrar, criticidadFiltrar, fechaMinSql, fechaMaxSql);
         }
     }
 

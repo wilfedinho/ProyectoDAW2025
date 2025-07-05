@@ -41,11 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Beneficio490WC.cs" />
+    <Compile Include="Beneficio.cs" />
     <Compile Include="Bitacora.cs" />
-    <Compile Include="Boleto490WC.cs" />
-    <Compile Include="BoletoIDA490WC.cs" />
-    <Compile Include="BoletoIDAVUELTA490WC.cs" />
+    <Compile Include="Boleto.cs" />
+    <Compile Include="BoletoIDA.cs" />
+    <Compile Include="BoletoIDAVUELTA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>

@@ -3,44 +3,76 @@
   "WorkspaceRootPath": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\dal\\tecnica\\usuariodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|solutionrelative:dal\\tecnica\\usuariodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\website\\vuelos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\vuelos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\be\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\website\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\website\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\website\\eventos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45B12DAA-8DA1-7965-1E71-F153FB130D18}|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite|solutionrelative:website\\eventos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\be\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|solutionrelative:be\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\dal\\negocio\\beneficiodal490wc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|solutionrelative:dal\\negocio\\beneficiodal490wc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\be\\boletoidavuelta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|solutionrelative:be\\boletoidavuelta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\dal\\negocio\\boletodal490wc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|solutionrelative:dal\\negocio\\boletodal490wc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\be\\boletoida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|solutionrelative:be\\boletoida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\be\\boletoidavuelta490wc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|solutionrelative:be\\boletoidavuelta490wc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\be\\boleto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|solutionrelative:be\\boleto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\be\\boletoida490wc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|solutionrelative:be\\boletoida490wc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\be\\bitacora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|solutionrelative:be\\bitacora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\be\\boleto490wc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|solutionrelative:be\\boleto490wc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\be\\beneficio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|solutionrelative:be\\beneficio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9917B20E-8DAB-4FF3-BAAA-D0320B94BD2E}|BLL\\BLL.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\bll\\tecnica\\usuariobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9917B20E-8DAB-4FF3-BAAA-D0320B94BD2E}|BLL\\BLL.csproj|solutionrelative:bll\\tecnica\\usuariobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9917B20E-8DAB-4FF3-BAAA-D0320B94BD2E}|BLL\\BLL.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\bll\\tecnica\\bitacorabll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9917B20E-8DAB-4FF3-BAAA-D0320B94BD2E}|BLL\\BLL.csproj|solutionrelative:bll\\tecnica\\bitacorabll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{902AE663-611E-443E-89FE-0CDC81926601}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\servicios\\encryptador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{902AE663-611E-443E-89FE-0CDC81926601}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\encryptador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\dal\\gestorconexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|solutionrelative:dal\\gestorconexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\dal\\tecnica\\usuariodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|solutionrelative:dal\\tecnica\\usuariodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\dal\\tecnica\\bitacoradal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|solutionrelative:dal\\tecnica\\bitacoradal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\be\\beneficio490wc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|solutionrelative:be\\beneficio490wc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\dal\\negocio\\beneficiodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|solutionrelative:dal\\negocio\\beneficiodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\be\\bitacora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F82AD5BA-7D74-443C-AB53-2099107D90CA}|BE\\BE.csproj|solutionrelative:be\\bitacora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|c:\\users\\william c\u00E0rdenas\\desktop\\proyecto daw 2025\\proyectodaw2025\\website\\dal\\negocio\\boletodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89670C49-C1C0-4A70-B79E-7BAD14666BEC}|DAL\\DAL.csproj|solutionrelative:dal\\negocio\\boletodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,115 +82,219 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Vuelos.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Vuelos.aspx.cs",
+              "RelativeDocumentMoniker": "WebSite\\Vuelos.aspx.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Vuelos.aspx.cs",
+              "RelativeToolTip": "WebSite\\Vuelos.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T20:30:29.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Registro.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Registro.aspx.cs",
+              "RelativeDocumentMoniker": "WebSite\\Registro.aspx.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Registro.aspx.cs",
+              "RelativeToolTip": "WebSite\\Registro.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T20:30:05.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Eventos.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Eventos.aspx.cs",
+              "RelativeDocumentMoniker": "WebSite\\Eventos.aspx.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Eventos.aspx.cs",
+              "RelativeToolTip": "WebSite\\Eventos.aspx.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAcwGgAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T20:27:36.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Encryptador.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\SERVICIOS\\Encryptador.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\Encryptador.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\SERVICIOS\\Encryptador.cs",
+              "RelativeToolTip": "SERVICIOS\\Encryptador.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwA0AAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T20:24:07.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GestorConexion.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\GestorConexion.cs",
+              "RelativeDocumentMoniker": "DAL\\GestorConexion.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\GestorConexion.cs",
+              "RelativeToolTip": "DAL\\GestorConexion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T20:24:01.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UsuarioBLL.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BLL\\Tecnica\\UsuarioBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\Tecnica\\UsuarioBLL.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BLL\\Tecnica\\UsuarioBLL.cs",
+              "RelativeToolTip": "BLL\\Tecnica\\UsuarioBLL.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAYwMAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T19:51:17.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BitacoraBLL.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BLL\\Tecnica\\BitacoraBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\Tecnica\\BitacoraBLL.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BLL\\Tecnica\\BitacoraBLL.cs",
+              "RelativeToolTip": "BLL\\Tecnica\\BitacoraBLL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T19:50:52.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Login.aspx.cs",
+              "RelativeDocumentMoniker": "WebSite\\Login.aspx.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\WebSite\\Login.aspx.cs",
+              "RelativeToolTip": "WebSite\\Login.aspx.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwEcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T19:18:22.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\Usuario.cs",
               "RelativeDocumentMoniker": "BE\\Usuario.cs",
               "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\Usuario.cs",
               "RelativeToolTip": "BE\\Usuario.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowBQAAADFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T02:53:09.044Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 14,
               "Title": "UsuarioDAL.cs",
               "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Tecnica\\UsuarioDAL.cs",
               "RelativeDocumentMoniker": "DAL\\Tecnica\\UsuarioDAL.cs",
               "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Tecnica\\UsuarioDAL.cs",
               "RelativeToolTip": "DAL\\Tecnica\\UsuarioDAL.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAJMAAABVAAAAAAAAAA==",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAcwIgAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T01:46:41.355Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BoletoIDAVUELTA490WC.cs",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\BoletoIDAVUELTA490WC.cs",
-              "RelativeDocumentMoniker": "BE\\BoletoIDAVUELTA490WC.cs",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\BoletoIDAVUELTA490WC.cs",
-              "RelativeToolTip": "BE\\BoletoIDAVUELTA490WC.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABWAQAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "BoletoIDAVUELTA.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\BoletoIDAVUELTA.cs",
+              "RelativeDocumentMoniker": "BE\\BoletoIDAVUELTA.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\BoletoIDAVUELTA.cs",
+              "RelativeToolTip": "BE\\BoletoIDAVUELTA.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABTAQAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T01:20:54.531Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BoletoIDA490WC.cs",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\BoletoIDA490WC.cs",
-              "RelativeDocumentMoniker": "BE\\BoletoIDA490WC.cs",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\BoletoIDA490WC.cs",
-              "RelativeToolTip": "BE\\BoletoIDA490WC.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAtAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "BoletoIDA.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\BoletoIDA.cs",
+              "RelativeDocumentMoniker": "BE\\BoletoIDA.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\BoletoIDA.cs",
+              "RelativeToolTip": "BE\\BoletoIDA.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T01:18:09.507Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BoletoDAL490WC.cs",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Negocio\\BoletoDAL490WC.cs",
-              "RelativeDocumentMoniker": "DAL\\Negocio\\BoletoDAL490WC.cs",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Negocio\\BoletoDAL490WC.cs",
-              "RelativeToolTip": "DAL\\Negocio\\BoletoDAL490WC.cs",
-              "ViewState": "AgIAAEIDAAAAAAAAAAAgwF0DAAA9AAAAAAAAAA==",
+              "DocumentIndex": 17,
+              "Title": "BoletoDAL.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Negocio\\BoletoDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\Negocio\\BoletoDAL.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Negocio\\BoletoDAL.cs",
+              "RelativeToolTip": "DAL\\Negocio\\BoletoDAL.cs",
+              "ViewState": "AgIAADkDAAAAAAAAAAAgwA4DAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T01:17:23.913Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Boleto490WC.cs",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\Boleto490WC.cs",
-              "RelativeDocumentMoniker": "BE\\Boleto490WC.cs",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\Boleto490WC.cs",
-              "RelativeToolTip": "BE\\Boleto490WC.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBcAAAABAQAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Boleto.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\Boleto.cs",
+              "RelativeDocumentMoniker": "BE\\Boleto.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\Boleto.cs",
+              "RelativeToolTip": "BE\\Boleto.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBcAAAAIAQAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T01:11:45.161Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BeneficioDAL490WC.cs",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Negocio\\BeneficioDAL490WC.cs",
-              "RelativeDocumentMoniker": "DAL\\Negocio\\BeneficioDAL490WC.cs",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Negocio\\BeneficioDAL490WC.cs",
-              "RelativeToolTip": "DAL\\Negocio\\BeneficioDAL490WC.cs",
-              "ViewState": "AgIAAO8AAAAAAAAAAADwv/QAAABdAAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "BeneficioDAL.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Negocio\\BeneficioDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\Negocio\\BeneficioDAL.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Negocio\\BeneficioDAL.cs",
+              "RelativeToolTip": "DAL\\Negocio\\BeneficioDAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsBAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T00:50:31.476Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Beneficio490WC.cs",
-              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\Beneficio490WC.cs",
-              "RelativeDocumentMoniker": "BE\\Beneficio490WC.cs",
-              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\Beneficio490WC.cs",
-              "RelativeToolTip": "BE\\Beneficio490WC.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "Beneficio.cs",
+              "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\Beneficio.cs",
+              "RelativeDocumentMoniker": "BE\\Beneficio.cs",
+              "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\Beneficio.cs",
+              "RelativeToolTip": "BE\\Beneficio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAACKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T00:50:04.081Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "Bitacora.cs",
               "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\BE\\Bitacora.cs",
               "RelativeDocumentMoniker": "BE\\Bitacora.cs",
@@ -166,17 +302,18 @@
               "RelativeToolTip": "BE\\Bitacora.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-04T21:53:19.371Z"
+              "WhenOpened": "2025-07-04T21:53:19.371Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "BitacoraDAL.cs",
               "DocumentMoniker": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Tecnica\\BitacoraDAL.cs",
               "RelativeDocumentMoniker": "DAL\\Tecnica\\BitacoraDAL.cs",
               "ToolTip": "C:\\Users\\William C\u00E0rdenas\\Desktop\\Proyecto DAW 2025\\ProyectoDAW2025\\WebSite\\DAL\\Tecnica\\BitacoraDAL.cs",
               "RelativeToolTip": "DAL\\Tecnica\\BitacoraDAL.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAEwCYAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAowCQAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-04T21:47:18.668Z",
               "EditorCaption": ""
