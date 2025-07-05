@@ -23,7 +23,7 @@ public partial class Registro : System.Web.UI.Page
             if(!usuarioBLL.VerificarEmail(txtEmail.Text)) throw new Exception();
             if(usuarioBLL.VerificarDNIDuplicado(txtDNI.Text)) throw new Exception();
             if(usuarioBLL.VerificarEmailDuplicado(txtEmail.Text)) throw new Exception();
-            if(usuarioBLL.VerificarUsernameDuplicado490WC(txtUsuario.Text)) throw new Exception();
+            if(usuarioBLL.VerificarUsernameDuplicado(txtUsuario.Text)) throw new Exception();
             Usuario usuario = new Usuario(txtUsuario.Text, txtNombre.Text, txtApellido.Text, txtDNI.Text, txtPassword.Text, txtEmail.Text, "cliente");
             usuarioBLL.Alta(usuario);
             Response.Redirect("Login.aspx");

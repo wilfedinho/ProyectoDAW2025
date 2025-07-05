@@ -130,7 +130,7 @@ namespace BLL.Tecnica
                 return false;
             }
         }
-        public bool VerificarUsernameDuplicado490WC(string username)
+        public bool VerificarUsernameDuplicado(string username)
         {
 
             Usuario usuario = BuscarUsuarioPorUsername(username);

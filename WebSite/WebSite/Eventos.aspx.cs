@@ -13,14 +13,7 @@ public partial class Eventos : System.Web.UI.Page
     {
         CargarEventos();
     }
-    //public void CargarEventos(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)
-    //{
-    //    BitacoraBLL gestorBitacora = new BitacoraBLL();
-
-    //    gvEventos.DataSource = gestorBitacora.ObtenerEventosPorConsulta490WC(usuarioFiltrar, moduloFiltrar, descripcionFiltrar, criticidadFiltrar, fechaInicioFiltrar, fechaFinFiltrar);
-    //    gvEventos.DataBind();
-    //    LLenarCB490WC();
-    //}
+    
 
     public void CargarEventos(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)
     {
