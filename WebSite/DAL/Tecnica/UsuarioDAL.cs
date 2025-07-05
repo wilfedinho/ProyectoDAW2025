@@ -65,7 +65,7 @@ namespace DAL
             using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 cone.Open();
-                string query = "UPDATE Usuario SET Nombre = @Nombre, Apellido = @Apellido, DNI = @DNI, Contraseña = @Contraseña, Email = @Email, Rol = @Rol, EstrellasCliente = @EstrellasCliente";
+                string query = "UPDATE Usuario SET Nombre = @Nombre, Apellido = @Apellido, DNI = @DNI, Contraseña = @Contraseña, Email = @Email, Rol = @Rol, EstrellasCliente = @EstrellasCliente WHERE Username = @Username";
 
                 using (SqlCommand comando = new SqlCommand(query, cone))
                 {

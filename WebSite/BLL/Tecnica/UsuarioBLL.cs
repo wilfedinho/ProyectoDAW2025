@@ -105,6 +105,18 @@ namespace BLL.Tecnica
                 return false;
             }
         }
+        public bool VerificarDNIDuplicadoModificar(string DNIviejo, string DNInuevo)
+        {
+            Usuario usuario = BuscarUsuarioPorDNI(DNInuevo);
+            if (usuario != null && DNIviejo != DNInuevo)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public bool VerificarEmailDuplicado(string Email)
         {
             Usuario usuario = BuscarUsuarioPorEmail(Email);
@@ -120,7 +132,7 @@ namespace BLL.Tecnica
         }
         public bool VerificarEmailDuplicadoModificar(string emailAntiguo, string emailNuevo)
         {
-            Usuario usuario = BuscarUsuarioPorEmail(emailAntiguo);
+            Usuario usuario = BuscarUsuarioPorEmail(emailNuevo);
             if (usuario != null && emailAntiguo != emailNuevo)
             {
                 return true;

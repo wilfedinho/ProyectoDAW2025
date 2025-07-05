@@ -39,13 +39,13 @@ public partial class GestionUsuarios : System.Web.UI.Page
         txtApellido.Text = "";
         txtDNI.Text = "";
         txtEmail.Text = "";
-        ddlRol.SelectedIndex = 0; 
+        ddlRol.SelectedIndex = 0;
         txtEstrellas.Text = "";
-        gvUsuarios.SelectedIndex = -1; 
+        gvUsuarios.SelectedIndex = -1;
     }
     protected void btnAgregar_Click(object sender, EventArgs e)
     {
-        lblMensaje.Visible = false; 
+        lblMensaje.Visible = false;
         try
         {
             UsuarioBLL gestorUsuario = new UsuarioBLL();
@@ -58,7 +58,7 @@ public partial class GestionUsuarios : System.Web.UI.Page
             string email490WC = txtEmail.Text;
             string rol490WC = ddlRol.SelectedValue;
 
-            
+
             if (!gestorUsuario.VerificarDNI(dni490WC))
             {
                 lblMensaje.Text = "El DNI ingresado no es válido.";
@@ -90,12 +90,12 @@ public partial class GestionUsuarios : System.Web.UI.Page
                 return;
             }
 
-            
+
             Usuario usuario490WC = new Usuario(username490WC, nombre490WC, apellido490WC, dni490WC, contraseña490WC, email490WC, rol490WC);
             gestorUsuario.Alta(usuario490WC);
             CargarUsuarios();
             lblMensaje.Text = "Usuario agregado correctamente.";
-            lblMensaje.CssClass = "mensaje-exito"; 
+            lblMensaje.CssClass = "mensaje-exito";
             lblMensaje.Visible = true;
             LimpiarCampos();
         }
@@ -108,6 +108,69 @@ public partial class GestionUsuarios : System.Web.UI.Page
     }
     protected void btnModificar_Click(object sender, EventArgs e)
     {
+        lblMensaje.Visible = false;
+        if (gvUsuarios.SelectedDataKey != null)
+        {
+            try
+            {
+                UsuarioBLL gestorUsuario = new UsuarioBLL();
+                Encryptador cifrador = new Encryptador();
+                string username490WC = gvUsuarios.SelectedDataKey["Usuario"].ToString();
+                string nombre490WC = txtNombre.Text;
+                string apellido490WC = txtApellido.Text;
+                string dni490WC = txtDNI.Text;
+                string email490WC = txtEmail.Text;
+                string rol490WC = ddlRol.SelectedValue;
+                int estrellasCliente = int.Parse(txtEstrellas.Text);
+                Usuario usuarioModificar = gestorUsuario.BuscarUsuarioPorUsername(username490WC);
+
+
+                if (!gestorUsuario.VerificarEmail(email490WC))
+                {
+                    lblMensaje.Text = "El email ingresado no es válido.";
+                    lblMensaje.Visible = true;
+                    return;
+                }
+                if (gestorUsuario.VerificarEmailDuplicadoModificar(usuarioModificar.Email, email490WC))
+                {
+                    lblMensaje.Text = "El email ya está registrado.";
+                    lblMensaje.Visible = true;
+                    return;
+                }
+
+
+
+                usuarioModificar.Nombre = nombre490WC;
+                usuarioModificar.Apellido = apellido490WC;
+
+                usuarioModificar.Email = email490WC;
+                usuarioModificar.Rol = rol490WC;
+                usuarioModificar.EstrellasCliente = estrellasCliente;
+
+                gestorUsuario.Modificar(usuarioModificar);
+
+                CargarUsuarios();
+
+                lblMensaje.Text = "Usuario modificado correctamente.";
+                lblMensaje.CssClass = "mensaje-exito";
+                lblMensaje.Visible = true;
+
+                LimpiarCampos();
+            }
+            catch
+            {
+                lblMensaje.Text = "Ocurrió un error al modificar el usuario.";
+                lblMensaje.CssClass = "validador-error";
+                lblMensaje.Visible = true;
+            }
+        }
+        else
+        {
+            lblMensaje.Text = "Debe seleccionar un usuario para modificar.";
+            lblMensaje.CssClass = "validador-error";
+            lblMensaje.Visible = true;
+            LimpiarCampos();
+        }
     }
     protected void btnBorrar_Click(object sender, EventArgs e)
     {
@@ -148,12 +211,12 @@ public partial class GestionUsuarios : System.Web.UI.Page
     {
         GridViewRow row = gvUsuarios.SelectedRow;
 
-        txtUsuario.Text = row.Cells[1].Text;
-        txtNombre.Text = row.Cells[2].Text;
-        txtApellido.Text = row.Cells[3].Text;
-        txtDNI.Text = row.Cells[4].Text;
-        txtEmail.Text = row.Cells[5].Text;
-        ddlRol.SelectedValue = row.Cells[6].Text;
-        txtEstrellas.Text = row.Cells[7].Text;
+        txtUsuario.Text = Server.HtmlDecode(row.Cells[1].Text);
+        txtNombre.Text = Server.HtmlDecode(row.Cells[2].Text);
+        txtApellido.Text = Server.HtmlDecode(row.Cells[3].Text);
+        txtDNI.Text = Server.HtmlDecode(row.Cells[4].Text);
+        txtEmail.Text = Server.HtmlDecode(row.Cells[5].Text);
+        ddlRol.SelectedValue = Server.HtmlDecode(row.Cells[6].Text);
+        txtEstrellas.Text = Server.HtmlDecode(row.Cells[7].Text);
     }
 }
