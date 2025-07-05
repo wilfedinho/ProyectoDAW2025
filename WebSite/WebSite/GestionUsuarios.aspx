@@ -10,8 +10,8 @@
 <body>
     <form id="form1" runat="server">
         <div class="eventos-container">
-            <div class="filtros-form">
                 <h2>Gestión de Usuarios</h2>
+            <div class="filtros-form">
                 <div class="filtro-group">
                     <label class="filtro-label">Usuario</label>
                     <asp:TextBox ID="txtUsuario" runat="server" CssClass="filtro-input" />

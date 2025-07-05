@@ -11,4 +11,22 @@ public partial class GestionBeneficios : System.Web.UI.Page
     {
 
     }
+    protected void btnAgregar_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnModificar_Click(object sender, EventArgs e)
+    {
+    }
+    protected void btnBorrar_Click(object sender, EventArgs e)
+    {
+    }
+    protected void btnLimpiar_Click(object sender, EventArgs e)
+    {
+        
+    }
+    protected void gvBeneficios_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }
