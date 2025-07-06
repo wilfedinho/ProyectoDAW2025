@@ -24,13 +24,17 @@
                 <div class="filtro-group">
                     <label for="txtFechaInicioIDA" class="filtro-label">Fecha Desde</label>
                     <asp:TextBox ID="txtFechaInicioIDA" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha inicio IDA"></asp:TextBox>
-                    <label for="txtFechaInicioVUELTA" class="filtro-label">Fecha Desde</label>
+                </div>
+                <div class="filtro-group">
+                    <label for="txtFechaInicioVUELTA" class="filtro-label">Fecha Desde Vuelta</label>
                     <asp:TextBox ID="txtFechaInicioVUELTA" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha inicio VUELTA"></asp:TextBox>
                 </div>
                 <div class="filtro-group">
                     <label for="txtFechaFinIDA" class="filtro-label">Fecha Hasta</label>
                     <asp:TextBox ID="txtFechaFinIDA" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha fin IDA"></asp:TextBox>
-                    <label for="txtFechaFinVUELTA" class="filtro-label">Fecha Hasta</label>
+                    </div>
+                <div class="filtro-group">
+                    <label for="txtFechaFinVUELTA" class="filtro-label">Fecha Hasta Vuelta</label>
                     <asp:TextBox ID="txtFechaFinVUELTA" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha fin VUELTA"></asp:TextBox>
                 </div>
                 <div class="filtro-group">
@@ -50,7 +54,7 @@
                         ErrorMessage="El equipaje del boleto es obligatorio" CssClass="validador-error" Display="Dynamic" />
                 </div>
                 <div class="filtro-group">
-                    <label class="filtro-label">Código Beneficio</label>
+                    <label class="filtro-label">Precio</label>
                     <asp:TextBox ID="txtPrecio" runat="server" CssClass="filtro-input" TextMode="Number" min="0" />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPrecio"
                         ErrorMessage="El precio es obligatorio" CssClass="validador-error" Display="Dynamic" />
