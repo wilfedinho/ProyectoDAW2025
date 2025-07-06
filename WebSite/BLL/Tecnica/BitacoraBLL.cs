@@ -1,6 +1,7 @@
 ﻿using BE;
 using DAL;
 using DAL.Tecnica;
+using SERVICIOS;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -16,6 +17,8 @@ namespace BLL.Tecnica
         {
             BitacoraDAL gestorBitacora = new BitacoraDAL();
             gestorBitacora.Alta(bitacoraAlta);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVH(bitacoraAlta, "Bitacora");
         }
         public List<Bitacora> ObtenerEventosPorConsulta(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)
         {

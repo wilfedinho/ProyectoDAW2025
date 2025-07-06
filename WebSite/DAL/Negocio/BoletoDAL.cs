@@ -869,8 +869,55 @@ namespace DAL.Negocio
                 return null;
             }
         }
-
-
         #endregion
+
+        public List<string> ObtenerListaDVH()
+        {
+            List<string> listaDVH = new List<string>();
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                string query = "SELECT * FROM Boleto";
+                using (SqlCommand comando = new SqlCommand(query, cone))
+                {
+                    using (SqlDataReader lector = comando.ExecuteReader())
+                    {
+                        while (lector.Read())
+                        {
+                            listaDVH.Add(lector["DVH"].ToString());
+                        }
+                    }
+                }
+            }
+            return listaDVH;
+        }
+
+        public void ActualizarDVH(Boleto boleto, string dvh)
+        {
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                using (SqlCommand comando = new SqlCommand("UPDATE Boleto SET DVH = @DVH WHERE ID = @ID", cone))
+                {
+                    comando.Parameters.AddWithValue("@DVH", dvh);
+                    comando.Parameters.AddWithValue("@ID", boleto.IDBoleto);
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
+        public string ObtenerDVH(Boleto boleto)
+        {
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                string query = "SELECT DVH FROM Boleto WHERE ID = @ID";
+                using (SqlCommand comando = new SqlCommand(query, cone))
+                {
+                    comando.Parameters.AddWithValue("@ID", boleto.IDBoleto);
+                    return comando.ExecuteScalar()?.ToString();
+                }
+            }
+        }
+
     }
 }

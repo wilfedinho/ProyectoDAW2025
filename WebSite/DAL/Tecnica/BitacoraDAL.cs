@@ -32,6 +32,8 @@ namespace DAL.Tecnica
             }
         }
 
+      
+
         public List<Bitacora> ObtenerEventosPorConsulta(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)
         {
             List<Bitacora> listaBitacora = new List<Bitacora>();
@@ -102,6 +104,54 @@ namespace DAL.Tecnica
             }
 
             return listaBitacora;
+        }
+
+        public List<string> ObtenerListaDVH()
+        {
+            List<string> listaDVH = new List<string>();
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                string query = "SELECT * FROM Bitacora";
+                using (SqlCommand comando = new SqlCommand(query, cone))
+                {
+                    using (SqlDataReader lector = comando.ExecuteReader())
+                    {
+                        while (lector.Read())
+                        {
+                            listaDVH.Add(lector["DVH"].ToString());
+                        }
+                    }
+                }
+            }
+            return listaDVH;
+        }
+
+        public void ActualizarDVH(Bitacora bitacora, string dvh)
+        {
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                using (SqlCommand comando = new SqlCommand("UPDATE Bitacora SET DVH = @DVH WHERE ID_Bitacora = @ID_Bitacora", cone))
+                {
+                    comando.Parameters.AddWithValue("@DVH", dvh);
+                    comando.Parameters.AddWithValue("@ID_Bitacora", bitacora.Username);
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
+        public string ObtenerDVH(Bitacora bitacora)
+        {
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                string query = "SELECT DVH FROM Bitacora WHERE ID_Bitacora = @ID_Bitacora";
+                using (SqlCommand comando = new SqlCommand(query, cone))
+                {
+                    comando.Parameters.AddWithValue("@ID_Bitacora", bitacora.IdBitacora);
+                    return comando.ExecuteScalar()?.ToString();
+                }
+            }
         }
 
 

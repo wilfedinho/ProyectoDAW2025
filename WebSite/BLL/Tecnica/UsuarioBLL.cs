@@ -18,16 +18,23 @@ namespace BLL.Tecnica
             UsuarioDAL gestorUsuario = new UsuarioDAL();
             UsuarioAlta.Contraseña = new Encryptador().EncryptadorIrreversible(UsuarioAlta.Contraseña);
             gestorUsuario.Alta(UsuarioAlta);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVH(UsuarioAlta, "Usuario");
+
         }
         public void Baja(string username)
         {
             UsuarioDAL gestorUsuario = new UsuarioDAL();
             gestorUsuario.Baja(username);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVV("Usuario");
         }
         public void Modificar(Usuario UsuarioModificado)
         {
             UsuarioDAL gestorUsuario = new UsuarioDAL();
             gestorUsuario.Modificar(UsuarioModificado);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVH(UsuarioModificado, "Usuario");
         }
         
         public bool VerificarCredenciales(string username, string clave)
