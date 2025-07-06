@@ -34,6 +34,7 @@ namespace SERVICIOS
                 sb.Append(ben.CantidadBeneficioReclamo);
                 sb.Append(ben.DescuentoAplicar);
             }
+            
             if(obj is Boleto bol)
             {
                 if(bol is BoletoIDA)
@@ -47,7 +48,7 @@ namespace SERVICIOS
                     sb.Append(bol.EquipajePermitido);
                     sb.Append(bol.ClaseBoleto);
                     sb.Append(bol.Precio);
-                    sb.Append(bol.Titular.DNI);
+                    sb.Append(bol.Titular);
                     sb.Append(bol.NumeroAsiento);
                     sb.Append(bol.BeneficioAplicado);
                 }
@@ -218,6 +219,7 @@ namespace SERVICIOS
         {
             bool esValido = true;
             string mensaje = string.Empty;
+            DigitoVerificadorDAL digitoVerificadorDAL = new DigitoVerificadorDAL();
             foreach (var tabla in tablas)
             {
                 if(tabla == "Usuario")
@@ -273,6 +275,11 @@ namespace SERVICIOS
                     mensaje += $"La tabla {tabla} fue alterada.\n";
                     esValido = false;
                 }
+                if(digitoVerificadorDAL.CalcularCount(tabla) != digitoVerificadorDAL.ObtenerCR(tabla))
+                {
+                    mensaje += $"La tabla {tabla} tiene un conteo de registros inconsistente.\n";
+                    esValido = false;
+                }
             }
             return mensaje;
         }
@@ -280,6 +287,7 @@ namespace SERVICIOS
         public bool VerificarIntegridadTodasLasTablasBool()
         {
             bool esValido = true;
+            DigitoVerificadorDAL digitoVerificadorDAL = new DigitoVerificadorDAL();
             foreach (var tabla in tablas)
             {
                 if (tabla == "Usuario")
@@ -327,6 +335,10 @@ namespace SERVICIOS
                     }
                 }
                 if (!VerificarIntegridadDVV(tabla))
+                {
+                    esValido = false;
+                }
+                if (digitoVerificadorDAL.CalcularCount(tabla) != digitoVerificadorDAL.ObtenerCR(tabla))
                 {
                     esValido = false;
                 }

@@ -32,7 +32,7 @@ namespace DAL.Tecnica
             }
         }
 
-      
+
 
         public List<Bitacora> ObtenerEventosPorConsulta(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)
         {
@@ -135,7 +135,7 @@ namespace DAL.Tecnica
                 using (SqlCommand comando = new SqlCommand("UPDATE Bitacora SET DVH = @DVH WHERE ID_Bitacora = @ID_Bitacora", cone))
                 {
                     comando.Parameters.AddWithValue("@DVH", dvh);
-                    comando.Parameters.AddWithValue("@ID_Bitacora", bitacora.Username);
+                    comando.Parameters.AddWithValue("@ID_Bitacora", bitacora.IdBitacora);
                     comando.ExecuteNonQuery();
                 }
             }
@@ -153,8 +153,5 @@ namespace DAL.Tecnica
                 }
             }
         }
-
-
-
     }
 }
