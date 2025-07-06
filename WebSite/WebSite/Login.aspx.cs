@@ -65,7 +65,6 @@ public partial class Login : System.Web.UI.Page
                         {
                             //mandar al menu del webmaster
                         }
-
                         Context.ApplicationInstance.CompleteRequest();
                     }
                     else
