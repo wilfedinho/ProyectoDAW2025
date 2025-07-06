@@ -168,5 +168,57 @@ namespace DAL
             return BuscarUsuario("SELECT * FROM Usuario WHERE Email = @Email", "@Email", Email);
         }
         #endregion
+    
+    
+       public List<string> ObtenerListaDVH()
+       {
+            List<string> listaDVH = new List<string>();
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                string query = "SELECT * FROM Usuario";
+                using (SqlCommand comando = new SqlCommand(query, cone))
+                {
+                    using (SqlDataReader lector = comando.ExecuteReader())
+                    {
+                        while (lector.Read())
+                        {
+                            listaDVH.Add(lector["DVH"].ToString());
+                        }
+                    }
+                }
+            }
+            return listaDVH;
+       }
+
+        public void ActualizarDVH(Usuario usuario, string dvh)
+        {
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                using (SqlCommand comando = new SqlCommand("UPDATE Usuario SET DVH = @DVH WHERE Username = @Username", cone))
+                {
+                    comando.Parameters.AddWithValue("@DVH", dvh);
+                    comando.Parameters.AddWithValue("@Username", usuario.Username);
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
+        public string ObtenerDVH(Usuario usuario)
+        {
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                string query = "SELECT DVH FROM Usuario WHERE Username = @Username";
+                using (SqlCommand comando = new SqlCommand(query, cone))
+                {
+                    comando.Parameters.AddWithValue("@Username", usuario.Username);
+                    return comando.ExecuteScalar()?.ToString();
+                }
+            }
+        }
+
     }
+
+
 }

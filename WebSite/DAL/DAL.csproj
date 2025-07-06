@@ -46,9 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
+    <Compile Include="Tecnica\DigitoVerificadorDAL.cs" />
     <Compile Include="GestorConexion.cs" />
     <Compile Include="Negocio\BeneficioDAL.cs" />
     <Compile Include="Negocio\BoletoDAL.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tecnica\BitacoraDAL.cs" />
     <Compile Include="Tecnica\UsuarioDAL.cs" />

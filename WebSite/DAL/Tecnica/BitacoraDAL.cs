@@ -76,7 +76,6 @@ namespace DAL.Tecnica
                     condiciones.Add("Fecha <= @FechaFin");
                     comando.Parameters.AddWithValue("@FechaFin", fechaFinFiltrar.Value.Date);
                 }
-
                 if (condiciones.Count > 0)
                 {
                     query += " AND " + string.Join(" AND ", condiciones);

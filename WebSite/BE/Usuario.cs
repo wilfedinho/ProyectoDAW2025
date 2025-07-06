@@ -18,6 +18,7 @@ namespace BE
         public int EstrellasCliente { get; set; }
         public List<Beneficio> BeneficiosCliente { get; set; }
 
+
         public Usuario(string nUsername, string nNombre, string nApellido, string nDNI, string nContraseña, string nEmail, string rOL, List<Beneficio> beneficiosCliente = null, int estrellasCliente = 0)
         {
             Username = nUsername;
