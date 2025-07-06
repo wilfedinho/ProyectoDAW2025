@@ -15,7 +15,7 @@
 
                 <div class="filtro-group">
                     <label class="filtro-label">Código Beneficio</label>
-                    <asp:TextBox ID="txtCodigo" runat="server" CssClass="filtro-input" />
+                    <asp:TextBox ID="txtCodigo" runat="server" CssClass="filtro-input" TextMode="Number" min="0"/>
                     <asp:RequiredFieldValidator ID="rfvCodigo" runat="server" ControlToValidate="txtCodigo"
                         ErrorMessage="El código es obligatorio" CssClass="validador-error" Display="Dynamic" />
                 </div>
