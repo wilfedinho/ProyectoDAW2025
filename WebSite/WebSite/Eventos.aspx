@@ -6,11 +6,22 @@
     <meta charset="utf-8" />
     <title>Eventos</title>
     <link rel="stylesheet" type="text/css" href="EstilosPaginas/Eventos.css" />
+
 </head>
 <body>
     <form id="form1" runat="server">
+
+        <div class="navbar">
+            <div class="nav-item">Inicio</div>
+            <div class="nav-item">Backup/Restore</div>
+            <div class="nav-item">Dígitos Verificadores</div>
+            <div class="nav-item">Bitácora</div>
+            <div class="nav-item">Cambiar Clave</div>
+            <div class="nav-item nav-right">Cerrar Sesión</div>
+        </div>
+
         <div class="eventos-container">
-             <h2>Bitacora de Eventos</h2>
+            <h2>Bitacora de Eventos</h2>
             <div class="filtros-form">
                 <div class="filtro-group">
                     <label for="txtDNI" class="filtro-label">Usuario</label>
@@ -71,6 +82,7 @@
 
                 </div>
             </div>
+        </div>
     </form>
     <script type="text/javascript">
         var chkFiltrarFechaId = '<%= chkFiltrarFecha.ClientID %>';

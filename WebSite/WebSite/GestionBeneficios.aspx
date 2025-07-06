@@ -9,13 +9,23 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
+        <div class="navbar">
+            <div class="nav-item">Inicio</div>
+            <div class="nav-item">Gestión Usuarios</div>
+            <div class="nav-item">Gestión Beneficios</div>
+            <div class="nav-item">Gestión Boletos</div>
+            <div class="nav-item">Cambiar Clave</div>
+            <div class="nav-item nav-right">Cerrar Sesion</div>
+        </div>
+
         <div class="eventos-container">
             <h2 style="text-align: left;">Gestión de Beneficios</h2>
             <div class="filtros-form">
 
                 <div class="filtro-group">
                     <label class="filtro-label">Código Beneficio</label>
-                    <asp:TextBox ID="txtCodigo" runat="server" CssClass="filtro-input" TextMode="Number" min="0"/>
+                    <asp:TextBox ID="txtCodigo" runat="server" CssClass="filtro-input" TextMode="Number" min="0" />
                     <asp:RequiredFieldValidator ID="rfvCodigo" runat="server" ControlToValidate="txtCodigo"
                         ErrorMessage="El código es obligatorio" CssClass="validador-error" Display="Dynamic" />
                 </div>

@@ -9,8 +9,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
+        <div class="navbar">
+            <div class="nav-item">Inicio</div>
+            <div class="nav-item">Gestión Usuarios</div>
+            <div class="nav-item">Gestión Beneficios</div>
+            <div class="nav-item">Gestión Boletos</div>
+            <div class="nav-item">Cambiar Clave</div>
+            <div class="nav-item nav-right">Cerrar Sesion</div>
+        </div>
+
         <div class="eventos-container">
-                <h2>Gestión de Usuarios</h2>
+            <h2>Gestión de Usuarios</h2>
             <div class="filtros-form">
                 <div class="filtro-group">
                     <label class="filtro-label">Usuario</label>
