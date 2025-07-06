@@ -16,6 +16,7 @@
             <div class="nav-item">Backup/Restore</div>
             <div class="nav-item">Dígitos Verificadores</div>
             <div class="nav-item">Bitácora</div>
+            <div class="nav-item">Cambiar Clave</div>
             <div class="nav-item nav-right">Cerrar Sesión</div>
         </div>
 

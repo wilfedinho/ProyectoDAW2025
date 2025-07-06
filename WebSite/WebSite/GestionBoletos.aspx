@@ -10,6 +10,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
+        <div class="navbar">
+            <div class="nav-item">Inicio</div>
+            <div class="nav-item">Gestión Usuarios</div>
+            <div class="nav-item">Gestión Beneficios</div>
+            <div class="nav-item">Gestión Boletos</div>
+            <div class="nav-item">Cambiar Clave</div>
+            <div class="nav-item nav-right">Cerrar Sesion</div>
+        </div>
         <div class="eventos-container">
             <h2>Gestion De Boletos</h2>
             <div class="filtros-form">
@@ -98,6 +107,7 @@
 
                 </div>
             </div>
+        </div>
     </form>
     <script type="text/javascript">
         var chkFiltrarFechaId = '<%= chkFiltrarFecha.ClientID %>';
