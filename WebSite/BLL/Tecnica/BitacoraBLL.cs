@@ -12,15 +12,15 @@ namespace BLL.Tecnica
 {
     public class BitacoraBLL
     {
-        public void Alta490WC(Bitacora bitacoraAlta)
+        public void Alta(Bitacora bitacoraAlta)
         {
             BitacoraDAL gestorBitacora = new BitacoraDAL();
-            gestorBitacora.Alta490WC(bitacoraAlta);
+            gestorBitacora.Alta(bitacoraAlta);
         }
-        public List<Bitacora> ObtenerEventosPorConsulta490WC(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)
+        public List<Bitacora> ObtenerEventosPorConsulta(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)
         {
             BitacoraDAL gestorBitacora = new BitacoraDAL();
-            return gestorBitacora.ObtenerEventosPorConsulta490WC(usuarioFiltrar, moduloFiltrar, descripcionFiltrar, criticidadFiltrar, fechaInicioFiltrar, fechaFinFiltrar);
+            return gestorBitacora.ObtenerEventosPorConsulta(usuarioFiltrar, moduloFiltrar, descripcionFiltrar, criticidadFiltrar, fechaInicioFiltrar, fechaFinFiltrar);
         }
     }
 }
