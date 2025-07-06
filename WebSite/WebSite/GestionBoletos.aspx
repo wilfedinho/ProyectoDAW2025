@@ -16,10 +16,14 @@
                 <div class="filtro-group">
                     <label for="txtOrigen" class="filtro-label">Origen</label>
                     <asp:TextBox ID="txtOrigen" runat="server" CssClass="filtro-input" placeholder="Origen"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvOrigen" runat="server" ControlToValidate="txtOrigen"
+                        ErrorMessage="El Origen del boleto es obligatorio" CssClass="validador-error" Display="Dynamic" />
                 </div>
                 <div class="filtro-group">
                     <label for="txtDestino" class="filtro-label">Destino</label>
                     <asp:TextBox ID="txtDestino" runat="server" CssClass="filtro-input" placeholder="Destino"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvDestino" runat="server" ControlToValidate="txtDestino"
+                        ErrorMessage="El Destino del boleto es obligatorio" CssClass="validador-error" Display="Dynamic" />
                 </div>
                 <div class="filtro-group">
                     <label for="txtFechaInicioIDA" class="filtro-label">Fecha Desde</label>
@@ -32,7 +36,7 @@
                 <div class="filtro-group">
                     <label for="txtFechaFinIDA" class="filtro-label">Fecha Hasta</label>
                     <asp:TextBox ID="txtFechaFinIDA" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha fin IDA"></asp:TextBox>
-                    </div>
+                </div>
                 <div class="filtro-group">
                     <label for="txtFechaFinVUELTA" class="filtro-label">Fecha Hasta Vuelta</label>
                     <asp:TextBox ID="txtFechaFinVUELTA" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha fin VUELTA"></asp:TextBox>
@@ -45,6 +49,9 @@
                     <label for="ddlClaseBoleto" class="filtro-label">Clase Boleto</label>
                     <asp:DropDownList ID="ddlClaseBoleto" runat="server" CssClass="filtro-input">
                         <asp:ListItem Text="-- Seleccione --" Value="" />
+                        <asp:ListItem Text="Turista" Value="Turista" />
+                        <asp:ListItem Text="Ejecutiva" Value="Ejecutiva" />
+                        <asp:ListItem Text="Primera Clase" Value="Primera Clase" />
                     </asp:DropDownList>
                 </div>
                 <div class="filtro-group">
@@ -72,7 +79,7 @@
 
                 <div class="eventos-table-container">
                     <asp:GridView ID="gvBoletos" runat="server" CssClass="eventos-table" AutoGenerateColumns="False" DataKeyNames="ID, Origen, Destino,FechaPartidaIDA,FechaLlegadaIDA,FechaPartidaVUELTA,FechaLlegadaVUELTA,ClaseBoleto,PesoEquipaje,Precio,NumeroAsiento"
-                    OnSelectedIndexChanged="gvBoletos_SelectedIndexChanged">
+                        OnSelectedIndexChanged="gvBoletos_SelectedIndexChanged">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" SelectText="&#8594;" ButtonType="Link" ItemStyle-ForeColor="#2196F3" ItemStyle-Font-Size="Large" />
                             <asp:BoundField DataField="ID" HeaderText="NumeroBoleto" />
