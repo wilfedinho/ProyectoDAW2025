@@ -119,78 +119,87 @@ public partial class GestionBoletos : System.Web.UI.Page
     {
         BoletoBLL gestorBoleto490WC = new BoletoBLL();
         GridViewRow row = gvBoletos.SelectedRow;
-        id = row.Cells[1].Text;
-        Boleto BoletoModificado490WC = gestorBoleto490WC.ObtenerBoletoPorID(id);
-        Usuario cliente490WC = new Usuario("", null, null, "Sistema", null, null, null);
-        string origen490WC = txtOrigen.Text;
-        string destino490WC = txtDestino.Text;
-        string asiento = txtNumeroAsiento.Text;
-        DateTime fechaPartidaIDA;
-        DateTime.TryParseExact(txtFechaInicioIDA.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out fechaPartidaIDA);
-        DateTime fechaLlegadaIDA;
-        DateTime.TryParseExact(txtFechaFinIDA.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out fechaLlegadaIDA);
-        if (gestorBoleto490WC.VerificarFormatoAsiento(asiento))
+        if (row != null)
         {
-            if (ddlClaseBoleto.SelectedIndex > 0)
+
+            id = row.Cells[1].Text;
+            Boleto BoletoModificado490WC = gestorBoleto490WC.ObtenerBoletoPorID(id);
+            Usuario cliente490WC = new Usuario("", null, null, "Sistema", null, null, null);
+            string origen490WC = txtOrigen.Text;
+            string destino490WC = txtDestino.Text;
+            string asiento = txtNumeroAsiento.Text;
+            DateTime fechaPartidaIDA;
+            DateTime.TryParseExact(txtFechaInicioIDA.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out fechaPartidaIDA);
+            DateTime fechaLlegadaIDA;
+            DateTime.TryParseExact(txtFechaFinIDA.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out fechaLlegadaIDA);
+            if (gestorBoleto490WC.VerificarFormatoAsiento(asiento))
             {
-                string claseBoleto490WC = ddlClaseBoleto.SelectedItem.ToString();
-                float pesoEquipaje = 0;
-                float.TryParse(txtPesoEquipaje.Text.Replace(',', '.'), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out pesoEquipaje);
-                float precio = 0;
-                float.TryParse(txtPrecio.Text.Replace(',', '.'), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out precio);
-
-                if (chkFiltrarFecha.Checked == false)
+                if (ddlClaseBoleto.SelectedIndex > 0)
                 {
-                    if (fechaPartidaIDA <= fechaLlegadaIDA)
-                    {
-                        BoletoModificado490WC.Origen = origen490WC;
-                        BoletoModificado490WC.Destino = destino490WC;
-                        BoletoModificado490WC.FechaPartida = fechaPartidaIDA;
-                        BoletoModificado490WC.FechaLlegada = fechaLlegadaIDA;
-                        BoletoModificado490WC.EquipajePermitido = pesoEquipaje;
-                        BoletoModificado490WC.ClaseBoleto = claseBoleto490WC;
-                        BoletoModificado490WC.Precio = precio;
-                        BoletoModificado490WC.Titular = cliente490WC;
-                        BoletoModificado490WC.NumeroAsiento = asiento;
+                    string claseBoleto490WC = ddlClaseBoleto.SelectedItem.ToString();
+                    float pesoEquipaje = 0;
+                    float.TryParse(txtPesoEquipaje.Text.Replace(',', '.'), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out pesoEquipaje);
+                    float precio = 0;
+                    float.TryParse(txtPrecio.Text.Replace(',', '.'), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out precio);
 
-                        if (!gestorBoleto490WC.ExisteBoletoEnAsientoParaModificar(BoletoModificado490WC))
+                    if (chkFiltrarFecha.Checked == false)
+                    {
+                        if (fechaPartidaIDA <= fechaLlegadaIDA)
                         {
-                            gestorBoleto490WC.Modificar(BoletoModificado490WC);
-                            CargarBoletos();
-                            limpiar();
+                            BoletoModificado490WC.Origen = origen490WC;
+                            BoletoModificado490WC.Destino = destino490WC;
+                            BoletoModificado490WC.FechaPartida = fechaPartidaIDA;
+                            BoletoModificado490WC.FechaLlegada = fechaLlegadaIDA;
+                            BoletoModificado490WC.EquipajePermitido = pesoEquipaje;
+                            BoletoModificado490WC.ClaseBoleto = claseBoleto490WC;
+                            BoletoModificado490WC.Precio = precio;
+                            BoletoModificado490WC.Titular = cliente490WC;
+                            BoletoModificado490WC.NumeroAsiento = asiento;
+
+                            if (!gestorBoleto490WC.ExisteBoletoEnAsientoParaModificar(BoletoModificado490WC))
+                            {
+                                gestorBoleto490WC.Modificar(BoletoModificado490WC);
+                                CargarBoletos();
+                                limpiar();
+                            }
                         }
                     }
-                }
-                else
-                {
-                    DateTime fechaPartidaVUELTA;
-                    DateTime.TryParseExact(txtFechaInicioVUELTA.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out fechaPartidaVUELTA);
-                    DateTime fechaLlegadaVUELTA;
-                    DateTime.TryParseExact(txtFechaFinVUELTA.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out fechaLlegadaVUELTA);
-
-                    if (fechaPartidaIDA <= fechaLlegadaIDA && fechaLlegadaIDA < fechaPartidaVUELTA && fechaPartidaVUELTA <= fechaLlegadaVUELTA)
+                    else
                     {
-                        BoletoModificado490WC.Origen = origen490WC;
-                        BoletoModificado490WC.Destino = destino490WC;
-                        BoletoModificado490WC.FechaPartida = fechaPartidaIDA;
-                        (BoletoModificado490WC as BoletoIDAVUELTA).FechaPartidaVUELTA = fechaPartidaVUELTA;
-                        BoletoModificado490WC.FechaLlegada = fechaLlegadaIDA;
-                        (BoletoModificado490WC as BoletoIDAVUELTA).FechaLlegadaVUELTA = fechaLlegadaVUELTA;
-                        BoletoModificado490WC.EquipajePermitido = pesoEquipaje;
-                        BoletoModificado490WC.ClaseBoleto = claseBoleto490WC;
-                        BoletoModificado490WC.Precio = precio;
-                        BoletoModificado490WC.Titular = cliente490WC;
-                        BoletoModificado490WC.NumeroAsiento = asiento;
+                        DateTime fechaPartidaVUELTA;
+                        DateTime.TryParseExact(txtFechaInicioVUELTA.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out fechaPartidaVUELTA);
+                        DateTime fechaLlegadaVUELTA;
+                        DateTime.TryParseExact(txtFechaFinVUELTA.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out fechaLlegadaVUELTA);
 
-                        if (!gestorBoleto490WC.ExisteBoletoEnAsientoParaModificar(BoletoModificado490WC))
+                        if (fechaPartidaIDA <= fechaLlegadaIDA && fechaLlegadaIDA < fechaPartidaVUELTA && fechaPartidaVUELTA <= fechaLlegadaVUELTA)
                         {
-                            gestorBoleto490WC.Modificar(BoletoModificado490WC);
-                            CargarBoletos();
-                            limpiar();
+                            BoletoModificado490WC.Origen = origen490WC;
+                            BoletoModificado490WC.Destino = destino490WC;
+                            BoletoModificado490WC.FechaPartida = fechaPartidaIDA;
+                            (BoletoModificado490WC as BoletoIDAVUELTA).FechaPartidaVUELTA = fechaPartidaVUELTA;
+                            BoletoModificado490WC.FechaLlegada = fechaLlegadaIDA;
+                            (BoletoModificado490WC as BoletoIDAVUELTA).FechaLlegadaVUELTA = fechaLlegadaVUELTA;
+                            BoletoModificado490WC.EquipajePermitido = pesoEquipaje;
+                            BoletoModificado490WC.ClaseBoleto = claseBoleto490WC;
+                            BoletoModificado490WC.Precio = precio;
+                            BoletoModificado490WC.Titular = cliente490WC;
+                            BoletoModificado490WC.NumeroAsiento = asiento;
+
+                            if (!gestorBoleto490WC.ExisteBoletoEnAsientoParaModificar(BoletoModificado490WC))
+                            {
+                                gestorBoleto490WC.Modificar(BoletoModificado490WC);
+                                CargarBoletos();
+                                limpiar();
+                            }
                         }
                     }
                 }
             }
+        }
+        else
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "alerta", "alert('Debes Elegir un Boleto Para Modificarlo!!!');", true);
+            limpiar();
         }
     }
 
@@ -198,18 +207,25 @@ public partial class GestionBoletos : System.Web.UI.Page
     protected void btnBorrar_Click(object sender, EventArgs e)
     {
         GridViewRow row = gvBoletos.SelectedRow;
-
-        id = row.Cells[1].Text;
-        if (id != null || id == "")
+        if (row != null)
         {
-            BoletoBLL gestorBoleto = new BoletoBLL();
-            gestorBoleto.Baja(id);
-            CargarBoletos();
-            limpiar();
+            id = row.Cells[1].Text;
+            if (id != null || id == "")
+            {
+                BoletoBLL gestorBoleto = new BoletoBLL();
+                gestorBoleto.Baja(id);
+                CargarBoletos();
+                limpiar();
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alerta", "alert('Debes Seleccionar un Boleto para Borrarlo!!!');", true);
+                limpiar();
+            }
         }
         else
         {
-            ScriptManager.RegisterStartupScript(this, GetType(), "alerta", "alert('Debes Seleccionar un Boleto para Borrarlo!!!');", true);
+            ScriptManager.RegisterStartupScript(this, GetType(), "alerta", "alert('Debes Elegir un Boleto Para Eliminarlo!!!');", true);
             limpiar();
         }
     }
