@@ -137,4 +137,36 @@ public partial class GestionBeneficios : System.Web.UI.Page
         txtDescuento.Text = descuento.ToString();
 
     }
+
+    protected void btnInicio_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("MenuAdministrador.aspx");
+    }
+
+    protected void btnUsuarios_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("GestionUsuarios.aspx");
+    }
+
+    protected void btnBeneficios_Click(object sender, EventArgs e)
+    {
+        //nada
+    }
+
+    protected void btnBoletos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("GestionBoletos.aspx");
+    }
+
+    protected void btnClave_Click(object sender, EventArgs e)
+    {
+        //nada
+    }
+
+    protected void btnCerrarSesion_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Session.Abandon();
+        Response.Redirect("Login.aspx");
+    }
 }

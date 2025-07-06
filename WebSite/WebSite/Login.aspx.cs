@@ -14,6 +14,8 @@ public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Session.Clear();
+        Session.Abandon();
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         lblError.Visible = false;
         /*
@@ -55,7 +57,7 @@ public partial class Login : System.Web.UI.Page
                         }
                         if(digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "Admin")
                         {
-                            //mandar al menu del admin
+                            Response.Redirect("MenuAdministrador.aspx");
                         }
                         if(!digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "WebMaster")
                         {
@@ -63,7 +65,7 @@ public partial class Login : System.Web.UI.Page
                         }
                         if(digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "WebMaster")
                         {
-                            //mandar al menu del webmaster
+                            Response.Redirect("MenuWebMaster.aspx");
                         }
                         Context.ApplicationInstance.CompleteRequest();
                     }

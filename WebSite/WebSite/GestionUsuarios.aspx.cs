@@ -220,4 +220,36 @@ public partial class GestionUsuarios : System.Web.UI.Page
         ddlRol.SelectedValue = Server.HtmlDecode(row.Cells[6].Text);
         txtEstrellas.Text = Server.HtmlDecode(row.Cells[7].Text);
     }
+
+    protected void btnInicio_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("MenuAdministrador.aspx");
+    }
+
+    protected void btnUsuarios_Click(object sender, EventArgs e)
+    {
+        //nada
+    }
+
+    protected void btnBeneficios_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("GestionBeneficios.aspx");
+    }
+
+    protected void btnBoletos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("GestionBoletos.aspx");
+    }
+
+    protected void btnClave_Click(object sender, EventArgs e)
+    {
+        //nada
+    }
+
+    protected void btnCerrarSesion_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Session.Abandon();
+        Response.Redirect("Login.aspx");
+    }
 }

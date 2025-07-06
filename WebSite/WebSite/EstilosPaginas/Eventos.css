@@ -15,6 +15,8 @@
     border-radius: 0 0 18px 18px;
     box-shadow: 0 2px 8px #00000020;
     margin-bottom: 32px;
+    background: transparent;
+    border: none;
 }
 
 .nav-item {
@@ -28,6 +30,8 @@
     display: flex;
     align-items: center;
     transition: color 0.2s;
+    background: transparent;
+    border: none;
 }
 
     .nav-item:last-child {

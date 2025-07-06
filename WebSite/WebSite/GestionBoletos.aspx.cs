@@ -292,4 +292,36 @@ public partial class GestionBoletos : System.Web.UI.Page
             return dt.ToString("yyyy-MM-dd");
         return "";
     }
+
+    protected void btnInicio_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Login.aspx");
+    }
+
+    protected void btnUsuarios_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("GestionUsuarios.aspx");
+    }
+
+    protected void btnBeneficios_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("GestionBeneficios.aspx");
+    }
+
+    protected void btnBoletos_Click(object sender, EventArgs e)
+    {
+        //nada
+    }
+
+    protected void btnClave_Click(object sender, EventArgs e)
+    {
+        //nada
+    }
+
+    protected void btnCerrarSesion_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Session.Abandon();
+        Response.Redirect("Login.aspx");
+    }
 }
