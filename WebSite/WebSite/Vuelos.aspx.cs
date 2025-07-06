@@ -10,6 +10,6 @@ public partial class Vuelos : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
     }
 }

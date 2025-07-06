@@ -11,7 +11,7 @@ public partial class Registro : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
     }
 
     protected void btnRegistrar_Click(object sender, EventArgs e)

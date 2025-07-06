@@ -13,6 +13,7 @@ public partial class GestionUsuarios : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         CargarUsuarios();
     }
     public void CargarUsuarios()

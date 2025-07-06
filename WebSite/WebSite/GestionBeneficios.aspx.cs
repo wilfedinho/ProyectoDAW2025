@@ -13,6 +13,7 @@ public partial class GestionBeneficios : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         CargarBeneficios();
     }
     public void CargarBeneficios()
