@@ -16,6 +16,9 @@ public partial class Login : System.Web.UI.Page
     {
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         lblError.Visible = false;
+        /*
+        DigitoVerificador digitoVerificador = new DigitoVerificador();
+        digitoVerificador.RecalcularDigitosVerificadores();*/
     }
 
   

@@ -281,5 +281,53 @@ namespace DAL.Negocio
         }
 
         #endregion
+
+        public List<string> ObtenerListaDVH()
+        {
+            List<string> listaDVH = new List<string>();
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                string query = "SELECT * FROM Beneficio";
+                using (SqlCommand comando = new SqlCommand(query, cone))
+                {
+                    using (SqlDataReader lector = comando.ExecuteReader())
+                    {
+                        while (lector.Read())
+                        {
+                            listaDVH.Add(lector["DVH"].ToString());
+                        }
+                    }
+                }
+            }
+            return listaDVH;
+        }
+        public void ActualizarDVH(Beneficio beneficio, string dvh)
+        {
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                using (SqlCommand comando = new SqlCommand("UPDATE Beneficio SET DVH = @DVH WHERE CodigoBeneficio = @CodigoBeneficio", cone))
+                {
+                    comando.Parameters.AddWithValue("@DVH", dvh);
+                    comando.Parameters.AddWithValue("@CodigoBeneficio", beneficio.CodigoBeneficio);
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
+        public string ObtenerDVH(Beneficio beneficio)
+        {
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                string query = "SELECT DVH FROM Beneficio WHERE CodigoBeneficio = @CodigoBeneficio";
+                using (SqlCommand comando = new SqlCommand(query, cone))
+                {
+                    comando.Parameters.AddWithValue("@CodigoBeneficio", beneficio.CodigoBeneficio);
+                    return comando.ExecuteScalar()?.ToString();
+                }
+            }
+        }
+
     }
 }

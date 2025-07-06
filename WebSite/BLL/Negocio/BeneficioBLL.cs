@@ -1,6 +1,7 @@
 ﻿using BE;
 using DAL;
 using DAL.Negocio;
+using SERVICIOS;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -18,13 +19,16 @@ namespace BLL.Negocio
         {
             BeneficioDAL gestorBeneficio = new BeneficioDAL();
             gestorBeneficio.Alta(BeneficioAlta);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVH(BeneficioAlta, "Beneficio");
         }
-
 
         public bool Baja(int ID)
         {
             BeneficioDAL gestorBeneficio = new BeneficioDAL();
             return gestorBeneficio.Baja(ID);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVV("Beneficio");
         }
 
 
@@ -32,6 +36,8 @@ namespace BLL.Negocio
         {
            BeneficioDAL gestorBeneficio = new BeneficioDAL();
             gestorBeneficio.Modificacion(BeneficioModificado);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVH(BeneficioModificado, "Beneficio");
         }
 
         public void AgregarBeneficioACliente(string DNICliente, int CodigoBeneficio)

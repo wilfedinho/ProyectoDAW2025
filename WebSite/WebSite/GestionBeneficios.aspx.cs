@@ -1,6 +1,7 @@
 ﻿using BE;
 using BLL.Negocio;
 using BLL.Tecnica;
+using SERVICIOS;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -15,11 +16,13 @@ public partial class GestionBeneficios : System.Web.UI.Page
     {
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         CargarBeneficios();
+
     }
     public void CargarBeneficios()
     {
         BeneficioBLL gestorUsuario = new BeneficioBLL();
         var listaBeneficios = gestorUsuario.ObtenerTodosLosBeneficios();
+       
         var listaAdaptada = listaBeneficios.Select(e => new
         {
             CodigoBeneficio = e.CodigoBeneficio,
