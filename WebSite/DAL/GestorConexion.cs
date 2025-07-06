@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class GestorConexion490WC
+    public class GestorConexion
     {
         public static SqlConnection DevolverConexion()
         {

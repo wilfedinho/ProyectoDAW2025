@@ -10,3 +10,9 @@ C:\Users\agust\Documents\GitHub\ProyectoDAW2025\WebSite\SERVICIOS\obj\Debug\SERV
 C:\Users\agust\Documents\GitHub\ProyectoDAW2025\WebSite\SERVICIOS\obj\Debug\SERVICIOS.csproj.CoreCompileInputs.cache
 C:\Users\agust\Documents\GitHub\ProyectoDAW2025\WebSite\SERVICIOS\obj\Debug\SERVICIOS.dll
 C:\Users\agust\Documents\GitHub\ProyectoDAW2025\WebSite\SERVICIOS\obj\Debug\SERVICIOS.pdb
+D:\GitHub\ProyectoDAW2025\WebSite\SERVICIOS\bin\Debug\SERVICIOS.dll
+D:\GitHub\ProyectoDAW2025\WebSite\SERVICIOS\bin\Debug\SERVICIOS.pdb
+D:\GitHub\ProyectoDAW2025\WebSite\SERVICIOS\obj\Debug\SERVICIOS.csproj.AssemblyReference.cache
+D:\GitHub\ProyectoDAW2025\WebSite\SERVICIOS\obj\Debug\SERVICIOS.csproj.CoreCompileInputs.cache
+D:\GitHub\ProyectoDAW2025\WebSite\SERVICIOS\obj\Debug\SERVICIOS.dll
+D:\GitHub\ProyectoDAW2025\WebSite\SERVICIOS\obj\Debug\SERVICIOS.pdb

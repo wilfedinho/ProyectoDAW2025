@@ -20,3 +20,14 @@ C:\Users\agust\Documents\GitHub\ProyectoDAW2025\WebSite\DAL\obj\Debug\DAL.csproj
 C:\Users\agust\Documents\GitHub\ProyectoDAW2025\WebSite\DAL\obj\Debug\DAL.csproj.Up2Date
 C:\Users\agust\Documents\GitHub\ProyectoDAW2025\WebSite\DAL\obj\Debug\DAL.dll
 C:\Users\agust\Documents\GitHub\ProyectoDAW2025\WebSite\DAL\obj\Debug\DAL.pdb
+D:\GitHub\ProyectoDAW2025\WebSite\DAL\bin\Debug\DAL.dll
+D:\GitHub\ProyectoDAW2025\WebSite\DAL\bin\Debug\DAL.pdb
+D:\GitHub\ProyectoDAW2025\WebSite\DAL\bin\Debug\BE.dll
+D:\GitHub\ProyectoDAW2025\WebSite\DAL\bin\Debug\SERVICIOS.dll
+D:\GitHub\ProyectoDAW2025\WebSite\DAL\bin\Debug\BE.pdb
+D:\GitHub\ProyectoDAW2025\WebSite\DAL\bin\Debug\SERVICIOS.pdb
+D:\GitHub\ProyectoDAW2025\WebSite\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\GitHub\ProyectoDAW2025\WebSite\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\GitHub\ProyectoDAW2025\WebSite\DAL\obj\Debug\DAL.csproj.Up2Date
+D:\GitHub\ProyectoDAW2025\WebSite\DAL\obj\Debug\DAL.dll
+D:\GitHub\ProyectoDAW2025\WebSite\DAL\obj\Debug\DAL.pdb

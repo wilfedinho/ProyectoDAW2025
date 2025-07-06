@@ -15,6 +15,7 @@ namespace BE
         public string Contraseña { get; set; }
         public string Email { get; set; }
         public string Rol { get; set; }
+
         
 
         public Usuario(string nUsername, string nNombre, string nApellido, string nDNI, string nContraseña, string nEmail, string rOL)

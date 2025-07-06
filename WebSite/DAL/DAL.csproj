@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GestorConexion490WC.cs" />
+    <Compile Include="Tecnica\DigitoVerificadorDAL.cs" />
+    <Compile Include="GestorConexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tecnica\BitacoraDAL.cs" />
     <Compile Include="Tecnica\UsuarioDAL.cs" />
@@ -50,10 +51,6 @@
     <ProjectReference Include="..\BE\BE.csproj">
       <Project>{f82ad5ba-7d74-443c-ab53-2099107d90ca}</Project>
       <Name>BE</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SERVICIOS\SERVICIOS.csproj">
-      <Project>{902ae663-611e-443e-89fe-0cdc81926601}</Project>
-      <Name>SERVICIOS</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

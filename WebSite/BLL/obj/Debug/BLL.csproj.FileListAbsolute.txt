@@ -24,3 +24,16 @@ C:\Users\agust\Documents\GitHub\ProyectoDAW2025\WebSite\BLL\obj\Debug\BLL.csproj
 C:\Users\agust\Documents\GitHub\ProyectoDAW2025\WebSite\BLL\obj\Debug\BLL.csproj.Up2Date
 C:\Users\agust\Documents\GitHub\ProyectoDAW2025\WebSite\BLL\obj\Debug\BLL.dll
 C:\Users\agust\Documents\GitHub\ProyectoDAW2025\WebSite\BLL\obj\Debug\BLL.pdb
+D:\GitHub\ProyectoDAW2025\WebSite\BLL\bin\Debug\BLL.dll
+D:\GitHub\ProyectoDAW2025\WebSite\BLL\bin\Debug\BLL.pdb
+D:\GitHub\ProyectoDAW2025\WebSite\BLL\bin\Debug\BE.dll
+D:\GitHub\ProyectoDAW2025\WebSite\BLL\bin\Debug\DAL.dll
+D:\GitHub\ProyectoDAW2025\WebSite\BLL\bin\Debug\SERVICIOS.dll
+D:\GitHub\ProyectoDAW2025\WebSite\BLL\bin\Debug\BE.pdb
+D:\GitHub\ProyectoDAW2025\WebSite\BLL\bin\Debug\DAL.pdb
+D:\GitHub\ProyectoDAW2025\WebSite\BLL\bin\Debug\SERVICIOS.pdb
+D:\GitHub\ProyectoDAW2025\WebSite\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\GitHub\ProyectoDAW2025\WebSite\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\GitHub\ProyectoDAW2025\WebSite\BLL\obj\Debug\BLL.csproj.Up2Date
+D:\GitHub\ProyectoDAW2025\WebSite\BLL\obj\Debug\BLL.dll
+D:\GitHub\ProyectoDAW2025\WebSite\BLL\obj\Debug\BLL.pdb

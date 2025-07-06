@@ -9,7 +9,7 @@ namespace DAL
         #region Operaciones Usuario 490WC
         public bool VerificarCredenciales(string username, string clave)
         {
-            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 cone.Open();
                 string query = "SELECT COUNT(*) FROM Usuario WHERE Username = @Username AND Contraseña = @Contraseña";
@@ -25,7 +25,7 @@ namespace DAL
         }
         public void Alta(Usuario UsuarioAlta)
         {
-            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 cone.Open();
                 string query = "INSERT INTO Usuario (Username,Nombre,Apellido,DNI,Contraseña,Email,Rol)" +
@@ -47,7 +47,7 @@ namespace DAL
         }
         public void Baja(string username)
         {
-            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 cone.Open();
                 string query490WC = "DELETE FROM Usuario WHERE Username = @Username";
@@ -60,7 +60,7 @@ namespace DAL
         }
         public void Modificar(Usuario UsuarioModificado)
         {
-            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 cone.Open();
                 string query490WC = "UPDATE Usuario SET Nombre = @Nombre, Apellido = @Apellido, DNI = @DNI, Contraseña = @Contraseña, Email = @Email, Rol = @Rol";
@@ -88,7 +88,7 @@ namespace DAL
         public List<Usuario> DevolverTodosLosUsuarios()
         {
             List<Usuario> ListaUsuario = new List<Usuario>();
-            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 using (SqlCommand comando = new SqlCommand("SELECT * FROM Usuario", cone))
                 {
@@ -115,7 +115,7 @@ namespace DAL
         }
         private Usuario BuscarUsuario(string query, string parametro, string valorBusqueda)
         {
-            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 using (SqlCommand comando = new SqlCommand(query, cone))
                 {
@@ -155,5 +155,57 @@ namespace DAL
             return BuscarUsuario("SELECT * FROM Usuario WHERE Email = @Email", "@Email", Email);
         }
         #endregion
+    
+    
+       public List<string> ObtenerListaDVH()
+       {
+            List<string> listaDVH = new List<string>();
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                string query = "SELECT * FROM Usuario";
+                using (SqlCommand comando = new SqlCommand(query, cone))
+                {
+                    using (SqlDataReader lector = comando.ExecuteReader())
+                    {
+                        while (lector.Read())
+                        {
+                            listaDVH.Add(lector["DVH"].ToString());
+                        }
+                    }
+                }
+            }
+            return listaDVH;
+       }
+
+        public void ActualizarDVH(Usuario usuario, string dvh)
+        {
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                using (SqlCommand comando = new SqlCommand("UPDATE Usuario SET DVH = @DVH WHERE Username = @Username", cone))
+                {
+                    comando.Parameters.AddWithValue("@DVH", dvh);
+                    comando.Parameters.AddWithValue("@Username", usuario.Username);
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
+        public string ObtenerDVH(Usuario usuario)
+        {
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
+            {
+                cone.Open();
+                string query = "SELECT DVH FROM Usuario WHERE Username = @Username";
+                using (SqlCommand comando = new SqlCommand(query, cone))
+                {
+                    comando.Parameters.AddWithValue("@Username", usuario.Username);
+                    return comando.ExecuteScalar()?.ToString();
+                }
+            }
+        }
+
     }
+
+
 }

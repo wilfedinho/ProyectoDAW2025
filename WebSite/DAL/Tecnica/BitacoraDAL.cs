@@ -12,7 +12,7 @@ namespace DAL.Tecnica
     {
         public void Alta490WC(Bitacora bitacoraAlta)
         {
-            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 cone.Open();
 
@@ -36,7 +36,7 @@ namespace DAL.Tecnica
         {
             List<Bitacora> listaBitacora490WC = new List<Bitacora>();
 
-            using (SqlConnection cone = GestorConexion490WC.DevolverConexion())
+            using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 cone.Open();
 
@@ -76,7 +76,6 @@ namespace DAL.Tecnica
                     condiciones.Add("Fecha <= @FechaFin");
                     comando.Parameters.AddWithValue("@FechaFin", fechaFinFiltrar.Value.Date);
                 }
-
                 if (condiciones.Count > 0)
                 {
                     query += " AND " + string.Join(" AND ", condiciones);
