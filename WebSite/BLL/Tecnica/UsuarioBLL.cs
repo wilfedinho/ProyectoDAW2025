@@ -67,11 +67,11 @@ namespace BLL.Tecnica
 
         #region Verificaciones De Usuarios
 
-        public bool VerificarDNI(string DNI490WC)
+        public bool VerificarDNI(string DNI)
         {
             Regex rgx490WC = new Regex("^[0-9]{2}[.]{1}[0-9]{3}[.]{1}[0-9]{3}$");
 
-            if (rgx490WC.IsMatch(DNI490WC))
+            if (rgx490WC.IsMatch(DNI))
             {
                 return true;
             }
@@ -80,11 +80,11 @@ namespace BLL.Tecnica
                 return false;
             }
         }
-        public bool VerificarEmail(string email490WC)
+        public bool VerificarEmail(string email)
         {
 
             Regex rgx490WC = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$");
-            if (rgx490WC.IsMatch(email490WC))
+            if (rgx490WC.IsMatch(email))
             {
                 return true;
             }
@@ -97,6 +97,18 @@ namespace BLL.Tecnica
         {
             Usuario usuario = BuscarUsuarioPorDNI(DNI);
             if (usuario != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool VerificarDNIDuplicadoModificar(string DNIviejo, string DNInuevo)
+        {
+            Usuario usuario = BuscarUsuarioPorDNI(DNInuevo);
+            if (usuario != null && DNIviejo != DNInuevo)
             {
                 return true;
             }
@@ -120,7 +132,7 @@ namespace BLL.Tecnica
         }
         public bool VerificarEmailDuplicadoModificar(string emailAntiguo, string emailNuevo)
         {
-            Usuario usuario = BuscarUsuarioPorEmail(emailAntiguo);
+            Usuario usuario = BuscarUsuarioPorEmail(emailNuevo);
             if (usuario != null && emailAntiguo != emailNuevo)
             {
                 return true;
@@ -130,7 +142,7 @@ namespace BLL.Tecnica
                 return false;
             }
         }
-        public bool VerificarUsernameDuplicado490WC(string username)
+        public bool VerificarUsernameDuplicado(string username)
         {
 
             Usuario usuario = BuscarUsuarioPorUsername(username);

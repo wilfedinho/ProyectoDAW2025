@@ -10,6 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="eventos-container">
+             <h2>Bitacora de Eventos</h2>
             <div class="filtros-form">
                 <div class="filtro-group">
                     <label for="txtDNI" class="filtro-label">Usuario</label>
