@@ -33,8 +33,7 @@ namespace SERVICIOS
                 sb.Append(ben.PrecioEstrella);
                 sb.Append(ben.CantidadBeneficioReclamo);
                 sb.Append(ben.DescuentoAplicar);
-            }
-            
+            }     
             if(obj is Boleto bol)
             {
                 if(bol is BoletoIDA)
@@ -160,7 +159,7 @@ namespace SERVICIOS
             string dvv = CalcularDVV(nomTabla);
             DigitoVerificadorDAL digitoVerificadorDAL = new DigitoVerificadorDAL();
 
-            digitoVerificadorDAL.ActualizarDVV(nomTabla ,dvv);
+            digitoVerificadorDAL.ActualizarDVV(nomTabla, dvv);
             
         }
 
@@ -345,8 +344,6 @@ namespace SERVICIOS
             }
             return esValido;
         }
-
-
 
         public void RecalcularDigitosVerificadores()
         {
