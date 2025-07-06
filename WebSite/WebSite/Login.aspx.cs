@@ -39,8 +39,33 @@ public partial class Login : System.Web.UI.Page
                 {
                     if (gestorUsuario.VerificarCredenciales(txtUsername.Text, txtPassword.Text))
                     {
+                        DigitoVerificador digitoVerificador = new DigitoVerificador();
                         AlmacenarSesion(usuarioLoguear);
-                        Response.Redirect("Vuelos.aspx");
+                        if (!digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "Usuario")
+                        {
+                            Response.Redirect("ErrorBDUsuario.aspx");
+                        }
+                        if(digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "Usuario")
+                        {
+                            Response.Redirect("Vuelos.aspx");
+                        }
+                        if(!digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "Admin")
+                        {
+                            Response.Redirect("ErrorBDAdmin.aspx");
+                        }
+                        if(digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "Admin")
+                        {
+                            //mandar al menu del admin
+                        }
+                        if(!digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "WebMaster")
+                        {
+                            Response.Redirect("Restore_BackUp.aspx");
+                        }
+                        if(digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "WebMaster")
+                        {
+                            //mandar al menu del webmaster
+                        }
+
                         Context.ApplicationInstance.CompleteRequest();
                     }
                     else
