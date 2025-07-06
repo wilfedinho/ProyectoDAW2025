@@ -233,25 +233,28 @@ namespace DAL.Negocio
             using (SqlConnection con = GestorConexion.DevolverConexion())
             {
                 con.Open();
-                string query = "SELECT COUNT(*) FROM Boleto WHERE Origen = @Origen AND Destino = @Destino AND FechaPartidaIDA = @FechaPartidaIDA AND FechaLlegadaIDA = @FechaLlegadaIDA AND (@FechaPartidaVuelta IS NULL OR FechaPartidaVUELTA = @FechaPartidaVuelta) AND (@FechaLlegadaVuelta IS NULL OR FechaLlegadaVUELTA = @FechaLlegadaVuelta) AND NumeroAsiento = @NumeroAsiento";
+                string query = @"SELECT COUNT(*) FROM Boleto WHERE Origen = @Origen AND Destino = @Destino AND FechaPartidaIDA = @FechaPartidaIDA AND FechaLlegadaIDA = @FechaLlegadaIDA AND ((FechaPartidaVUELTA IS NULL AND @FechaPartidaVuelta IS NULL) OR (FechaPartidaVUELTA = @FechaPartidaVuelta)) AND ((FechaLlegadaVUELTA IS NULL AND @FechaLlegadaVuelta IS NULL) OR (FechaLlegadaVUELTA = @FechaLlegadaVuelta)) AND NumeroAsiento = @NumeroAsiento";
 
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@Origen", boletoVerificarExistencia.Origen);
                     cmd.Parameters.AddWithValue("@Destino", boletoVerificarExistencia.Destino);
-                    cmd.Parameters.AddWithValue("@FechaPartidaIDA", boletoVerificarExistencia.FechaPartida.ToShortDateString());
-                    cmd.Parameters.AddWithValue("@FechaLlegadaIDA", boletoVerificarExistencia.FechaLlegada.ToShortDateString());
+                    cmd.Parameters.AddWithValue("@FechaPartidaIDA", boletoVerificarExistencia.FechaPartida);
+                    cmd.Parameters.AddWithValue("@FechaLlegadaIDA", boletoVerificarExistencia.FechaLlegada);
+
                     if (boletoVerificarExistencia is BoletoIDAVUELTA bole)
                     {
-                        cmd.Parameters.AddWithValue("@FechaPartidaVuelta", bole.FechaPartidaVUELTA.ToShortDateString());
-                        cmd.Parameters.AddWithValue("@FechaLlegadaVuelta", bole.FechaLlegadaVUELTA.ToShortDateString());
+                        cmd.Parameters.AddWithValue("@FechaPartidaVuelta", (object)bole.FechaPartidaVUELTA ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@FechaLlegadaVuelta", (object)bole.FechaLlegadaVUELTA ?? DBNull.Value);
                     }
                     else
                     {
                         cmd.Parameters.AddWithValue("@FechaPartidaVuelta", DBNull.Value);
                         cmd.Parameters.AddWithValue("@FechaLlegadaVuelta", DBNull.Value);
                     }
+
                     cmd.Parameters.AddWithValue("@NumeroAsiento", boletoVerificarExistencia.NumeroAsiento);
+
                     int count = (int)cmd.ExecuteScalar();
                     return count > 0;
                 }

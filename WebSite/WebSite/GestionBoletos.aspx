@@ -45,6 +45,9 @@
                     <label for="ddlClaseBoleto" class="filtro-label">Clase Boleto</label>
                     <asp:DropDownList ID="ddlClaseBoleto" runat="server" CssClass="filtro-input">
                         <asp:ListItem Text="-- Seleccione --" Value="" />
+                        <asp:ListItem Text="Turista" Value="Turista" />
+                        <asp:ListItem Text="Ejecutiva" Value="Ejecutiva" />
+                        <asp:ListItem Text="Primera Clase" Value="Primera Clase" />
                     </asp:DropDownList>
                 </div>
                 <div class="filtro-group">

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BLL.Negocio
@@ -119,7 +120,19 @@ namespace BLL.Negocio
             return gestorBoleto.ObtenerTodosLosBoletos();
         }
 
+        public bool VerificarFormatoAsiento(string FormatoAsiento)
+        {
+            Regex rgxFormatoAsiento = new Regex("^[A-Z]{1}[0-9]{3}$");
+            if (rgxFormatoAsiento.IsMatch(FormatoAsiento))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
+        }
 
         public List<Boleto> ObtenerBoletosFiltrados(string origen = "", string destino = "", string claseBoleto = "", float? precioDesde = null, float? precioHasta = null, float? pesoPermitido = null, DateTime? fechaPartida = null, DateTime? fechaLlegada = null, DateTime? fechaPartidaVUELTA = null, DateTime? fechaLlegadaVUELTA = null)
         {
