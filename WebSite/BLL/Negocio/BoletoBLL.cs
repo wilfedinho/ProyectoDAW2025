@@ -1,6 +1,7 @@
 ﻿using BE;
 using DAL;
 using DAL.Negocio;
+using SERVICIOS;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -15,12 +16,12 @@ namespace BLL.Negocio
     {
         #region Operaciones Boleto
 
-
-
         public void Alta(Boleto BoletoAgregar)
         {
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.Alta(BoletoAgregar);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVH(BoletoAgregar, "Boleto");
         }
 
 
@@ -28,12 +29,16 @@ namespace BLL.Negocio
         {
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.Baja(IDBoleto);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVV("Boleto");
         }
 
         public void Modificar(Boleto BoletoModificado)
         {
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.Modificar(BoletoModificado);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVH(BoletoModificado, "Boleto");
         }
         public bool ExisteBoletoAsignar(int idBoleto)
         {

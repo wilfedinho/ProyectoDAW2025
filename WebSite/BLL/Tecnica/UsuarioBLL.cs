@@ -47,6 +47,14 @@ namespace BLL.Tecnica
 
         #endregion
 
+        public void FormateoContraseña(Usuario usuario)
+        {
+            string contraseñaFormateada = usuario.DNI + usuario.Apellido;
+            Encryptador cifrador = new Encryptador();
+            usuario.Contraseña = cifrador.EncryptadorIrreversible(contraseñaFormateada);
+            Modificar(usuario);
+        }
+
         #region Busquedas De Usuarios 
         public List<Usuario> DevolverTodosLosUsuarios()
         {
