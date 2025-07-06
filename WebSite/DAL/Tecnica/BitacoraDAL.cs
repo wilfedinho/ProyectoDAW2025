@@ -10,7 +10,7 @@ namespace DAL.Tecnica
 {
     public class BitacoraDAL
     {
-        public void Alta490WC(Bitacora bitacoraAlta)
+        public void Alta(Bitacora bitacoraAlta)
         {
             using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
@@ -32,9 +32,9 @@ namespace DAL.Tecnica
             }
         }
 
-        public List<Bitacora> ObtenerEventosPorConsulta490WC(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)
+        public List<Bitacora> ObtenerEventosPorConsulta(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)
         {
-            List<Bitacora> listaBitacora490WC = new List<Bitacora>();
+            List<Bitacora> listaBitacora = new List<Bitacora>();
 
             using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
@@ -96,12 +96,12 @@ namespace DAL.Tecnica
                         int criticidad = reader.GetInt32(6);
 
                         Bitacora bitacora = new Bitacora(username, fecha, hora, modulo, descripcion, criticidad, idBitacora);
-                        listaBitacora490WC.Add(bitacora);
+                        listaBitacora.Add(bitacora);
                     }
                 }
             }
 
-            return listaBitacora490WC;
+            return listaBitacora;
         }
 
 
