@@ -150,4 +150,8 @@ public partial class Restore_BackUp : System.Web.UI.Page
         Session.Abandon();
         Response.Redirect("Login.aspx");
     }
+    protected void btnVuelos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Vuelos.aspx");
+    }
 }
