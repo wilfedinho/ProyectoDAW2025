@@ -66,6 +66,7 @@
                     <div class="login-actions">
                         <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" CssClass="login-btn" OnClick="btnRegistrar_Click" />
                     </div>
+                    <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
                 </div>
             </div>
         </div>

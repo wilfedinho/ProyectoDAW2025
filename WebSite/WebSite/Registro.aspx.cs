@@ -20,12 +20,12 @@ public partial class Registro : System.Web.UI.Page
         try
         {
             Encryptador cifrador = new Encryptador();
-           UsuarioBLL usuarioBLL = new UsuarioBLL();
-            if(!usuarioBLL.VerificarDNI(txtDNI.Text)) throw new Exception();
-            if(!usuarioBLL.VerificarEmail(txtEmail.Text)) throw new Exception();
-            if(usuarioBLL.VerificarDNIDuplicado(txtDNI.Text)) throw new Exception();
-            if(usuarioBLL.VerificarEmailDuplicado(txtEmail.Text)) throw new Exception();
-            if(usuarioBLL.VerificarUsernameDuplicado(txtUsuario.Text)) throw new Exception();
+            UsuarioBLL usuarioBLL = new UsuarioBLL();
+            if(!usuarioBLL.VerificarDNI(txtDNI.Text)) throw new Exception("DNI No válido");
+            if(!usuarioBLL.VerificarEmail(txtEmail.Text)) throw new Exception("Email no válido");
+            if(usuarioBLL.VerificarDNIDuplicado(txtDNI.Text)) throw new Exception("DNI duplicado");
+            if(usuarioBLL.VerificarEmailDuplicado(txtEmail.Text)) throw new Exception("Email duplicado");
+            if(usuarioBLL.VerificarUsernameDuplicado(txtUsuario.Text)) throw new Exception("Usuario duplicado");
             Usuario usuario = new Usuario(txtUsuario.Text, txtNombre.Text, txtApellido.Text, txtDNI.Text, txtPassword.Text, txtEmail.Text, "Usuario");
             usuario.Contraseña = cifrador.EncryptadorIrreversible(usuario.Contraseña);
             BitacoraBLL gestorBitacora = new BitacoraBLL();
@@ -34,6 +34,6 @@ public partial class Registro : System.Web.UI.Page
             usuarioBLL.Alta(usuario);
             Response.Redirect("Login.aspx");
         }
-        catch (Exception ex){}
+        catch (Exception ex){ lblError.Text = $"{ex.Message}"; }
     }
 }
