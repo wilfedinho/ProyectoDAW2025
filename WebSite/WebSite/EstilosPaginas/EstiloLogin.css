@@ -104,8 +104,8 @@
 }
 
 .login-btn {
-    background: linear-gradient(90deg, #274472 0%, #4169a1 100%);
-    border: none;
+    background: linear-gradient(90deg, #16213a 0%, #274472 100%);
+    border: 1px solid #3a5a99;
     border-radius: 6px;
     color: #fff;
     padding: 8px 24px;
@@ -115,15 +115,12 @@
     transition: background 0.2s, color 0.2s;
 }
 
-    .login-btn:hover {
-        background: linear-gradient(90deg, #3a5a99 0%, #274472 100%);
-        color: #fff;
-    }
-
-.register-btn {
-    background: linear-gradient(90deg, #16213a 0%, #274472 100%);
-    border: 1px solid #3a5a99;
+.login-btn:hover {
+    background: linear-gradient(90deg, #3a5a99 0%, #274472 100%);
+    color: #fff;
 }
+
+
 
 .login-or {
     background: #16213a;

@@ -24,8 +24,7 @@
                     </div>
                     <div class="login-actions">
                         <asp:Button ID="btnSignIn" runat="server" Text="Iniciar Sesion" CssClass="login-btn" OnClick="btnLogin_Click" />
-                        <asp:Button ID="btnRegister" runat="server" Text="Registrar" CssClass="login-btn register-btn" OnClick="btnRegister_Click" />
-                        <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar Sesion" CssClass="login-btn register-btn" OnClick="btnCerrarSesion_Click" />
+                        <asp:Button ID="btnRegister" runat="server" Text="Registrar" CssClass="login-btn" OnClick="btnRegister_Click" />
                     </div>
                 </div>
             </div>
