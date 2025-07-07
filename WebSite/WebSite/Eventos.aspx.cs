@@ -12,9 +12,16 @@ public partial class Eventos : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-        CargarEventos();
+        if (Session["usuario"] != null && Session["rol"].ToString() == "WebMaster")
+        {
+            CargarEventos();
+        }
+        else
+        {
+            Response.Redirect("Vuelos.aspx");
+        }
     }
-    
+
 
     public void CargarEventos(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)
     {

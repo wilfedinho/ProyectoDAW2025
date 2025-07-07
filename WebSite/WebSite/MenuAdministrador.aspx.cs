@@ -11,7 +11,7 @@ public partial class MenuAdministrador : System.Web.UI.Page
     {
         if (Session["usuario"] == null)
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("Vuelos.aspx");
         }
         if (Session["rol"].ToString() == "WebMaster")
         {

@@ -14,7 +14,15 @@ public partial class GestionUsuarios : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-        CargarUsuarios();
+        if (Session["usuario"] != null && Session["rol"].ToString() == "Admin")
+        {
+            CargarUsuarios();
+
+        }
+        else
+        {
+            Response.Redirect("Vuelos.aspx");
+        }
     }
     public void CargarUsuarios()
     {

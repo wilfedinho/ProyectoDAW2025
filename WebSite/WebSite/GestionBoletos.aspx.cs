@@ -14,7 +14,16 @@ public partial class GestionBoletos : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-        CargarBoletos();
+        if (Session["usuario"] != null && Session["rol"].ToString() == "Admin")
+        {
+            CargarBoletos();
+
+        }
+        else
+        {
+            Response.Redirect("Vuelos.aspx");
+        }
+
     }
     public void CargarBoletos()
     {
@@ -321,7 +330,7 @@ public partial class GestionBoletos : System.Web.UI.Page
     protected void btnVuelos_Click(object sender, EventArgs e)
     {
         Response.Redirect("Vuelos.aspx");
-    }   
+    }
     protected void btnCerrarSesion_Click(object sender, EventArgs e)
     {
         Session.Clear();
