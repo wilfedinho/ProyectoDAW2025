@@ -39,6 +39,9 @@ public partial class GestionBeneficios : System.Web.UI.Page
         }).ToList();
         gvBeneficios.DataSource = listaAdaptada;
         gvBeneficios.DataBind();
+        BitacoraBLL gestorBitacora = new BitacoraBLL();
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Beneficios", "Consulta de Beneficios", 1);
+        gestorBitacora.Alta(eventoGenerado);
     }
 
     private void LimpiarCampos()
@@ -71,6 +74,9 @@ public partial class GestionBeneficios : System.Web.UI.Page
                         gestorBeneficio490WC.Alta(beneficioAlta490WC);
                         CargarBeneficios();
                         LimpiarCampos();
+                        BitacoraBLL gestorBitacora = new BitacoraBLL();
+                        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Beneficios", "Agregacion Beneficio", 3);
+                        gestorBitacora.Alta(eventoGenerado);
                     }
                     else
                     {
@@ -101,6 +107,9 @@ public partial class GestionBeneficios : System.Web.UI.Page
                     gestorBeneficio.Modificacion(beneficioModificado490WC);
                     CargarBeneficios();
                     LimpiarCampos();
+                    BitacoraBLL gestorBitacora = new BitacoraBLL();
+                    Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Beneficios", "Modificacion Beneficio", 3);
+                    gestorBitacora.Alta(eventoGenerado);
                 }
             }
         }
@@ -116,6 +125,9 @@ public partial class GestionBeneficios : System.Web.UI.Page
             {
                 CargarBeneficios();
                 LimpiarCampos();
+                BitacoraBLL gestorBitacora = new BitacoraBLL();
+                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Beneficios", "Eliminacion Beneficio", 5);
+                gestorBitacora.Alta(eventoGenerado);
             }
             else
             {

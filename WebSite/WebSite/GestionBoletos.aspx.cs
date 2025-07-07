@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL.Negocio;
+using BLL.Tecnica;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -45,6 +46,9 @@ public partial class GestionBoletos : System.Web.UI.Page
         }).ToList();
         gvBoletos.DataSource = listaAdaptada;
         gvBoletos.DataBind();
+        BitacoraBLL gestorBitacora = new BitacoraBLL();
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Boletos", "Consulta Boletos", 1);
+        gestorBitacora.Alta(eventoGenerado);
     }
 
     protected void btnAgregar_Click(object sender, EventArgs e)
@@ -83,6 +87,9 @@ public partial class GestionBoletos : System.Web.UI.Page
                             gestorBoleto490WC.Alta(BoletoAlta490WC);
                             CargarBoletos();
                             limpiar();
+                            BitacoraBLL gestorBitacora = new BitacoraBLL();
+                            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Boletos", "Agregacion Boleto", 2);
+                            gestorBitacora.Alta(eventoGenerado);
                         }
                         else
                         {
@@ -106,6 +113,9 @@ public partial class GestionBoletos : System.Web.UI.Page
                             gestorBoleto490WC.Alta(BoletoAlta490WC);
                             CargarBoletos();
                             limpiar();
+                            BitacoraBLL gestorBitacora = new BitacoraBLL();
+                            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Boletos", "Agregacion Boleto", 2);
+                            gestorBitacora.Alta(eventoGenerado);
                         }
                         else
                         {
@@ -170,6 +180,9 @@ public partial class GestionBoletos : System.Web.UI.Page
                                 gestorBoleto490WC.Modificar(BoletoModificado490WC);
                                 CargarBoletos();
                                 limpiar();
+                                BitacoraBLL gestorBitacora = new BitacoraBLL();
+                                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Boletos", "Modificacion Boleto", 3);
+                                gestorBitacora.Alta(eventoGenerado);
                             }
                         }
                     }
@@ -199,6 +212,9 @@ public partial class GestionBoletos : System.Web.UI.Page
                                 gestorBoleto490WC.Modificar(BoletoModificado490WC);
                                 CargarBoletos();
                                 limpiar();
+                                BitacoraBLL gestorBitacora = new BitacoraBLL();
+                                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Boletos", "Modificacion Boleto", 3);
+                                gestorBitacora.Alta(eventoGenerado);
                             }
                         }
                     }
@@ -225,6 +241,9 @@ public partial class GestionBoletos : System.Web.UI.Page
                 gestorBoleto.Baja(id);
                 CargarBoletos();
                 limpiar();
+                BitacoraBLL gestorBitacora = new BitacoraBLL();
+                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Boletos", "Eliminacion Boleto", 4);
+                gestorBitacora.Alta(eventoGenerado);
             }
             else
             {

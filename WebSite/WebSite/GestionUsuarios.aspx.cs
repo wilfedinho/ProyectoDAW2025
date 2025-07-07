@@ -40,6 +40,9 @@ public partial class GestionUsuarios : System.Web.UI.Page
         }).ToList();
         gvUsuarios.DataSource = listaAdaptada;
         gvUsuarios.DataBind();
+        BitacoraBLL gestorBitacora = new BitacoraBLL();
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Usuarios", "Consulta Usuarios", 1);
+        gestorBitacora.Alta(eventoGenerado);
     }
     private void LimpiarCampos()
     {
@@ -107,6 +110,9 @@ public partial class GestionUsuarios : System.Web.UI.Page
             lblMensaje.CssClass = "mensaje-exito";
             lblMensaje.Visible = true;
             LimpiarCampos();
+            BitacoraBLL gestorBitacora = new BitacoraBLL();
+            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Usuarios", "Agregacion Usuarios", 2);
+            gestorBitacora.Alta(eventoGenerado);
         }
         catch
         {
@@ -165,6 +171,9 @@ public partial class GestionUsuarios : System.Web.UI.Page
                 lblMensaje.Visible = true;
 
                 LimpiarCampos();
+                BitacoraBLL gestorBitacora = new BitacoraBLL();
+                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Usuarios", "Modificacion Usuarios", 3);
+                gestorBitacora.Alta(eventoGenerado);
             }
             catch
             {
@@ -196,6 +205,9 @@ public partial class GestionUsuarios : System.Web.UI.Page
                 lblMensaje.CssClass = "mensaje-exito";
                 lblMensaje.Visible = true;
                 LimpiarCampos();
+                BitacoraBLL gestorBitacora = new BitacoraBLL();
+                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Usuarios", "Eliminacion Usuarios", 4);
+                gestorBitacora.Alta(eventoGenerado);
             }
             catch
             {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BE;
+using BLL.Tecnica;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -54,6 +56,9 @@ public partial class MenuWebMaster : System.Web.UI.Page
     }
     protected void btnCerrarSesion_Click(object sender, EventArgs e)
     {
+        BitacoraBLL gestorBitacora = new BitacoraBLL();
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Menu WebMaster", "Salida del Sistema", 4);
+        gestorBitacora.Alta(eventoGenerado);
         Session.Clear();
         Session.Abandon();
         Response.Redirect("Login.aspx");

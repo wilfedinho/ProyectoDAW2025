@@ -1,11 +1,13 @@
-﻿using System;
+﻿using BE;
+using BLL.Tecnica;
+using SERVICIOS;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using SERVICIOS;
 
 public partial class Restore_BackUp : System.Web.UI.Page
 {
@@ -34,6 +36,9 @@ public partial class Restore_BackUp : System.Web.UI.Page
         Label1.Text = mensaje;
         Label1.CssClass = exito ? "mensaje-exito" : "mensaje-error";
         Label1.Visible = true;
+        BitacoraBLL gestorBitacora = new BitacoraBLL();
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "BackUp y Restore", "Realizo un BackUp De La BD", 5);
+        gestorBitacora.Alta(eventoGenerado);
     }
 
     protected void btnRestore_Click(object sender, EventArgs e)
@@ -58,6 +63,9 @@ public partial class Restore_BackUp : System.Web.UI.Page
                 DigitoVerificador dv = new DigitoVerificador();
                 dv.RecalcularDigitosVerificadores();
                 lblResultadoDV.Text = "";
+                BitacoraBLL gestorBitacora = new BitacoraBLL();
+                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "BackUp y Restore", "Realizo un Restore De La BD", 5);
+                gestorBitacora.Alta(eventoGenerado);
             }
             catch (Exception ex)
             {
@@ -80,6 +88,9 @@ public partial class Restore_BackUp : System.Web.UI.Page
         dv.RecalcularDigitosVerificadores();
         lblResultadoDV.Text = string.Empty;
         lblResultadoDV.Text = "✅ Se volvió a calcular el dígito verificador";
+        BitacoraBLL gestorBitacora = new BitacoraBLL();
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "BackUp y Restore", "Realizo un Restore De La BD", 5);
+        gestorBitacora.Alta(eventoGenerado);
     }
 
     private void MostrarMensajeDV()
@@ -104,12 +115,12 @@ public partial class Restore_BackUp : System.Web.UI.Page
 
     protected void btnBackupRestore_Click(object sender, EventArgs e)
     {
-        //nada
+        Response.Redirect("Restore_BackUp.aspx");
     }
 
     protected void btnDigitosVerificadores_Click(object sender, EventArgs e)
     {
-        //nada
+        Response.Redirect("Restore_BackUp.aspx");
     }
 
     protected void btnBitacora_Click(object sender, EventArgs e)

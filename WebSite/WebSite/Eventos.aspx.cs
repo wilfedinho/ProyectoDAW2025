@@ -42,6 +42,9 @@ public partial class Eventos : System.Web.UI.Page
         gvEventos.DataSource = listaAdaptada;
         gvEventos.DataBind();
         LLenarCB();
+        
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Bitacora de Eventos", "Consulta de Eventos", 1);
+        gestorBitacora.Alta(eventoGenerado);
     }
 
     public void LLenarCB()
@@ -132,12 +135,12 @@ public partial class Eventos : System.Web.UI.Page
 
     protected void btnBackupRestore_Click(object sender, EventArgs e)
     {
-        //Response.Redirect("Restore_BackUp.aspx");
+        Response.Redirect("Restore_BackUp.aspx");
     }
 
     protected void btnDigitosVerificadores_Click(object sender, EventArgs e)
     {
-        //Response.Redirect("Restore_BackUp.aspx");
+        Response.Redirect("Restore_BackUp.aspx");
     }
 
     protected void btnBitacora_Click(object sender, EventArgs e)

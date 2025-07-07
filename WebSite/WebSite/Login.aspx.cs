@@ -34,7 +34,7 @@ public partial class Login : System.Web.UI.Page
   
     protected void btnRegister_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Registro.aspx"); 
+        Response.Redirect("Registro.aspx");
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
@@ -54,26 +54,44 @@ public partial class Login : System.Web.UI.Page
                         if (!digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "Usuario")
                         {
                             Response.Redirect("ErrorBDUsuario.aspx");
+                            BitacoraBLL gestorBitacora = new BitacoraBLL();
+                            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Login", "Ingreso al Sistema", 4);
+                            gestorBitacora.Alta(eventoGenerado);
                         }
                         if(digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "Usuario")
                         {
                             Response.Redirect("Vuelos.aspx");
+                            BitacoraBLL gestorBitacora = new BitacoraBLL();
+                            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Login", "Ingreso al Sistema", 4);
+                            gestorBitacora.Alta(eventoGenerado);
                         }
                         if(!digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "Admin")
                         {
                             Response.Redirect("ErrorBDAdmin.aspx");
+                            BitacoraBLL gestorBitacora = new BitacoraBLL();
+                            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Login", "Ingreso al Sistema", 4);
+                            gestorBitacora.Alta(eventoGenerado);
                         }
                         if(digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "Admin")
                         {
                             Response.Redirect("MenuAdministrador.aspx");
+                            BitacoraBLL gestorBitacora = new BitacoraBLL();
+                            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Login", "Ingreso al Sistema", 4);
+                            gestorBitacora.Alta(eventoGenerado);
                         }
                         if(!digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "WebMaster")
                         {
                             Response.Redirect("Restore_BackUp.aspx");
+                            BitacoraBLL gestorBitacora = new BitacoraBLL();
+                            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Login", "Ingreso al Sistema", 4);
+                            gestorBitacora.Alta(eventoGenerado);
                         }
                         if(digitoVerificador.VerificarIntegridadTodasLasTablasBool() && usuarioLoguear.Rol == "WebMaster")
                         {
                             Response.Redirect("MenuWebMaster.aspx");
+                            BitacoraBLL gestorBitacora = new BitacoraBLL();
+                            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Login", "Ingreso al Sistema", 4);
+                            gestorBitacora.Alta(eventoGenerado);
                         }
                         Context.ApplicationInstance.CompleteRequest();
                     }
