@@ -15,14 +15,20 @@ public partial class GestionBeneficios : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-        CargarBeneficios();
-
+        if (Session["usuario"] != null && Session["rol"].ToString() == "Admin")
+        {
+            CargarBeneficios();
+        }
+        else
+        {
+            Response.Redirect("Vuelos.aspx");
+        }
     }
     public void CargarBeneficios()
     {
         BeneficioBLL gestorUsuario = new BeneficioBLL();
         var listaBeneficios = gestorUsuario.ObtenerTodosLosBeneficios();
-       
+
         var listaAdaptada = listaBeneficios.Select(e => new
         {
             CodigoBeneficio = e.CodigoBeneficio,
@@ -118,7 +124,7 @@ public partial class GestionBeneficios : System.Web.UI.Page
                 lblMensaje.Visible = true;
             }
         }
-       
+
     }
     protected void btnLimpiar_Click(object sender, EventArgs e)
     {
@@ -150,7 +156,7 @@ public partial class GestionBeneficios : System.Web.UI.Page
 
     protected void btnBeneficios_Click(object sender, EventArgs e)
     {
-        //nada
+        Response.Redirect("GestionBeneficios.aspx");
     }
 
     protected void btnBoletos_Click(object sender, EventArgs e)
@@ -160,9 +166,13 @@ public partial class GestionBeneficios : System.Web.UI.Page
 
     protected void btnClave_Click(object sender, EventArgs e)
     {
-        //nada
+        Response.Redirect("CambiarClave.aspx");
     }
 
+    protected void btnVuelos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Vuelos.aspx");
+    }
     protected void btnCerrarSesion_Click(object sender, EventArgs e)
     {
         Session.Clear();

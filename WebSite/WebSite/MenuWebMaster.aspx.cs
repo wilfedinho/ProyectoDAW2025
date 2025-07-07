@@ -11,7 +11,7 @@ public partial class MenuWebMaster : System.Web.UI.Page
     {
         if (Session["usuario"] == null)
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("Vuelos.aspx");
         }
         if (Session["rol"].ToString() == "Admin")
         {
@@ -25,7 +25,7 @@ public partial class MenuWebMaster : System.Web.UI.Page
 
     protected void btnInicio_Click(object sender, EventArgs e)
     {
-        //nada
+        Response.Redirect("MenuWebMaster.aspx");
     }
 
     protected void btnBackupRestore_Click(object sender, EventArgs e)
@@ -45,9 +45,13 @@ public partial class MenuWebMaster : System.Web.UI.Page
 
     protected void btnCambiarClave_Click(object sender, EventArgs e)
     {
-        //nada
+        Response.Redirect("CambiarClave.aspx");
     }
 
+    protected void btnVuelos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Vuelos.aspx");
+    }
     protected void btnCerrarSesion_Click(object sender, EventArgs e)
     {
         Session.Clear();

@@ -11,7 +11,7 @@ public partial class MenuAdministrador : System.Web.UI.Page
     {
         if (Session["usuario"] == null)
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("Vuelos.aspx");
         }
         if (Session["rol"].ToString() == "WebMaster")
         {
@@ -25,7 +25,7 @@ public partial class MenuAdministrador : System.Web.UI.Page
 
     protected void btnInicio_Click(object sender, EventArgs e)
     {
-        //nada
+        Response.Redirect("MenuAdministrador.aspx");
     }
 
     protected void btnUsuarios_Click(object sender, EventArgs e)
@@ -45,9 +45,13 @@ public partial class MenuAdministrador : System.Web.UI.Page
 
     protected void btnClave_Click(object sender, EventArgs e)
     {
-        //de mommento nada 
+        Response.Redirect("CambiarClave.aspx");
     }
 
+    protected void btnVuelos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Vuelos.aspx");
+    }
     protected void btnCerrarSesion_Click(object sender, EventArgs e)
     {
         Session.Clear();
