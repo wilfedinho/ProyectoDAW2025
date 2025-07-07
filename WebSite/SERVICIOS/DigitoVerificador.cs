@@ -387,6 +387,10 @@ namespace SERVICIOS
                 if (tabla == "Usuario")
                 {
                     UsuarioDAL usuarioDAL = new UsuarioDAL();
+                    if (usuarioDAL.DevolverTodosLosUsuarios().Count == 0)
+                    {
+                        ActualizarDVV(tabla);
+                    }
                     foreach (var usuario in usuarioDAL.DevolverTodosLosUsuarios())
                     {
                         ActulizarDHVSOLORECALCULAR(usuario, tabla);
@@ -395,6 +399,10 @@ namespace SERVICIOS
                 if (tabla == "Beneficio")
                 {
                     BeneficioDAL beneficioDAL = new BeneficioDAL();
+                    if (beneficioDAL.ObtenerTodosLosBeneficios().Count == 0)
+                    {
+                        ActualizarDVV(tabla);
+                    }
                     foreach (var beneficio in beneficioDAL.ObtenerTodosLosBeneficios())
                     {
                         ActulizarDHVSOLORECALCULAR(beneficio, tabla);
@@ -403,6 +411,10 @@ namespace SERVICIOS
                 if (tabla == "Boleto")
                 {
                     BoletoDAL boletoDAL = new BoletoDAL();
+                    if (boletoDAL.ObtenerTodosLosBoletos().Count == 0)
+                    {
+                        ActualizarDVV(tabla);
+                    }
                     foreach (var boleto in boletoDAL.ObtenerTodosLosBoletos())
                     {
                         ActulizarDHVSOLORECALCULAR(boleto, tabla);
