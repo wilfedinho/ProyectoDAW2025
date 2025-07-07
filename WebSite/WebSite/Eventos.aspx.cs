@@ -135,12 +135,12 @@ public partial class Eventos : System.Web.UI.Page
 
     protected void btnBitacora_Click(object sender, EventArgs e)
     {
-        //nada
+        Response.Redirect("Eventos.aspx");
     }
 
     protected void btnCambiarClave_Click(object sender, EventArgs e)
     {
-        //nada
+        Response.Redirect("CambiarClave.aspx");
     }
 
     protected void btnVuelos_Click(object sender, EventArgs e)

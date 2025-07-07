@@ -25,7 +25,7 @@ public partial class MenuAdministrador : System.Web.UI.Page
 
     protected void btnInicio_Click(object sender, EventArgs e)
     {
-        //nada
+        Response.Redirect("MenuAdministrador.aspx");
     }
 
     protected void btnUsuarios_Click(object sender, EventArgs e)
@@ -45,7 +45,7 @@ public partial class MenuAdministrador : System.Web.UI.Page
 
     protected void btnClave_Click(object sender, EventArgs e)
     {
-        //de mommento nada 
+        Response.Redirect("CambiarClave.aspx");
     }
 
     protected void btnVuelos_Click(object sender, EventArgs e)

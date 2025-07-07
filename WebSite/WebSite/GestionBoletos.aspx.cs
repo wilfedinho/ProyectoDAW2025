@@ -310,12 +310,12 @@ public partial class GestionBoletos : System.Web.UI.Page
 
     protected void btnBoletos_Click(object sender, EventArgs e)
     {
-        //nada
+        Response.Redirect("GestionBoletos.aspx");
     }
 
     protected void btnClave_Click(object sender, EventArgs e)
     {
-        //nada
+        Response.Redirect("CambiarClave.aspx");
     }
 
     protected void btnVuelos_Click(object sender, EventArgs e)

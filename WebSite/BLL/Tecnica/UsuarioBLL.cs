@@ -35,13 +35,13 @@ namespace BLL.Tecnica
             DigitoVerificador digitoVerificador = new DigitoVerificador();
             digitoVerificador.ActualizarDVH(UsuarioModificado, "Usuario");
         }
-        
+
         public bool VerificarCredenciales(string username, string clave)
         {
             UsuarioDAL gestorUsuario = new UsuarioDAL();
             Encryptador cifrador = new Encryptador();
             clave = cifrador.EncryptadorIrreversible(clave);
-            return gestorUsuario.VerificarCredenciales (username, clave);
+            return gestorUsuario.VerificarCredenciales(username, clave);
         }
 
         #endregion
@@ -171,51 +171,14 @@ namespace BLL.Tecnica
         }
 
 
-        /*public string VerificarCambioClave490WC(string ClaveNueva490WC, string ClaveConfirmacion490WC, string ClaveActual490WC)
+        public void VerificarCambioClave490WC(Usuario usuarioCambiarClave)
         {
-            if (!string.IsNullOrEmpty(ClaveNueva490WC) && !string.IsNullOrEmpty(ClaveConfirmacion490WC))
-            {
+            
+            Encryptador cifrador = new Encryptador();
+            usuarioCambiarClave.Contraseña = cifrador.EncryptadorIrreversible(usuarioCambiarClave.Contraseña);
+            Modificar(usuarioCambiarClave);
 
-
-                if (Cifrador490WC.GestorCifrador490WC.EncriptarIrreversible490WC(ClaveActual490WC) == SesionManager490WC.GestorSesion490WC.Usuario490WC.Contraseña490WC)
-                {
-                    if (Cifrador490WC.GestorCifrador490WC.EncriptarIrreversible490WC(ClaveNueva490WC) == Cifrador490WC.GestorCifrador490WC.EncriptarIrreversible490WC(ClaveConfirmacion490WC))
-                    {
-
-                        if (Cifrador490WC.GestorCifrador490WC.EncriptarIrreversible490WC(ClaveNueva490WC) != SesionManager490WC.GestorSesion490WC.Usuario490WC.Contraseña490WC)
-                        {
-
-                            if (Cifrador490WC.GestorCifrador490WC.EncriptarIrreversible490WC(ClaveConfirmacion490WC) != SesionManager490WC.GestorSesion490WC.Usuario490WC.Contraseña490WC)
-                            {
-                                SesionManager490WC.GestorSesion490WC.Usuario490WC.Contraseña490WC = Cifrador490WC.GestorCifrador490WC.EncriptarIrreversible490WC(ClaveNueva490WC);
-                                Modificar490WC(SesionManager490WC.GestorSesion490WC.Usuario490WC);
-                                return "Ninguno";
-                            }
-                            else
-                            {
-                                return "ClaveConfirmacionIgualActual";
-                            }
-                        }
-                        else
-                        {
-                            return "ClaveNuevaIgualActual";
-                        }
-                    }
-                    else
-                    {
-                        return "ClaveNuevaDistintaClaveConfirmacion";
-                    }
-                }
-                else
-                {
-                    return "ClaveActualDistintaOriginal";
-                }
-            }
-            else
-            {
-                return "Campos Vacios";
-            }
-        }*/
+        }
 
         #endregion
     }

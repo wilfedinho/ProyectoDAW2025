@@ -150,7 +150,7 @@ public partial class GestionBeneficios : System.Web.UI.Page
 
     protected void btnBeneficios_Click(object sender, EventArgs e)
     {
-        //nada
+        Response.Redirect("GestionBeneficios.aspx");
     }
 
     protected void btnBoletos_Click(object sender, EventArgs e)
@@ -160,7 +160,7 @@ public partial class GestionBeneficios : System.Web.UI.Page
 
     protected void btnClave_Click(object sender, EventArgs e)
     {
-        //nada
+        Response.Redirect("CambiarClave.aspx");
     }
 
     protected void btnVuelos_Click(object sender, EventArgs e)

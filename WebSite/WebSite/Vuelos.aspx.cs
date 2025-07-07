@@ -47,7 +47,7 @@ public partial class Vuelos : System.Web.UI.Page
 
     protected void btnCambiarClave_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("CambiarClave.aspx");
     }
 
     protected void btnCerrarSesion_Click(object sender, EventArgs e)
