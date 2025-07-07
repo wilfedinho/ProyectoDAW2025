@@ -23,8 +23,16 @@
         <h2 class="card-title">♻️ Restaurar Backup</h2>
         <label for="archivo" class="input-label">Seleccionar archivo:</label>
         <asp:FileUpload ID="archivo" runat="server" CssClass="file-input" />
-        <asp:Button ID="btnRestore" runat="server" Text="Restaurar Backup" CssClass="btn"/>
+        <asp:Button ID="btnRestore" runat="server" Text="Restaurar Backup" CssClass="btn" OnClick="btnRestore_Click"/>
+          <asp:Label ID="Label2" runat="server" Text="Label" Visible="false"></asp:Label>
       </div>
+        <div class="card">
+  <h2 class="card-title">🔢 Calcular Dígito Verificador</h2>
+
+  <asp:Button ID="btnCalcularDV" runat="server" Text="Calcular Dígito" CssClass="btn"/>
+
+  <asp:Label ID="lblResultadoDV" runat="server" CssClass="mensaje-exito" Visible="false" />
+</div>
     </div>
   </form>
 </body>
