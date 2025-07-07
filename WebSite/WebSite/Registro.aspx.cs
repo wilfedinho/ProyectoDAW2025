@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL.Tecnica;
+using SERVICIOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ public partial class Registro : System.Web.UI.Page
     {
         try
         {
+            Encryptador cifrador = new Encryptador();
            UsuarioBLL usuarioBLL = new UsuarioBLL();
             if(!usuarioBLL.VerificarDNI(txtDNI.Text)) throw new Exception();
             if(!usuarioBLL.VerificarEmail(txtEmail.Text)) throw new Exception();
@@ -25,6 +27,7 @@ public partial class Registro : System.Web.UI.Page
             if(usuarioBLL.VerificarEmailDuplicado(txtEmail.Text)) throw new Exception();
             if(usuarioBLL.VerificarUsernameDuplicado(txtUsuario.Text)) throw new Exception();
             Usuario usuario = new Usuario(txtUsuario.Text, txtNombre.Text, txtApellido.Text, txtDNI.Text, txtPassword.Text, txtEmail.Text, "Usuario");
+            usuario.Contraseña = cifrador.EncryptadorIrreversible(usuario.Contraseña);
             usuarioBLL.Alta(usuario);
             Response.Redirect("Login.aspx");
         }
