@@ -14,13 +14,21 @@ public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Session.Clear();
-        Session.Abandon();
+        lblError.Visible = false;
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         lblError.Visible = false;
-        /*
-        DigitoVerificador digitoVerificador = new DigitoVerificador();
-        digitoVerificador.RecalcularDigitosVerificadores();*/
+        if (Session["usuario"] != null && Session["rol"].ToString() == "Admin")
+        {
+            Response.Redirect("MenuAdministrador.aspx");
+        }
+        if(Session["usuario"] != null && Session["rol"].ToString() == "Usuario")
+        {
+            Response.Redirect("Vuelos.aspx");
+        }
+        if(Session["usuario"] != null && Session["rol"].ToString() == "WebMaster")
+        {
+            Response.Redirect("MenuWebMaster.aspx");
+        }
     }
 
   

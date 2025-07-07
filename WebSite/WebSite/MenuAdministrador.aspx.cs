@@ -9,7 +9,18 @@ public partial class MenuAdministrador : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["usuario"] == null)
+        {
+            Response.Redirect("Login.aspx");
+        }
+        if (Session["rol"].ToString() == "WebMaster")
+        {
+            Response.Redirect("MenuWebMaster.aspx");
+        }
+        if (Session["rol"].ToString() == "Usuario")
+        {
+            Response.Redirect("Vuelos.aspx");
+        }
     }
 
     protected void btnInicio_Click(object sender, EventArgs e)
