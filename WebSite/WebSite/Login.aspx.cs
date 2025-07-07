@@ -103,7 +103,10 @@ public partial class Login : System.Web.UI.Page
         Session["rol"] = $"{usuarioSesion.Rol}";
     }
 
-
+    protected void btnClaveOlvidada_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("OlvidoClave.aspx");
+    }
     protected void btnCerrarSesion_Click(object sender, EventArgs e)
     {
         Session.Clear();

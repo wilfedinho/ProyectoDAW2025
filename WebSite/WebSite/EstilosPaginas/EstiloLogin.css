@@ -16,7 +16,7 @@
     background: rgba(15, 25, 40, 0.97);
     border-radius: 12px;
     box-shadow: 0 0 40px 10px #001a33;
-    padding: 32px 32px 24px 32px;
+    padding: 40px  80px;
     width: 340px;
     text-align: center;
 }
@@ -98,9 +98,10 @@
 
 .login-actions {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    
 }
 
 .login-btn {
