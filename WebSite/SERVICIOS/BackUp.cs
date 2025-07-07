@@ -48,8 +48,9 @@ namespace SERVICIOS
 
         public bool RestaurarBaseDeDatos(string rutaArchivoBak, out string mensaje)
         {
-            mensaje = "";
             string nombreDB = "BD_PROYECTODAW";
+            string usuarioLogin = System.Environment.UserName;
+            string nombreCompleto = System.Environment.MachineName + "\\" + usuarioLogin;
 
             try
             {
@@ -58,21 +59,20 @@ namespace SERVICIOS
                     con.Open();
 
                     string consultaRestore = $@"
-                        RESTORE DATABASE [{nombreDB}] 
-                        FROM DISK = '{rutaArchivoBak}' 
-                        WITH REPLACE";
+        ALTER DATABASE [{nombreDB}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+        RESTORE DATABASE [{nombreDB}] FROM DISK = '{rutaArchivoBak}' WITH REPLACE;
+        ALTER DATABASE [{nombreDB}] SET MULTI_USER;";
 
                     using (SqlCommand cmdRestore = new SqlCommand(consultaRestore, con))
                     {
                         cmdRestore.ExecuteNonQuery();
                     }
 
-                    string repararLogin = $@"
-                        USE [{nombreDB}];
-                        IF EXISTS (SELECT * FROM sys.database_principals WHERE name = 'Santi')
-                        BEGIN
-                        ALTER USER [Santi] WITH LOGIN = [DESKTOP-541PG3B\Santi];
-                        END";
+                    string repararLogin = $@"USE [{nombreDB}];
+            IF EXISTS (SELECT * FROM sys.database_principals WHERE name = '{usuarioLogin}')
+            BEGIN
+            ALTER USER [{usuarioLogin}] WITH LOGIN = [{nombreCompleto}];
+            END";
 
                     using (SqlCommand cmdReparar = new SqlCommand(repararLogin, con))
                     {
