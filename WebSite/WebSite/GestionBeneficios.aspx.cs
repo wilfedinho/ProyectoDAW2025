@@ -40,7 +40,7 @@ public partial class GestionBeneficios : System.Web.UI.Page
         gvBeneficios.DataSource = listaAdaptada;
         gvBeneficios.DataBind();
         BitacoraBLL gestorBitacora = new BitacoraBLL();
-        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Beneficios", "Consulta de Beneficios", 1);
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Beneficios", "Consulta de Beneficios", 1);
         gestorBitacora.Alta(eventoGenerado);
     }
 
@@ -75,7 +75,7 @@ public partial class GestionBeneficios : System.Web.UI.Page
                         CargarBeneficios();
                         LimpiarCampos();
                         BitacoraBLL gestorBitacora = new BitacoraBLL();
-                        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Beneficios", "Agregacion Beneficio", 3);
+                        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Beneficios", "Agregacion Beneficio", 3);
                         gestorBitacora.Alta(eventoGenerado);
                     }
                     else
@@ -108,7 +108,7 @@ public partial class GestionBeneficios : System.Web.UI.Page
                     CargarBeneficios();
                     LimpiarCampos();
                     BitacoraBLL gestorBitacora = new BitacoraBLL();
-                    Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Beneficios", "Modificacion Beneficio", 3);
+                    Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Beneficios", "Modificacion Beneficio", 3);
                     gestorBitacora.Alta(eventoGenerado);
                 }
             }
@@ -126,7 +126,7 @@ public partial class GestionBeneficios : System.Web.UI.Page
                 CargarBeneficios();
                 LimpiarCampos();
                 BitacoraBLL gestorBitacora = new BitacoraBLL();
-                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Beneficios", "Eliminacion Beneficio", 5);
+                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Beneficios", "Eliminacion Beneficio", 5);
                 gestorBitacora.Alta(eventoGenerado);
             }
             else

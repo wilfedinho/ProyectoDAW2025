@@ -26,6 +26,8 @@ public partial class Eventos : System.Web.UI.Page
     public void CargarEventos(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)
     {
         BitacoraBLL gestorBitacora = new BitacoraBLL();
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Bitacora de Eventos", "Consulta de Eventos", 1);
+        gestorBitacora.Alta(eventoGenerado);
         var lista = gestorBitacora.ObtenerEventosPorConsulta(usuarioFiltrar, moduloFiltrar, descripcionFiltrar, criticidadFiltrar, fechaInicioFiltrar, fechaFinFiltrar);
 
         var listaAdaptada = lista.Select(e => new
@@ -43,8 +45,6 @@ public partial class Eventos : System.Web.UI.Page
         gvEventos.DataBind();
         LLenarCB();
         
-        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Bitacora de Eventos", "Consulta de Eventos", 1);
-        gestorBitacora.Alta(eventoGenerado);
     }
 
     public void LLenarCB()

@@ -57,7 +57,7 @@ public partial class MenuAdministrador : System.Web.UI.Page
     protected void btnCerrarSesion_Click(object sender, EventArgs e)
     {
         BitacoraBLL gestorBitacora = new BitacoraBLL();
-        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Menu Administrador", "Salida del Sistema", 4);
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Menu Administrador", "Salida del Sistema", 4);
         gestorBitacora.Alta(eventoGenerado);
         Session.Clear();
         Session.Abandon();

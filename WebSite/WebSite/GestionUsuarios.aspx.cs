@@ -41,7 +41,7 @@ public partial class GestionUsuarios : System.Web.UI.Page
         gvUsuarios.DataSource = listaAdaptada;
         gvUsuarios.DataBind();
         BitacoraBLL gestorBitacora = new BitacoraBLL();
-        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Usuarios", "Consulta Usuarios", 1);
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Usuarios", "Consulta Usuarios", 1);
         gestorBitacora.Alta(eventoGenerado);
     }
     private void LimpiarCampos()
@@ -111,7 +111,7 @@ public partial class GestionUsuarios : System.Web.UI.Page
             lblMensaje.Visible = true;
             LimpiarCampos();
             BitacoraBLL gestorBitacora = new BitacoraBLL();
-            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Usuarios", "Agregacion Usuarios", 2);
+            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Usuarios", "Agregacion Usuarios", 2);
             gestorBitacora.Alta(eventoGenerado);
         }
         catch
@@ -172,7 +172,7 @@ public partial class GestionUsuarios : System.Web.UI.Page
 
                 LimpiarCampos();
                 BitacoraBLL gestorBitacora = new BitacoraBLL();
-                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Usuarios", "Modificacion Usuarios", 3);
+                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Usuarios", "Modificacion Usuarios", 3);
                 gestorBitacora.Alta(eventoGenerado);
             }
             catch
@@ -206,7 +206,7 @@ public partial class GestionUsuarios : System.Web.UI.Page
                 lblMensaje.Visible = true;
                 LimpiarCampos();
                 BitacoraBLL gestorBitacora = new BitacoraBLL();
-                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Usuarios", "Eliminacion Usuarios", 4);
+                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Usuarios", "Eliminacion Usuarios", 4);
                 gestorBitacora.Alta(eventoGenerado);
             }
             catch

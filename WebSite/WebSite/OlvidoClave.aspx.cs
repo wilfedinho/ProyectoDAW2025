@@ -21,7 +21,7 @@ public partial class OlvidoClave : System.Web.UI.Page
         if (usuarioUsername != null && usuarioDNI != null && usuarioDNI.Username == usuarioUsername.Username)
         {
             BitacoraBLL gestorBitacora = new BitacoraBLL();
-            Bitacora eventoGenerado = new Bitacora(usuarioUsername.Username, DateTime.Now.Date, DateTime.Now.TimeOfDay, "Olvido Clave", "Reseteo de Clave", 4);
+            Bitacora eventoGenerado = new Bitacora(usuarioUsername.Username, DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Olvido Clave", "Reseteo de Clave", 4);
             gestorBitacora.Alta(eventoGenerado);
             gestorUsuario.FormateoContraseña(usuarioUsername);
             Response.Redirect("Login.aspx");

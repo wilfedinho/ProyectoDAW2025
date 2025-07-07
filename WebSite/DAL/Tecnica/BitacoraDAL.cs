@@ -10,13 +10,14 @@ namespace DAL.Tecnica
 {
     public class BitacoraDAL
     {
-        public void Alta(Bitacora bitacoraAlta)
+        public Bitacora Alta(Bitacora bitacoraAlta)
         {
+            int idBitacoraGenerado = 0; 
             using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 cone.Open();
 
-                string query = @"INSERT INTO Bitacora (NombreUsuario, Fecha, Hora, Modulo, Descripcion, Criticidad) VALUES (@Username, @Fecha, @Hora, @Modulo, @Descripcion, @Criticidad)";
+                string query = @"INSERT INTO Bitacora (NombreUsuario, Fecha, Hora, Modulo, Descripcion, Criticidad) VALUES (@Username, @Fecha, @Hora, @Modulo, @Descripcion, @Criticidad); SELECT SCOPE_IDENTITY();";
 
                 using (SqlCommand comando = new SqlCommand(query, cone))
                 {
@@ -26,10 +27,13 @@ namespace DAL.Tecnica
                     comando.Parameters.AddWithValue("@Modulo", bitacoraAlta.Modulo);
                     comando.Parameters.AddWithValue("@Descripcion", bitacoraAlta.Descripcion);
                     comando.Parameters.AddWithValue("@Criticidad", bitacoraAlta.Criticidad);
+                    object id = comando.ExecuteScalar();
+                    idBitacoraGenerado = int.Parse(id.ToString());
+                    bitacoraAlta.IdBitacora = idBitacoraGenerado;
 
-                    comando.ExecuteNonQuery();
                 }
             }
+            return bitacoraAlta;
         }
 
 

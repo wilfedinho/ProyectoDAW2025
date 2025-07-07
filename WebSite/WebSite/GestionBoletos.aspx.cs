@@ -47,7 +47,7 @@ public partial class GestionBoletos : System.Web.UI.Page
         gvBoletos.DataSource = listaAdaptada;
         gvBoletos.DataBind();
         BitacoraBLL gestorBitacora = new BitacoraBLL();
-        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Boletos", "Consulta Boletos", 1);
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Boletos", "Consulta Boletos", 1);
         gestorBitacora.Alta(eventoGenerado);
     }
 
@@ -88,7 +88,7 @@ public partial class GestionBoletos : System.Web.UI.Page
                             CargarBoletos();
                             limpiar();
                             BitacoraBLL gestorBitacora = new BitacoraBLL();
-                            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Boletos", "Agregacion Boleto", 2);
+                            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Boletos", "Agregacion Boleto", 2);
                             gestorBitacora.Alta(eventoGenerado);
                         }
                         else
@@ -114,7 +114,7 @@ public partial class GestionBoletos : System.Web.UI.Page
                             CargarBoletos();
                             limpiar();
                             BitacoraBLL gestorBitacora = new BitacoraBLL();
-                            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Boletos", "Agregacion Boleto", 2);
+                            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Boletos", "Agregacion Boleto", 2);
                             gestorBitacora.Alta(eventoGenerado);
                         }
                         else
@@ -181,7 +181,7 @@ public partial class GestionBoletos : System.Web.UI.Page
                                 CargarBoletos();
                                 limpiar();
                                 BitacoraBLL gestorBitacora = new BitacoraBLL();
-                                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Boletos", "Modificacion Boleto", 3);
+                                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Boletos", "Modificacion Boleto", 3);
                                 gestorBitacora.Alta(eventoGenerado);
                             }
                         }
@@ -213,7 +213,7 @@ public partial class GestionBoletos : System.Web.UI.Page
                                 CargarBoletos();
                                 limpiar();
                                 BitacoraBLL gestorBitacora = new BitacoraBLL();
-                                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Boletos", "Modificacion Boleto", 3);
+                                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Boletos", "Modificacion Boleto", 3);
                                 gestorBitacora.Alta(eventoGenerado);
                             }
                         }
@@ -242,7 +242,7 @@ public partial class GestionBoletos : System.Web.UI.Page
                 CargarBoletos();
                 limpiar();
                 BitacoraBLL gestorBitacora = new BitacoraBLL();
-                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Gestion Boletos", "Eliminacion Boleto", 4);
+                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Boletos", "Eliminacion Boleto", 4);
                 gestorBitacora.Alta(eventoGenerado);
             }
             else

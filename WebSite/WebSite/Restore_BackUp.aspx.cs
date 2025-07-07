@@ -13,7 +13,7 @@ public partial class Restore_BackUp : System.Web.UI.Page
 {
     BackUp b = new BackUp();
     protected void Page_Load(object sender, EventArgs e)
-    {   
+    {
         if (Session["usuario"] != null && Session["rol"].ToString() == "WebMaster")
         {
             if (!IsPostBack)
@@ -37,7 +37,7 @@ public partial class Restore_BackUp : System.Web.UI.Page
         Label1.CssClass = exito ? "mensaje-exito" : "mensaje-error";
         Label1.Visible = true;
         BitacoraBLL gestorBitacora = new BitacoraBLL();
-        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "BackUp y Restore", "Realizo un BackUp De La BD", 5);
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "BackUp y Restore", "Realizo un BackUp De La BD", 5);
         gestorBitacora.Alta(eventoGenerado);
     }
 
@@ -64,7 +64,7 @@ public partial class Restore_BackUp : System.Web.UI.Page
                 dv.RecalcularDigitosVerificadores();
                 lblResultadoDV.Text = "";
                 BitacoraBLL gestorBitacora = new BitacoraBLL();
-                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "BackUp y Restore", "Realizo un Restore De La BD", 5);
+                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "BackUp y Restore", "Realizo un Restore De La BD", 5);
                 gestorBitacora.Alta(eventoGenerado);
             }
             catch (Exception ex)
@@ -84,13 +84,21 @@ public partial class Restore_BackUp : System.Web.UI.Page
 
     protected void btnCalcularDV_Click(object sender, EventArgs e)
     {
-        DigitoVerificador dv =  new DigitoVerificador();
+        DigitoVerificador dv = new DigitoVerificador();
         dv.RecalcularDigitosVerificadores();
         lblResultadoDV.Text = string.Empty;
-        lblResultadoDV.Text = "✅ Se volvió a calcular el dígito verificador";
+        if (dv.VerificarIntegridadTodasLasTablasBool())
+        {
+
+            lblResultadoDV.Text = "✅ Se volvió a calcular el dígito verificador";
         BitacoraBLL gestorBitacora = new BitacoraBLL();
-        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "BackUp y Restore", "Realizo un Restore De La BD", 5);
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "BackUp y Restore", "Se Recalculo el Digito Verificador De La BD", 5);
         gestorBitacora.Alta(eventoGenerado);
+        }
+        else
+        {
+            lblResultadoDV.Text = "❌ Error al recalcular el dígito verificador";
+        }
     }
 
     private void MostrarMensajeDV()
@@ -135,6 +143,9 @@ public partial class Restore_BackUp : System.Web.UI.Page
 
     protected void btnCerrarSesion_Click(object sender, EventArgs e)
     {
+        BitacoraBLL gestorBitacora = new BitacoraBLL();
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Menu WebMaster", "Salida del Sistema", 4);
+        gestorBitacora.Alta(eventoGenerado);
         Session.Clear();
         Session.Abandon();
         Response.Redirect("Login.aspx");

@@ -30,7 +30,7 @@ public partial class CambiarClave : System.Web.UI.Page
                 if (txtNuevaClave.Text == txtConfirmarClave.Text)
                 {
                     BitacoraBLL gestorBitacora = new BitacoraBLL();
-                    Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(),DateTime.Now.Date,DateTime.Now.TimeOfDay,"Cambio de Clave","Cambiar Clave",1);
+                    Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Cambio de Clave","Cambiar Clave",1);
                     gestorBitacora.Alta(eventoGenerado);
                     usuarioCambiarClave.Contraseña = txtNuevaClave.Text;
                     gestorUsuario.VerificarCambioClave490WC(usuarioCambiarClave);

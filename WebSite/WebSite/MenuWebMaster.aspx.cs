@@ -32,12 +32,12 @@ public partial class MenuWebMaster : System.Web.UI.Page
 
     protected void btnBackupRestore_Click(object sender, EventArgs e)
     {
-        //Response.Redirect("Restore_BackUp.aspx");
+        Response.Redirect("Restore_BackUp.aspx");
     }
 
     protected void btnDigitosVerificadores_Click(object sender, EventArgs e)
     {
-        //Response.Redirect("Restore_BackUp.aspx");
+        Response.Redirect("Restore_BackUp.aspx");
     }
 
     protected void btnBitacora_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ public partial class MenuWebMaster : System.Web.UI.Page
     protected void btnCerrarSesion_Click(object sender, EventArgs e)
     {
         BitacoraBLL gestorBitacora = new BitacoraBLL();
-        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Now.Date, DateTime.Now.TimeOfDay, "Menu WebMaster", "Salida del Sistema", 4);
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Menu WebMaster", "Salida del Sistema", 4);
         gestorBitacora.Alta(eventoGenerado);
         Session.Clear();
         Session.Abandon();

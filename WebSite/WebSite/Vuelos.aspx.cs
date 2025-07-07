@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BE;
+using BLL.Tecnica;
+using SERVICIOS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +14,7 @@ public partial class Vuelos : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+        
         if (Session["usuario"] == null)
         {
             btnIniciarSesion.Visible = true;
@@ -52,6 +56,13 @@ public partial class Vuelos : System.Web.UI.Page
 
     protected void btnCerrarSesion_Click(object sender, EventArgs e)
     {
+        if (Session["usuario"] != null)
+        {
+            BitacoraBLL gestorBitacora = new BitacoraBLL();
+            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Landing Page", "Salida del Sistema", 4);
+            gestorBitacora.Alta(eventoGenerado);
+        }
+
         Session.Clear();
         Session.Abandon();
         Response.Redirect("Vuelos.aspx");

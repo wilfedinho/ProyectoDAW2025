@@ -16,7 +16,7 @@ namespace SERVICIOS
         {
             var sb = new StringBuilder();
             Encryptador cifrador = new Encryptador();
-            if(obj is Usuario usu)
+            if (obj is Usuario usu)
             {
                 sb.Append(usu.Username);
                 sb.Append(usu.Nombre);
@@ -26,17 +26,17 @@ namespace SERVICIOS
                 sb.Append(usu.Email);
                 sb.Append(usu.Rol);
             }
-            if(obj is Beneficio ben)
+            if (obj is Beneficio ben)
             {
                 sb.Append(ben.CodigoBeneficio);
                 sb.Append(ben.Nombre);
                 sb.Append(ben.PrecioEstrella);
                 sb.Append(ben.CantidadBeneficioReclamo);
                 sb.Append(ben.DescuentoAplicar);
-            }     
-            if(obj is Boleto bol)
+            }
+            if (obj is Boleto bol)
             {
-                if(bol is BoletoIDA)
+                if (bol is BoletoIDA)
                 {
                     sb.Append(bol.IDBoleto);
                     sb.Append(bol.Origen);
@@ -51,7 +51,7 @@ namespace SERVICIOS
                     sb.Append(bol.NumeroAsiento);
                     sb.Append(bol.BeneficioAplicado);
                 }
-                if(bol is BoletoIDAVUELTA bolIV)
+                if (bol is BoletoIDAVUELTA bolIV)
                 {
                     sb.Append(bolIV.IDBoleto);
                     sb.Append(bolIV.Origen);
@@ -69,12 +69,12 @@ namespace SERVICIOS
                     sb.Append(bolIV.BeneficioAplicado);
                 }
             }
-            if(obj is Bitacora bit)
+            if (obj is Bitacora bit)
             {
                 sb.Append(bit.IdBitacora);
                 sb.Append(bit.Username);
-                sb.Append(bit.Fecha);
-                sb.Append(bit.Hora);
+                sb.Append(bit.Fecha.ToString(@"yyyy-MM-dd"));
+                sb.Append(bit.Hora.ToString(@"hh\:mm\:ss"));
                 sb.Append(bit.Modulo);
                 sb.Append(bit.Descripcion);
                 sb.Append(bit.Criticidad);
@@ -87,14 +87,14 @@ namespace SERVICIOS
             var sb = new StringBuilder();
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             Encryptador cifrador = new Encryptador();
-            if(nomTabla == "Usuario")
+            if (nomTabla == "Usuario")
             {
                 foreach (string DVH in usuarioDAL.ObtenerListaDVH())
                 {
                     sb.Append(DVH);
                 }
             }
-            if(nomTabla == "Beneficio")
+            if (nomTabla == "Beneficio")
             {
                 BeneficioDAL beneficioDAL = new BeneficioDAL();
                 foreach (string DVH in beneficioDAL.ObtenerListaDVH())
@@ -102,8 +102,8 @@ namespace SERVICIOS
                     sb.Append(DVH);
                 }
             }
-            
-            if(nomTabla == "Boleto")
+
+            if (nomTabla == "Boleto")
             {
                 BoletoDAL boletoDAL = new BoletoDAL();
                 foreach (string DVH in boletoDAL.ObtenerListaDVH())
@@ -111,7 +111,7 @@ namespace SERVICIOS
                     sb.Append(DVH);
                 }
             }
-            if(nomTabla == "Bitacora")
+            if (nomTabla == "Bitacora")
             {
                 BitacoraDAL bitacoraDAL = new BitacoraDAL();
                 foreach (string DVH in bitacoraDAL.ObtenerListaDVH())
@@ -124,29 +124,64 @@ namespace SERVICIOS
 
         public void ActualizarDVH(Object obj, string nomTabla)
         {
-            if(obj != null || !string.IsNullOrEmpty(nomTabla))
+            
+                if (obj != null || !string.IsNullOrEmpty(nomTabla))
+                {
+                    string dvh = CalcularDVH(obj);
+                    if (nomTabla == "Usuario" && obj is Usuario usuario)
+                    {
+                        UsuarioDAL usuarioDAL = new UsuarioDAL();
+                        usuarioDAL.ActualizarDVH(usuario, dvh);
+                        ActualizarDVV(nomTabla);
+                    }
+                    if (nomTabla == "Beneficio" && obj is Beneficio beneficio)
+                    {
+                        BeneficioDAL beneficioDAL = new BeneficioDAL();
+                        beneficioDAL.ActualizarDVH(beneficio, dvh);
+                        ActualizarDVV(nomTabla);
+                    }
+
+                    if (nomTabla == "Boleto" && obj is Boleto boleto)
+                    {
+                        BoletoDAL boletoDAL = new BoletoDAL();
+                        boletoDAL.ActualizarDVH(boleto, dvh);
+                        ActualizarDVV(nomTabla);
+                    }
+                    if (nomTabla == "Bitacora" && obj is Bitacora bitacora)
+                    {
+                        BitacoraDAL bitacoraDAL = new BitacoraDAL();
+                        bitacoraDAL.ActualizarDVH(bitacora, dvh);
+                        ActualizarDVV(nomTabla);
+                    }
+                }
+
+            
+        }
+        public void ActulizarDHVSOLORECALCULAR(Object obj, string nomTabla)
+        {
+            if (obj != null || !string.IsNullOrEmpty(nomTabla))
             {
                 string dvh = CalcularDVH(obj);
-                if(nomTabla == "Usuario" && obj is Usuario usuario)
+                if (nomTabla == "Usuario" && obj is Usuario usuario)
                 {
                     UsuarioDAL usuarioDAL = new UsuarioDAL();
                     usuarioDAL.ActualizarDVH(usuario, dvh);
                     ActualizarDVV(nomTabla);
                 }
-                if(nomTabla == "Beneficio" && obj is Beneficio beneficio)
+                if (nomTabla == "Beneficio" && obj is Beneficio beneficio)
                 {
                     BeneficioDAL beneficioDAL = new BeneficioDAL();
                     beneficioDAL.ActualizarDVH(beneficio, dvh);
                     ActualizarDVV(nomTabla);
                 }
-                
-                if(nomTabla == "Boleto" && obj is Boleto boleto)
+
+                if (nomTabla == "Boleto" && obj is Boleto boleto)
                 {
                     BoletoDAL boletoDAL = new BoletoDAL();
                     boletoDAL.ActualizarDVH(boleto, dvh);
                     ActualizarDVV(nomTabla);
                 }
-                if(nomTabla == "Bitacora" && obj is Bitacora bitacora)
+                if (nomTabla == "Bitacora" && obj is Bitacora bitacora)
                 {
                     BitacoraDAL bitacoraDAL = new BitacoraDAL();
                     bitacoraDAL.ActualizarDVH(bitacora, dvh);
@@ -160,7 +195,7 @@ namespace SERVICIOS
             DigitoVerificadorDAL digitoVerificadorDAL = new DigitoVerificadorDAL();
 
             digitoVerificadorDAL.ActualizarDVV(nomTabla, dvv);
-            
+
         }
 
         List<string> tablas = new List<string>()
@@ -182,28 +217,28 @@ namespace SERVICIOS
 
         public bool VerificarIntegridadDVH(object obj)
         {
-            if(obj is Usuario usu)
+            if (obj is Usuario usu)
             {
                 UsuarioDAL usuarioDAL = new UsuarioDAL();
                 string dvhMemoria = CalcularDVH(usu);
                 string dvhBD = usuarioDAL.ObtenerDVH(usu);
                 return dvhMemoria == dvhBD;
             }
-            if(obj is Beneficio ben)
+            if (obj is Beneficio ben)
             {
                 BeneficioDAL beneficioDAL = new BeneficioDAL();
                 string dvhMemoria = CalcularDVH(ben);
                 string dvhBD = beneficioDAL.ObtenerDVH(ben);
                 return dvhMemoria == dvhBD;
             }
-            if(obj is Boleto bol)
+            if (obj is Boleto bol)
             {
                 BoletoDAL boletoDAL = new BoletoDAL();
                 string dvhMemoria = CalcularDVH(bol);
                 string dvhBD = boletoDAL.ObtenerDVH(bol);
                 return dvhMemoria == dvhBD;
             }
-            if(obj is Bitacora bit)
+            if (obj is Bitacora bit)
             {
                 BitacoraDAL bitacoraDAL = new BitacoraDAL();
                 string dvhMemoria = CalcularDVH(bit);
@@ -221,7 +256,7 @@ namespace SERVICIOS
             DigitoVerificadorDAL digitoVerificadorDAL = new DigitoVerificadorDAL();
             foreach (var tabla in tablas)
             {
-                if(tabla == "Usuario")
+                if (tabla == "Usuario")
                 {
                     UsuarioDAL usuarioDAL = new UsuarioDAL();
                     foreach (var usuario in usuarioDAL.DevolverTodosLosUsuarios())
@@ -233,7 +268,7 @@ namespace SERVICIOS
                         }
                     }
                 }
-                if(tabla == "Beneficio")
+                if (tabla == "Beneficio")
                 {
                     BeneficioDAL beneficioDAL = new BeneficioDAL();
                     foreach (var beneficio in beneficioDAL.ObtenerTodosLosBeneficios())
@@ -245,7 +280,7 @@ namespace SERVICIOS
                         }
                     }
                 }
-                if(tabla == "Boleto")
+                if (tabla == "Boleto")
                 {
                     BoletoDAL boletoDAL = new BoletoDAL();
                     foreach (var boleto in boletoDAL.ObtenerTodosLosBoletos())
@@ -257,7 +292,7 @@ namespace SERVICIOS
                         }
                     }
                 }
-                if(tabla == "Bitacora")
+                if (tabla == "Bitacora")
                 {
                     BitacoraDAL bitacoraDAL = new BitacoraDAL();
                     foreach (var bitacora in bitacoraDAL.ObtenerEventosPorConsulta())
@@ -274,7 +309,7 @@ namespace SERVICIOS
                     mensaje += $"La tabla {tabla} fue alterada.\n";
                     esValido = false;
                 }
-                if(digitoVerificadorDAL.CalcularCount(tabla) != digitoVerificadorDAL.ObtenerCR(tabla))
+                if (digitoVerificadorDAL.CalcularCount(tabla) != digitoVerificadorDAL.ObtenerCR(tabla))
                 {
                     mensaje += $"La tabla {tabla} tiene un conteo de registros inconsistente.\n";
                     esValido = false;
@@ -347,14 +382,14 @@ namespace SERVICIOS
 
         public void RecalcularDigitosVerificadores()
         {
-            foreach(var tabla in tablas)
+            foreach (var tabla in tablas)
             {
-                if(tabla == "Usuario")
+                if (tabla == "Usuario")
                 {
                     UsuarioDAL usuarioDAL = new UsuarioDAL();
                     foreach (var usuario in usuarioDAL.DevolverTodosLosUsuarios())
                     {
-                        ActualizarDVH(usuario, tabla);
+                        ActulizarDHVSOLORECALCULAR(usuario, tabla);
                     }
                 }
                 if (tabla == "Beneficio")
@@ -362,23 +397,27 @@ namespace SERVICIOS
                     BeneficioDAL beneficioDAL = new BeneficioDAL();
                     foreach (var beneficio in beneficioDAL.ObtenerTodosLosBeneficios())
                     {
-                        ActualizarDVH(beneficio, tabla);
+                        ActulizarDHVSOLORECALCULAR(beneficio, tabla);
                     }
                 }
-                if(tabla == "Boleto")
+                if (tabla == "Boleto")
                 {
                     BoletoDAL boletoDAL = new BoletoDAL();
                     foreach (var boleto in boletoDAL.ObtenerTodosLosBoletos())
                     {
-                        ActualizarDVH(boleto, tabla);
+                        ActulizarDHVSOLORECALCULAR(boleto, tabla);
                     }
                 }
-                if(tabla == "Bitacora")
+                if (tabla == "Bitacora")
                 {
                     BitacoraDAL bitacoraDAL = new BitacoraDAL();
-                    foreach(var bitacora in bitacoraDAL.ObtenerEventosPorConsulta())
+                    if (bitacoraDAL.ObtenerEventosPorConsulta().Count == 0)
                     {
-                        ActualizarDVH(bitacora, tabla);
+                        ActualizarDVV(tabla);
+                    }
+                    foreach (var bitacora in bitacoraDAL.ObtenerEventosPorConsulta())
+                    {
+                        ActulizarDHVSOLORECALCULAR(bitacora, tabla);
                     }
                 }
             }

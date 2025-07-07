@@ -29,7 +29,7 @@ public partial class Registro : System.Web.UI.Page
             Usuario usuario = new Usuario(txtUsuario.Text, txtNombre.Text, txtApellido.Text, txtDNI.Text, txtPassword.Text, txtEmail.Text, "Usuario");
             usuario.Contraseña = cifrador.EncryptadorIrreversible(usuario.Contraseña);
             BitacoraBLL gestorBitacora = new BitacoraBLL();
-            Bitacora eventoGenerado = new Bitacora(usuario.Username, DateTime.Now.Date, DateTime.Now.TimeOfDay, "Registro", "Se registro con exito", 2);
+            Bitacora eventoGenerado = new Bitacora(usuario.Username, DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Registro", "Se registro con exito", 2);
             gestorBitacora.Alta(eventoGenerado);
             usuarioBLL.Alta(usuario);
             Response.Redirect("Login.aspx");
