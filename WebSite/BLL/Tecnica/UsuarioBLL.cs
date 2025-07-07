@@ -16,7 +16,6 @@ namespace BLL.Tecnica
         public void Alta(Usuario UsuarioAlta)
         {
             UsuarioDAL gestorUsuario = new UsuarioDAL();
-            UsuarioAlta.Contraseña = new Encryptador().EncryptadorIrreversible(UsuarioAlta.Contraseña);
             gestorUsuario.Alta(UsuarioAlta);
             DigitoVerificador digitoVerificador = new DigitoVerificador();
             digitoVerificador.ActualizarDVH(UsuarioAlta, "Usuario");

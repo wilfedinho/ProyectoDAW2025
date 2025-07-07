@@ -9,16 +9,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <header class="nav-header">
-            <div class="logo">VIAJES</div>
-            <nav>
-                <a href="#" class="nav-link active">Vuelos</a>
-                <a href="#" class="nav-link">Hoteles</a>
-                <a href="#" class="nav-link">Paquetes</a>
-                <a href="#" class="nav-link">Ofertas</a>
-            </nav>
-            <div class="user-icon">&#9787;</div>
-        </header>
+        <div class="navbar">
+            <asp:Button CssClass="nav-item" ID="btnCambiarClave" runat="server" Text="Cambiar Clave" OnClick="btnCambiarClave_Click" CausesValidation="false" />
+            <asp:Button CssClass="nav-item" ID="btnIniciarSesion" runat="server" Text="Iniciar Sesion" OnClick="btnInicio_Click" CausesValidation="false" />
+            <asp:Button CssClass="nav-item" ID="btnMenuAdministrador" runat="server" Text="Menu Administrador" OnClick="btnMenuAdministrador_Click" CausesValidation="false" Visible="false"/>
+            <asp:Button CssClass="nav-item" ID="btnMenuWebMaster" runat="server" Text="Menu WebMaster" OnClick="btnMenuWebMaster_Click" CausesValidation="false" Visible="false"/>
+            <asp:Button CssClass="nav-item nav-right" ID="btnCerrarSesion" runat="server" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" CausesValidation="false" />
+        </div>
         <section class="search-section">
             <div class="search-box">
                 <h2>Buscar Vuelos</h2>

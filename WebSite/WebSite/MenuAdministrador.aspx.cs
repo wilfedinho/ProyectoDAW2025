@@ -48,6 +48,10 @@ public partial class MenuAdministrador : System.Web.UI.Page
         //de mommento nada 
     }
 
+    protected void btnVuelos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Vuelos.aspx");
+    }
     protected void btnCerrarSesion_Click(object sender, EventArgs e)
     {
         Session.Clear();

@@ -318,6 +318,10 @@ public partial class GestionBoletos : System.Web.UI.Page
         //nada
     }
 
+    protected void btnVuelos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Vuelos.aspx");
+    }   
     protected void btnCerrarSesion_Click(object sender, EventArgs e)
     {
         Session.Clear();

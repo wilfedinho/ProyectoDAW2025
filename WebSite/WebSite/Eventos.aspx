@@ -17,6 +17,7 @@
             <asp:Button CssClass="nav-item" ID="btnDigitosVerificadores" runat="server" Text="Dígitos Verificadores" OnClick="btnDigitosVerificadores_Click" CausesValidation="false" />
             <asp:Button CssClass="nav-item" ID="btnBitacora" runat="server" Text="Bitácora" OnClick="btnBitacora_Click" CausesValidation="false" />
             <asp:Button CssClass="nav-item" ID="btnCambiarClave" runat="server" Text="Cambiar Clave" OnClick="btnCambiarClave_Click" CausesValidation="false" />
+            <asp:Button CssClass="nav-item" ID="btnVuelos" runat="server" Text="Vuelos" OnClick="btnVuelos_Click" CausesValidation="false" />
             <asp:Button CssClass="nav-item nav-right" ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" OnClick="btnCerrarSesion_Click" CausesValidation="false" />
         </div>
 
