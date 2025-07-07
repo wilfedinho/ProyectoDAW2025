@@ -11,10 +11,18 @@ public partial class Restore_BackUp : System.Web.UI.Page
 {
     BackUp b = new BackUp();
     protected void Page_Load(object sender, EventArgs e)
-    {
-        if (!IsPostBack)
+    {   
+        if (Session["usuario"] != null && Session["rol"].ToString() == "WebMaster")
         {
-            archivo.Attributes["accept"] = ".bak";
+            if (!IsPostBack)
+            {
+                archivo.Attributes["accept"] = ".bak";
+            }
+            MostrarMensajeDV();
+        }
+        else
+        {
+            Response.Redirect("Vuelos.aspx");
         }
     }
 
@@ -47,6 +55,9 @@ public partial class Restore_BackUp : System.Web.UI.Page
                 Label2.Text = mensaje;
                 Label2.CssClass = exito ? "mensaje-exito" : "mensaje-error";
                 Label2.Visible = true;
+                DigitoVerificador dv = new DigitoVerificador();
+                dv.RecalcularDigitosVerificadores();
+                lblResultadoDV.Text = "";
             }
             catch (Exception ex)
             {
@@ -61,5 +72,60 @@ public partial class Restore_BackUp : System.Web.UI.Page
             Label2.CssClass = "mensaje-error";
             Label2.Visible = true;
         }
+    }
+
+    protected void btnCalcularDV_Click(object sender, EventArgs e)
+    {
+        DigitoVerificador dv =  new DigitoVerificador();
+        dv.RecalcularDigitosVerificadores();
+        lblResultadoDV.Text = string.Empty;
+        lblResultadoDV.Text = "✅ Se volvió a calcular el dígito verificador";
+    }
+
+    private void MostrarMensajeDV()
+    {
+        lblResultadoDV.Visible = true;
+        lblResultadoDV.Text = string.Empty;
+        DigitoVerificador dv = new DigitoVerificador();
+        if (!dv.VerificarIntegridadTodasLasTablasBool())
+        {
+            lblResultadoDV.Text = $"❌ Inconsistencia en la base de datos\n" + dv.VerificarIntegridadTodasLasTablas();
+        }
+        else
+        {
+            lblResultadoDV.Text = "✅ La base de datos está íntegra";
+        }
+    }
+
+    protected void btnInicio_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("MenuWebMaster.aspx");
+    }
+
+    protected void btnBackupRestore_Click(object sender, EventArgs e)
+    {
+        //nada
+    }
+
+    protected void btnDigitosVerificadores_Click(object sender, EventArgs e)
+    {
+        //nada
+    }
+
+    protected void btnBitacora_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Eventos.aspx");
+    }
+
+    protected void btnCambiarClave_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CambiarClave.aspx");
+    }
+
+    protected void btnCerrarSesion_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Session.Abandon();
+        Response.Redirect("Login.aspx");
     }
 }
