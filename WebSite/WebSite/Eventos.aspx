@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
 
-        <div class="navbar">
+        <div id="navbarPrincipal" runat="server" class="navbar">
             <asp:Button CssClass="nav-item" ID="btnInicio" runat="server" Text="Inicio" OnClick="btnInicio_Click" CausesValidation="false" />
             <asp:Button CssClass="nav-item" ID="btnBackupRestore" runat="server" Text="Backup/Restore" OnClick="btnBackupRestore_Click" CausesValidation="false" />
             <asp:Button CssClass="nav-item" ID="btnDigitosVerificadores" runat="server" Text="Dígitos Verificadores" OnClick="btnDigitosVerificadores_Click" CausesValidation="false" />
