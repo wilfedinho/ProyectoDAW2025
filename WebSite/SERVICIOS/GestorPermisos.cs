@@ -20,6 +20,7 @@ namespace SERVICIOS
             return TienePermiso(tag, permisosSesion);
         }
 
+
         public bool TienePermiso(string pPermiso, EntidadPermisoCompuesto PermisosSesion)
         {
             LogicaPermisoCompuesto PermisoCompuesto = new LogicaPermisoCompuesto();
