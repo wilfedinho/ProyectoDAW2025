@@ -27,6 +27,7 @@ public partial class Vuelos : System.Web.UI.Page
             btnCambiarClave.Visible = true;
             btnCerrarSesion.Visible = true;
         }
+        ChequearAccesibilidadDeTodosLosControles();
 
         /*if (Session["usuario"] == null)
         {
@@ -79,7 +80,7 @@ public partial class Vuelos : System.Web.UI.Page
             }
             else if (ctrl is LinkButton linkBtn)
             {
-                string permiso = linkBtn.CommandName ?? linkBtn.ID ?? linkBtn.Text;
+                string permiso = linkBtn.CommandName;
 
                 if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
                 {
