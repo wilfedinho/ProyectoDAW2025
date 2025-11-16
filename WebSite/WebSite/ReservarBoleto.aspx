@@ -11,32 +11,34 @@
         /* Estilos Globales para el cuerpo */
 
         .boton-accion {
-    padding: 6px 14px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 13px;
-    display: inline-block;
-    transition: 0.2s ease;
-}
+            padding: 6px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-block;
+            transition: 0.2s ease;
+        }
 
-.boton-reservar {
-    background-color: #4caf50;
-    color: white;
-}
-.boton-reservar:hover {
-    background-color: #43a047;
-    transform: translateY(-1px);
-}
+        .boton-reservar {
+            background-color: #4caf50;
+            color: white;
+        }
 
-.boton-beneficio {
-    background-color: #0288d1;
-    color: white;
-}
-.boton-beneficio:hover {
-    background-color: #0277bd;
-    transform: translateY(-1px);
-}
+            .boton-reservar:hover {
+                background-color: #43a047;
+                transform: translateY(-1px);
+            }
+
+        .boton-beneficio {
+            background-color: #0288d1;
+            color: white;
+        }
+
+            .boton-beneficio:hover {
+                background-color: #0277bd;
+                transform: translateY(-1px);
+            }
 
         body {
             font-family: Arial, sans-serif;
@@ -176,44 +178,43 @@
                     background-color: #4a637d;
                 }
 
-                #contenedorPrincipal {
-    width: 95%;
-    max-width: 1400px;
-    margin: 0 auto;
-    background-color: #263238;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.4);
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
+        #contenedorPrincipal {
+            width: 95%;
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: #263238;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.4);
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
 
-                .gridview {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #37474f;
-    color: white;
-}
+        .gridview {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #37474f;
+            color: white;
+        }
 
-.gridview th {
-    background-color: #455a64;
-    padding: 10px;
-    text-align: center;
-}
+            .gridview th {
+                background-color: #455a64;
+                padding: 10px;
+                text-align: center;
+            }
 
-.gridview td {
-    padding: 8px 10px;
-    border-bottom: 1px solid #546e7a;
-}
+            .gridview td {
+                padding: 8px 10px;
+                border-bottom: 1px solid #546e7a;
+            }
 
-.gridview tr:hover td {
-    background-color: #546e7a;
-}
+            .gridview tr:hover td {
+                background-color: #546e7a;
+            }
 
-.gridview a {
-    color: #82b1ff; /* color del link clásico */
-}
-
+            .gridview a {
+                color: #82b1ff; /* color del link clásico */
+            }
     </style>
 </head>
 
@@ -292,27 +293,34 @@
                     <asp:Button ID="btnRestablecer" runat="server" Text="Restablecer" CssClass="boton-secundario" />
                 </div>
 
+                <div class="grupo-filtro">
+                    <label for="ddlBeneficioCliente">Beneficios Del Cliente:</label>
+                    <asp:DropDownList ID="ddlBeneficios" runat="server" CssClass="control-select">
+                        <asp:ListItem Text="-- Seleccione --" Value="" />
+                    </asp:DropDownList>
+                </div>
+
             </div>
 
             <!-- 🔹 TABLA RESULTADOS -->
             <div class="contenedor-tabla">
                 <asp:GridView ID="gvBoletos" runat="server" AutoGenerateColumns="False" CssClass="gridview"
-    OnRowCommand="gvBoletos_RowCommand" DataKeyNames="NumeroBoleto">
+                    OnRowCommand="gvBoletos_RowCommand" DataKeyNames="NumeroBoleto">
 
-    <Columns>
+                    <Columns>
 
-        
-        <asp:TemplateField HeaderText="Acciones">
-    <ItemTemplate>
 
-        <asp:LinkButton ID="btnReservar" runat="server"
-            CommandName="Reservar"
-            CommandArgument='<%# Eval("NumeroBoleto") %>'
-            CssClass="boton-accion boton-reservar">
+                        <asp:TemplateField HeaderText="Acciones">
+                            <ItemTemplate>
+
+                                <asp:LinkButton ID="btnReservar" runat="server"
+                                    CommandName="Reservar"
+                                    CommandArgument='<%# Eval("NumeroBoleto") %>'
+                                    CssClass="boton-accion boton-reservar">
             Reservar
-        </asp:LinkButton>
+                                </asp:LinkButton>
 
-        &nbsp;
+                                &nbsp;
 
         <asp:LinkButton ID="btnReservarBeneficio" runat="server"
             CommandName="ReservarBeneficio"
@@ -321,29 +329,29 @@
             Reservar con Beneficio
         </asp:LinkButton>
 
-    </ItemTemplate>
-</asp:TemplateField>
+                            </ItemTemplate>
+                        </asp:TemplateField>
 
-        
-        <asp:BoundField DataField="NumeroBoleto" HeaderText="N° Boleto" />
-        <asp:BoundField DataField="Modalidad" HeaderText="Modalidad" />
-        <asp:BoundField DataField="Origen" HeaderText="Origen" />
-        <asp:BoundField DataField="Destino" HeaderText="Destino" />
 
-        <asp:BoundField DataField="FechaPartidaIDA" HeaderText="Partida IDA" />
-        <asp:BoundField DataField="FechaLlegadaIDA" HeaderText="Llegada IDA" />
+                        <asp:BoundField DataField="NumeroBoleto" HeaderText="N° Boleto" />
+                        <asp:BoundField DataField="Modalidad" HeaderText="Modalidad" />
+                        <asp:BoundField DataField="Origen" HeaderText="Origen" />
+                        <asp:BoundField DataField="Destino" HeaderText="Destino" />
 
-        <asp:BoundField DataField="FechaPartidaVUELTA" HeaderText="Partida VUELTA" />
-        <asp:BoundField DataField="FechaLlegadaVUELTA" HeaderText="Llegada VUELTA" />
+                        <asp:BoundField DataField="FechaPartidaIDA" HeaderText="Partida IDA" />
+                        <asp:BoundField DataField="FechaLlegadaIDA" HeaderText="Llegada IDA" />
 
-        <asp:BoundField DataField="ClaseBoleto" HeaderText="Clase" />
-        <asp:BoundField DataField="PesoEquipajePermitido" HeaderText="Peso Permitido" />
-        <asp:BoundField DataField="Precio" HeaderText="Precio" />
-        <asp:BoundField DataField="NumeroAsiento" HeaderText="Asiento" />
+                        <asp:BoundField DataField="FechaPartidaVUELTA" HeaderText="Partida VUELTA" />
+                        <asp:BoundField DataField="FechaLlegadaVUELTA" HeaderText="Llegada VUELTA" />
 
-    </Columns>
+                        <asp:BoundField DataField="ClaseBoleto" HeaderText="Clase" />
+                        <asp:BoundField DataField="PesoEquipajePermitido" HeaderText="Peso Permitido" />
+                        <asp:BoundField DataField="Precio" HeaderText="Precio" />
+                        <asp:BoundField DataField="NumeroAsiento" HeaderText="Asiento" />
 
-</asp:GridView>
+                    </Columns>
+
+                </asp:GridView>
             </div>
 
         </div>

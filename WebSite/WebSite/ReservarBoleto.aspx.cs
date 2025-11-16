@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL.Negocio;
+using BLL.Tecnica;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,15 @@ using System.Web.UI.WebControls;
 
 public partial class ReservarBoleto : System.Web.UI.Page
 {
+    Boleto boletoCargado;
+    Usuario ClienteCargado;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
+            UsuarioBLL gestorUsuario = new UsuarioBLL();
+            boletoCargado = null;
+            ClienteCargado = gestorUsuario.BuscarClientePorDNI("77.777.777");
             Mostrar490WC();
             LLenarCB();
             LimpiarCampos490WC();
@@ -72,9 +78,11 @@ public partial class ReservarBoleto : System.Web.UI.Page
         ddlOrigen.Items.Clear();
         ddlDestino.Items.Clear();
         ddlClaseBoleto.Items.Clear();
+        ddlBeneficios.Items.Clear();
         ddlOrigen.Items.Add("");
         ddlDestino.Items.Add("");
         ddlClaseBoleto.Items.Add("");
+        ddlBeneficios.Items.Add("");
         foreach (Boleto boleto490WC in gestorBoleto490WC.ObtenerTodosLosBoletos())
         {
             if (boleto490WC.IsVendido == false)
@@ -87,6 +95,14 @@ public partial class ReservarBoleto : System.Web.UI.Page
 
                 if (ddlClaseBoleto.Items.FindByText(boleto490WC.ClaseBoleto) == null)
                     ddlClaseBoleto.Items.Add(boleto490WC.ClaseBoleto);
+            }
+        }
+        if (ClienteCargado != null && ClienteCargado.BeneficiosCliente.Count > 0)
+        {
+            foreach (Beneficio bene in ClienteCargado.BeneficiosCliente)
+            {
+                if (ddlBeneficios.Items.FindByText(bene.Nombre) == null)
+                    ddlBeneficios.Items.Add(bene.Nombre);
             }
         }
     }
@@ -172,16 +188,28 @@ public partial class ReservarBoleto : System.Web.UI.Page
 
     protected void gvBoletos_RowCommand(object sender, GridViewCommandEventArgs e)
     {
+        BoletoBLL gestorBoleto = new BoletoBLL();
+        BeneficioBLL gestorBeneficio = new BeneficioBLL();
+        UsuarioBLL gestorCliente = new UsuarioBLL();
         int idBoleto = Convert.ToInt32(e.CommandArgument);
 
         switch (e.CommandName)
         {
             case "Reservar":
-                // lógica para reservar boleto
+                gestorBoleto.AsignarBoletoCliente(boletoCargado, ClienteCargado);
+                Mostrar490WC();
                 break;
 
             case "ReservarBeneficio":
-                // lógica para reservar boleto con beneficio
+                Beneficio beneficioAplicar = ClienteCargado.BeneficiosCliente.Find(x => x.Nombre == ddlBeneficios.SelectedItem.ToString());
+                gestorBeneficio.AplicarBeneficio(boletoCargado.IDBoleto, beneficioAplicar.DescuentoAplicar, beneficioAplicar.Nombre);
+                boletoCargado = gestorBoleto.ObtenerBoletoConBeneficio(boletoCargado.IDBoleto);
+                gestorBeneficio.EliminarBeneficioDeCliente(ClienteCargado.DNI, beneficioAplicar.CodigoBeneficio);
+                ClienteCargado = gestorCliente.BuscarClientePorDNI(ClienteCargado.DNI);
+                
+
+                gestorBoleto.AsignarBoletoCliente(boletoCargado, ClienteCargado);
+                Mostrar490WC();
                 break;
         }
     }
