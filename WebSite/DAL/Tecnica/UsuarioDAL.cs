@@ -1,5 +1,6 @@
 ﻿using BE;
 using DAL.Negocio;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Net;
@@ -218,7 +219,93 @@ namespace DAL
             }
         }
 
+        public void ModificarEstrellasCliente(string DNI490WC, int EstrellasReducir490WC)
+        {
+            BeneficioDAL gestorBeneficioDAL490WC = new BeneficioDAL();
+            gestorBeneficioDAL490WC.ReducirSaldoEstrellas(DNI490WC, EstrellasReducir490WC);
+        }
+
+        public Usuario BuscarClientePorDNI(string DNI490WC)
+        {
+            using (SqlConnection cone490WC = GestorConexion.DevolverConexion())
+            {
+                cone490WC.Open();
+
+                string query490WC = "SELECT * FROM Usuario WHERE DNI = @DNI";
+
+                using (SqlCommand comando490WC = new SqlCommand(query490WC, cone490WC))
+                {
+                    comando490WC.Parameters.AddWithValue("@DNI", DNI490WC);
+
+                    using (SqlDataReader reader = comando490WC.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            BeneficioDAL gestorBeneficio490WC = new BeneficioDAL();
+                            List<Beneficio> beneficiosCliente = gestorBeneficio490WC.ObtenerBeneficiosPorCliente(DNI490WC);
+
+                            return new Usuario(
+                                reader["Username"].ToString(),
+                                reader["Nombre"].ToString(),
+                                reader["Apellido"].ToString(),
+                                reader["DNI"].ToString(),
+                                reader["Contraseña"].ToString(),
+                                reader["Email"].ToString(),
+                                reader["Rol"].ToString(),
+                                beneficiosCliente,
+                                int.Parse(reader["EstrellasCliente"].ToString())
+                            );
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        public List<Usuario> ObtenerTodosLosCliente()
+        {
+            List<Usuario> listaClientes490WC = new List<Usuario>();
+
+            using (SqlConnection cone490WC = GestorConexion.DevolverConexion())
+            {
+                cone490WC.Open();
+                string query490WC = "SELECT * FROM Usuario";
+
+                using (SqlCommand comando490WC = new SqlCommand(query490WC, cone490WC))
+                {
+                    BeneficioDAL gestorBeneficio490WC = new BeneficioDAL();
+
+                    using (SqlDataReader reader = comando490WC.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string dni = reader["DNI"].ToString();
+                           
+                            List<Beneficio> beneficios = gestorBeneficio490WC.ObtenerBeneficiosPorCliente(dni);
+
+                            listaClientes490WC.Add(new Usuario(
+                                
+                                reader["Username"].ToString(),
+                                reader["Nombre"].ToString(),
+                                reader["Apellido"].ToString(),
+                                reader["DNI"].ToString(),
+                                reader["Contraseña"].ToString(),
+                                reader["Email"].ToString(),
+                                reader["Rol"].ToString(),
+                                beneficios,
+                                int.Parse(reader["EstrellasCliente"].ToString()
+                            )));
+                        }
+                    }
+                }
+            }
+
+            return listaClientes490WC;
+        }
+
     }
+
 
 
 }
