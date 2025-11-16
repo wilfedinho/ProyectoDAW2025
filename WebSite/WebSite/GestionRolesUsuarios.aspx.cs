@@ -22,6 +22,7 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
             MostrarPermisos();
             ddlRoles.Items.Insert(0, new ListItem("-- Seleccione un rol --", ""));
             ddlRoles.SelectedIndex = 0;
+            gp.ActualizarGeneral();
         }
         lista = new List<string>();
     }
@@ -137,6 +138,10 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
                     lista.Add(p.DevolverNombrePermiso());
                 }
             }
+            ViewState["permisosInicialesRol"] = chkPermisos.Items.Cast<ListItem>()
+                    .Where(i => i.Selected)
+                    .Select(i => i.Text)
+                    .ToList();
         }
         else
         {
@@ -147,48 +152,37 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
         }
     }
 
+
+
     protected void btnCambiarPermisos_Click(object sender, EventArgs e)
     {
         try
         {
-            // 1. Listas temporales
-            List<string> permisosCheckeados = new List<string>();
-            List<string> permisosCheckeadosNivel1 = new List<string>();
-            // 2. Recorrer CheckBoxList (equivalente a CheckedItems)
-            foreach (ListItem item in chkPermisos.Items)
-            {
-                if (item.Selected)
-                {
-                    permisosCheckeados.Add(item.Text);
-                    permisosCheckeadosNivel1.Add(item.Text);
+            if (ddlRoles.SelectedIndex == -1 || ddlRoles.SelectedItem.Text == "-- Seleccione un rol --")
+                throw new Exception("Debe seleccionar un rol.");
 
-                    EntidadPermiso permiso = gp.ObtenerPermisosArbol().Find(x => x.DevolverNombrePermiso() == item.Text);
+            // Permisos que tenía el rol ANTES
+            var iniciales = ViewState["permisosInicialesRol"] as List<string> ?? new List<string>();
 
-                    if (permiso != null && permiso.isComposite())
-                    {
-                        AgregarHijosRecursivosWeb((EntidadPermisoCompuesto)permiso, permisosCheckeados);
-                    }
-                }
-            }
-            // 3. Permisos eliminados (diferencia)
-            var diferencia = permisosCheckeadosNivel1.Where(u => !lista.Any(x => x == u)).ToList();
-            // 4. Actualizar permisos en la base
-            gp.ActualizarPermisos(ddlRoles.SelectedItem.Text, permisosCheckeadosNivel1, diferencia);
-            // 5. Actualizar lista local
-            foreach (ListItem item in chkPermisos.Items)
-            {
-                if (item.Selected)
-                {
-                    if (!lista.Any(x => x == item.Text))
-                        lista.Add(item.Text);
-                }
-                else
-                {
-                    if (lista.Any(x => x == item.Text))
-                        lista.Remove(item.Text);
-                }
-            }
-            // 6. Recargar página limpia (profesional)
+            // Permisos seleccionados AHORA
+            var actuales = chkPermisos.Items.Cast<ListItem>()
+                                .Where(i => i.Selected)
+                                .Select(i => i.Text)
+                                .ToList();
+
+            // Permisos que se agregaron
+            var agregados = actuales.Except(iniciales).ToList();
+
+            // Permisos que se quitaron
+            var quitados = iniciales.Except(actuales).ToList();
+
+            // 🔥 ESTO ES LO CORRECTO PARA TU BLL 🔥
+            gp.ActualizarPermisos(
+                ddlRoles.SelectedItem.Text,
+                actuales,   // LISTA FINAL COMPLETA
+                quitados    // LO QUE HAY QUE BORRAR
+            );
+
             Response.Redirect(Request.RawUrl);
         }
         catch (Exception ex)
@@ -360,5 +354,40 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
             lblError.Text = ex.Message;
             lblError.Visible = true;
         }
+    }
+
+    protected void btnInicio_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnUsuarios_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnBeneficios_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnBoletos_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnClave_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnVuelos_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnCerrarSesion_Click(object sender, EventArgs e)
+    {
+
     }
 }

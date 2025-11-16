@@ -23,63 +23,6 @@ public partial class GestionBeneficios : System.Web.UI.Page
         {
             Response.Redirect("Vuelos.aspx");
         }
-        ChequearAccesibilidadDeTodosLosControles();
-    }
-
-    public void ChequearAccesibilidadDeTodosLosControles()
-    {
-        GestorPermisos gp = new GestorPermisos();
-        ChequearAccesibilidadRecursiva(Page, gp);
-        ChequearAccesibilidadNavbar(navbarPrincipal, gp);
-    }
-
-    private void ChequearAccesibilidadNavbar(Control navbar, GestorPermisos gp)
-    {
-        foreach (Control ctrl in navbar.Controls)
-        {
-            if (ctrl is Button btn)
-            {
-                string permiso = btn.CommandName;
-
-                if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
-                {
-                    btn.Visible = false;
-                }
-            }
-            else if (ctrl is LinkButton linkBtn)
-            {
-                string permiso = linkBtn.CommandName;
-
-                if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
-                {
-                    linkBtn.Visible = false;
-                }
-            }
-            else if (ctrl.HasControls())
-            {
-                ChequearAccesibilidadNavbar(ctrl, gp);
-            }
-        }
-    }
-
-    public void ChequearAccesibilidadRecursiva(Control contenedor, GestorPermisos gp)
-    {
-        foreach (Control ctrl in contenedor.Controls)
-        {
-            if (ctrl is Button)
-            {
-                ChequearAccesibilidad(ctrl as Button, gp);
-                if (ctrl.HasControls())
-                {
-                    ChequearAccesibilidadRecursiva(ctrl, gp);
-                }
-            }
-        }
-    }
-
-    public void ChequearAccesibilidad(Button boton, GestorPermisos gp)
-    {
-        boton.Visible = gp.Configurar_Control(boton.CommandName.ToString(), Session["rol"].ToString(), gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto);
     }
 
     public void CargarBeneficios()

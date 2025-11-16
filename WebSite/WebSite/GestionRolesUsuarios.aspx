@@ -10,16 +10,58 @@
 <body>
     <form id="form1" runat="server">
         <nav id="navbarPrincipal" runat="server" class="navbar">
-            <ul>
-                <li><a href="#" data-key="btn_inicio" runat="server">Inicio</a></li>
-                <li><a href="#" data-key="btn_usuarios" runat="server">Gestión Usuarios</a></li>
-                <li><a href="#" data-key="btn_beneficios" runat="server">Gestión Beneficios</a></li>
-                <li><a href="#" data-key="btn_boletos" runat="server">Gestión Boletos</a></li>
-                <li><a href="#" data-key="btn_clave" runat="server">Cambiar Clave</a></li>
-                <li><a href="#" data-key="btn_vuelos" runat="server">Vuelos</a></li>
-                <li><a href="#" class="cerrar" data-key="btn_cerrarSesion" runat="server">Cerrar Sesión</a></li>
-            </ul>
-        </nav>
+    <ul>
+        <li>
+            <asp:LinkButton runat="server" ID="btnInicio" 
+                Text="Inicio" CssClass="nav-link" 
+                data-key="btn_inicio" CausesValidation="false"
+                OnClick="btnInicio_Click"></asp:LinkButton>
+        </li>
+
+        <li>
+            <asp:LinkButton runat="server" ID="btnUsuarios" 
+                Text="Gestión Usuarios" CssClass="nav-link" 
+                data-key="btn_usuarios" CausesValidation="false"
+                OnClick="btnUsuarios_Click"></asp:LinkButton>
+        </li>
+
+        <li>
+            <asp:LinkButton runat="server" ID="btnBeneficios" 
+                Text="Gestión Beneficios" CssClass="nav-link" 
+                data-key="btn_beneficios" CausesValidation="false"
+                OnClick="btnBeneficios_Click"></asp:LinkButton>
+        </li>
+
+        <li>
+            <asp:LinkButton runat="server" ID="btnBoletos" 
+                Text="Gestión Boletos" CssClass="nav-link" 
+                data-key="btn_boletos" CausesValidation="false"
+                OnClick="btnBoletos_Click"></asp:LinkButton>
+        </li>
+
+        <li>
+            <asp:LinkButton runat="server" ID="btnClave" 
+                Text="Cambiar Clave" CssClass="nav-link" 
+                data-key="btn_clave" CausesValidation="false"
+                OnClick="btnClave_Click"></asp:LinkButton>
+        </li>
+
+        <li>
+            <asp:LinkButton runat="server" ID="btnVuelos" 
+                Text="Vuelos" CssClass="nav-link" 
+                data-key="btn_vuelos" CausesValidation="false"
+                OnClick="btnVuelos_Click"></asp:LinkButton>
+        </li>
+
+        <li>
+            <asp:LinkButton runat="server" ID="btnCerrarSesion" 
+                Text="Cerrar Sesión" CssClass="nav-link cerrar" 
+                data-key="btn_cerrarSesion" CausesValidation="false"
+                OnClick="btnCerrarSesion_Click"></asp:LinkButton>
+        </li>
+    </ul>
+</nav>
+
 
         <div class="contenedor">
             <div class="columna izquierda">
