@@ -403,9 +403,30 @@ namespace DAL.Negocio
                         if (reader.Read())
                         {
                             string dni = reader["Titular"].ToString();
+                            Usuario cliente = Titulares.Find(x => x.DNI == dni);
                             if (reader["FechaPartidaVUELTA"] == DBNull.Value || reader["FechaLlegadaVUELTA"] == DBNull.Value)
                             {
-                                return new BoletoIDA(
+                                if (reader["BeneficioAplicado"] == DBNull.Value)
+                                {
+
+                                    Boleto boletoAgregar = new BoletoIDA(
+                                        reader["ID"].ToString(),
+                                        reader["Origen"].ToString(),
+                                        reader["Destino"].ToString(),
+                                        Convert.ToDateTime(reader["FechaPartidaIDA"]),
+                                        Convert.ToDateTime(reader["FechaLlegadaIDA"]),
+                                        Convert.ToBoolean(reader["IsVendido"]),
+                                        Convert.ToSingle(reader["PesoEquipajePermitido"]),
+                                        reader["ClaseBoleto"].ToString(),
+                                        Convert.ToSingle(reader["Precio"]),
+                                        cliente,
+                                        reader["NumeroAsiento"].ToString()
+                                    );
+                                    return boletoAgregar;
+                                }
+                                else
+                                {
+                                    Boleto boletoAgregar = new BoletoIDA(
                                     reader["ID"].ToString(),
                                     reader["Origen"].ToString(),
                                     reader["Destino"].ToString(),
@@ -415,13 +436,18 @@ namespace DAL.Negocio
                                     Convert.ToSingle(reader["PesoEquipajePermitido"]),
                                     reader["ClaseBoleto"].ToString(),
                                     Convert.ToSingle(reader["Precio"]),
-                                    Titulares.Find(x => x.DNI == dni),
-                                    reader["NumeroAsiento"].ToString()
+                                    cliente,
+                                    reader["NumeroAsiento"].ToString(),
+                                    reader["BeneficioAplicado"].ToString()
                                 );
+                                    return boletoAgregar;
+                                }
                             }
                             else
                             {
-                                return new BoletoIDAVUELTA(
+                                if (reader["BeneficioAplicado"] == DBNull.Value)
+                                {
+                                    Boleto boletoAgregar = new BoletoIDAVUELTA(
                                     reader["ID"].ToString(),
                                     reader["Origen"].ToString(),
                                     reader["Destino"].ToString(),
@@ -433,9 +459,31 @@ namespace DAL.Negocio
                                     Convert.ToSingle(reader["PesoEquipajePermitido"]),
                                     reader["ClaseBoleto"].ToString(),
                                     Convert.ToSingle(reader["Precio"]),
-                                    Titulares.Find(x => x.DNI == dni),
+                                    cliente,
                                     reader["NumeroAsiento"].ToString()
                                 );
+                                    return boletoAgregar;
+                                }
+                                else
+                                {
+                                    Boleto boletoAgregar = new BoletoIDAVUELTA(
+                                    reader["ID"].ToString(),
+                                    reader["Origen"].ToString(),
+                                    reader["Destino"].ToString(),
+                                    Convert.ToDateTime(reader["FechaPartidaIDA"]),
+                                    Convert.ToDateTime(reader["FechaLlegadaIDA"]),
+                                    Convert.ToDateTime(reader["FechaPartidaVUELTA"]),
+                                    Convert.ToDateTime(reader["FechaLlegadaVUELTA"]),
+                                    Convert.ToBoolean(reader["IsVendido"]),
+                                    Convert.ToSingle(reader["PesoEquipajePermitido"]),
+                                    reader["ClaseBoleto"].ToString(),
+                                    Convert.ToSingle(reader["Precio"]),
+                                    cliente,
+                                    reader["NumeroAsiento"].ToString(),
+                                    reader["BeneficioAplicado"].ToString()
+                                );
+                                    return boletoAgregar;
+                                }
                             }
                         }
                     }
@@ -462,24 +510,48 @@ namespace DAL.Negocio
                         {
                             if (reader["FechaPartidaVUELTA"] == DBNull.Value || reader["FechaLlegadaVUELTA"] == DBNull.Value)
                             {
-                                Boleto boletoPagar = new BoletoIDA(
-                                   reader["ID"].ToString(),
-                                   reader["Origen"].ToString(),
-                                   reader["Destino"].ToString(),
-                                   Convert.ToDateTime(reader["FechaPartidaIDA"]),
-                                   Convert.ToDateTime(reader["FechaLlegadaIDA"]),
-                                   Convert.ToBoolean(reader["IsVendido"]),
-                                   Convert.ToSingle(reader["PesoEquipajePermitido"]),
-                                   reader["ClaseBoleto"].ToString(),
-                                   Convert.ToSingle(reader["Precio"]),
-                                   Titulares.Find(x => x.DNI == cliente.DNI),
-                                   reader["NumeroAsiento"].ToString()
-                               );
-                                boletos.Add(boletoPagar);
+                                if (reader["BeneficioAplicado"] == DBNull.Value)
+                                {
+
+                                    Boleto boletoAgregar = new BoletoIDA(
+                                        reader["ID"].ToString(),
+                                        reader["Origen"].ToString(),
+                                        reader["Destino"].ToString(),
+                                        Convert.ToDateTime(reader["FechaPartidaIDA"]),
+                                        Convert.ToDateTime(reader["FechaLlegadaIDA"]),
+                                        Convert.ToBoolean(reader["IsVendido"]),
+                                        Convert.ToSingle(reader["PesoEquipajePermitido"]),
+                                        reader["ClaseBoleto"].ToString(),
+                                        Convert.ToSingle(reader["Precio"]),
+                                        cliente,
+                                        reader["NumeroAsiento"].ToString()
+                                    );
+                                    boletos.Add(boletoAgregar);
+                                }
+                                else
+                                {
+                                    Boleto boletoAgregar = new BoletoIDA(
+                                    reader["ID"].ToString(),
+                                    reader["Origen"].ToString(),
+                                    reader["Destino"].ToString(),
+                                    Convert.ToDateTime(reader["FechaPartidaIDA"]),
+                                    Convert.ToDateTime(reader["FechaLlegadaIDA"]),
+                                    Convert.ToBoolean(reader["IsVendido"]),
+                                    Convert.ToSingle(reader["PesoEquipajePermitido"]),
+                                    reader["ClaseBoleto"].ToString(),
+                                    Convert.ToSingle(reader["Precio"]),
+                                    cliente,
+                                    reader["NumeroAsiento"].ToString(),
+                                    reader["BeneficioAplicado"].ToString()
+                                );
+                                    boletos.Add(boletoAgregar);
+                                }
                             }
                             else
                             {
-                                Boleto boletoPagar = new BoletoIDAVUELTA(
+                                if (reader["BeneficioAplicado"] == DBNull.Value)
+                                {
+                                    Boleto boletoAgregar = new BoletoIDAVUELTA(
                                     reader["ID"].ToString(),
                                     reader["Origen"].ToString(),
                                     reader["Destino"].ToString(),
@@ -491,10 +563,31 @@ namespace DAL.Negocio
                                     Convert.ToSingle(reader["PesoEquipajePermitido"]),
                                     reader["ClaseBoleto"].ToString(),
                                     Convert.ToSingle(reader["Precio"]),
-                                    Titulares.Find(x => x.DNI == cliente.DNI),
+                                    cliente,
                                     reader["NumeroAsiento"].ToString()
                                 );
-                                boletos.Add(boletoPagar);
+                                    boletos.Add(boletoAgregar);
+                                }
+                                else
+                                {
+                                    Boleto boletoAgregar = new BoletoIDAVUELTA(
+                                    reader["ID"].ToString(),
+                                    reader["Origen"].ToString(),
+                                    reader["Destino"].ToString(),
+                                    Convert.ToDateTime(reader["FechaPartidaIDA"]),
+                                    Convert.ToDateTime(reader["FechaLlegadaIDA"]),
+                                    Convert.ToDateTime(reader["FechaPartidaVUELTA"]),
+                                    Convert.ToDateTime(reader["FechaLlegadaVUELTA"]),
+                                    Convert.ToBoolean(reader["IsVendido"]),
+                                    Convert.ToSingle(reader["PesoEquipajePermitido"]),
+                                    reader["ClaseBoleto"].ToString(),
+                                    Convert.ToSingle(reader["Precio"]),
+                                    cliente,
+                                    reader["NumeroAsiento"].ToString(),
+                                    reader["BeneficioAplicado"].ToString()
+                                );
+                                    boletos.Add(boletoAgregar);
+                                }
                             }
                         }
                     }
