@@ -16,7 +16,7 @@ public partial class CanjearBeneficio : System.Web.UI.Page
 
         Mostrar490WC();
         UsuarioBLL gestorUsuario = new UsuarioBLL();
-        clienteCargado = gestorUsuario.BuscarClientePorDNI("77.777.777");
+        clienteCargado = gestorUsuario.BuscarClientePorDNI("44.714.502");
         CargarInfoUsuario();
 
     }
