@@ -37,7 +37,7 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public List<Beneficio> Deserializar(string ruta)
     {
-        using (FileStream fs = new FileStream(ruta, FileMode.Create))
+        using (FileStream fs = new FileStream(ruta, FileMode.Open, FileAccess.Read))
         {
             XmlSerializer serializador = new XmlSerializer(typeof(List<Beneficio>));
             return (List<Beneficio>)serializador.Deserialize(fs);
