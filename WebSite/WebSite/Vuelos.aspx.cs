@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 public partial class Vuelos : System.Web.UI.Page
@@ -14,8 +15,21 @@ public partial class Vuelos : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-        
-        if (Session["usuario"] == null)
+        if(Session["usuario"] == null)
+        {
+            btnIniciarSesion.Visible = true;
+            btnCambiarClave.Visible = false;
+            btnCerrarSesion.Visible = false;
+        }
+        else
+        {
+            btnIniciarSesion.Visible = false;
+            btnCambiarClave.Visible = true;
+            btnCerrarSesion.Visible = true;
+        }
+        ChequearAccesibilidadDeTodosLosControles();
+
+        /*if (Session["usuario"] == null)
         {
             btnIniciarSesion.Visible = true;
             btnCambiarClave.Visible = false;
@@ -41,7 +55,63 @@ public partial class Vuelos : System.Web.UI.Page
                 btnMenuAdministrador.Visible = false;
                 btnMenuWebMaster.Visible = false;
             }
+        }*/
+    }
+
+    public void ChequearAccesibilidadDeTodosLosControles()
+    {
+        GestorPermisos gp = new GestorPermisos();
+        ChequearAccesibilidadRecursiva(Page, gp);
+        ChequearAccesibilidadNavbar(navbarPrincipal, gp);
+    }
+
+    private void ChequearAccesibilidadNavbar(Control navbar, GestorPermisos gp)
+    {
+        foreach (Control ctrl in navbar.Controls)
+        {
+            if (ctrl is Button btn)
+            {
+                string permiso = btn.CommandName;
+
+                if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
+                {
+                    btn.Visible = false; 
+                }
+            }
+            else if (ctrl is LinkButton linkBtn)
+            {
+                string permiso = linkBtn.CommandName;
+
+                if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
+                {
+                    linkBtn.Visible = false;
+                }
+            }
+            else if (ctrl.HasControls())
+            {
+                ChequearAccesibilidadNavbar(ctrl, gp);
+            }
         }
+    }
+
+    public void ChequearAccesibilidadRecursiva(Control contenedor, GestorPermisos gp)
+    {
+        foreach (Control ctrl in contenedor.Controls)
+        {
+            if(ctrl is Button)
+            {
+                ChequearAccesibilidad(ctrl as Button, gp);
+                if (ctrl.HasControls())
+                {
+                    ChequearAccesibilidadRecursiva(ctrl, gp);
+                }
+            }
+        }
+    }
+
+    public void ChequearAccesibilidad(Button boton, GestorPermisos gp)
+    {
+        boton.Visible = gp.Configurar_Control(boton.CommandName.ToString(), Session["rol"].ToString(), gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto);
     }
 
     protected void btnInicio_Click(object sender, EventArgs e)
