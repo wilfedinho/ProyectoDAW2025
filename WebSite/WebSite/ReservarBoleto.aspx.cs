@@ -14,11 +14,11 @@ public partial class ReservarBoleto : System.Web.UI.Page
     Usuario ClienteCargado;
     protected void Page_Load(object sender, EventArgs e)
     {
+        UsuarioBLL gestorUsuario = new UsuarioBLL();
+        boletoCargado = null;
+        ClienteCargado = gestorUsuario.BuscarClientePorDNI("77.777.777");
         if (!IsPostBack)
         {
-            UsuarioBLL gestorUsuario = new UsuarioBLL();
-            boletoCargado = null;
-            ClienteCargado = gestorUsuario.BuscarClientePorDNI("77.777.777");
             Mostrar490WC();
             LLenarCB();
             LimpiarCampos490WC();
@@ -122,7 +122,7 @@ public partial class ReservarBoleto : System.Web.UI.Page
 
     protected void BT_FILTRAR_Click(object sender, EventArgs e)
     {
-        
+
         string Origen490WC = ddlOrigen.SelectedIndex >= 0 ? ddlOrigen.SelectedItem.ToString() : "";
         string Destino490WC = ddlDestino.SelectedIndex >= 0 ? ddlDestino.SelectedItem.ToString() : "";
         string ClaseBoleto490WC = ddlClaseBoleto.SelectedIndex >= 0 ? ddlClaseBoleto.SelectedItem.ToString() : "";
@@ -136,7 +136,7 @@ public partial class ReservarBoleto : System.Web.UI.Page
         DateTime? FechaPartidaVUELTA490WC = null;
         DateTime? FechaLlegadaVUELTA490WC = null;
 
-        
+
         if (float.TryParse(txtPrecioDesde.Text, out float precioDesde))
             PrecioDesde490WC = precioDesde;
 
@@ -146,7 +146,7 @@ public partial class ReservarBoleto : System.Web.UI.Page
         if (float.TryParse(txtPesoEquipaje.Text, out float pesoPermitido))
             PesoPermitido490WC = pesoPermitido;
 
-        
+
         if (chkFiltrarFecha.Checked)
         {
             if (DateTime.TryParse(txtFechaPartidaIda.Text, out DateTime fPartidaIda))
@@ -162,7 +162,7 @@ public partial class ReservarBoleto : System.Web.UI.Page
                 FechaLlegadaVUELTA490WC = fLlegadaVuelta;
         }
 
-        
+
         Mostrar490WC(
             Origen490WC,
             Destino490WC,
@@ -176,7 +176,7 @@ public partial class ReservarBoleto : System.Web.UI.Page
             FechaLlegadaVUELTA490WC
         );
 
-        
+
         LimpiarCampos490WC();
     }
 
@@ -192,7 +192,7 @@ public partial class ReservarBoleto : System.Web.UI.Page
         BeneficioBLL gestorBeneficio = new BeneficioBLL();
         UsuarioBLL gestorCliente = new UsuarioBLL();
         int idBoleto = Convert.ToInt32(e.CommandArgument);
-
+        boletoCargado = gestorBoleto.ObtenerBoletoPorID(idBoleto.ToString());
         switch (e.CommandName)
         {
             case "Reservar":
@@ -206,7 +206,7 @@ public partial class ReservarBoleto : System.Web.UI.Page
                 boletoCargado = gestorBoleto.ObtenerBoletoConBeneficio(boletoCargado.IDBoleto);
                 gestorBeneficio.EliminarBeneficioDeCliente(ClienteCargado.DNI, beneficioAplicar.CodigoBeneficio);
                 ClienteCargado = gestorCliente.BuscarClientePorDNI(ClienteCargado.DNI);
-                
+
 
                 gestorBoleto.AsignarBoletoCliente(boletoCargado, ClienteCargado);
                 Mostrar490WC();
