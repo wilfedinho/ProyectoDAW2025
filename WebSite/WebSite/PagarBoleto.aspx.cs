@@ -99,41 +99,85 @@ public partial class PagarBoleto : System.Web.UI.Page
                                     if (gestorCliente.VerificarFormatoCVVTarjeta(txtCodigoSeguridad.Text))
                                     {
                                         Encryptador encryptador = new Encryptador();
-                                        //datosTarjeta490WC = encryptador.EncryptadorIrreversible(datosTarjeta490WC);
+                                        datosTarjeta490WC = encryptador.EncryptadorReversible(datosTarjeta490WC);
                                         totalFactura = boletoCobrar.Precio;
-                                        //if (gestorPagos.ValidarPago(datosTarjeta490WC, totalFactura))
-                                        //{
-                                        if (boletoCobrar.BeneficioAplicado != null)
+                                        if (gestorPagos.ValidarPago(datosTarjeta490WC, totalFactura))
                                         {
+                                            if (boletoCobrar.BeneficioAplicado != null)
+                                            {
 
-                                            Factura facturaAlta490WC = new Factura(gestorFactura490WC.ObtenerTodasLasFacturas().Count + 1, usuarioCobrar.Nombre, usuarioCobrar.Apellido, usuarioCobrar.DNI, DateTime.Now.ToShortDateString(), DateTime.Now.ToShortTimeString(), boletoCobrar.IDBoleto, boletoCobrar.Precio, totalFactura, boletoCobrar.BeneficioAplicado);
+                                                Factura facturaAlta490WC = new Factura(gestorFactura490WC.ObtenerTodasLasFacturas().Count + 1, usuarioCobrar.Nombre, usuarioCobrar.Apellido, usuarioCobrar.DNI, DateTime.Now.ToShortDateString(), DateTime.Now.ToShortTimeString(), boletoCobrar.IDBoleto, boletoCobrar.Precio, totalFactura, boletoCobrar.BeneficioAplicado);
 
-                                            gestorFactura490WC.Alta(facturaAlta490WC);
-                                            gestorBoleto490WC.CobrarBoleto(boletoCobrar);
-                                            gestorFactura490WC.GenerarFactura(facturaAlta490WC);
+                                                gestorFactura490WC.Alta(facturaAlta490WC);
+                                                gestorBoleto490WC.CobrarBoleto(boletoCobrar);
+                                                gestorFactura490WC.GenerarFactura(facturaAlta490WC);
 
-                                            gestorBoleto490WC.GenerarBoleto490WC(boletoCobrar);
+                                                gestorBoleto490WC.GenerarBoleto490WC(boletoCobrar);
+                                            }
+                                            else
+                                            {
+                                                Factura facturaAlta490WC = new Factura(gestorFactura490WC.ObtenerTodasLasFacturas().Count + 1, usuarioCobrar.Nombre, usuarioCobrar.Apellido, usuarioCobrar.DNI, DateTime.Now.ToShortDateString(), DateTime.Now.ToShortTimeString(), boletoCobrar.IDBoleto, boletoCobrar.Precio, totalFactura, boletoCobrar.BeneficioAplicado);
+
+                                                gestorFactura490WC.Alta(facturaAlta490WC);
+                                                gestorBoleto490WC.CobrarBoleto(boletoCobrar);
+                                                gestorFactura490WC.GenerarFactura(facturaAlta490WC);
+
+                                                gestorBoleto490WC.GenerarBoleto490WC(boletoCobrar);
+
+                                            }
                                         }
                                         else
                                         {
-                                            Factura facturaAlta490WC = new Factura(gestorFactura490WC.ObtenerTodasLasFacturas().Count + 1, usuarioCobrar.Nombre, usuarioCobrar.Apellido, usuarioCobrar.DNI, DateTime.Now.ToShortDateString(), DateTime.Now.ToShortTimeString(), boletoCobrar.IDBoleto, boletoCobrar.Precio, totalFactura, boletoCobrar.BeneficioAplicado);
-
-                                            gestorFactura490WC.Alta(facturaAlta490WC);
-                                            gestorBoleto490WC.CobrarBoleto(boletoCobrar);
-                                            gestorFactura490WC.GenerarFactura(facturaAlta490WC);
-
-                                            gestorBoleto490WC.GenerarBoleto490WC(boletoCobrar);
-
+                                            string mensajeError = "Error: Pago Rechazado!!";
+                                            string script = $"alert('{mensajeError}');";
+                                            ScriptManager.RegisterStartupScript(this, GetType(), "mostrarError", script, true);
                                         }
-                                        //}
+                                        
                                         Mostrar();
                                     }
+                                    else
+                                    {
+                                        string mensajeError = "Error: Codigo De Seguridad Invalido!!";
+                                        string script = $"alert('{mensajeError}');";
+                                        ScriptManager.RegisterStartupScript(this, GetType(), "mostrarError", script, true);
+                                    }
+                                }
+                                else
+                                {
+                                    string mensajeError = "Error: Fechas Tarjeta Inconsistentes!!";
+                                    string script = $"alert('{mensajeError}');";
+                                    ScriptManager.RegisterStartupScript(this, GetType(), "mostrarError", script, true);
                                 }
                             }
+                            else
+                            {
+                                string mensajeError = "Error: Fechas Tarjeta Inconsistentes!!";
+                                string script = $"alert('{mensajeError}');";
+                                ScriptManager.RegisterStartupScript(this, GetType(), "mostrarError", script, true);
+                            }
+                        }
+                        else
+                        {
+                            string mensajeError = "Error: Debe Ingresar Un Apellido Del Titular De La Tarjeta!!";
+                            string script = $"alert('{mensajeError}');";
+                            ScriptManager.RegisterStartupScript(this, GetType(), "mostrarError", script, true);
                         }
                     }
+                    else
+                    {
+                        string mensajeError = "Error: Debe Ingresar Un Nombre Del Titular De La Tarjeta!!";
+                        string script = $"alert('{mensajeError}');";
+                        ScriptManager.RegisterStartupScript(this, GetType(), "mostrarError", script, true);
+                    }
+                }
+                else
+                {
+                    string mensajeError = "Error: Numero De Tarjeta Ingresadp Invalido!!";
+                    string script = $"alert('{mensajeError}');";
+                    ScriptManager.RegisterStartupScript(this, GetType(), "mostrarError", script, true);
                 }
             }
+           
         }
     }
 }
