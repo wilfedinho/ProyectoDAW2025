@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <title>Gestión de Roles y Usuarios</title>
     <link rel="stylesheet" href="EstilosPaginas/GestionRolesUsuarios.css" />
-    <script src="GestionRolesUsuarios.js"></script>
+    <script src="<%= ResolveUrl("~/Scripts/GestionRolesUsuarios.js") %>"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -25,17 +25,38 @@
         <div class="contenedor">
             <div class="columna izquierda">
                 <h3 data-key="Roles y grupos">Roles y grupos</h3>
-                <asp:DropDownList ID="ddlRoles" runat="server" CssClass="combo"></asp:DropDownList>
+                <asp:DropDownList ID="ddlRoles" runat="server" CssClass="combo" OnSelectedIndexChanged="ddlRoles_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                <div class="edicion-permiso" runat="server" id="panelEdicion" visible="false">
 
-                <asp:Button ID="btnVer" runat="server" Text="📄 Ver Detalle" CssClass="boton primario" data-key="📄 Ver Detalle"/>
-                <asp:Button ID="btnModificar" runat="server" Text="✏️ Modificar Permisos" CssClass="boton primario" data-key="btn_modificar"/>
+                    <label class="etiqueta-profesional">Nuevo nombre del permiso/rol:</label>
+
+                    <asp:TextBox ID="TextBox1" runat="server" CssClass="input-profesional" Placeholder="Escriba el nuevo nombre aquí..."></asp:TextBox>
+
+                    <small class="descripcion-profesional">
+                        Modificá el nombre del permiso o rol seleccionado.
+                    </small>
+
+
+                </div>
+                <asp:Label ID="lblError" runat="server" CssClass="error-profesional" Visible="false" ForeColor="Red"></asp:Label>
+                <asp:Button ID="btnVer" runat="server" Text="📄 Ver Detalle" CssClass="boton primario" data-key="📄 Ver Detalle" OnClick="btnVer_Click"/>
+                <asp:Button 
+                    ID="btnModificar" 
+                    runat="server" 
+                    Text="✏️ Modificar Permiso" 
+                    CssClass="boton primario" 
+                    data-key="btn_modificarPermiso"
+                    OnClientClick="abrirModalModificar(document.getElementById('<%= ddlRoles.ClientID %>').value, 'Modificando...'); return false;" OnClick="btnModificar_Click" />
+
+
+                <asp:Button ID="btnCambiarPermiso" runat="server" Text="Cambiar Permisos" CssClass="boton primario" data-key="btn_cambiarPermisos" OnClick="btnCambiarPermisos_Click"/>
 
                 <asp:Button ID="btnCrearRol" runat="server" Text="CREAR ROL"
                     CssClass="boton secundario" OnClientClick="abrirModalRol(); return false;" data-key="CREAR ROL"/>
 
                 <asp:Button ID="btnCrearGrupo" runat="server" Text="CREAR GRUPO DE PERMISOS"
                     CssClass="boton secundario" OnClientClick="abrirModalPermiso(); return false;" data-key="CREAR GRUPO DE PERMISOS"/>
-            </div>
+             </div>
 
             <div class="columna centro">
                 <h3 data-key="Lista de permisos">Lista de permisos</h3>
@@ -45,9 +66,20 @@
 
             <div class="columna derecha">
                 <h3 data-key="Detalles">Detalles</h3>
-                <asp:Label ID="lblDetalles" runat="server" Text="Seleccione un rol para ver detalles." CssClass="detalle" data-key="Seleccione un rol para ver detalles"></asp:Label>
+
+                <asp:TreeView 
+                    ID="tvDetalles" 
+                    runat="server"
+                    CssClass="detalle"
+                    ExpandDepth="0"
+                    ShowExpandCollapse="true"
+                    NodeStyle-ForeColor="White"
+                    LeafNodeStyle-ForeColor="White"
+                    RootNodeStyle-ForeColor="White"
+                    ParentNodeStyle-ForeColor="White">
+                </asp:TreeView>
             </div>
-        </div>
+
 
         <div id="modalRol" class="modal">
             <div class="modal-contenido">
@@ -61,6 +93,7 @@
             </div>
         </div>
 
+        <!-- MODAL PERMISO -->
         <div id="modalPermiso" class="modal">
             <div class="modal-contenido">
                 <h3 data-key="Nuevo Permiso Compuesto">Nuevo Permiso Compuesto</h3>
@@ -72,6 +105,26 @@
                 </div>
             </div>
         </div>
+
+        <!-- CONTROLES OCULTOS -->
+        <asp:TextBox ID="txtNuevoNombreServidor" runat="server" Style="display:none;"></asp:TextBox>
+        <asp:Button ID="btnAceptarNuevoNombre" runat="server" Style="display:none;" OnClick="btnAceptarNuevoNombre_Click" />
+
+        <!-- MODAL MODIFICAR -->
+        <div id="modalModificar" class="modal">
+            <div class="modal-contenido">
+                <h3 id="tituloModalModificar">Modificando...</h3>
+
+                <label>Ingrese el nuevo nombre:</label>
+                <input type="text" id="txtNuevoNombre" placeholder="Nuevo nombre" />
+
+                <div class="acciones">
+                    <button type="button" onclick="guardarNuevoNombre()">Aceptar</button>
+                    <button type="button" onclick="cerrarModalModificar()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
     </form>
 </body>
 </html>

@@ -64,7 +64,7 @@ namespace DAL
                     {
                         adapter.UpdateBatchSize = 100;
                     }
-                    if ($"{Row["TABLE_NAME"]}" != "Idioma" && $"{Row["TABLE_NAME"]}" != "Etiqueta")
+                    if ($"{Row["TABLE_NAME"]}" != "Idioma" && $"{Row["TABLE_NAME"]}" != "Etiqueta" && $"{Row["TABLE_NAME"]}" != "Permiso")
                     {
                         BaseDeDatosEnMemoria.Tables[$"{Row["TABLE_NAME"]}"].PrimaryKey = new DataColumn[] { BaseDeDatosEnMemoria.Tables[$"{Row["TABLE_NAME"]}"].Columns[0], BaseDeDatosEnMemoria.Tables[$"{Row["TABLE_NAME"]}"].Columns[1] };
                     }

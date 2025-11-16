@@ -164,3 +164,63 @@
     .acciones button:hover {
         background: #3a86ff;
     }
+
+    .detalle a {
+    color: #fff !important;
+    text-decoration: none !important;
+    }
+
+    .detalle .aspNetTreeSelectedNode a {
+    color: #ffd700 !important; /* dorado si seleccionás alguno */
+    }
+
+/* CONTENEDOR DE EDICIÓN */
+.edicion-permiso {
+    margin-top: 20px;
+    background: #1b2a49;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+}
+
+/* LABEL PRINCIPAL */
+.etiqueta-profesional {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+    color: #9bbcff;
+}
+
+/* INPUT */
+.input-profesional {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #345;
+    outline: none;
+    background-color: #0f1f3a;
+    color: white;
+    transition: 0.2s;
+}
+
+    .input-profesional:focus {
+        border-color: #3a86ff;
+        box-shadow: 0 0 5px rgba(58,134,255,0.5);
+    }
+
+/* DESCRIPCIÓN CHICA */
+.descripcion-profesional {
+    display: block;
+    margin-top: 6px;
+    color: #aab8d8;
+    font-size: 12px;
+}
+
+/* ERRORES */
+.error-profesional {
+    color: #ff4d4d;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
