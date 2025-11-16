@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
+    [Serializable]
     public class Beneficio
     {
         public int CodigoBeneficio { get; set; }
@@ -21,5 +22,6 @@ namespace BE
             CantidadBeneficioReclamo = nCantidadBeneficioReclamo;
             DescuentoAplicar = nDescuentoAplicar;
         }
+        public Beneficio() { }
     }
 }
