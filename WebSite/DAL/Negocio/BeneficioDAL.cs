@@ -128,7 +128,7 @@ namespace DAL.Negocio
             using (SqlConnection cone = GestorConexion.DevolverConexion())
             {
                 cone.Open();
-                string query = "UPDATE Cliente SET EstrellasCliente = EstrellasCliente - @CantidadEstrellas WHERE DNI = @DNICliente";
+                string query = "UPDATE Usuario SET EstrellasCliente = EstrellasCliente - @CantidadEstrellas WHERE DNI = @DNICliente";
                 using (SqlCommand comando = new SqlCommand(query, cone))
                 {
                     comando.Parameters.AddWithValue("@CantidadEstrellas", cantidadEstrellas);
