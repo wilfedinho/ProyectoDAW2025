@@ -13,12 +13,12 @@ public partial class CanjearBeneficio : System.Web.UI.Page
     public Usuario clienteCargado;
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-            Mostrar490WC();
-            UsuarioBLL gestorUsuario = new UsuarioBLL();
-            clienteCargado = gestorUsuario.BuscarClientePorDNI("77.777.777");
-            CargarInfoUsuario();
-        
+
+        Mostrar490WC();
+        UsuarioBLL gestorUsuario = new UsuarioBLL();
+        clienteCargado = gestorUsuario.BuscarClientePorDNI("77.777.777");
+        CargarInfoUsuario();
+
     }
 
     public void Mostrar490WC()
@@ -60,53 +60,6 @@ public partial class CanjearBeneficio : System.Web.UI.Page
             }
         }
     }
-
-    /* private void BT_CANJEARBENEFICIO490WC_Click(object sender, EventArgs e)
-     {
-
-         GestorBeneficio490WC gestorBeneficio490WC = new GestorBeneficio490WC();
-         GestorCliente490WC gestorCliente490WC = new GestorCliente490WC();
-         Beneficio490WC beneficioAplicar490WC = gestorBeneficio490WC.ObtenerBeneficioPorCodigo490WC(Convert.ToInt32(dgvBeneficio490WC.SelectedRows[0].Cells["ColumnaCodigoBeneficio490WC"].Value.ToString()));
-         if (clienteCargado.EstrellasCliente490WC >= beneficioAplicar490WC.PrecioEstrella490WC)
-         {
-             if (clienteCargado.BeneficiosCliente490WC.Find(x => x.CodigoBeneficio490WC == beneficioAplicar490WC.CodigoBeneficio490WC) == null)
-             {
-                 gestorCliente490WC.ModificarEstrellasCliente490WC(clienteCargado.DNI490WC, beneficioAplicar490WC.PrecioEstrella490WC);
-                 beneficioAplicar490WC.CantidadBeneficioReclamo490WC += 1;
-                 gestorBeneficio490WC.Modificacion490WC(beneficioAplicar490WC);
-                 gestorBeneficio490WC.AgregarBeneficioACliente490WC(clienteCargado.DNI490WC, beneficioAplicar490WC.CodigoBeneficio490WC);
-                 clienteCargado = gestorCliente490WC.BuscarClientePorDNI490WC(clienteCargado.DNI490WC);
-                 CargarCliente490WC(clienteCargado);
-                 Mostrar490WC();
-             }
-             else
-             {
-
-             }
-         }
-         else
-         {
-
-         }
-
-     var btnEliminar = new LinkButton
- {
-     Text = "X",
-     CommandArgument = cv.ID_CV.ToString(),
-     OnClientClick = "return confirm('¿Eliminar este CV?');",
-     Style =
-         {
-             ["margin-right"] = "10px",
-             ["font-size"] = "20px",
-             ["color"] = "red",
-             ["text-decoration"] = "none",
-             ["font-weight"] = "bold"
-         }
- };
-
-
-     }*/
-
     protected void gvBeneficios_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "Canjear")
@@ -117,7 +70,7 @@ public partial class CanjearBeneficio : System.Web.UI.Page
             Beneficio beneficioACanjear = gestorBeneficio.ObtenerTodosLosBeneficios().Find(b => b.CodigoBeneficio.ToString() == codigo);
             if (clienteCargado.BeneficiosCliente.Find(x => x.CodigoBeneficio == beneficioACanjear.CodigoBeneficio) == null)
             {
-                gestorUsuario.ModificarEstrellasCliente(clienteCargado.DNI,beneficioACanjear.PrecioEstrella);
+                gestorUsuario.ModificarEstrellasCliente(clienteCargado.DNI, beneficioACanjear.PrecioEstrella);
                 beneficioACanjear.CantidadBeneficioReclamo += 1;
                 gestorBeneficio.Modificacion(beneficioACanjear);
                 gestorBeneficio.AgregarBeneficioACliente(clienteCargado.DNI, beneficioACanjear.CodigoBeneficio);
@@ -127,14 +80,10 @@ public partial class CanjearBeneficio : System.Web.UI.Page
             }
             else
             {
-
+                string mensajeError = "Error: El Usuario Ya Posee El Beneficio Que Desea Canjear!!";
+                string script = $"alert('{mensajeError}');";
+                ScriptManager.RegisterStartupScript(this, GetType(), "mostrarError", script, true);
             }
         }
-        else
-        {
-
-        }
     }
-
-
 }
