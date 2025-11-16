@@ -170,4 +170,21 @@ public partial class ReservarBoleto : System.Web.UI.Page
         LimpiarCampos490WC();
     }
 
+    protected void gvBoletos_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        int idBoleto = Convert.ToInt32(e.CommandArgument);
+
+        switch (e.CommandName)
+        {
+            case "Reservar":
+                // lógica para reservar boleto
+                break;
+
+            case "ReservarBeneficio":
+                // lógica para reservar boleto con beneficio
+                break;
+        }
+    }
+
+
 }
