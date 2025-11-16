@@ -6,12 +6,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BE;
+using BLL.Tecnica;
 using SERVICIOS;
 
 public partial class GestionRolesUsuarios : System.Web.UI.Page
 {
     GestorPermisos gp = new GestorPermisos();
     List<string> lista;
+    UsuarioBLL lu = new UsuarioBLL();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -147,52 +149,107 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
 
     protected void btnCambiarPermisos_Click(object sender, EventArgs e)
     {
+        try
+        {
+            // 1. Listas temporales
+            List<string> permisosCheckeados = new List<string>();
+            List<string> permisosCheckeadosNivel1 = new List<string>();
+            // 2. Recorrer CheckBoxList (equivalente a CheckedItems)
+            foreach (ListItem item in chkPermisos.Items)
+            {
+                if (item.Selected)
+                {
+                    permisosCheckeados.Add(item.Text);
+                    permisosCheckeadosNivel1.Add(item.Text);
 
+                    EntidadPermiso permiso = gp.ObtenerPermisosArbol().Find(x => x.DevolverNombrePermiso() == item.Text);
+
+                    if (permiso != null && permiso.isComposite())
+                    {
+                        AgregarHijosRecursivosWeb((EntidadPermisoCompuesto)permiso, permisosCheckeados);
+                    }
+                }
+            }
+            // 3. Permisos eliminados (diferencia)
+            var diferencia = permisosCheckeadosNivel1.Where(u => !lista.Any(x => x == u)).ToList();
+            // 4. Actualizar permisos en la base
+            gp.ActualizarPermisos(ddlRoles.SelectedItem.Text, permisosCheckeadosNivel1, diferencia);
+            // 5. Actualizar lista local
+            foreach (ListItem item in chkPermisos.Items)
+            {
+                if (item.Selected)
+                {
+                    if (!lista.Any(x => x == item.Text))
+                        lista.Add(item.Text);
+                }
+                else
+                {
+                    if (lista.Any(x => x == item.Text))
+                        lista.Remove(item.Text);
+                }
+            }
+            // 6. Recargar página limpia (profesional)
+            Response.Redirect(Request.RawUrl);
+        }
+        catch (Exception ex)
+        {
+            lblError.Text = ex.Message;
+            lblError.Visible = true;
+        }
     }
 
     protected void btnAceptarNuevoNombre_Click(object sender, EventArgs e)
-{
-    try
     {
-        if (ddlRoles.SelectedIndex == -1)
-            throw new Exception("Debe seleccionar un permiso o rol.");
+        try
+        {
+            if (ddlRoles.SelectedIndex == -1)
+                throw new Exception("Debe seleccionar un permiso o rol.");
 
-        string nuevoNombre = txtNuevoNombreServidor.Text;
-        string nombreActual = ddlRoles.SelectedItem.Text;
+            string nuevoNombre = txtNuevoNombreServidor.Text;
+            string nombreActual = ddlRoles.SelectedItem.Text;
 
-        if (string.IsNullOrWhiteSpace(nuevoNombre))
-            throw new Exception("Debe ingresar un nombre para el nuevo permiso.");
+            if (string.IsNullOrWhiteSpace(nuevoNombre))
+                throw new Exception("Debe ingresar un nombre para el nuevo permiso.");
 
-        EntidadPermiso permiso = gp.ObtenerPermisos("Roles")
-                                   .Find(x => x.DevolverNombrePermiso() == nombreActual);
+            EntidadPermiso permiso = gp.ObtenerPermisos("Roles")
+                                       .Find(x => x.DevolverNombrePermiso() == nombreActual);
 
-        string aux = permiso == null ? "permiso" : "rol";
+            string aux = permiso == null ? "permiso" : "rol";
 
-        if (gp.ExistePermiso(nuevoNombre))
-            throw new Exception("El permiso o rol ya existe.");
+            if (gp.ExistePermiso(nuevoNombre))
+                throw new Exception("El permiso o rol ya existe.");
 
-        // MODIFICAR PERMISO/ROL
-        gp.ModificarNombrePermiso(nombreActual, nuevoNombre);
+            // MODIFICAR PERMISO/ROL
+            gp.ModificarNombrePermiso(nombreActual, nuevoNombre);
 
-        // REFRESCAR
-        ddlRoles.Items.Clear();
-        CargarRoles();
+            // REFRESCAR
+            ddlRoles.Items.Clear();
+            CargarRoles();
 
-        // MENSAJE
-        ScriptManager.RegisterStartupScript(this, GetType(), "ok",
-            "alert('El nombre se modificó con éxito.');", true);
+            // MENSAJE
+            ScriptManager.RegisterStartupScript(this, GetType(), "ok",
+                "alert('El nombre se modificó con éxito.');", true);
+        }
+        catch (Exception ex)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "error",
+                $"alert('{ex.Message}');", true);
+        }
     }
-    catch (Exception ex)
+    
+
+
+    private void AgregarHijosRecursivosWeb(EntidadPermisoCompuesto permiso, List<string> lista)
     {
-        ScriptManager.RegisterStartupScript(this, GetType(), "error",
-            $"alert('{ex.Message}');", true);
-    }
-}
+        foreach (EntidadPermiso hijo in permiso.listaPermisos)
+        {
+            lista.Add(hijo.DevolverNombrePermiso());
 
-    protected void btnCambiarPermiso_Click(object sender, EventArgs e)
-    {
-
+            if (hijo.isComposite())
+                AgregarHijosRecursivosWeb((EntidadPermisoCompuesto)hijo, lista);
+        }
     }
+
 
     protected void btnModificar_Click(object sender, EventArgs e)
     {
@@ -200,22 +257,102 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
         {
             if (ddlRoles.SelectedIndex == -1 || ddlRoles.SelectedItem.Text == "-- Seleccione un rol --")
                 throw new Exception("Debe seleccionar un permiso o rol.");
-
             string nombreActual = ddlRoles.SelectedItem.Text;
             string nuevoNombre = TextBox1.Text.Trim();
-
             if (string.IsNullOrWhiteSpace(nuevoNombre))
                 throw new Exception("Debe ingresar un nombre válido.");
-
             if (gp.ExistePermiso(nuevoNombre))
                 throw new Exception("Ya existe un permiso o rol con ese nombre.");
-
             gp.ModificarNombrePermiso(nombreActual, nuevoNombre);
+            Response.Redirect(Request.RawUrl);
+        }
+        catch (Exception ex)
+        {
+            lblError.Text = ex.Message;
+            lblError.Visible = true;
+        }
+    }
 
-            // REGISTRAR EN BITÁCORA SI QUERÉS
-            //bitacora.RegistrarBitacora(...)
 
-            // RECARGAR LA PÁGINA ENTERA (limpia, sin alertas)
+
+    protected void btnCrearRol_Click(object sender, EventArgs e)
+    {
+        panelCrearCompuesto.Visible = true;
+        txtNombreCompuesto.Text = "";
+        lblErrorCompuesto.Visible = false;
+    }
+
+    protected void btnConfirmarCompuesto_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            // 1. Validar que haya permisos seleccionados
+            if (!chkPermisos.Items.Cast<ListItem>().Any(i => i.Selected))
+                throw new Exception("Debe seleccionar al menos un permiso de la lista.");
+            // 2. Validar nombre ingresado
+            string nombrePermiso = txtNombreCompuesto.Text.Trim();
+            if (string.IsNullOrWhiteSpace(nombrePermiso))
+                throw new Exception("Debe ingresar un nombre para el permiso.");
+            // 3. Crear el permiso compuesto
+            CrearPermisoCompuesto(nombrePermiso, true);
+            // 4. Recargar la página
+            Response.Redirect(Request.RawUrl);
+        }
+        catch (Exception ex)
+        {
+            lblErrorCompuesto.Text = ex.Message;
+            lblErrorCompuesto.Visible = true;
+        }
+    }
+
+    public void CrearPermisoCompuesto(string pNombrePermiso, bool isRol)
+    {
+        List<string> items = GenerarLista();
+        string error = $"Ocurrió un error";
+        if (!gp.AgregarPermisoCompuesto(pNombrePermiso, items, isRol))
+        {
+            lblErrorCompuesto.Text = error;
+            lblErrorCompuesto.Visible = true;
+            return;
+        }
+    }
+    public List<string> GenerarLista()
+    {
+        List<string> items = new List<string>();
+        foreach (ListItem item in chkPermisos.Items)
+        {
+            if (item.Selected)
+                items.Add(item.Text);
+        }
+        return items;
+    }
+
+    protected void btnCrearGrupo_Click(object sender, EventArgs e)
+    {
+        panelCrearCompuesto.Visible = true;
+        txtNombreCompuesto.Text = "";
+        lblErrorCompuesto.Visible = false;
+    }
+
+    protected void btnEliminar_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (ddlRoles.SelectedIndex == -1 || ddlRoles.SelectedItem.Text == "-- Seleccione un rol --")
+                throw new Exception("Debe seleccionar un permiso o rol.");
+            string nombre = ddlRoles.SelectedItem.Text;
+            EntidadPermiso permiso = gp.ObtenerPermisos("Roles").Find(x => x.DevolverNombrePermiso() == nombre);
+            string aux = (permiso == null) ? "permiso" : "rol";
+            if (lu.RolIsInUso(nombre))
+            {
+
+                throw new Exception("Este rol se encuentra en uso y no puede eliminarse.");
+            }
+            if (gp.EliminarPermiso(nombre))
+            {
+                lblInfo.Text = "Se ha eliminado el permiso con éxito.";
+                lblInfo.Visible = true;
+            }
             Response.Redirect(Request.RawUrl);
         }
         catch (Exception ex)

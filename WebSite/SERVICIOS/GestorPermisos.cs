@@ -13,7 +13,7 @@ namespace SERVICIOS
         DatosPermiso ormPermiso = new DatosPermiso();
         public bool Configurar_Control(string tag, string rol, EntidadPermisoCompuesto permisosSesion)
         {
-            if (tag == null || tag == "" ||  rol == "WebMaster")
+            if (tag == null || tag == "" ||  rol == "Web Master")
             {
                 return true;
             }

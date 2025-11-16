@@ -38,6 +38,7 @@ public partial class Eventos : System.Web.UI.Page
             if (ctrl is Button btn)
             {
                 string permiso = btn.CommandName;
+                if(permiso == "") { btn.Visible = true; continue; }
 
                 if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
                 {
@@ -47,6 +48,7 @@ public partial class Eventos : System.Web.UI.Page
             else if (ctrl is LinkButton linkBtn)
             {
                 string permiso = linkBtn.CommandName;
+                if (permiso == "") { linkBtn.Visible = true; continue; }
 
                 if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
                 {

@@ -6,7 +6,6 @@
     <meta charset="utf-8" />
     <title>Gestión de Roles y Usuarios</title>
     <link rel="stylesheet" href="EstilosPaginas/GestionRolesUsuarios.css" />
-    <script src="<%= ResolveUrl("~/Scripts/GestionRolesUsuarios.js") %>"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -52,16 +51,34 @@
                 <asp:Button ID="btnCambiarPermiso" runat="server" Text="Cambiar Permisos" CssClass="boton primario" data-key="btn_cambiarPermisos" OnClick="btnCambiarPermisos_Click"/>
 
                 <asp:Button ID="btnCrearRol" runat="server" Text="CREAR ROL"
-                    CssClass="boton secundario" OnClientClick="abrirModalRol(); return false;" data-key="CREAR ROL"/>
+                    CssClass="boton secundario" OnClientClick="abrirModalRol(); return false;" data-key="CREAR ROL" OnClick="btnCrearRol_Click"/>
 
                 <asp:Button ID="btnCrearGrupo" runat="server" Text="CREAR GRUPO DE PERMISOS"
-                    CssClass="boton secundario" OnClientClick="abrirModalPermiso(); return false;" data-key="CREAR GRUPO DE PERMISOS"/>
+                    CssClass="boton secundario" OnClientClick="abrirModalPermiso(); return false;" data-key="CREAR GRUPO DE PERMISOS" OnClick="btnCrearGrupo_Click"/>
+
+                <div id="panelCrearCompuesto" runat="server" visible="false" class="edicion-permiso">
+
+                    <label class="etiqueta-profesional">Nombre del permiso/rol compuesto:</label>
+
+                    <asp:TextBox ID="txtNombreCompuesto" runat="server" CssClass="input-profesional" Placeholder="Ej: Administrador General"></asp:TextBox>
+
+                    <small class="descripcion-profesional">
+                        Escribí el nombre del nuevo permiso compuesto y luego confirmá.
+                    </small>
+
+                    <asp:Button ID="btnConfirmarCompuesto" runat="server" Text="Crear Permiso Compuesto" CssClass="boton primario" OnClick="btnConfirmarCompuesto_Click" />
+
+                    <asp:Label ID="lblErrorCompuesto" runat="server" CssClass="error-profesional" Visible="false"></asp:Label>
+
+                </div>
              </div>
 
             <div class="columna centro">
                 <h3 data-key="Lista de permisos">Lista de permisos</h3>
                 <asp:CheckBoxList ID="chkPermisos" runat="server" CssClass="lista"></asp:CheckBoxList>
-                <asp:Button ID="btnEliminar" runat="server" Text="Eliminar Selección" CssClass="boton eliminar" data-key="Eliminar Seleccion"/>
+                <asp:Button ID="btnEliminar" runat="server" Text="Eliminar Selección" CssClass="boton eliminar" data-key="Eliminar Seleccion" OnClick="btnEliminar_Click"/>
+                <asp:Label ID="Label1" runat="server" CssClass="error-profesional" Visible="false"></asp:Label>
+                <asp:Label ID="lblInfo" runat="server" CssClass="info-profesional" Visible="false"></asp:Label>
             </div>
 
             <div class="columna derecha">

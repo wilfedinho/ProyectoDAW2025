@@ -194,7 +194,7 @@
 
 /* INPUT */
 .input-profesional {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     border-radius: 6px;
     border: 1px solid #345;
@@ -223,4 +223,17 @@
     font-weight: bold;
     margin-top: 10px;
 }
+
+.error-profesional {
+    color: #ff4d4d;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.info-profesional {
+    color: #9bbbff;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
 
