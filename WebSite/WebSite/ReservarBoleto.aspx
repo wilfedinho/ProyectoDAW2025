@@ -378,5 +378,43 @@
 
         window.onload = toggleFechas;
     </script>
+
+    <script type="text/javascript">
+
+        // 🔹 Habilita o deshabilita los botones "Reservar con Beneficio"
+        function actualizarBotonesBeneficio() {
+
+            // Obtener valor del dropdown
+            var ddl = document.getElementById('<%= ddlBeneficios.ClientID %>');
+        var tieneBeneficio = ddl.value !== "";
+
+        // Obtener todos los botones del grid
+        var botones = document.querySelectorAll("a[id*='btnReservarBeneficio']");
+
+        botones.forEach(boton => {
+            if (tieneBeneficio) {
+                boton.style.pointerEvents = "auto";  // habilitar click
+                boton.style.opacity = "1";          // visual normal
+            } else {
+                boton.style.pointerEvents = "none"; // deshabilitar click
+                boton.style.opacity = "0.4";        // efecto visual desactivado
+            }
+        });
+    }
+
+    // 🔹 Ejecutar al cargar la página
+    window.onload = function () {
+        toggleFechas();
+        actualizarBotonesBeneficio();
+    };
+
+    // 🔹 Ejecutar cuando el usuario cambie el beneficio
+    document.addEventListener("DOMContentLoaded", function () {
+        var ddl = document.getElementById('<%= ddlBeneficios.ClientID %>');
+        ddl.addEventListener("change", actualizarBotonesBeneficio);
+    });
+
+    </script>
+
 </body>
 </html>
