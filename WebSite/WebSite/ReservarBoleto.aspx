@@ -265,7 +265,7 @@
 
                 <div class="grupo-filtro checkbox-control">
                     <asp:CheckBox ID="chkFiltrarFecha" runat="server" onclick="toggleFechas()" />
-                    <label data-key="label-filtrarPorFechas" >Filtrar por Fechas</label>
+                    <label data-key="label-filtrarPorFechas">Filtrar por Fechas</label>
                 </div>
 
                 <div class="grupo-filtro">
@@ -289,8 +289,8 @@
                 </div>
 
                 <div class="acciones-filtros">
-                    <asp:Button ID="btnFiltrar" data-key="btn-filtrar" runat="server" Text="Filtrar" CssClass="boton-primario" />
-                    <asp:Button ID="btnRestablecer" data-key="btn-restablecer" runat="server" Text="Restablecer" CssClass="boton-secundario" />
+                    <asp:Button ID="btnFiltrar" data-key="btn-filtrar" runat="server" Text="Filtrar" CssClass="boton-primario" OnClick="BT_FILTRAR_Click"/>
+                    <asp:Button ID="btnRestablecer" data-key="btn-restablecer" runat="server" Text="Restablecer" CssClass="boton-secundario" OnClick="BT_LIMPIARFILTROS_Click" />
                 </div>
 
                 <div class="grupo-filtro">
@@ -310,44 +310,161 @@
                     <Columns>
 
 
-                        <asp:TemplateField HeaderText="Acciones">
-                            <ItemTemplate>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <span data-key="header_acciones">Acciones</span>
+                            </HeaderTemplate>
 
+                            <ItemTemplate>
                                 <asp:LinkButton ID="btnReservar" runat="server"
                                     CommandName="Reservar"
                                     CommandArgument='<%# Eval("NumeroBoleto") %>'
                                     CssClass="boton-accion boton-reservar">
-            Reservar
+                Reservar
                                 </asp:LinkButton>
 
                                 &nbsp;
 
-        <asp:LinkButton ID="btnReservarBeneficio" runat="server"
-            CommandName="ReservarBeneficio"
-            CommandArgument='<%# Eval("NumeroBoleto") %>'
-            CssClass="boton-accion boton-beneficio">
-            Reservar con Beneficio
-        </asp:LinkButton>
-
+            <asp:LinkButton ID="btnReservarBeneficio" runat="server"
+                CommandName="ReservarBeneficio"
+                CommandArgument='<%# Eval("NumeroBoleto") %>'
+                CssClass="boton-accion boton-beneficio">
+                Reservar con Beneficio
+            </asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
 
 
-                        <asp:BoundField data-key="numBoleto" DataField="NumeroBoleto" HeaderText="N° Boleto" />
-                        <asp:BoundField data-key="modalidad" DataField="Modalidad" HeaderText="Modalidad" />
-                        <asp:BoundField data-key="origen" DataField="Origen" HeaderText="Origen" />
-                        <asp:BoundField data-key="destino" DataField="Destino" HeaderText="Destino" />
 
-                        <asp:BoundField data-key="partidaIda" DataField="FechaPartidaIDA" HeaderText="Partida IDA" />
-                        <asp:BoundField data-key="llegadaIda" DataField="FechaLlegadaIDA" HeaderText="Llegada IDA" />
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <span data-key="header_numBoleto">N° Boleto</span>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("NumeroBoleto") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
 
-                        <asp:BoundField data-key="partidaVuelta" DataField="FechaPartidaVUELTA" HeaderText="Partida VUELTA" />
-                        <asp:BoundField data-key="llegadaVuelta" DataField="FechaLlegadaVUELTA" HeaderText="Llegada VUELTA" />
 
-                        <asp:BoundField data-key="clase" DataField="ClaseBoleto" HeaderText="Clase" />
-                        <asp:BoundField data-key="pesoPermitido" DataField="PesoEquipajePermitido" HeaderText="Peso Permitido" />
-                        <asp:BoundField data-key="precio" DataField="Precio" HeaderText="Precio" />
-                        <asp:BoundField data-key="asiento" DataField="NumeroAsiento" HeaderText="Asiento" />
+
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <span data-key="header_modalidad">Modalidad</span>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("Modalidad") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+
+
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <span data-key="header_origen">Origen</span>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("Origen") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+
+
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <span data-key="header_destino">Destino</span>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("Destino") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+
+
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <span data-key="header_partidaIda">Partida IDA</span>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("FechaPartidaIDA") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+
+
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <span data-key="header_llegadaIda">Llegada IDA</span>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("FechaLlegadaIDA") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+
+
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <span data-key="header_partidaVuelta">Partida VUELTA</span>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("FechaPartidaVUELTA") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+
+
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <span data-key="header_llegadaVuelta">Llegada VUELTA</span>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("FechaLlegadaVUELTA") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+
+
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <span data-key="header_clase">Clase</span>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("ClaseBoleto") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+
+
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <span data-key="header_pesoPermitido">Peso Permitido</span>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("PesoEquipajePermitido") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+
+
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <span data-key="header_precio">Precio</span>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("Precio") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+
+
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <span data-key="header_asiento">Asiento</span>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("NumeroAsiento") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
 
                     </Columns>
 
@@ -386,31 +503,31 @@
 
             // Obtener valor del dropdown
             var ddl = document.getElementById('<%= ddlBeneficios.ClientID %>');
-        var tieneBeneficio = ddl.value !== "";
+            var tieneBeneficio = ddl.value !== "";
 
-        // Obtener todos los botones del grid
-        var botones = document.querySelectorAll("a[id*='btnReservarBeneficio']");
+            // Obtener todos los botones del grid
+            var botones = document.querySelectorAll("a[id*='btnReservarBeneficio']");
 
-        botones.forEach(boton => {
-            if (tieneBeneficio) {
-                boton.style.pointerEvents = "auto";  // habilitar click
-                boton.style.opacity = "1";          // visual normal
-            } else {
-                boton.style.pointerEvents = "none"; // deshabilitar click
-                boton.style.opacity = "0.4";        // efecto visual desactivado
-            }
-        });
-    }
+            botones.forEach(boton => {
+                if (tieneBeneficio) {
+                    boton.style.pointerEvents = "auto";  // habilitar click
+                    boton.style.opacity = "1";          // visual normal
+                } else {
+                    boton.style.pointerEvents = "none"; // deshabilitar click
+                    boton.style.opacity = "0.4";        // efecto visual desactivado
+                }
+            });
+        }
 
-    // 🔹 Ejecutar al cargar la página
-    window.onload = function () {
-        toggleFechas();
-        actualizarBotonesBeneficio();
-    };
+        // 🔹 Ejecutar al cargar la página
+        window.onload = function () {
+            toggleFechas();
+            actualizarBotonesBeneficio();
+        };
 
-    // 🔹 Ejecutar cuando el usuario cambie el beneficio
-    document.addEventListener("DOMContentLoaded", function () {
-        var ddl = document.getElementById('<%= ddlBeneficios.ClientID %>');
+        // 🔹 Ejecutar cuando el usuario cambie el beneficio
+        document.addEventListener("DOMContentLoaded", function () {
+            var ddl = document.getElementById('<%= ddlBeneficios.ClientID %>');
         ddl.addEventListener("change", actualizarBotonesBeneficio);
     });
 

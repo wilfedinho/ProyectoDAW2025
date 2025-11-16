@@ -17,6 +17,8 @@ public partial class ReservarBoleto : System.Web.UI.Page
         UsuarioBLL gestorUsuario = new UsuarioBLL();
         boletoCargado = null;
         ClienteCargado = gestorUsuario.BuscarClientePorDNI("77.777.777");
+        BoletoBLL gestorBoleto = new BoletoBLL();
+        gestorBoleto.LiberarBoletosVencidos();
         if (!IsPostBack)
         {
             Mostrar490WC();
@@ -106,7 +108,7 @@ public partial class ReservarBoleto : System.Web.UI.Page
             }
         }
     }
-    public void LimpiarCampos490WC()
+    protected void LimpiarCampos490WC()
     {
         txtPesoEquipaje.Text = "";
         txtPrecioDesde.Text = "";
@@ -180,7 +182,7 @@ public partial class ReservarBoleto : System.Web.UI.Page
         LimpiarCampos490WC();
     }
 
-    private void BT_LIMPIARFILTROS490WC_Click(object sender, EventArgs e)
+    protected void BT_LIMPIARFILTROS_Click(object sender, EventArgs e)
     {
         Mostrar490WC();
         LimpiarCampos490WC();
