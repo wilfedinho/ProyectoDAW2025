@@ -228,75 +228,75 @@
             <div class="panel-filtros">
 
                 <div class="grupo-filtro">
-                    <label for="ddlOrigen">Origen:</label>
+                    <label data-key="label-origen" for="ddlOrigen">Origen:</label>
                     <asp:DropDownList ID="ddlOrigen" runat="server" CssClass="control-select">
-                        <asp:ListItem Text="-- Seleccione --" Value="" />
+                        <asp:ListItem data-key="listItemSeleccione" Text="-- Seleccione --" Value="" />
                     </asp:DropDownList>
                 </div>
 
                 <div class="grupo-filtro">
-                    <label for="ddlDestino">Destino:</label>
+                    <label data-key="label-destino" for="ddlDestino">Destino:</label>
                     <asp:DropDownList ID="ddlDestino" runat="server" CssClass="control-select">
-                        <asp:ListItem Text="-- Seleccione --" Value="" />
+                        <asp:ListItem data-key="listItemSeleccione" Text="-- Seleccione --" Value="" />
                     </asp:DropDownList>
                 </div>
 
                 <div class="grupo-filtro">
-                    <label for="ddlClaseBoleto">Clase Boleto:</label>
+                    <label data-key="label-claseBoleto" for="ddlClaseBoleto">Clase Boleto:</label>
                     <asp:DropDownList ID="ddlClaseBoleto" runat="server" CssClass="control-select">
-                        <asp:ListItem Text="-- Seleccione --" Value="" />
+                        <asp:ListItem data-key="listItemSeleccione" Text="-- Seleccione --" Value="" />
                     </asp:DropDownList>
                 </div>
 
                 <div class="grupo-filtro">
-                    <label for="txtPesoEquipaje">Peso Equipaje (máx.):</label>
+                    <label data-key="label-pesoEquipajeMax" for="txtPesoEquipaje">Peso Equipaje (máx.):</label>
                     <asp:TextBox ID="txtPesoEquipaje" runat="server" CssClass="control-input" placeholder="kg" />
                 </div>
 
                 <div class="grupo-filtro">
-                    <label for="txtPrecioDesde">Precio Desde:</label>
+                    <label data-key="label-precioDesde" for="txtPrecioDesde">Precio Desde:</label>
                     <asp:TextBox ID="txtPrecioDesde" runat="server" CssClass="control-input" placeholder="0.00" />
                 </div>
 
                 <div class="grupo-filtro">
-                    <label for="txtPrecioHasta">Precio Hasta:</label>
+                    <label data-key="label-precioHasta" for="txtPrecioHasta">Precio Hasta:</label>
                     <asp:TextBox ID="txtPrecioHasta" runat="server" CssClass="control-input" placeholder="9999.99" />
                 </div>
 
                 <div class="grupo-filtro checkbox-control">
                     <asp:CheckBox ID="chkFiltrarFecha" runat="server" onclick="toggleFechas()" />
-                    <label>Filtrar por Fechas</label>
+                    <label data-key="label-filtrarPorFechas" >Filtrar por Fechas</label>
                 </div>
 
                 <div class="grupo-filtro">
-                    <label for="txtFechaPartidaIda">Fecha Partida IDA:</label>
+                    <label data-key="fechaPartidaIda" for="txtFechaPartidaIda">Fecha Partida IDA:</label>
                     <asp:TextBox ID="txtFechaPartidaIda" runat="server" CssClass="control-input" TextMode="Date" />
                 </div>
 
                 <div class="grupo-filtro">
-                    <label for="txtFechaLlegadaIda">Fecha Llegada IDA:</label>
+                    <label data-key="fechaLlegadaIda" for="txtFechaLlegadaIda">Fecha Llegada IDA:</label>
                     <asp:TextBox ID="txtFechaLlegadaIda" runat="server" CssClass="control-input" TextMode="Date" />
                 </div>
 
                 <div class="grupo-filtro">
-                    <label for="txtFechaPartidaVuelta">Fecha Partida VUELTA:</label>
+                    <label data-key="fechaPartidaVuelta" for="txtFechaPartidaVuelta">Fecha Partida VUELTA:</label>
                     <asp:TextBox ID="txtFechaPartidaVuelta" runat="server" CssClass="control-input" TextMode="Date" />
                 </div>
 
                 <div class="grupo-filtro">
-                    <label for="txtFechaLlegadaVuelta">Fecha Llegada VUELTA:</label>
+                    <label data-key="fechaLlegadaVuelta" for="txtFechaLlegadaVuelta">Fecha Llegada VUELTA:</label>
                     <asp:TextBox ID="txtFechaLlegadaVuelta" runat="server" CssClass="control-input" TextMode="Date" />
                 </div>
 
                 <div class="acciones-filtros">
-                    <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="boton-primario" />
-                    <asp:Button ID="btnRestablecer" runat="server" Text="Restablecer" CssClass="boton-secundario" />
+                    <asp:Button ID="btnFiltrar" data-key="btn-filtrar" runat="server" Text="Filtrar" CssClass="boton-primario" />
+                    <asp:Button ID="btnRestablecer" data-key="btn-restablecer" runat="server" Text="Restablecer" CssClass="boton-secundario" />
                 </div>
 
                 <div class="grupo-filtro">
-                    <label for="ddlBeneficioCliente">Beneficios Del Cliente:</label>
+                    <label data-key="label-BeneficiosCliente" for="ddlBeneficioCliente">Beneficios Del Cliente:</label>
                     <asp:DropDownList ID="ddlBeneficios" runat="server" CssClass="control-select">
-                        <asp:ListItem Text="-- Seleccione --" Value="" />
+                        <asp:ListItem data-key="listItemSeleccione" Text="-- Seleccione --" Value="" />
                     </asp:DropDownList>
                 </div>
 
@@ -333,21 +333,21 @@
                         </asp:TemplateField>
 
 
-                        <asp:BoundField DataField="NumeroBoleto" HeaderText="N° Boleto" />
-                        <asp:BoundField DataField="Modalidad" HeaderText="Modalidad" />
-                        <asp:BoundField DataField="Origen" HeaderText="Origen" />
-                        <asp:BoundField DataField="Destino" HeaderText="Destino" />
+                        <asp:BoundField data-key="numBoleto" DataField="NumeroBoleto" HeaderText="N° Boleto" />
+                        <asp:BoundField data-key="modalidad" DataField="Modalidad" HeaderText="Modalidad" />
+                        <asp:BoundField data-key="origen" DataField="Origen" HeaderText="Origen" />
+                        <asp:BoundField data-key="destino" DataField="Destino" HeaderText="Destino" />
 
-                        <asp:BoundField DataField="FechaPartidaIDA" HeaderText="Partida IDA" />
-                        <asp:BoundField DataField="FechaLlegadaIDA" HeaderText="Llegada IDA" />
+                        <asp:BoundField data-key="partidaIda" DataField="FechaPartidaIDA" HeaderText="Partida IDA" />
+                        <asp:BoundField data-key="llegadaIda" DataField="FechaLlegadaIDA" HeaderText="Llegada IDA" />
 
-                        <asp:BoundField DataField="FechaPartidaVUELTA" HeaderText="Partida VUELTA" />
-                        <asp:BoundField DataField="FechaLlegadaVUELTA" HeaderText="Llegada VUELTA" />
+                        <asp:BoundField data-key="partidaVuelta" DataField="FechaPartidaVUELTA" HeaderText="Partida VUELTA" />
+                        <asp:BoundField data-key="llegadaVuelta" DataField="FechaLlegadaVUELTA" HeaderText="Llegada VUELTA" />
 
-                        <asp:BoundField DataField="ClaseBoleto" HeaderText="Clase" />
-                        <asp:BoundField DataField="PesoEquipajePermitido" HeaderText="Peso Permitido" />
-                        <asp:BoundField DataField="Precio" HeaderText="Precio" />
-                        <asp:BoundField DataField="NumeroAsiento" HeaderText="Asiento" />
+                        <asp:BoundField data-key="clase" DataField="ClaseBoleto" HeaderText="Clase" />
+                        <asp:BoundField data-key="pesoPermitido" DataField="PesoEquipajePermitido" HeaderText="Peso Permitido" />
+                        <asp:BoundField data-key="precio" DataField="Precio" HeaderText="Precio" />
+                        <asp:BoundField data-key="asiento" DataField="NumeroAsiento" HeaderText="Asiento" />
 
                     </Columns>
 
