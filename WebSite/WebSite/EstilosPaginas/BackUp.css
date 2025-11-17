@@ -6,67 +6,44 @@
 
 
 body {
-    color: #e2e8f0;
-    background: #1a2235;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    min-height: 100vh;
-    width: 100vw;
-    overflow-x: hidden;
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(180deg, #0a2342 0%, #1e3c72 100%);
+    color: #fff;
 }
 
+/* NAVBAR */
 .navbar {
-    display: flex;
-    background: #232b3e;
-    padding: 0 24px;
-    height: 56px;
-    align-items: center;
-    border-radius: 0 0 18px 18px;
-    box-shadow: 0 2px 8px #00000020;
-    margin-bottom: 32px;
-    width: 100vw;
-    min-width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    background-color: #0d1b2a;
+    padding: 12px 0;
+    text-align: center;
 }
 
-    .navbar input[type="submit"].nav-item,
-    .navbar input[type="button"].nav-item {
-        height: 56px;
-        display: flex;
-        align-items: center;
-        background: transparent;
-        color: #e6eaf6;
-        font-size: 17px;
-        font-weight: 500;
-        padding: 0 32px;
-        cursor: pointer;
-        border: none;
-        border-right: 2px solid #2c3654;
-        transition: color 0.2s, background 0.2s;
-        box-shadow: none;
-        outline: none;
-        border-radius: 0;
+    .navbar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
 
-        .navbar input[type="submit"].nav-item:last-of-type,
-        .navbar input[type="button"].nav-item:last-of-type {
-            border-right: none;
-        }
+    .navbar li {
+        display: inline-block;
+        margin: 0 20px;
+    }
 
-        .navbar input[type="submit"].nav-item:hover,
-        .navbar input[type="button"].nav-item:hover {
+    .navbar a {
+        color: #ddd;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+        .navbar a:hover {
             color: #fff;
-            background: #2c3654;
         }
 
-    .navbar input[type="submit"].nav-right,
-    .navbar input[type="button"].nav-right {
-        margin-left: auto;
-        color: #ff5252;
-        font-weight: 600;
+    .navbar .cerrar {
+        color: #ff4c4c;
+        font-weight: bold;
     }
 
 .page {
