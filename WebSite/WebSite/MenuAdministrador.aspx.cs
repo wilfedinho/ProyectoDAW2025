@@ -63,4 +63,9 @@ public partial class MenuAdministrador : System.Web.UI.Page
         Session.Abandon();
         Response.Redirect("Login.aspx");
     }
+
+    protected void btnPermisos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("GestionRolesUsuarios.aspx");
+    }
 }
