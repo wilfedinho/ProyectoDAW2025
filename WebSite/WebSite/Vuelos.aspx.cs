@@ -11,11 +11,13 @@ using System.Web.UI.WebControls;
 
 public partial class Vuelos : System.Web.UI.Page
 {
-
     protected void Page_Load(object sender, EventArgs e)
     {
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-        if(Session["usuario"] == null)
+        GestorPermisos gp = new GestorPermisos();
+        var p = gp.DevolverPermisoConHijos("Admin");
+        ChequearAccesibilidadDeTodosLosControles();
+        if (Session["usuario"] == null)
         {
             btnIniciarSesion.Visible = true;
             btnCambiarClave.Visible = false;
@@ -27,7 +29,6 @@ public partial class Vuelos : System.Web.UI.Page
             btnCambiarClave.Visible = true;
             btnCerrarSesion.Visible = true;
         }
-        ChequearAccesibilidadDeTodosLosControles();
 
         /*if (Session["usuario"] == null)
         {
@@ -61,6 +62,7 @@ public partial class Vuelos : System.Web.UI.Page
     public void ChequearAccesibilidadDeTodosLosControles()
     {
         GestorPermisos gp = new GestorPermisos();
+        gp.ActualizarGeneral();
         ChequearAccesibilidadRecursiva(Page, gp);
         ChequearAccesibilidadNavbar(navbarPrincipal, gp);
     }

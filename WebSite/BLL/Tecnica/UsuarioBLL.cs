@@ -64,6 +64,15 @@ namespace BLL.Tecnica
             return false;
         }
 
+        public bool RolIsInUso(string pNombre)
+        {
+            foreach (Usuario usuario in DevolverTodosLosUsuarios())
+            {
+                if (usuario.Rol == pNombre) { return true; }
+            }
+            return false;
+        }
+
         #region Busquedas De Usuarios 
         public List<Usuario> DevolverTodosLosUsuarios()
         {
