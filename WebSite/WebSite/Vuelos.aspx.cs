@@ -325,6 +325,10 @@ public partial class Vuelos : System.Web.UI.Page
         string desc1;
         string desc2;
         string desc3;
+        if (Session["Idioma"] == null)
+        {
+            Session["Idioma"] = "ES";
+        }
 
         if (Session["Idioma"].ToString() == "ES")
         {
