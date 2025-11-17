@@ -43,7 +43,7 @@ public partial class CanjearBeneficio : System.Web.UI.Page
             lblNombre.Text = "";
             lblApellido.Text = "";
             lblEstrellas.Text = "";
-            lblBeneficios.Text = "";
+            lblBeneficios.Text = string.Empty;
             lblNombre.Text = clienteCargado.Nombre;
             lblApellido.Text = clienteCargado.Apellido;
             lblEstrellas.Text = clienteCargado.EstrellasCliente.ToString();
