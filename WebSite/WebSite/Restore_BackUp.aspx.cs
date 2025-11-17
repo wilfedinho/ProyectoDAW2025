@@ -15,6 +15,11 @@ public partial class Restore_BackUp : System.Web.UI.Page
     BackUp b = new BackUp();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["usuario"] == null)
+        {
+            Response.Redirect("Login.aspx");
+        }
+
         if (Session["usuario"] != null && Session["rol"].ToString() == "WebMaster")
         {
             if (!IsPostBack)

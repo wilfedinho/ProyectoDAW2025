@@ -13,6 +13,11 @@ public partial class Eventos : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["usuario"] == null)
+        {
+            Response.Redirect("Login.aspx");
+        }
+
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         if (Session["usuario"] != null && Session["rol"].ToString() == "WebMaster")
         {

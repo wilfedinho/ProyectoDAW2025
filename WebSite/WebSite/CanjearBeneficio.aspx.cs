@@ -13,6 +13,10 @@ public partial class CanjearBeneficio : System.Web.UI.Page
     public Usuario clienteCargado;
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["usuario"] == null)
+        {
+            Response.Redirect("Login.aspx");
+        }
 
         Mostrar490WC();
         UsuarioBLL gestorUsuario = new UsuarioBLL();

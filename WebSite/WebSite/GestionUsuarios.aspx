@@ -73,6 +73,7 @@
                         ID="btnES"
                         runat="server"
                         CssClass="nav-link idioma-btn"
+                        CausesValidation="false"
                         OnClick="btnES_Click">ES</asp:LinkButton>
 
                     <span style="margin: 0 8px; color: #888;">|</span>
@@ -81,14 +82,15 @@
                         ID="btnEN"
                         runat="server"
                         CssClass="nav-link idioma-btn"
+                        CausesValidation="false"
                         OnClick="btnEN_Click">EN</asp:LinkButton>
                 </li>
             </ul>
         </nav>
 
-        <div class="eventos-container">
+        <div class="eventos-container" runat="server">
             <h2 runat="server" data-key="Gestion de Usuarios">Gestión de Usuarios</h2>
-            <div class="filtros-form">
+            <div class="filtros-form" runat="server">
                 <div class="filtro-group">
                     <label class="filtro-label" runat="server" data-key="Usuario">Usuario</label>
                     <asp:TextBox ID="txtUsuario" runat="server" CssClass="filtro-input" />
@@ -101,7 +103,7 @@
                         Display="Dynamic"
                         data-key="El usuario es obligatorio" />
                 </div>
-                <div class="filtro-group">
+                <div class="filtro-group" runat="server">
                     <label class="filtro-label" runat="server" data-key="Nombre">Nombre</label>
                     <asp:TextBox ID="txtNombre" runat="server" CssClass="filtro-input" />
                     <asp:RequiredFieldValidator
@@ -113,8 +115,8 @@
                         Display="Dynamic"
                         data-key="El nombre es obligatorio" />
                 </div>
-                <div class="filtro-group">
-                    <label class="filtro-label">Apellido</label>
+                <div class="filtro-group" runat="server">
+                    <label data-key="Apellido" class="filtro-label" runat="server">Apellido</label>
                     <asp:TextBox ID="txtApellido" runat="server" CssClass="filtro-input" />
                     <asp:RequiredFieldValidator
                         ID="rfvApellido"
@@ -125,7 +127,7 @@
                         Display="Dynamic"
                         data-key="El apellido es obligatorio" />
                 </div>
-                <div class="filtro-group">
+                <div class="filtro-group" runat="server">
                     <label class="filtro-label">DNI</label>
                     <asp:TextBox ID="txtDNI" runat="server" CssClass="filtro-input" />
                     <asp:RequiredFieldValidator
@@ -137,7 +139,7 @@
                         Display="Dynamic"
                         data-key="El DNI es obligatorio" />
                 </div>
-                <div class="filtro-group">
+                <div class="filtro-group" runat="server">
                     <label class="filtro-label">Email</label>
                     <asp:TextBox ID="txtEmail" runat="server" CssClass="filtro-input" />
                     <asp:RequiredFieldValidator
@@ -149,8 +151,8 @@
                         Display="Dynamic"
                         data-key="El email es obligatorio" />
                 </div>
-                <div class="filtro-group">
-                    <label class="filtro-label">Rol</label>
+                <div class="filtro-group" runat="server">
+                    <label data-key="Rol" class="filtro-label" runat="server">Rol</label>
                     <asp:DropDownList ID="ddlRol" runat="server" CssClass="filtro-input">
                         <asp:ListItem Text="-- Seleccione --" Value="" />
                         <asp:ListItem Text="WebMaster" Value="WebMaster" />
@@ -167,8 +169,8 @@
                         Display="Dynamic"
                         data-key="El rol es obligatorio" />
                 </div>
-                <div class="filtro-group">
-                    <label class="filtro-label">Cantidad de Estrellas</label>
+                <div class="filtro-group" runat="server">
+                    <label class="filtro-label" data-key="cantEstrellas" runat="server">Cantidad de Estrellas</label>
                     <asp:TextBox ID="txtEstrellas" runat="server" CssClass="filtro-input" TextMode="Number" min="0" />
                     <asp:RequiredFieldValidator
                         ID="rfvEstrellas"
@@ -179,14 +181,14 @@
                         Display="Dynamic"
                         data-key="La cantidad de estrellas es obligatoria" />
                 </div>
-                <div class="filtro-group filtro-botones">
+                <div class="filtro-group filtro-botones" runat="server">
                     <asp:Label ID="lblMensaje" runat="server" CssClass="validador-error" Visible="false" />
                     <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="filtro-btn" OnClick="btnAgregar_Click" data-key="btn_agregar" />
                     <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="filtro-btn" OnClick="btnModificar_Click" data-key="btn_modificar" />
                     <asp:Button ID="btnBorrar" runat="server" Text="Borrar" CssClass="filtro-btn" OnClick="btnBorrar_Click" data-key="btn_borrar" />
                 </div>
             </div>
-            <div class="eventos-table-container">
+            <div class="eventos-table-container" runat="server">
                 <asp:GridView ID="gvUsuarios" runat="server" CssClass="eventos-table"
                     AutoGenerateColumns="False" DataKeyNames="Usuario,Nombre,Apellido,DNI,Email,Rol,Estrellas"
                     OnSelectedIndexChanged="gvUsuarios_SelectedIndexChanged">
