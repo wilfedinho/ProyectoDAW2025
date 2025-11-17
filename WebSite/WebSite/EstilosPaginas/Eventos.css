@@ -1,52 +1,43 @@
 ﻿body {
-    background: #1a2233;
-    color: #fff;
-    font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(180deg, #0a2342 0%, #1e3c72 100%);
+    color: #fff;
 }
 
+/* NAVBAR */
 .navbar {
-    display: flex;
-    background: #232b3e;
-    padding: 0 24px;
-    height: 56px;
-    align-items: center;
-    border-radius: 0 0 18px 18px;
-    box-shadow: 0 2px 8px #00000020;
-    margin-bottom: 32px;
-    background: transparent;
-    border: none;
+    background-color: #0d1b2a;
+    padding: 12px 0;
+    text-align: center;
 }
 
-.nav-item {
-    color: #e6eaf6;
-    font-size: 17px;
-    font-weight: 500;
-    padding: 0 32px;
-    cursor: pointer;
-    border-right: 2px solid #2c3654;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    transition: color 0.2s;
-    background: transparent;
-    border: none;
-}
-
-    .nav-item:last-child {
-        border-right: none;
+    .navbar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
 
-    .nav-item:hover {
-        color: #fff;
+    .navbar li {
+        display: inline-block;
+        margin: 0 20px;
     }
 
-.nav-right {
-    margin-left: auto;
-    color: #ff5252;
-    font-weight: 600;
-}
+    .navbar a {
+        color: #ddd;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+        .navbar a:hover {
+            color: #fff;
+        }
+
+    .navbar .cerrar {
+        color: #ff4c4c;
+        font-weight: bold;
+    }
 
 .eventos-container {
     background: #16213a;
@@ -208,6 +199,4 @@
     font-weight: bold;
     font-size: 1.05em;
 }
-
-
-
+ 

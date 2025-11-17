@@ -10,15 +10,81 @@
 <body>
     <form id="form1" runat="server">
 
-        <div id="navbarPrincipal" runat="server" class="navbar">
-            <asp:Button CssClass="nav-item" ID="btnInicio" runat="server" Text="Inicio" OnClick="btnInicio_Click" CausesValidation="false" data-key="btn_inicio"/>
-            <asp:Button CssClass="nav-item" ID="btnUsuarios" runat="server" Text="Gestión Usuarios" OnClick="btnUsuarios_Click" CausesValidation="false" data-key="btn_usuarios"/>
-            <asp:Button CssClass="nav-item" ID="btnBeneficios" runat="server" Text="Gestión Beneficios" OnClick="btnBeneficios_Click" CausesValidation="false" data-key="btn_beneficios"/>
-            <asp:Button CssClass="nav-item" ID="btnBoletos" runat="server" Text="Gestión Boletos" OnClick="btnBoletos_Click" CausesValidation="false" data-key="btn_boletos"/>
-            <asp:Button CssClass="nav-item" ID="btnClave" runat="server" Text="Cambiar Clave" OnClick="btnClave_Click" CausesValidation="false" data-key="btn_clave"/>
-            <asp:Button CssClass="nav-item" ID="btnVuelos" runat="server" Text="Vuelos" OnClick="btnVuelos_Click" CausesValidation="false" data-key="btn_vuelos"/>
-            <asp:Button CssClass="nav-item nav-right" ID="btnCerrarSesion" runat="server" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" CausesValidation="false" data-key="btn_cerrarSesion"/>
-        </div>
+        <nav id="navbarPrincipal" runat="server" class="navbar">
+            <ul>
+                <li>
+                    <asp:LinkButton runat="server" ID="btnInicio"
+                        Text="Inicio" CssClass="nav-link"
+                        data-key="btn_inicio" CausesValidation="false"
+                        OnClick="btnInicio_Click"></asp:LinkButton>
+                </li>
+
+                <li>
+                    <asp:LinkButton runat="server" ID="btnUsuarios"
+                        Text="Gestión Usuarios" CssClass="nav-link"
+                        data-key="btn_usuarios" CausesValidation="false"
+                        OnClick="btnUsuarios_Click"></asp:LinkButton>
+                </li>
+
+                <li>
+                    <asp:LinkButton runat="server" ID="btnPermisos"
+                        Text="Gestión Permisos" CssClass="nav-link"
+                        data-key="btn_permisos" CausesValidation="false"
+                        OnClick="btnPermisos_Click"></asp:LinkButton>
+                </li>
+
+                <li>
+                    <asp:LinkButton runat="server" ID="btnBeneficios"
+                        Text="Gestión Beneficios" CssClass="nav-link"
+                        data-key="btn_beneficios" CausesValidation="false"
+                        OnClick="btnBeneficios_Click"></asp:LinkButton>
+                </li>
+
+                <li>
+                    <asp:LinkButton runat="server" ID="btnBoletos"
+                        Text="Gestión Boletos" CssClass="nav-link"
+                        data-key="btn_boletos" CausesValidation="false"
+                        OnClick="btnBoletos_Click"></asp:LinkButton>
+                </li>
+
+                <li>
+                    <asp:LinkButton runat="server" ID="btnClave"
+                        Text="Cambiar Clave" CssClass="nav-link"
+                        data-key="btn_clave" CausesValidation="false"
+                        OnClick="btnClave_Click"></asp:LinkButton>
+                </li>
+
+                <li>
+                    <asp:LinkButton runat="server" ID="btnVuelos"
+                        Text="Vuelos" CssClass="nav-link"
+                        data-key="btn_vuelos" CausesValidation="false"
+                        OnClick="btnVuelos_Click"></asp:LinkButton>
+                </li>
+
+                <li>
+                    <asp:LinkButton runat="server" ID="btnCerrarSesion"
+                        Text="Cerrar Sesión" CssClass="nav-link cerrar"
+                        data-key="btn_cerrarSesion" CausesValidation="false"
+                        OnClick="btnCerrarSesion_Click"></asp:LinkButton>
+                </li>
+                <li style="display: inline-block; margin-left: 40px;">
+
+                    <asp:LinkButton
+                        ID="btnES"
+                        runat="server"
+                        CssClass="nav-link idioma-btn"
+                        OnClick="btnES_Click">ES</asp:LinkButton>
+
+                    <span style="margin: 0 8px; color: #888;">|</span>
+
+                    <asp:LinkButton
+                        ID="btnEN"
+                        runat="server"
+                        CssClass="nav-link idioma-btn"
+                        OnClick="btnEN_Click">EN</asp:LinkButton>
+                </li>
+            </ul>
+        </nav>
 
         <div class="eventos-container">
             <h2 runat="server" data-key="Gestion de Usuarios">Gestión de Usuarios</h2>
@@ -33,7 +99,7 @@
                         ErrorMessage="El usuario es obligatorio"
                         CssClass="validador-error"
                         Display="Dynamic"
-                        data-key="El usuario es obligatorio"/>
+                        data-key="El usuario es obligatorio" />
                 </div>
                 <div class="filtro-group">
                     <label class="filtro-label" runat="server" data-key="Nombre">Nombre</label>
@@ -45,7 +111,7 @@
                         ErrorMessage="El nombre es obligatorio"
                         CssClass="validador-error"
                         Display="Dynamic"
-                        data-key="El nombre es obligatorio"/>
+                        data-key="El nombre es obligatorio" />
                 </div>
                 <div class="filtro-group">
                     <label class="filtro-label">Apellido</label>
@@ -57,7 +123,7 @@
                         ErrorMessage="El apellido es obligatorio"
                         CssClass="validador-error"
                         Display="Dynamic"
-                        data-key="El apellido es obligatorio"/>
+                        data-key="El apellido es obligatorio" />
                 </div>
                 <div class="filtro-group">
                     <label class="filtro-label">DNI</label>
@@ -69,7 +135,7 @@
                         ErrorMessage="El DNI es obligatorio"
                         CssClass="validador-error"
                         Display="Dynamic"
-                        data-key="El DNI es obligatorio"/>
+                        data-key="El DNI es obligatorio" />
                 </div>
                 <div class="filtro-group">
                     <label class="filtro-label">Email</label>
@@ -81,7 +147,7 @@
                         ErrorMessage="El email es obligatorio"
                         CssClass="validador-error"
                         Display="Dynamic"
-                        data-key="El email es obligatorio"/>
+                        data-key="El email es obligatorio" />
                 </div>
                 <div class="filtro-group">
                     <label class="filtro-label">Rol</label>
@@ -99,7 +165,7 @@
                         ErrorMessage="El rol es obligatorio"
                         CssClass="validador-error"
                         Display="Dynamic"
-                        data-key="El rol es obligatorio"/>
+                        data-key="El rol es obligatorio" />
                 </div>
                 <div class="filtro-group">
                     <label class="filtro-label">Cantidad de Estrellas</label>
@@ -111,13 +177,13 @@
                         ErrorMessage="La cantidad de estrellas es obligatoria"
                         CssClass="validador-error"
                         Display="Dynamic"
-                        data-key="La cantidad de estrellas es obligatoria"/>
+                        data-key="La cantidad de estrellas es obligatoria" />
                 </div>
                 <div class="filtro-group filtro-botones">
                     <asp:Label ID="lblMensaje" runat="server" CssClass="validador-error" Visible="false" />
-                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="filtro-btn" OnClick="btnAgregar_Click" data-key="btn_agregar"/>
-                    <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="filtro-btn" OnClick="btnModificar_Click" data-key="btn_modificar"/>
-                    <asp:Button ID="btnBorrar" runat="server" Text="Borrar" CssClass="filtro-btn" OnClick="btnBorrar_Click" data-key="btn_borrar"/>
+                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="filtro-btn" OnClick="btnAgregar_Click" data-key="btn_agregar" />
+                    <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="filtro-btn" OnClick="btnModificar_Click" data-key="btn_modificar" />
+                    <asp:Button ID="btnBorrar" runat="server" Text="Borrar" CssClass="filtro-btn" OnClick="btnBorrar_Click" data-key="btn_borrar" />
                 </div>
             </div>
             <div class="eventos-table-container">
