@@ -101,7 +101,7 @@
         .boton-primario, .boton-secundario {
             padding: 10px 20px;
             border: none;
-            border-radius: 6px; /* Ligeramente más redondo */
+            border-radius: 6px; 
             cursor: pointer;
             font-weight: bold;
             transition: background-color 0.3s ease, transform 0.2s ease;
@@ -205,21 +205,21 @@
 
                     <Columns>
 
-                        <asp:BoundField DataField="NumeroBoleto" HeaderText="Código" />
-                        <asp:BoundField DataField="Origen" HeaderText="Origen" />
-                        <asp:BoundField DataField="Destino" HeaderText="Destino" />
-                        <asp:BoundField DataField="FechaPartidaIDA" HeaderText="Partida Ida" />
-                        <asp:BoundField DataField="FechaLlegadaIDA" HeaderText="Llegada Ida" />
-                        <asp:BoundField DataField="FechaPartidaVUELTA" HeaderText="Partida Vuelta" />
-                        <asp:BoundField DataField="FechaLlegadaVUELTA" HeaderText="Llegada Vuelta" />
-                        <asp:BoundField DataField="PesoEquipaje" HeaderText="Equipaje" />
-                        <asp:BoundField DataField="ClaseBoleto" HeaderText="Clase" />
-                        <asp:BoundField DataField="Precio" HeaderText="Precio" />
-                        <asp:BoundField DataField="NumeroAsiento" HeaderText="Asiento" />
-                        <asp:BoundField DataField="BeneficioAplicado" HeaderText="Beneficio" />
+                        <asp:BoundField DataField="NumeroBoleto" HeaderText="---" />
+                        <asp:BoundField DataField="Origen" HeaderText="---" />
+                        <asp:BoundField DataField="Destino" HeaderText="---" />
+                        <asp:BoundField DataField="FechaPartidaIDA" HeaderText="---" />
+                        <asp:BoundField DataField="FechaLlegadaIDA" HeaderText="---" />
+                        <asp:BoundField DataField="FechaPartidaVUELTA" HeaderText="---" />
+                        <asp:BoundField DataField="FechaLlegadaVUELTA" HeaderText="---" />
+                        <asp:BoundField DataField="PesoEquipaje" HeaderText="---" />
+                        <asp:BoundField DataField="ClaseBoleto" HeaderText="---" />
+                        <asp:BoundField DataField="Precio" HeaderText="---" />
+                        <asp:BoundField DataField="NumeroAsiento" HeaderText="---" />
+                        <asp:BoundField DataField="BeneficioAplicado" HeaderText="---" />
 
 
-                        <asp:TemplateField HeaderText="Acciones">
+                        <asp:TemplateField HeaderText="---">
                             <ItemTemplate>
                                 <asp:LinkButton ID="btnPagarBoleto"
                                     runat="server"

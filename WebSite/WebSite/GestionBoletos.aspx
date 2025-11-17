@@ -158,17 +158,17 @@
                         OnSelectedIndexChanged="gvBoletos_SelectedIndexChanged">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" SelectText="&#8594;" ButtonType="Link" ItemStyle-ForeColor="#2196F3" ItemStyle-Font-Size="Large" />
-                            <asp:BoundField DataField="ID" HeaderText="NumeroBoleto"></asp:BoundField>
-                            <asp:BoundField DataField="Origen" HeaderText="Origen"></asp:BoundField>
-                            <asp:BoundField DataField="Destino" HeaderText="Destino"></asp:BoundField>
-                            <asp:BoundField DataField="FechaPartidaIDA" HeaderText="FechaPartidaIDA"></asp:BoundField>
-                            <asp:BoundField DataField="FechaLlegadaIDA" HeaderText="FechaLlegadaIDA"></asp:BoundField>
-                            <asp:BoundField DataField="FechaPartidaVUELTA" HeaderText="FechaPartidaVUELTA"></asp:BoundField>
-                            <asp:BoundField DataField="FechaLlegadaVUELTA" HeaderText="FechaLlegadaVUELTA"></asp:BoundField>
-                            <asp:BoundField DataField="ClaseBoleto" HeaderText="Clase"></asp:BoundField>
-                            <asp:BoundField DataField="PesoEquipaje" HeaderText="Peso Equipaje"></asp:BoundField>
-                            <asp:BoundField DataField="Precio" HeaderText="Precio"></asp:BoundField>
-                            <asp:BoundField DataField="NumeroAsiento" HeaderText="NumeroAsiento"></asp:BoundField>
+                            <asp:BoundField DataField="ID" HeaderText="---"></asp:BoundField>
+                            <asp:BoundField DataField="Origen" HeaderText="---"></asp:BoundField>
+                            <asp:BoundField DataField="Destino" HeaderText="---"></asp:BoundField>
+                            <asp:BoundField DataField="FechaPartidaIDA" HeaderText="---"></asp:BoundField>
+                            <asp:BoundField DataField="FechaLlegadaIDA" HeaderText="---"></asp:BoundField>
+                            <asp:BoundField DataField="FechaPartidaVUELTA" HeaderText="---"></asp:BoundField>
+                            <asp:BoundField DataField="FechaLlegadaVUELTA" HeaderText="---"></asp:BoundField>
+                            <asp:BoundField DataField="ClaseBoleto" HeaderText="---"></asp:BoundField>
+                            <asp:BoundField DataField="PesoEquipaje" HeaderText="---"></asp:BoundField>
+                            <asp:BoundField DataField="Precio" HeaderText="---"></asp:BoundField>
+                            <asp:BoundField DataField="NumeroAsiento" HeaderText="---"></asp:BoundField>
                         </Columns>
                     </asp:GridView>
 

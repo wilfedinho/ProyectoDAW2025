@@ -8,45 +8,44 @@
     <title>Reservar Boleto</title>
 
     <style>
-    /* Estilos Globales para el cuerpo */
+    
     body {
-        font-family: 'Segoe UI', Arial, sans-serif; /* Usamos la fuente de Vuelos */
-        background-color: #1a2233; /* Fondo oscuro de Sanza Flights */
-        color: #e6eaf6; /* Color de texto claro general */
-        margin: 0; /* Quitamos el margin del body, lo manejamos en el contenedor */
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background-color: #1a2233; 
+        color: #e6eaf6; 
+        margin: 0; 
         padding: 0;
     }
 
-    /* Contenedor Principal (Panel/Card) */
+   
     #contenedorPrincipal {
         width: 95%;
         max-width: 1400px;
-        margin: 40px auto; /* Centrado y margen vertical */
-        background-color: #f4f6fa; /* Fondo claro de la sección de contenido de Vuelos */
+        margin: 40px auto; 
+        background-color: #f4f6fa; 
         padding: 30px;
-        border-radius: 12px; /* Coherente con las cards de Vuelos */
-        box-shadow: 0 4px 24px #001a3388; /* Sombra sutil de Vuelos */
-        color: #1a2233; /* Texto oscuro dentro del contenedor claro */
+        border-radius: 12px;
+        box-shadow: 0 4px 24px #001a3388; 
+        color: #1a2233; 
     }
 
-    /* Título de la Sección (h2) */
     h2 {
-        color: #274472; /* Color azul oscuro de Vuelos para el título */
+        color: #274472; 
         font-size: 2em;
         font-weight: 500;
-        border-bottom: 2px solid #4169a1; /* Línea de acento azul */
+        border-bottom: 2px solid #4169a1;
         padding-bottom: 10px;
         margin-bottom: 30px;
         text-align: center;
     }
 
-    /* PANEL DE FILTROS */
+    
     .panel-filtros {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
         padding: 20px;
-        background-color: #ffffff; /* Fondo blanco más limpio para los filtros */
+        background-color: #ffffff; 
         border-radius: 8px;
         margin-bottom: 30px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -61,27 +60,26 @@
         .grupo-filtro label {
             font-weight: 600;
             margin-bottom: 5px;
-            color: #274472; /* Etiquetas en azul oscuro para destacar */
+            color: #274472; 
             font-size: 0.9em;
         }
 
-    /* Controles de Input y Select */
+  
     .control-input, .control-select {
         padding: 10px;
-        border: 1px solid #c9d0d9; /* Borde más suave */
+        border: 1px solid #c9d0d9; 
         border-radius: 4px;
-        background-color: #f9f9f9; /* Fondo muy claro para los inputs */
+        background-color: #f9f9f9; 
         color: #1a2233;
         font-size: 1em;
         transition: border-color 0.2s;
     }
 
         .control-input:focus, .control-select:focus {
-            border-color: #4169a1; /* Acento azul al enfocar */
+            border-color: #4169a1; 
             outline: none;
         }
 
-    /* CHECKBOX */
     .grupo-filtro.checkbox-control {
         flex-direction: row;
         align-items: center;
@@ -92,11 +90,11 @@
         .grupo-filtro.checkbox-control label {
             margin-right: 10px;
             margin-bottom: 0;
-            color: #1a2233; /* Texto del checkbox en color oscuro */
+            color: #1a2233; 
             font-weight: normal;
         }
 
-    /* ACCIONES (Botones de Filtrar/Restablecer) */
+
     .acciones-filtros {
         display: flex;
         align-items: flex-end;
@@ -107,25 +105,25 @@
     .boton-primario, .boton-secundario {
         padding: 10px 20px;
         border: none;
-        border-radius: 6px; /* Ligeramente más redondo */
+        border-radius: 6px; 
         cursor: pointer;
         font-weight: bold;
         transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    /* Botón FILTRAR (Primario) */
+   
     .boton-primario {
-        background-color: #4169a1; /* Azul principal de Sanza Flights */
+        background-color: #4169a1; 
         color: white;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
         .boton-primario:hover {
-            background-color: #274472; /* Azul oscuro de hover */
+            background-color: #274472; 
             transform: translateY(-1px);
         }
 
-    /* Botón RESTABLECER (Secundario) */
+ 
     .boton-secundario {
         background-color: #95a5a6;
         color: #1a2233;
@@ -136,7 +134,7 @@
             transform: translateY(-1px);
         }
 
-    /* TABLA DE RESULTADOS (GridView) */
+    
     .contenedor-tabla {
         overflow-x: auto;
     }
@@ -144,8 +142,8 @@
     .gridview {
         width: 100%;
         border-collapse: collapse;
-        background-color: #ffffff; /* Fondo de tabla blanco */
-        color: #1a2233; /* Texto de tabla oscuro */
+        background-color: #ffffff; 
+        color: #1a2233;
         margin-top: 15px;
         border-radius: 8px;
         overflow: hidden;
@@ -153,7 +151,7 @@
     }
 
         .gridview th {
-            background-color: #4169a1; /* Azul principal en cabecera */
+            background-color: #4169a1; 
             color: #ffffff;
             padding: 12px 10px;
             text-align: center;
@@ -164,23 +162,23 @@
 
         .gridview td {
             padding: 10px 10px;
-            border-bottom: 1px solid #e0e0e0; /* Líneas divisorias suaves */
+            border-bottom: 1px solid #e0e0e0; 
             text-align: left;
         }
 
         .gridview tr:nth-child(even) {
-            background-color: #f9f9f9; /* Raya alterna muy suave */
+            background-color: #f9f9f9; 
         }
 
         .gridview tr:hover td {
-            background-color: #eaf1f8; /* Un ligero cambio de color al pasar el ratón (azul claro) */
+            background-color: #eaf1f8; 
         }
 
         .gridview a {
-            color: #4169a1; /* color de link en azul */
+            color: #4169a1; 
         }
         
-    /* BOTONES DE ACCIÓN DENTRO DEL GRID */
+
     .boton-accion {
         padding: 6px 14px;
         border-radius: 6px;
@@ -189,12 +187,12 @@
         font-size: 13px;
         display: inline-block;
         transition: 0.2s ease;
-        white-space: nowrap; /* Evita que el texto del botón se rompa */
+        white-space: nowrap; 
     }
 
-    /* Botón RESERVAR (Acción principal) */
+ 
     .boton-reservar {
-        background-color: #2ecc71; /* Dejamos un color llamativo (verde/éxito) para RESERVAR */
+        background-color: #2ecc71; 
         color: white;
     }
 
@@ -203,9 +201,9 @@
             transform: translateY(-1px);
         }
 
-    /* Botón RESERVAR CON BENEFICIO (Acción secundaria) */
+    
     .boton-beneficio {
-        background-color: #4a78c1; /* Azul secundario para la acción de Beneficio */
+        background-color: #4a78c1; 
         color: white;
     }
 
@@ -214,11 +212,11 @@
             transform: translateY(-1px);
         }
 
-        /* Asegurar que los botones deshabilitados se vean correctamente */
+        
         a[id*='btnReservarBeneficio'][style*='opacity: 0.4'] {
             pointer-events: none;
             cursor: default;
-            background-color: #4a78c1 !important; /* Mantiene el color base, solo cambia la opacidad */
+            background-color: #4a78c1 !important; 
         }
 
 </style>
@@ -230,7 +228,7 @@
 
             <h2 runat="server" data-key="reservarBoletos">Reservar Boletos</h2>
 
-            <!-- 🔹 PANEL DE FILTROS -->
+            
             <div class="panel-filtros" runat="server">
 
                 <div class="grupo-filtro" runat="server">
@@ -308,7 +306,7 @@
 
             </div>
 
-            <!-- 🔹 TABLA RESULTADOS -->
+            
             <div class="contenedor-tabla">
                 <asp:GridView ID="gvBoletos" runat="server" AutoGenerateColumns="False" CssClass="gridview"
                     OnRowCommand="gvBoletos_RowCommand" DataKeyNames="NumeroBoleto">
@@ -318,7 +316,7 @@
 
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                <span data-key="header_acciones">Acciones</span>
+                                <span data-key="header_acciones">---</span>
                             </HeaderTemplate>
 
                             <ItemTemplate>
@@ -326,7 +324,7 @@
                                     CommandName="Reservar"
                                     CommandArgument='<%# Eval("NumeroBoleto") %>'
                                     CssClass="boton-accion boton-reservar">
-                Reservar
+                ---
                                 </asp:LinkButton>
 
                                 &nbsp;
@@ -335,7 +333,7 @@
                 CommandName="ReservarBeneficio"
                 CommandArgument='<%# Eval("NumeroBoleto") %>'
                 CssClass="boton-accion boton-beneficio">
-                Reservar con Beneficio
+                ---
             </asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
@@ -344,7 +342,7 @@
 
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                <span data-key="header_numBoleto">N° Boleto</span>
+                                <span data-key="header_numBoleto">---</span>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <%# Eval("NumeroBoleto") %>
@@ -355,7 +353,7 @@
 
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                <span data-key="header_modalidad">Modalidad</span>
+                                <span data-key="header_modalidad">---</span>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <%# Eval("Modalidad") %>
@@ -366,7 +364,7 @@
 
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                <span data-key="header_origen">Origen</span>
+                                <span data-key="header_origen">---</span>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <%# Eval("Origen") %>
@@ -377,7 +375,7 @@
 
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                <span data-key="header_destino">Destino</span>
+                                <span data-key="header_destino">---</span>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <%# Eval("Destino") %>
@@ -388,7 +386,7 @@
 
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                <span data-key="header_partidaIda">Partida IDA</span>
+                                <span data-key="header_partidaIda">---</span>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <%# Eval("FechaPartidaIDA") %>
@@ -399,7 +397,7 @@
 
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                <span data-key="header_llegadaIda">Llegada IDA</span>
+                                <span data-key="header_llegadaIda">---</span>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <%# Eval("FechaLlegadaIDA") %>
@@ -410,7 +408,7 @@
 
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                <span data-key="header_partidaVuelta">Partida VUELTA</span>
+                                <span data-key="header_partidaVuelta">---</span>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <%# Eval("FechaPartidaVUELTA") %>
@@ -421,7 +419,7 @@
 
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                <span data-key="header_llegadaVuelta">Llegada VUELTA</span>
+                                <span data-key="header_llegadaVuelta">---</span>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <%# Eval("FechaLlegadaVUELTA") %>
@@ -432,7 +430,7 @@
 
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                <span data-key="header_clase">Clase</span>
+                                <span data-key="header_clase">---</span>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <%# Eval("ClaseBoleto") %>
@@ -443,7 +441,7 @@
 
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                <span data-key="header_pesoPermitido">Peso Permitido</span>
+                                <span data-key="header_pesoPermitido">---</span>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <%# Eval("PesoEquipajePermitido") %>
@@ -454,7 +452,7 @@
 
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                <span data-key="header_precio">Precio</span>
+                                <span data-key="header_precio">---</span>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <%# Eval("Precio") %>
@@ -465,7 +463,7 @@
 
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                <span data-key="header_asiento">Asiento</span>
+                                <span data-key="header_asiento">---</span>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <%# Eval("NumeroAsiento") %>
@@ -484,7 +482,7 @@
 
     </form>
 
-    <!-- JavaScript para habilitar/deshabilitar fechas -->
+    
     <script type="text/javascript">
         function toggleFechas() {
             var habilitar = document.getElementById('<%= chkFiltrarFecha.ClientID %>').checked;
@@ -508,34 +506,34 @@
 
     <script type="text/javascript">
 
-        // 🔹 Habilita o deshabilita los botones "Reservar con Beneficio"
+       
         function actualizarBotonesBeneficio() {
 
-            // Obtener valor del dropdown
+            
             var ddl = document.getElementById('<%= ddlBeneficios.ClientID %>');
             var tieneBeneficio = ddl.value !== "";
 
-            // Obtener todos los botones del grid
+            
             var botones = document.querySelectorAll("a[id*='btnReservarBeneficio']");
 
             botones.forEach(boton => {
                 if (tieneBeneficio) {
-                    boton.style.pointerEvents = "auto";  // habilitar click
-                    boton.style.opacity = "1";          // visual normal
+                    boton.style.pointerEvents = "auto";  
+                    boton.style.opacity = "1";          
                 } else {
-                    boton.style.pointerEvents = "none"; // deshabilitar click
-                    boton.style.opacity = "0.4";        // efecto visual desactivado
+                    boton.style.pointerEvents = "none"; 
+                    boton.style.opacity = "0.4";        
                 }
             });
         }
 
-        // 🔹 Ejecutar al cargar la página
+        
         window.onload = function () {
             toggleFechas();
             actualizarBotonesBeneficio();
         };
 
-        // 🔹 Ejecutar cuando el usuario cambie el beneficio
+        
         document.addEventListener("DOMContentLoaded", function () {
             var ddl = document.getElementById('<%= ddlBeneficios.ClientID %>');
         ddl.addEventListener("change", actualizarBotonesBeneficio);

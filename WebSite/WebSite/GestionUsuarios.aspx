@@ -195,13 +195,13 @@
                     <Columns>
 
                         <asp:CommandField ShowSelectButton="True" SelectText="&#8594;" ButtonType="Link" ItemStyle-ForeColor="#2196F3" ItemStyle-Font-Size="Large" />
-                        <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
-                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                        <asp:BoundField DataField="Apellido" HeaderText="Apellido" />
-                        <asp:BoundField DataField="DNI" HeaderText="DNI" />
-                        <asp:BoundField DataField="Email" HeaderText="Email" />
-                        <asp:BoundField DataField="Rol" HeaderText="Rol" />
-                        <asp:BoundField DataField="Estrellas" HeaderText="Estrellas" />
+                        <asp:BoundField DataField="Usuario" HeaderText="---" />
+                        <asp:BoundField DataField="Nombre" HeaderText="---" />
+                        <asp:BoundField DataField="Apellido" HeaderText="---" />
+                        <asp:BoundField DataField="DNI" HeaderText="---" />
+                        <asp:BoundField DataField="Email" HeaderText="---" />
+                        <asp:BoundField DataField="Rol" HeaderText="---" />
+                        <asp:BoundField DataField="Estrellas" HeaderText="---" />
                     </Columns>
                 </asp:GridView>
             </div>

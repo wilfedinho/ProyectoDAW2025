@@ -183,11 +183,11 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:CommandField ShowSelectButton="True" SelectText="&#8594;" ButtonType="Link" ItemStyle-ForeColor="#2196F3" ItemStyle-Font-Size="Large" />
-                        <asp:BoundField DataField="CodigoBeneficio" HeaderText="Código" />
-                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                        <asp:BoundField DataField="PrecioEstrella" HeaderText="Precio" />
-                        <asp:BoundField DataField="CantidadBeneficioReclamo" HeaderText="Cantidad Canjeada" />
-                        <asp:BoundField DataField="DescuentoAplicar" HeaderText="Descuento (%)" />
+                        <asp:BoundField DataField="CodigoBeneficio" HeaderText="---" />
+                        <asp:BoundField DataField="Nombre" HeaderText="---" />
+                        <asp:BoundField DataField="PrecioEstrella" HeaderText="---" />
+                        <asp:BoundField DataField="CantidadBeneficioReclamo" HeaderText="---" />
+                        <asp:BoundField DataField="DescuentoAplicar" HeaderText="---" />
                     </Columns>
                 </asp:GridView>
             </div>
