@@ -70,13 +70,23 @@ public partial class CanjearBeneficio : System.Web.UI.Page
             Beneficio beneficioACanjear = gestorBeneficio.ObtenerTodosLosBeneficios().Find(b => b.CodigoBeneficio.ToString() == codigo);
             if (clienteCargado.BeneficiosCliente.Find(x => x.CodigoBeneficio == beneficioACanjear.CodigoBeneficio) == null)
             {
-                gestorUsuario.ModificarEstrellasCliente(clienteCargado.DNI, beneficioACanjear.PrecioEstrella);
-                beneficioACanjear.CantidadBeneficioReclamo += 1;
-                gestorBeneficio.Modificacion(beneficioACanjear);
-                gestorBeneficio.AgregarBeneficioACliente(clienteCargado.DNI, beneficioACanjear.CodigoBeneficio);
-                clienteCargado = gestorUsuario.BuscarClientePorDNI(clienteCargado.DNI);
-                CargarInfoUsuario();
-                Mostrar490WC();
+                int resultadoEstrellas = clienteCargado.EstrellasCliente - beneficioACanjear.PrecioEstrella;
+                if (resultadoEstrellas >= 0)
+                {
+                    gestorUsuario.ModificarEstrellasCliente(clienteCargado.DNI, beneficioACanjear.PrecioEstrella);
+                    beneficioACanjear.CantidadBeneficioReclamo += 1;
+                    gestorBeneficio.Modificacion(beneficioACanjear);
+                    gestorBeneficio.AgregarBeneficioACliente(clienteCargado.DNI, beneficioACanjear.CodigoBeneficio);
+                    clienteCargado = gestorUsuario.BuscarClientePorDNI(clienteCargado.DNI);
+                    CargarInfoUsuario();
+                    Mostrar490WC();
+                }
+                else
+                {
+                    string mensajeError = "Error: No Posee Las Estrellas Suficientes Para Canjear El Beneficio!!";
+                    string script = $"alert('{mensajeError}');";
+                    ScriptManager.RegisterStartupScript(this, GetType(), "mostrarError", script, true);
+                }
             }
             else
             {
