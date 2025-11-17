@@ -168,6 +168,7 @@ public partial class Login : System.Web.UI.Page
     public void AlmacenarSesion(Usuario usuarioSesion)
     {
         Session["usuario"] = $"{usuarioSesion.Username}";
+        Session["dni"] = $"{usuarioSesion.DNI}";
         Session["rol"] = $"{usuarioSesion.Rol}";
         
     }

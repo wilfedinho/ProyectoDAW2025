@@ -152,7 +152,7 @@
     border-radius: 12px;
     box-shadow: 0 2px 16px #001a3322;
     overflow: hidden;
-    width: 260px;
+    width: 300px;
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;

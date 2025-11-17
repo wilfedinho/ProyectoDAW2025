@@ -27,35 +27,53 @@ public partial class Vuelos : System.Web.UI.Page
             btnCambiarClave.Visible = true;
             btnCerrarSesion.Visible = true;
         }
+        CargarVuelos();
         ChequearAccesibilidadDeTodosLosControles();
 
-        /*if (Session["usuario"] == null)
+        string target = Request["__EVENTTARGET"];
+        string arg = Request["__EVENTARGUMENT"];
+
+        if (target == "SelectVuelo")
         {
-            btnIniciarSesion.Visible = true;
-            btnCambiarClave.Visible = false;
-            btnCerrarSesion.Visible = false;
-            btnMenuAdministrador.Visible = false;
-            btnMenuWebMaster.Visible = false;
+            int idVuelo = int.Parse(arg);
+            SeleccionarVuelo(idVuelo);
         }
-        else
-        {
-            btnIniciarSesion.Visible = false;
-            btnCambiarClave.Visible = true;
-            btnCerrarSesion.Visible = true;
-            if (Session["rol"].ToString() == "Admin")
-            {
-                btnMenuAdministrador.Visible = true;
-            }
-            else if (Session["rol"].ToString() == "WebMaster")
-            {
-                btnMenuWebMaster.Visible = true;
-            }
-            else
-            {
-                btnMenuAdministrador.Visible = false;
-                btnMenuWebMaster.Visible = false;
-            }
-        }*/
+
+
+    }
+
+    private void CargarVuelos()
+    {
+        var vuelos = new List<dynamic>
+    {
+        new { ID = 1, Imagen = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
+              Titulo = "Reservar Boletos",
+              Descripcion = "En Esta Opcion Tendras La Posibilidad De Reservar Los Boletos Disponibles...",
+              Url = "ReservarBoleto.aspx"
+        },
+
+        new { ID = 2, Imagen = "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80",
+              Titulo = "Canjear Beneficios",
+              Descripcion = "En Esta Opcion Tendras La Posibilidad De Canjear Los Beneficios...",
+              Url = "CanjearBeneficio.aspx"
+        },
+
+        new { ID = 3, Imagen = "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=400&q=80",
+              Titulo = "Pagar Boletos",
+              Descripcion = "En Esta Opcion Tendras La Posibilidad De Realizar Los Pagos...",
+              Url = "PagarBoleto.aspx"
+        }
+    };
+
+        repVuelos.DataSource = vuelos;
+        repVuelos.DataBind();
+    }
+
+
+    private void SeleccionarVuelo(int idVuelo)
+    {
+        Session["VueloSeleccionado"] = idVuelo;
+        Response.Redirect("ReservarBoleto.aspx");
     }
 
     public void ChequearAccesibilidadDeTodosLosControles()
@@ -67,47 +85,52 @@ public partial class Vuelos : System.Web.UI.Page
 
     private void ChequearAccesibilidadNavbar(Control navbar, GestorPermisos gp)
     {
-        foreach (Control ctrl in navbar.Controls)
+        try
         {
-            if (ctrl is Button btn)
+            foreach (Control ctrl in navbar.Controls)
             {
-                string permiso = btn.CommandName;
-                if (permiso == "")
+                if (ctrl is Button btn)
                 {
-                    btn.Visible = true;
-                    continue;
+                    string permiso = btn.CommandName;
+                    if (permiso == "")
+                    {
+                        btn.Visible = true;
+                        continue;
+                    }
+                    if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
+                    {
+                        btn.Visible = false;
+                    }
+                    else
+                    {
+                        btn.Visible = true;
+                    }
                 }
-                if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
+                else if (ctrl is LinkButton linkBtn)
                 {
-                    btn.Visible = false;
+                    string permiso = linkBtn.CommandName;
+                    if (permiso == "")
+                    {
+                        linkBtn.Visible = true;
+                        continue;
+                    }
+                    if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
+                    {
+                        linkBtn.Visible = false;
+                    }
+                    else
+                    {
+                        linkBtn.Visible = true;
+                    }
                 }
-                else
+                else if (ctrl.HasControls())
                 {
-                    btn.Visible = true;
+                    ChequearAccesibilidadNavbar(ctrl, gp);
                 }
             }
-            else if (ctrl is LinkButton linkBtn)
-            {
-                string permiso = linkBtn.CommandName;
-                if (permiso == "")
-                {
-                    linkBtn.Visible = true;
-                    continue;
-                }
-                if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
-                {
-                    linkBtn.Visible = false;
-                }
-                else
-                {
-                    linkBtn.Visible = true;
-                }
-            }
-            else if (ctrl.HasControls())
-            {
-                ChequearAccesibilidadNavbar(ctrl, gp);
-            }
+
         }
+        catch { }
     }
 
     public void ChequearAccesibilidadRecursiva(Control contenedor, GestorPermisos gp)

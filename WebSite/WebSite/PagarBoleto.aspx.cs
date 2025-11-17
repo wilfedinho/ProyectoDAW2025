@@ -17,7 +17,7 @@ public partial class PagarBoleto : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         UsuarioBLL gestorUsuario = new UsuarioBLL();
-        usuarioCobrar = gestorUsuario.BuscarClientePorDNI("77.777.777");
+        usuarioCobrar = gestorUsuario.BuscarClientePorDNI(Session["dni"].ToString());
         boletoCobrar = null;
         if (!IsPostBack)
         {
