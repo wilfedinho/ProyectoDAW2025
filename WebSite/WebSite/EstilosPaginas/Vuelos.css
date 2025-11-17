@@ -6,6 +6,41 @@
     padding: 0;
 }
 
+.mensaje-indicador {
+    display: block;
+    text-align: center;
+    font-size: 3.2em;
+    font-weight: bold;
+    color: #232b3e;
+    padding: 15px 0;
+    margin: 0 auto 20px auto;
+    background-color: #f4f6fa;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.main-footer {
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1.3em;
+    width: 100%;
+    bottom: 0;
+}
+
+    .main-footer p {
+        margin: 5px 0;
+    }
+
+    .main-footer a {
+        color: #cccccc;
+        text-decoration: none;
+    }
+
+        .main-footer a:hover {
+            text-decoration: underline;
+        }
+
 .navbar {
     display: flex;
     background: #232b3e;
@@ -48,11 +83,11 @@
     font-weight: 600;
 }
 
-    .nav-link.active,
-    .nav-link:hover {
-        color: #fff;
-        border-bottom: 2px solid #4169a1;
-    }
+.nav-link.active,
+.nav-link:hover {
+    color: #fff;
+    border-bottom: 2px solid #4169a1;
+}
 
 .user-icon {
     font-size: 1.7em;

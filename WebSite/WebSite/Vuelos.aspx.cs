@@ -17,13 +17,13 @@ public partial class Vuelos : System.Web.UI.Page
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         if (Session["usuario"] == null)
         {
-            btnIniciarSesion.Visible = true;
+            
             btnCambiarClave.Visible = false;
             btnCerrarSesion.Visible = false;
         }
         else
         {
-            btnIniciarSesion.Visible = false;
+            lblMensaje.Text = $"Bienvenido {Session["usuario"]} A Sanza Flights";
             btnCambiarClave.Visible = true;
             btnCerrarSesion.Visible = true;
         }
