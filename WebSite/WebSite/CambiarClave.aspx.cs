@@ -14,6 +14,10 @@ public partial class CambiarClave : System.Web.UI.Page
     GestorPermisos gp = new GestorPermisos();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["idioma"] == null)
+        {
+            Session["idioma"] = "ES";
+        }
         if (Session["usuario"] == null)
         {
             Response.Redirect("Login.aspx");

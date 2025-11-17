@@ -167,6 +167,10 @@ public partial class Restore_BackUp : System.Web.UI.Page
         lblResultadoDV.Visible = true;
         lblResultadoDV.Text = string.Empty;
         DigitoVerificador dv = new DigitoVerificador();
+        if (Session["idioma"] == null)
+        {
+            Session["idioma"] = "ES";
+        }
         if (!dv.VerificarIntegridadTodasLasTablasBool())
         {
             if (Session["idioma"].ToString() == "ES")
