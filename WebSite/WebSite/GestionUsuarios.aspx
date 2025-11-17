@@ -113,7 +113,7 @@
                         ErrorMessage="El nombre es obligatorio"
                         CssClass="validador-error"
                         Display="Dynamic"
-                        data-key="El nombre es obligatorio" />
+                        data-key="nombreObligato" />
                 </div>
                 <div class="filtro-group" runat="server">
                     <label data-key="Apellido" class="filtro-label" runat="server">Apellido</label>

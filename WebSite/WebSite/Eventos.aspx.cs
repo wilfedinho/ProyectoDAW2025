@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 
 public partial class Eventos : System.Web.UI.Page
 {
+    GestorPermisos gp = new GestorPermisos();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["usuario"] == null)
@@ -27,7 +28,29 @@ public partial class Eventos : System.Web.UI.Page
         {
             Response.Redirect("Vuelos.aspx");
         }
+        if (Session["idioma"] == null)
+        {
+            Session["idioma"] = "ES";
+            Traductor.INSTANCIA("ES").ActualizarIdioma("ES");
+        }
+        string idioma = Session["idioma"].ToString();
 
+        if (idioma == "ES")
+        {
+            btnES.CssClass = "nav-link idioma-btn activo";
+            btnEN.CssClass = "nav-link idioma-btn";
+        }
+        else
+        {
+            btnEN.CssClass = "nav-link idioma-btn activo";
+            btnES.CssClass = "nav-link idioma-btn";
+        }
+        if (!IsPostBack)
+        {
+            gp.ActualizarGeneral();
+        }
+
+        TraducirPagina(this, Traductor.INSTANCIA(idioma));
     }
 
     public void CargarEventos(string usuarioFiltrar = "", string moduloFiltrar = "", string descripcionFiltrar = "", string criticidadFiltrar = "", DateTime? fechaInicioFiltrar = null, DateTime? fechaFinFiltrar = null)

@@ -13,6 +13,7 @@ using System.Web.UI.WebControls;
 public partial class Restore_BackUp : System.Web.UI.Page
 {
     BackUp b = new BackUp();
+    GestorPermisos gp = new GestorPermisos();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["usuario"] == null)
@@ -32,6 +33,29 @@ public partial class Restore_BackUp : System.Web.UI.Page
         {
             Response.Redirect("Vuelos.aspx");
         }
+        if (Session["idioma"] == null)
+        {
+            Session["idioma"] = "ES";
+            Traductor.INSTANCIA("ES").ActualizarIdioma("ES");
+        }
+        string idioma = Session["idioma"].ToString();
+
+        if (idioma == "ES")
+        {
+            btnES.CssClass = "nav-link idioma-btn activo";
+            btnEN.CssClass = "nav-link idioma-btn";
+        }
+        else
+        {
+            btnEN.CssClass = "nav-link idioma-btn activo";
+            btnES.CssClass = "nav-link idioma-btn";
+        }
+        if (!IsPostBack)
+        {
+            gp.ActualizarGeneral();
+        }
+
+        TraducirPagina(this, Traductor.INSTANCIA(idioma));
     }
 
     protected void btnBackup_Click(object sender, EventArgs e)
@@ -75,15 +99,29 @@ public partial class Restore_BackUp : System.Web.UI.Page
             }
             catch (Exception ex)
             {
-                Label2.Text = "❌ Error al subir archivo: " + ex.Message;
+                if (Session["idioma"].ToString() == "ES")
+                {
+                    Label2.Text = "❌ Error al subir archivo: " + ex.Message;
+                }
+                else
+                {
+                    Label2.Text = "❌ Error uploading file: " + ex.Message;
+                }
                 Label2.CssClass = "mensaje-error";
                 Label2.Visible = true;
             }
         }
         else
         {
-            Label2.Text = "⚠️ Debés seleccionar un archivo .bak";
-            Label2.CssClass = "mensaje-error";
+            if (Session["idioma"].ToString() == "ES")
+            { 
+                Label2.Text = "⚠️ Debés seleccionar un archivo .bak";
+            }
+            else
+            {
+                Label2.Text = "⚠️ You must select a .bak file";
+            }
+                Label2.CssClass = "mensaje-error";
             Label2.Visible = true;
         }
     }
@@ -95,15 +133,32 @@ public partial class Restore_BackUp : System.Web.UI.Page
         lblResultadoDV.Text = string.Empty;
         if (dv.VerificarIntegridadTodasLasTablasBool())
         {
+            if (Session["idioma"].ToString() == "ES") 
+            { 
+                lblResultadoDV.Text = "✅ Se volvió a calcular el dígito verificador";
+            }
+            else
+            {
+                lblResultadoDV.Text = "✅ The verification digit was recalculated";
+            }
 
-            lblResultadoDV.Text = "✅ Se volvió a calcular el dígito verificador";
-        BitacoraBLL gestorBitacora = new BitacoraBLL();
-        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "BackUp y Restore", "Se Recalculo el Digito Verificador De La BD", 5);
-        gestorBitacora.Alta(eventoGenerado);
+
+
+                BitacoraBLL gestorBitacora = new BitacoraBLL();
+            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "BackUp y Restore", "Se Recalculo el Digito Verificador De La BD", 5);
+            gestorBitacora.Alta(eventoGenerado);
         }
         else
         {
-            lblResultadoDV.Text = "❌ Error al recalcular el dígito verificador";
+            if (Session["idioma"].ToString() == "ES")
+            {
+
+                lblResultadoDV.Text = "❌ Error al recalcular el dígito verificador";
+            }
+            else
+            {
+                lblResultadoDV.Text = "❌ Error recalculating the verification digit";
+            }
         }
     }
 
@@ -114,11 +169,25 @@ public partial class Restore_BackUp : System.Web.UI.Page
         DigitoVerificador dv = new DigitoVerificador();
         if (!dv.VerificarIntegridadTodasLasTablasBool())
         {
-            lblResultadoDV.Text = $"❌ Inconsistencia en la base de datos\n" + dv.VerificarIntegridadTodasLasTablas();
+            if (Session["idioma"].ToString() == "ES")
+            {
+                lblResultadoDV.Text = $"❌ Inconsistencia en la base de datos\n" + dv.VerificarIntegridadTodasLasTablas();
+            }
+            else
+            {
+                lblResultadoDV.Text = $"❌ Database inconsistency\n" + dv.VerificarIntegridadTodasLasTablas();
+            }
         }
         else
         {
-            lblResultadoDV.Text = "✅ La base de datos está íntegra";
+            if (Session["idioma"].ToString() == "ES")
+            {
+                lblResultadoDV.Text = "✅ La base de datos está íntegra";
+            }
+            else
+            {
+                lblResultadoDV.Text = "✅ The database is complete";
+            }
         }
     }
 

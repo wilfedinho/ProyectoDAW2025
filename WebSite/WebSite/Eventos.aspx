@@ -82,49 +82,49 @@
             </ul>
         </nav>
 
-        <div class="eventos-container">
-            <h2>Bitacora de Eventos</h2>
-            <div class="filtros-form">
-                <div class="filtro-group">
-                    <label for="txtDNI" class="filtro-label">Usuario</label>
-                    <asp:TextBox ID="txtUsuario" runat="server" CssClass="filtro-input" placeholder="Usuario"></asp:TextBox>
+        <div class="eventos-container" runat="server">
+            <h2 runat="server" data-key="bitacoraEventos">Bitacora de Eventos</h2>
+            <div class="filtros-form" runat="server">
+                <div class="filtro-group" runat="server">
+                    <label for="txtDNI" class="filtro-label" runat="server" data-key="Usuario">Usuario</label>
+                    <asp:TextBox ID="txtUsuario" runat="server" CssClass="filtro-input"></asp:TextBox>
                 </div>
-                <div class="filtro-group">
-                    <label for="txtFechaInicio" class="filtro-label">Fecha Desde</label>
+                <div class="filtro-group" runat="server">
+                    <label for="txtFechaInicio" runat="server" data-key="Fecha Desde" class="filtro-label">Fecha Desde</label>
                     <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha inicio"></asp:TextBox>
                 </div>
-                <div class="filtro-group">
-                    <label for="txtFechaFin" class="filtro-label">Fecha Hasta</label>
+                <div class="filtro-group" runat="server">
+                    <label for="txtFechaFin" runat="server" data-key="Fecha Hasta" class="filtro-label">Fecha Hasta</label>
                     <asp:TextBox ID="txtFechaFin" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha fin"></asp:TextBox>
                 </div>
-                <div class="filtro-group">
-                    <label for="chkFiltrarFecha" class="filtro-label">Filtrar por Fecha</label>
+                <div class="filtro-group" runat="server">
+                    <label for="chkFiltrarFecha" runat="server" data-key="Filtrar por Fecha" class="filtro-label">Filtrar por Fecha</label>
                     <asp:CheckBox ID="chkFiltrarFecha" runat="server" CssClass="filtro-checkbox" onclick="toggleFechas()" />
                 </div>
-                <div class="filtro-group">
-                    <label for="ddlModulo" class="filtro-label">Módulo</label>
+                <div class="filtro-group" runat="server">
+                    <label for="ddlModulo" runat="server" data-key="modulo" class="filtro-label">Módulo</label>
                     <asp:DropDownList ID="ddlModulo" runat="server" CssClass="filtro-input">
                         <asp:ListItem Text="-- Seleccione --" Value="" />
                     </asp:DropDownList>
                 </div>
-                <div class="filtro-group">
-                    <label for="ddlEvento" class="filtro-label">Descripción</label>
+                <div class="filtro-group" runat="server">
+                    <label for="ddlEvento" runat="server" data-key="descripciao" class="filtro-label">Descripción</label>
                     <asp:DropDownList ID="ddlEvento" runat="server" CssClass="filtro-input">
                         <asp:ListItem Text="-- Seleccione --" Value="" />
                     </asp:DropDownList>
                 </div>
-                <div class="filtro-group">
-                    <label for="ddlCriticidad" class="filtro-label">Criticidad</label>
+                <div class="filtro-group" runat="server">
+                    <label for="ddlCriticidad" runat="server" data-key="criticidad" class="filtro-label">Criticidad</label>
                     <asp:DropDownList ID="ddlCriticidad" runat="server" CssClass="filtro-input">
                         <asp:ListItem Text="-- Seleccione --" Value="" />
                     </asp:DropDownList>
                 </div>
-                <div class="filtro-group filtro-botones">
-                    <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="filtro-btn" OnClick="btnFiltrar_Click" />
-                    <asp:Button ID="btnRestablecer" runat="server" Text="Restablecer" CssClass="filtro-btn" OnClick="btnRestablecer_Click" />
+                <div class="filtro-group filtro-botones" runat="server">
+                    <asp:Button ID="btnFiltrar" runat="server" data-key="btnFiltrar" Text="Filtrar" CssClass="filtro-btn" OnClick="btnFiltrar_Click" />
+                    <asp:Button ID="btnRestablecer" runat="server" data-key="btnRestablecer" Text="Restablecer" CssClass="filtro-btn" OnClick="btnRestablecer_Click" />
                 </div>
 
-                <div class="eventos-table-container">
+                <div class="eventos-table-container" runat="server">
                     <asp:GridView ID="gvEventos" runat="server" CssClass="eventos-table" AutoGenerateColumns="False">
                         <Columns>
                             <asp:BoundField DataField="NumeroEvento" HeaderText="N° Evento" />

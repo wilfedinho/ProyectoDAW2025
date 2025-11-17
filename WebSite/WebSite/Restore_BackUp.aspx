@@ -80,24 +80,24 @@
                 </li>
             </ul>
         </nav>
-        <div class="page">
-            <h1 class="page-title" data-key="🛡️ Gestión de Backup y Restore">🛡️ Gestión de Backup y Restore</h1>
+        <div class="page" runat="server">
+            <h1 class="page-title" runat="server" data-key="Gestión de Backup y Restore">Gestión de Backup y Restore</h1>
 
             <div class="card">
-                <h2 class="card-title" data-key="📦 Crear Backup">📦 Crear Backup</h2>
+                <h2 class="card-title" runat="server" data-key="Crear Backup">Crear Backup</h2>
                 <asp:Button ID="btnBackup" runat="server" Text="Realizar Backup" CssClass="btn" OnClick="btnBackup_Click" data-key="btn_backup" />
                 <asp:Label ID="Label1" runat="server" Text="BackUp guardado en Documentos" Visible="false" data-key="BackUp guardado en Documentos"></asp:Label>
             </div>
 
             <div class="card">
-                <h2 class="card-title" data-key="♻️ Restaurar Backup">♻️ Restaurar Backup</h2>
-                <label for="archivo" class="input-label" data-key="Seleccionar archivo">Seleccionar archivo:</label>
+                <h2 class="card-title" runat="server" data-key="Restaurar Backup">Restaurar Backup</h2>
+                <label for="archivo" runat="server" class="input-label" data-key="Seleccionar archivo">Seleccionar archivo:</label>
                 <asp:FileUpload ID="archivo" runat="server" CssClass="file-input" />
                 <asp:Button ID="btnRestore" runat="server" Text="Restaurar Backup" CssClass="btn" OnClick="btnRestore_Click" data-key="btn_restore" />
                 <asp:Label ID="Label2" runat="server" Text="Label" Visible="false"></asp:Label>
             </div>
             <div class="card">
-                <h2 class="card-title" data-key="🔢 Calcular Dígito Verificador">🔢 Calcular Dígito Verificador</h2>
+                <h2 class="card-title" runat="server" data-key="Calcular Dígito Verificador">Calcular Dígito Verificador</h2>
 
                 <asp:Button ID="btnCalcularDV" runat="server" Text="Recalcular Dígito" CssClass="btn" OnClick="btnCalcularDV_Click" data-key="btn_calcularDVH" />
 
