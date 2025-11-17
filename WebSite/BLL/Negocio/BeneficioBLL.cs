@@ -1,4 +1,5 @@
 ﻿using BE;
+using BLL.Tecnica;
 using DAL;
 using DAL.Negocio;
 using SERVICIOS;
@@ -13,6 +14,7 @@ namespace BLL.Negocio
 {
     public class BeneficioBLL
     {
+        UsuarioBLL bllUsuario = new UsuarioBLL();
         #region Operaciones Beneficio
 
         public void Alta(Beneficio BeneficioAlta)
@@ -44,24 +46,35 @@ namespace BLL.Negocio
         {
             BeneficioDAL gestorBeneficio = new BeneficioDAL();
             gestorBeneficio.AgregarBeneficioACliente(DNICliente, CodigoBeneficio);
+            Beneficio BeneficioAlta = ObtenerBeneficioPorCodigo(CodigoBeneficio);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVH(BeneficioAlta, "Usuario_Beneficio");
         }
 
         public void EliminarBeneficioDeCliente(string DNICliente, int CodigoBeneficio)
         {
             BeneficioDAL gestorBeneficio = new BeneficioDAL();
             gestorBeneficio.EliminarBeneficioDeCliente(DNICliente, CodigoBeneficio);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVV("Usuario_Beneficio");
         }
 
         public void ReducirSaldoEstrellas(string DNICliente, int cantidadEstrellas)
         {
             BeneficioDAL gestorBeneficio = new BeneficioDAL();
             gestorBeneficio.ReducirSaldoEstrellas(DNICliente, cantidadEstrellas);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            Usuario usuario = bllUsuario.BuscarClientePorDNI(DNICliente);
+            digitoVerificador.ActualizarDVH(usuario, "Usuario");
         }
 
         public void AplicarBeneficio(string IDBoleto, float DescuentoAplicar, string nombreBeneficio)
         {
             BeneficioDAL gestorBeneficio = new BeneficioDAL();
             gestorBeneficio.AplicarBeneficio(IDBoleto, DescuentoAplicar, nombreBeneficio);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            Boleto boleto = new BoletoBLL().ObtenerBoletoPorID(IDBoleto);
+            digitoVerificador.ActualizarDVH(boleto, "Boleto");
         }
 
         public bool ExisteNombreBeneficioAlta(string nombreBeneficio)
