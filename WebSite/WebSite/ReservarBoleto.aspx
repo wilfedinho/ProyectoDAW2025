@@ -226,83 +226,83 @@
 
 <body>
     <form id="contenedorPrincipal" runat="server">
-        <div class="contenedor-principal">
+        <div class="contenedor-principal" runat="server">
 
-            <h2>Reservar Boletos</h2>
+            <h2 runat="server" data-key="reservarBoletos">Reservar Boletos</h2>
 
             <!-- 🔹 PANEL DE FILTROS -->
-            <div class="panel-filtros">
+            <div class="panel-filtros" runat="server">
 
-                <div class="grupo-filtro">
-                    <label data-key="label-origen" for="ddlOrigen">Origen:</label>
+                <div class="grupo-filtro" runat="server">
+                    <label data-key="label-origen" runat="server" for="ddlOrigen">Origen:</label>
                     <asp:DropDownList ID="ddlOrigen" runat="server" CssClass="control-select">
                         <asp:ListItem data-key="listItemSeleccione" Text="-- Seleccione --" Value="" />
                     </asp:DropDownList>
                 </div>
 
-                <div class="grupo-filtro">
-                    <label data-key="label-destino" for="ddlDestino">Destino:</label>
+                <div class="grupo-filtro" runat="server">
+                    <label data-key="label-destino" runat="server" for="ddlDestino">Destino:</label>
                     <asp:DropDownList ID="ddlDestino" runat="server" CssClass="control-select">
                         <asp:ListItem data-key="listItemSeleccione" Text="-- Seleccione --" Value="" />
                     </asp:DropDownList>
                 </div>
 
-                <div class="grupo-filtro">
-                    <label data-key="label-claseBoleto" for="ddlClaseBoleto">Clase Boleto:</label>
+                <div class="grupo-filtro" runat="server">
+                    <label data-key="label-claseBoleto" runat="server" for="ddlClaseBoleto">Clase Boleto:</label>
                     <asp:DropDownList ID="ddlClaseBoleto" runat="server" CssClass="control-select">
                         <asp:ListItem data-key="listItemSeleccione" Text="-- Seleccione --" Value="" />
                     </asp:DropDownList>
                 </div>
 
                 <div class="grupo-filtro">
-                    <label data-key="label-pesoEquipajeMax" for="txtPesoEquipaje">Peso Equipaje (máx.):</label>
+                    <label data-key="label-pesoEquipajeMax" runat="server" for="txtPesoEquipaje">Peso Equipaje (máx.):</label>
                     <asp:TextBox ID="txtPesoEquipaje" runat="server" CssClass="control-input" placeholder="kg" />
                 </div>
 
-                <div class="grupo-filtro">
-                    <label data-key="label-precioDesde" for="txtPrecioDesde">Precio Desde:</label>
+                <div class="grupo-filtro" runat="server">
+                    <label data-key="label-precioDesde" runat="server" for="txtPrecioDesde">Precio Desde:</label>
                     <asp:TextBox ID="txtPrecioDesde" runat="server" CssClass="control-input" placeholder="0.00" />
                 </div>
 
-                <div class="grupo-filtro">
-                    <label data-key="label-precioHasta" for="txtPrecioHasta">Precio Hasta:</label>
+                <div class="grupo-filtro" runat="server">
+                    <label data-key="label-precioHasta" runat="server" for="txtPrecioHasta">Precio Hasta:</label>
                     <asp:TextBox ID="txtPrecioHasta" runat="server" CssClass="control-input" placeholder="9999.99" />
                 </div>
 
-                <div class="grupo-filtro checkbox-control">
+                <div class="grupo-filtro checkbox-control" runat="server">
                     <asp:CheckBox ID="chkFiltrarFecha" runat="server" onclick="toggleFechas()" />
-                    <label data-key="label-filtrarPorFechas">Filtrar por Fechas</label>
+                    <label data-key="label-filtrarPorFechas" runat="server">Filtrar por Fechas</label>
                 </div>
 
-                <div class="grupo-filtro">
-                    <label data-key="fechaPartidaIda" for="txtFechaPartidaIda">Fecha Partida IDA:</label>
+                <div class="grupo-filtro" runat="server">
+                    <label data-key="fechaPartidaIda" runat="server" for="txtFechaPartidaIda">Fecha Partida IDA:</label>
                     <asp:TextBox ID="txtFechaPartidaIda" runat="server" CssClass="control-input" TextMode="Date" />
                 </div>
 
-                <div class="grupo-filtro">
-                    <label data-key="fechaLlegadaIda" for="txtFechaLlegadaIda">Fecha Llegada IDA:</label>
+                <div class="grupo-filtro" runat="server">
+                    <label data-key="fechaLlegadaIda" runat="server" for="txtFechaLlegadaIda">Fecha Llegada IDA:</label>
                     <asp:TextBox ID="txtFechaLlegadaIda" runat="server" CssClass="control-input" TextMode="Date" />
                 </div>
 
-                <div class="grupo-filtro">
-                    <label data-key="fechaPartidaVuelta" for="txtFechaPartidaVuelta">Fecha Partida VUELTA:</label>
+                <div class="grupo-filtro" runat="server">
+                    <label data-key="fechaPartidaVuelta" runat="server" for="txtFechaPartidaVuelta">Fecha Partida VUELTA:</label>
                     <asp:TextBox ID="txtFechaPartidaVuelta" runat="server" CssClass="control-input" TextMode="Date" />
                 </div>
 
-                <div class="grupo-filtro">
-                    <label data-key="fechaLlegadaVuelta" for="txtFechaLlegadaVuelta">Fecha Llegada VUELTA:</label>
+                <div class="grupo-filtro" runat="server">
+                    <label data-key="fechaLlegadaVuelta" runat="server" for="txtFechaLlegadaVuelta">Fecha Llegada VUELTA:</label>
                     <asp:TextBox ID="txtFechaLlegadaVuelta" runat="server" CssClass="control-input" TextMode="Date" />
                 </div>
 
-                <div class="acciones-filtros">
+                <div class="acciones-filtros" runat="server">
                     <asp:Button ID="btnFiltrar" data-key="btn-filtrar" runat="server" Text="Filtrar" CssClass="boton-primario" OnClick="BT_FILTRAR_Click"/>
                     <asp:Button ID="btnRestablecer" data-key="btn-restablecer" runat="server" Text="Restablecer" CssClass="boton-secundario" OnClick="BT_LIMPIARFILTROS_Click" />
                 </div>
 
-                <div class="grupo-filtro">
-                    <label data-key="label-BeneficiosCliente" for="ddlBeneficioCliente">Beneficios Del Cliente:</label>
+                <div class="grupo-filtro" runat="server">
+                    <label data-key="label-BeneficiosCliente" runat="server" for="ddlBeneficioCliente">Beneficios Del Cliente:</label>
                     <asp:DropDownList ID="ddlBeneficios" runat="server" CssClass="control-select">
-                        <asp:ListItem data-key="listItemSeleccione" Text="-- Seleccione --" Value="" />
+                        <asp:ListItem data-key="listItemSeleccione" runat="server" Text="-- Seleccione --" Value="" />
                     </asp:DropDownList>
                 </div>
 
