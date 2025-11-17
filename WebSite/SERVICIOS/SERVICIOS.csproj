@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BackUp.cs" />
     <Compile Include="DatosPermiso.cs" />
+    <Compile Include="DatosTraduccion.cs" />
     <Compile Include="DigitoVerificador.cs" />
     <Compile Include="Encryptador.cs" />
     <Compile Include="EntidadPermiso.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="GestorPermisos.cs" />
     <Compile Include="LogicaPermisoCompuesto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Traductor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">

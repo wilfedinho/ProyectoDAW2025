@@ -38,6 +38,15 @@ namespace BLL.Tecnica
             digitoVerificador.ActualizarDVH(UsuarioModificado, "Usuario");
         }
 
+        public bool RolIsInUso(string pNombre)
+        {
+            foreach (Usuario usuario in DevolverTodosLosUsuarios())
+            {
+                if (usuario.Rol == pNombre) { return true; }
+            }
+            return false;
+        }
+
         public bool VerificarCredenciales(string username, string clave)
         {
             UsuarioDAL gestorUsuario = new UsuarioDAL();
