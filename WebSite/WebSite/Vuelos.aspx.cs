@@ -72,19 +72,35 @@ public partial class Vuelos : System.Web.UI.Page
             if (ctrl is Button btn)
             {
                 string permiso = btn.CommandName;
-
+                if (permiso == "")
+                {
+                    btn.Visible = true;
+                    continue;
+                }
                 if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
                 {
-                    btn.Visible = false; 
+                    btn.Visible = false;
+                }
+                else
+                {
+                    btn.Visible = true;
                 }
             }
             else if (ctrl is LinkButton linkBtn)
             {
                 string permiso = linkBtn.CommandName;
-
+                if (permiso == "")
+                {
+                    linkBtn.Visible = true;
+                    continue;
+                }
                 if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
                 {
                     linkBtn.Visible = false;
+                }
+                else
+                {
+                    linkBtn.Visible = true;
                 }
             }
             else if (ctrl.HasControls())
