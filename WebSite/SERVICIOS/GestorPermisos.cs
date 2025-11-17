@@ -4,7 +4,6 @@ using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL;
 using static System.Collections.Specialized.BitVector32;
 
 namespace SERVICIOS
@@ -12,19 +11,13 @@ namespace SERVICIOS
     public class GestorPermisos
     {
         DatosPermiso ormPermiso = new DatosPermiso();
-        GestorConexion dao = GestorConexion.INSTANCIA;
         public bool Configurar_Control(string tag, string rol, EntidadPermisoCompuesto permisosSesion)
         {
-            if (tag == null || tag == "")
+            if (tag == null || tag == "" ||  rol == "WebMaster")
             {
                 return true;
             }
             return TienePermiso(tag, permisosSesion);
-        }
-
-        public void ActualizarGeneral()
-        {
-            dao.ActualizarGeneral();
         }
 
 
