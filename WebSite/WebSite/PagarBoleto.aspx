@@ -187,10 +187,9 @@
 
         <div class="contenedor-principal" runat="server">
 
+            <div class="titulo-seccion" data-key="boletosPorPagar" runat="server">Boletos por Pagar</div>
 
-            <div class="titulo-seccion" data-key="boletosPorPagar" >Boletos por Pagar</div>
-
-            <div class="grid-container">
+            <div class="grid-container" runat="server">
 
                 <asp:GridView ID="gvBoletosPorPagar" runat="server" Width="100%"
                     AutoGenerateColumns="False"
@@ -237,11 +236,12 @@
                 </asp:GridView>
 
             </div>
+            </div>
 
 
-            <div class="titulo-seccion">Datos de Pago</div>
+            <div class="titulo-seccion" runat="server" data-key="datosPago">Datos de Pago</div>
 
-            <div class="form-pago">
+            <div class="form-pago" runat="server">
 
                 <asp:RadioButton
                     ID="rbCredito"
@@ -249,6 +249,7 @@
                     Text="Tarjeta de Crédito"
                     GroupName="TipoTarjeta"
                     Checked="true"
+                    data-key="tarjetaCredito"
                     Style="font-size: 18px; color: white;" />
 
                 <asp:RadioButton
@@ -256,39 +257,41 @@
                     runat="server"
                     Text="Tarjeta de Débito"
                     GroupName="TipoTarjeta"
+                    data-key="tarjetaDebito"
                     Style="font-size: 18px; color: white;" />
 
-                <div>
-                    <label class="label-txt">Número de Tarjeta</label>
+                <div runat="server">
+                    <label class="label-txt" runat="server" data-key="numTarjeta">Número de Tarjeta</label>
                     <asp:TextBox ID="txtNumeroTarjeta" runat="server" CssClass="input-txt" PlaceHolder="Ej: 1111222233334444"></asp:TextBox>
                 </div>
 
-                <div>
-                    <label class="label-txt">Fecha de Emisión</label>
+                <div runat="server">
+                    <label class="label-txt" runat="server" data-key="fechaEmision">Fecha de Emisión</label>
                     <asp:TextBox ID="txtFechaEmision" runat="server" CssClass="input-txt" PlaceHolder="Ej: 10/25"></asp:TextBox>
                 </div>
 
-                <div>
-                    <label class="label-txt">Fecha Vencimiento</label>
+                <div runat="server">
+                    <label class="label-txt" runat="server" data-key="fechaVencimiento">Fecha Vencimiento</label>
                     <asp:TextBox ID="txtFechaVencimiento" runat="server" CssClass="input-txt" PlaceHolder="Ej: 10/25"></asp:TextBox>
                 </div>
 
-                <div>
-                    <label class="label-txt">Código Seguridad</label>
+                <div runat="server">
+                    <label class="label-txt" runat="server" data-key="codSeguridad">Código Seguridad</label>
                     <asp:TextBox ID="txtCodigoSeguridad" runat="server" CssClass="input-txt" PlaceHolder="Ej: 999"></asp:TextBox>
                 </div>
 
-                <div>
-                    <label class="label-txt">Nombre Titular</label>
+                <div runat="server">
+                    <label class="label-txt" runat="server" data-key="nomTitular">Nombre Titular</label>
                     <asp:TextBox ID="txtNombreTitular" runat="server" CssClass="input-txt"></asp:TextBox>
                 </div>
 
-                <div>
-                    <label class="label-txt">Apellido Titular</label>
+                <div runat="server">
+                    <label class="label-txt" data-key="apeTitular" runat="server">Apellido Titular</label>
                     <asp:TextBox ID="txtApellidoTitular" runat="server" CssClass="input-txt"></asp:TextBox>
                 </div>
+            </div>
 
-                <asp:Button ID="btnVolver" data-key="btn-volver" runat="server" Text="Volver" CssClass="boton-primario" OnClick="BT_Volver_Click" />
+            <asp:Button ID="btnVolver" data-key="btn-volver" runat="server" Text="Volver" CssClass="boton-primario" OnClick="BT_Volver_Click" />
     </form>
 
 </body>
