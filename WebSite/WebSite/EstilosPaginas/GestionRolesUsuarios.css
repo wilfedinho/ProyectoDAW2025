@@ -165,14 +165,14 @@
         background: #3a86ff;
     }
 
-    .detalle a {
+.detalle a {
     color: #fff !important;
     text-decoration: none !important;
-    }
+}
 
-    .detalle .aspNetTreeSelectedNode a {
+.detalle .aspNetTreeSelectedNode a {
     color: #ffd700 !important; /* dorado si seleccionás alguno */
-    }
+}
 
 /* CONTENEDOR DE EDICIÓN */
 .edicion-permiso {
@@ -223,4 +223,3 @@
     font-weight: bold;
     margin-top: 10px;
 }
-
