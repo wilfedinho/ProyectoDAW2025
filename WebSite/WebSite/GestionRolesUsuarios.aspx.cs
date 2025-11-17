@@ -28,6 +28,10 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["usuario"] == null)
+        {
+            Response.Redirect("Login.aspx");
+        }
 
         if (Session["idioma"] == null)
         {

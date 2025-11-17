@@ -16,6 +16,10 @@ public partial class GestionBoletos : System.Web.UI.Page
     string id;
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["usuario"] == null)
+        {
+            Response.Redirect("Login.aspx");
+        }
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         if (Session["usuario"] != null && Session["rol"].ToString() == "Admin")
         {

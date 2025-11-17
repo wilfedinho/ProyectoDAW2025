@@ -61,9 +61,9 @@
 
             <asp:Label ID="lblMensaje" runat="server" CssClass="mensaje-indicador"></asp:Label>
 
-            <h2>Opciones Disponibles</h2>
+            <h2 data-key="opcionesDisponibles" runat="server" id="opcDisponibles">Opciones Disponibles</h2>
 
-            <div class="destinos-grid">
+            <div class="destinos-grid" runat="server">
                 <asp:Repeater ID="repVuelos" runat="server">
                     <ItemTemplate>
                         <div class="destino-card"

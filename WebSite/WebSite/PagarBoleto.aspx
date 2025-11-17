@@ -185,10 +185,10 @@
 
     <form id="form1" runat="server">
 
-        <div class="contenedor-principal">
+        <div class="contenedor-principal" runat="server">
 
 
-            <div class="titulo-seccion">Boletos por Pagar</div>
+            <div class="titulo-seccion" data-key="boletosPorPagar" >Boletos por Pagar</div>
 
             <div class="grid-container">
 

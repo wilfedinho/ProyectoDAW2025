@@ -15,6 +15,10 @@ public partial class GestionUsuarios : System.Web.UI.Page
     GestorPermisos gp = new GestorPermisos();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["usuario"] == null)
+        {
+            Response.Redirect("Login.aspx");
+        }
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         if (Session["usuario"] != null && Session["rol"].ToString() == "Admin")
         {

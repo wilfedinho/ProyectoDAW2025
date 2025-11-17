@@ -16,6 +16,10 @@ public partial class PagarBoleto : System.Web.UI.Page
     float totalFactura;
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["usuario"] == null)
+        {
+            Response.Redirect("Login.aspx");
+        }
         UsuarioBLL gestorUsuario = new UsuarioBLL();
         usuarioCobrar = gestorUsuario.BuscarClientePorDNI(Session["dni"].ToString());
         boletoCobrar = null;
