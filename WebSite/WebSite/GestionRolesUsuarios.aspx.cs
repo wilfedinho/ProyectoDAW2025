@@ -194,40 +194,21 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
             if (ddlRoles.SelectedIndex == -1 || ddlRoles.SelectedItem.Text == "-- Seleccione un rol --")
                 throw new Exception("Debe seleccionar un rol.");
 
-            List<string> permisosCheckeados = new List<string>();
-            List<string> permisosCheckeadosNivel1 = new List<string>();
-            foreach (ListItem item in chkPermisos.Items)
-            {
-                if (item.Selected)
-                {
-                    permisosCheckeados.Add(item.Text);
-                    permisosCheckeadosNivel1.Add(item.Text);
-                    EntidadPermiso permiso = gp.ObtenerPermisosArbol().Find(x => x.DevolverNombrePermiso() == item.Text);
-                    if(permiso != null && permiso.isComposite())
-                    {
-                        AgregarHijosRecursivosWeb((EntidadPermisoCompuesto)permiso, permisosCheckeados);
-                    }
-                }
-            }
-            var diferencia = permisosCheckeadosNivel1.Where(u => !lista.Any(x => x == u)).ToList();
-            gp.ActualizarPermisos(ddlRoles.SelectedItem.Text, permisosCheckeadosNivel1, diferencia);
-            foreach (ListItem item2 in chkPermisos.Items)
-            {
-                if (item2.Selected)
-                {
-                    if (!lista.Contains(item2.Text))
-                    {
-                        lista.Add(item2.Text);
-                    }
-                }
-                else
-                {
-                    if (lista.Contains(item2.Text))
-                    {
-                        lista.Remove(item2.Text);
-                    }
-                }
-            }
+            var iniciales = ViewState["permisosInicialesRol"] as List<string> ?? new List<string>();
+
+            var actuales = chkPermisos.Items.Cast<ListItem>()
+                                .Where(i => i.Selected)
+                                .Select(i => i.Text)
+                                .ToList();
+
+            var agregados = actuales.Except(iniciales).ToList();
+
+            gp.ActualizarPermisos(
+                ddlRoles.SelectedItem.Text,
+                actuales,   
+                agregados   
+            );
+
             Response.Redirect(Request.RawUrl);
         }
         catch (Exception ex)
@@ -235,6 +216,8 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
             lblError.Text = ex.Message;
             lblError.Visible = true;
         }
+
+
     }
 
     protected void btnAceptarNuevoNombre_Click(object sender, EventArgs e)

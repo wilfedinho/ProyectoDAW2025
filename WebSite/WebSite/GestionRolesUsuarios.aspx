@@ -113,6 +113,7 @@
 
                 <asp:Button ID="btnCrearGrupo" runat="server" Text="CREAR GRUPO DE PERMISOS"
                     CssClass="boton secundario" OnClientClick="abrirModalPermiso(); return false;" data-key="CREAR GRUPO DE PERMISOS" OnClick="btnCrearGrupo_Click"/>
+                <asp:Button ID="btnEliminar" runat="server" Text="Eliminar Selección" CssClass="boton eliminar" data-key="Eliminar Seleccion" OnClick="btnEliminar_Click"/>
 
                 <div id="panelCrearCompuesto" runat="server" visible="false" class="edicion-permiso">
 
@@ -134,7 +135,6 @@
             <div class="columna centro" runat="server">
                 <h3 data-key="Lista de permisos" runat="server" id="ListaPermisos">Lista de permisos</h3>
                 <asp:CheckBoxList ID="chkPermisos" runat="server" CssClass="lista"></asp:CheckBoxList>
-                <asp:Button ID="btnEliminar" runat="server" Text="Eliminar Selección" CssClass="boton eliminar" data-key="Eliminar Seleccion" OnClick="btnEliminar_Click"/>
                 <asp:Label ID="Label1" runat="server" CssClass="error-profesional" Visible="false"></asp:Label>
                 <asp:Label ID="lblInfo" runat="server" CssClass="info-profesional" Visible="false"></asp:Label>
             </div>
