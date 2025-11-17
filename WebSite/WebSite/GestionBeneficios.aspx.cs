@@ -28,66 +28,10 @@ public partial class GestionBeneficios : System.Web.UI.Page
             {
                 Response.Redirect("Vuelos.aspx");
             }
-            ChequearAccesibilidadDeTodosLosControles();
 
         }
     }
 
-    public void ChequearAccesibilidadDeTodosLosControles()
-    {
-        GestorPermisos gp = new GestorPermisos();
-        ChequearAccesibilidadRecursiva(Page, gp);
-        ChequearAccesibilidadNavbar(navbarPrincipal, gp);
-    }
-
-    private void ChequearAccesibilidadNavbar(Control navbar, GestorPermisos gp)
-    {
-        foreach (Control ctrl in navbar.Controls)
-        {
-            if (ctrl is Button btn)
-            {
-                string permiso = btn.CommandName;
-
-                if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
-                {
-                    btn.Visible = false;
-                }
-            }
-            else if (ctrl is LinkButton linkBtn)
-            {
-                string permiso = linkBtn.CommandName;
-
-                if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
-                {
-                    linkBtn.Visible = false;
-                }
-            }
-            else if (ctrl.HasControls())
-            {
-                ChequearAccesibilidadNavbar(ctrl, gp);
-            }
-        }
-    }
-
-    public void ChequearAccesibilidadRecursiva(Control contenedor, GestorPermisos gp)
-    {
-        foreach (Control ctrl in contenedor.Controls)
-        {
-            if (ctrl is Button)
-            {
-                ChequearAccesibilidad(ctrl as Button, gp);
-                if (ctrl.HasControls())
-                {
-                    ChequearAccesibilidadRecursiva(ctrl, gp);
-                }
-            }
-        }
-    }
-
-    public void ChequearAccesibilidad(Button boton, GestorPermisos gp)
-    {
-        boton.Visible = gp.Configurar_Control(boton.CommandName.ToString(), Session["rol"].ToString(), gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto);
-    }
 
     public void CargarBeneficios()
     {
@@ -261,10 +205,10 @@ public partial class GestionBeneficios : System.Web.UI.Page
     protected void btnSerializar_Click(object sender, EventArgs e)
     {
         List<Beneficio> beneficiosASerializar = new List<Beneficio>();
-        foreach (GridViewRow row in gvBeneficios.Rows) 
+        foreach (GridViewRow row in gvBeneficios.Rows)
         {
             CheckBox chk = (CheckBox)row.FindControl("chkSeleccionar");
-            if(chk != null && chk.Checked)
+            if (chk != null && chk.Checked)
             {
                 int rowIndex = row.RowIndex;
                 int codigo = Convert.ToInt32(gvBeneficios.DataKeys[rowIndex]["CodigoBeneficio"]);
@@ -306,8 +250,8 @@ public partial class GestionBeneficios : System.Web.UI.Page
             lblMensaje.Text = "No has seleccionado ningún beneficio para serializar.";
             lblMensaje.Visible = true;
         }
-    
-        foreach(GridViewRow row in gvBeneficios.Rows)
+
+        foreach (GridViewRow row in gvBeneficios.Rows)
         {
             CheckBox chk = (CheckBox)row.FindControl("chkSeleccionar");
             chk.Checked = false;

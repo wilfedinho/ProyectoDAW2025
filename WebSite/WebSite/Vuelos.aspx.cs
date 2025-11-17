@@ -15,7 +15,7 @@ public partial class Vuelos : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-        if(Session["usuario"] == null)
+        if (Session["usuario"] == null)
         {
             btnIniciarSesion.Visible = true;
             btnCambiarClave.Visible = false;
@@ -72,19 +72,35 @@ public partial class Vuelos : System.Web.UI.Page
             if (ctrl is Button btn)
             {
                 string permiso = btn.CommandName;
-
+                if (permiso == "")
+                {
+                    btn.Visible = true;
+                    continue;
+                }
                 if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
                 {
-                    btn.Visible = false; 
+                    btn.Visible = false;
+                }
+                else
+                {
+                    btn.Visible = true;
                 }
             }
             else if (ctrl is LinkButton linkBtn)
             {
                 string permiso = linkBtn.CommandName;
-
+                if (permiso == "")
+                {
+                    linkBtn.Visible = true;
+                    continue;
+                }
                 if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
                 {
                     linkBtn.Visible = false;
+                }
+                else
+                {
+                    linkBtn.Visible = true;
                 }
             }
             else if (ctrl.HasControls())
@@ -98,7 +114,7 @@ public partial class Vuelos : System.Web.UI.Page
     {
         foreach (Control ctrl in contenedor.Controls)
         {
-            if(ctrl is Button)
+            if (ctrl is Button)
             {
                 ChequearAccesibilidad(ctrl as Button, gp);
                 if (ctrl.HasControls())
@@ -135,7 +151,7 @@ public partial class Vuelos : System.Web.UI.Page
 
         Session.Clear();
         Session.Abandon();
-        Response.Redirect("Vuelos.aspx");
+        Response.Redirect("Login.aspx");
     }
 
     protected void btnMenuAdministrador_Click(object sender, EventArgs e)

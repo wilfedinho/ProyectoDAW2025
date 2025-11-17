@@ -194,7 +194,7 @@
 
 /* INPUT */
 .input-profesional {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     border-radius: 6px;
     border: 1px solid #345;
@@ -223,3 +223,31 @@
     font-weight: bold;
     margin-top: 10px;
 }
+
+.error-profesional {
+    color: #ff4d4d;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.info-profesional {
+    color: #9bbbff;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.idioma-btn {
+    font-weight: 500;
+    opacity: 0.6;
+}
+
+    .idioma-btn:hover {
+        opacity: 1;
+    }
+
+    .idioma-btn.activo {
+        font-weight: 700;
+        opacity: 1;
+        text-decoration: underline;
+        cursor: default;
+    }
