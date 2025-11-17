@@ -513,9 +513,6 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
     }
 
 
-
-
-
     public void TraducirNavbar(Control navbar, Traductor traductor)
     {
         string idioma = Session["idioma"]?.ToString() ?? "ES";

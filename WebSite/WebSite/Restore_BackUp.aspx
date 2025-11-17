@@ -10,21 +10,75 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="navbar">
-            <asp:Button CssClass="nav-item" ID="btnInicio" runat="server" Text="Inicio" OnClick="btnInicio_Click" CausesValidation="false" data-key="btn_inicio"/>
-            <asp:Button CssClass="nav-item" ID="btnBackupRestore" runat="server" Text="Backup/Restore" OnClick="btnBackupRestore_Click" CausesValidation="false" data-key="btn_backup"/>
-            <asp:Button CssClass="nav-item" ID="btnDigitosVerificadores" runat="server" Text="Dígitos Verificadores" OnClick="btnDigitosVerificadores_Click" CausesValidation="false" data-key="btn_Digitos"/>
-            <asp:Button CssClass="nav-item" ID="btnBitacora" runat="server" Text="Bitácora" OnClick="btnBitacora_Click" CausesValidation="false" data-key="btn_bitacora"/>
-            <asp:Button CssClass="nav-item" ID="btnCambiarClave" runat="server" Text="Cambiar Clave" OnClick="btnCambiarClave_Click" CausesValidation="false" data-key="btn_clave"/>
-            <asp:Button CssClass="nav-item" ID="btnVuelos" runat="server" Text="Vuelos" OnClick="btnVuelos_Click" CausesValidation="false" data-key="btn_vuelos"/>
-            <asp:Button CssClass="nav-item nav-right" ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" OnClick="btnCerrarSesion_Click" CausesValidation="false" data-key="btn_cerrarSesion"/>
-        </div>
+        <nav id="navbarPrincipal" runat="server" class="navbar">
+            <ul>
+                <li>
+                    <asp:LinkButton runat="server" ID="btnInicio"
+                        Text="Inicio" CssClass="nav-link"
+                        data-key="btn_inicio" CausesValidation="false"
+                        OnClick="btnInicio_Click"></asp:LinkButton>
+                </li>
+
+                <li>
+                    <asp:LinkButton runat="server" ID="btnBackupRestore"
+                        Text="Backup/Restore" CssClass="nav-link"
+                        data-key="btn_backup" CausesValidation="false"
+                        OnClick="btnBackupRestore_Click"></asp:LinkButton>
+                </li>
+
+                <li>
+                    <asp:LinkButton runat="server" ID="btnDigitosVerificadores"
+                        Text="Dígitos Verificadores" CssClass="nav-link"
+                        data-key="btn_Digitos" CausesValidation="false"
+                        OnClick="btnDigitosVerificadores_Click"></asp:LinkButton>
+                </li>
+
+                <li>
+                    <asp:LinkButton runat="server" ID="btnClave"
+                        Text="Cambiar Clave" CssClass="nav-link"
+                        data-key="btn_clave" CausesValidation="false"
+                        OnClick="btnCambiarClave_Click"></asp:LinkButton>
+                </li>
+
+                <li>
+                    <asp:LinkButton runat="server" ID="btnVuelos"
+                        Text="Vuelos" CssClass="nav-link"
+                        data-key="btn_vuelos" CausesValidation="false"
+                        OnClick="btnVuelos_Click"></asp:LinkButton>
+                </li>
+
+                <li>
+                    <asp:LinkButton runat="server" ID="btnCerrarSesion"
+                        Text="Cerrar Sesión" CssClass="nav-link cerrar"
+                        data-key="btn_cerrarSesion" CausesValidation="false"
+                        OnClick="btnCerrarSesion_Click"></asp:LinkButton>
+                </li>
+                <li style="display: inline-block; margin-left: 40px;">
+
+                    <asp:LinkButton
+                        ID="btnES"
+                        runat="server"
+                        CausesValidation="false"
+                        CssClass="nav-link idioma-btn"
+                        OnClick="btnES_Click">ES</asp:LinkButton>
+
+                    <span style="margin: 0 8px; color: #888;">|</span>
+
+                    <asp:LinkButton
+                        ID="btnEN"
+                        runat="server"
+                        CausesValidation="false"
+                        CssClass="nav-link idioma-btn"
+                        OnClick="btnEN_Click">EN</asp:LinkButton>
+                </li>
+            </ul>
+        </nav>
         <div class="page">
             <h1 class="page-title" data-key="🛡️ Gestión de Backup y Restore">🛡️ Gestión de Backup y Restore</h1>
 
             <div class="card">
                 <h2 class="card-title" data-key="📦 Crear Backup">📦 Crear Backup</h2>
-                <asp:Button ID="btnBackup" runat="server" Text="Realizar Backup" CssClass="btn" OnClick="btnBackup_Click" data-key="btn_backup"/>
+                <asp:Button ID="btnBackup" runat="server" Text="Realizar Backup" CssClass="btn" OnClick="btnBackup_Click" data-key="btn_backup" />
                 <asp:Label ID="Label1" runat="server" Text="BackUp guardado en Documentos" Visible="false" data-key="BackUp guardado en Documentos"></asp:Label>
             </div>
 
@@ -32,13 +86,13 @@
                 <h2 class="card-title" data-key="♻️ Restaurar Backup">♻️ Restaurar Backup</h2>
                 <label for="archivo" class="input-label" data-key="Seleccionar archivo">Seleccionar archivo:</label>
                 <asp:FileUpload ID="archivo" runat="server" CssClass="file-input" />
-                <asp:Button ID="btnRestore" runat="server" Text="Restaurar Backup" CssClass="btn" OnClick="btnRestore_Click" data-key="btn_restore"/>
+                <asp:Button ID="btnRestore" runat="server" Text="Restaurar Backup" CssClass="btn" OnClick="btnRestore_Click" data-key="btn_restore" />
                 <asp:Label ID="Label2" runat="server" Text="Label" Visible="false"></asp:Label>
             </div>
             <div class="card">
                 <h2 class="card-title" data-key="🔢 Calcular Dígito Verificador">🔢 Calcular Dígito Verificador</h2>
 
-                <asp:Button ID="btnCalcularDV" runat="server" Text="Recalcular Dígito" CssClass="btn" OnClick="btnCalcularDV_Click" data-key="btn_calcularDVH"/>
+                <asp:Button ID="btnCalcularDV" runat="server" Text="Recalcular Dígito" CssClass="btn" OnClick="btnCalcularDV_Click" data-key="btn_calcularDVH" />
 
                 <asp:Label ID="lblResultadoDV" runat="server" CssClass="mensaje-exito" Visible="false" />
             </div>
