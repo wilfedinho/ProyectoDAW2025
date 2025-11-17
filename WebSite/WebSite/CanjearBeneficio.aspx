@@ -148,28 +148,28 @@
 <body>
     <form id="form1" runat="server">
 
-        <div class="card-container">
+        <div class="card-container" runat="server">
 
-            <div class="titulo-seccion">Beneficios del Cliente</div>
+            <div class="titulo-seccion" data-key="label-BeneficiosCliente" runat="server">Beneficios del Cliente</div>
 
-            <div class="contenedor-beneficios">
+            <div class="contenedor-beneficios" runat="server">
 
                 <!-- PANEL IZQUIERDO -->
-                <div class="info-cliente">
-                    <label data-key="label-destino" for="lblNombre">Nombre Del Usuario:</label>
+                <div class="info-cliente" runat="server">
+                    <label data-key="label-nombre" runat="server" for="lblNombre">Nombre Del Usuario:</label>
                     <asp:Label ID="lblNombre" runat="server" Text="Nombre: "></asp:Label>
-                    <label data-key="label-destino" for="lblApellido">Apellido Del Usuario:</label>
+                    <label data-key="label-apellido" runat="server" for="lblApellido">Apellido Del Usuario:</label>
                     <asp:Label ID="lblApellido" runat="server" Text="Apellido: "></asp:Label>
-                    <label data-key="label-destino" for="lblEstrellas">Estrellas Del Usuario:</label>
+                    <label data-key="label-estrellas" runat="server" for="lblEstrellas">Estrellas Del Usuario:</label>
                     <asp:Label ID="lblEstrellas" runat="server" Text="Estrellas acumuladas: "></asp:Label>
-                    <label data-key="label-destino" for="lblBeneficios">Beneficios Del Usuario:</label>
+                    <label data-key="label-destino" id="lbdestino" runat="server" for="lblBeneficios">Beneficios Del Usuario:</label>
                     <asp:Label ID="lblBeneficios" runat="server"
                                Text="Beneficios del Cliente:"
                                Style="margin-top:20px;"></asp:Label>
                 </div>
 
                 <!-- GRID BENEFICIOS -->
-                <div class="grid-beneficios">
+                <div class="grid-beneficios" runat="server">
 
                     <asp:GridView ID="gvBeneficios"
                                   runat="server"
@@ -191,6 +191,7 @@
                                     <asp:LinkButton ID="btnCanjear"
                                                     runat="server"
                                                     Text="Canjear"
+                                                    data-key="btn_canjear"
                                                     CommandName="Canjear"
                                                     CommandArgument='<%# Eval("CodigoBeneficio") %>'
                                                     CssClass="btn-canjear">
