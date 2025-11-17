@@ -477,7 +477,10 @@
                 </asp:GridView>
             </div>
 
+        <asp:Button ID="btnVolver" data-key="btn-volver" runat="server" Text="Volver" CssClass="boton-primario" OnClick="BT_Volver_Click"/>
+                    
         </div>
+
 
     </form>
 

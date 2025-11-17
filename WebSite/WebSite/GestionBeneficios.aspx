@@ -72,7 +72,7 @@
                     <asp:LinkButton
                         ID="btnES"
                         runat="server"
-                        CssClass="nav-link idioma-btn"
+                        CssClass="nav-link idioma-btn" CausesValidation="false"
                         OnClick="btnES_Click">ES</asp:LinkButton>
 
                     <span style="margin: 0 8px; color: #888;">|</span>
@@ -80,7 +80,7 @@
                     <asp:LinkButton
                         ID="btnEN"
                         runat="server"
-                        CssClass="nav-link idioma-btn"
+                        CssClass="nav-link idioma-btn" CausesValidation="false"
                         OnClick="btnEN_Click">EN</asp:LinkButton>
                 </li>
             </ul>

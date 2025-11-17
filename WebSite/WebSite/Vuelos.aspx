@@ -9,15 +9,56 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div id="navbarPrincipal" runat="server" class="navbar">
-            <asp:Button CssClass="nav-item" ID="btnCambiarClave" runat="server" Text="Cambiar Clave" OnClick="btnCambiarClave_Click" CausesValidation="false" />
-            
-            <asp:Button CssClass="nav-item" ID="btnMenuAdministrador" runat="server" Text="Menu Administrador" OnClick="btnMenuAdministrador_Click" CausesValidation="false" Visible="false" CommandName="Ver Menu Administrador" />
-            <asp:Button CssClass="nav-item" ID="btnMenuWebMaster" runat="server" Text="Menu WebMaster" OnClick="btnMenuWebMaster_Click" CausesValidation="false" Visible="false" CommandName="Ver Menu WebMaster" />
-            <asp:Button CssClass="nav-item nav-right" ID="btnCerrarSesion" runat="server" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" CausesValidation="false" />
-        </div>
+        <nav id="nav1" runat="server" class="navbar">
+            <ul>
+                <li>
+                    <asp:LinkButton runat="server" ID="btnCambiarClave"
+                        Text="Cambiar Clave" CssClass="nav-link"
+                        data-key="btn_clave" CausesValidation="false"
+                        OnClick="btnCambiarClave_Click"></asp:LinkButton>
+                </li>
+
+                <li>
+                    <asp:LinkButton runat="server" ID="btnMenuAdministrador"
+                        Text="Menu Administrador" CssClass="nav-link"
+                        data-key="btn_menuAdmin" CausesValidation="false"
+                        OnClick="btnMenuAdministrador_Click" Visible="false" CommandName="Ver Menu Administrador"></asp:LinkButton>
+                </li>
+                <li>
+                    <asp:LinkButton runat="server" ID="btnMenuWebMaster"
+                        Text="Menu WebMaster" CssClass="nav-link"
+                        data-key="btn_menuWeb" CausesValidation="false"
+                        OnClick="btnMenuWebMaster_Click" Visible="false" CommandName="Ver Menu WebMaster"></asp:LinkButton>
+                </li>
+                <li>
+                    <asp:LinkButton runat="server" ID="btnCerrarSesion"
+                        Text="Cerrar Sesión" CssClass="nav-link cerrar"
+                        data-key="btn_cerrarSesion" CausesValidation="false"
+                        OnClick="btnCerrarSesion_Click"></asp:LinkButton>
+                </li>
+                <li style="display: inline-block; margin-left: 40px;">
+
+                    <asp:LinkButton
+                        ID="btnES"
+                        runat="server"
+                        CausesValidation="false"
+                        CssClass="nav-link idioma-btn"
+                        OnClick="btnES_Click">ES</asp:LinkButton>
+
+                    <span style="margin: 0 8px; color: #888;">|</span>
+
+                    <asp:LinkButton
+                        ID="btnEN"
+                        runat="server"
+                        CausesValidation="false"
+                        CssClass="nav-link idioma-btn"
+                        OnClick="btnEN_Click">EN</asp:LinkButton>
+                </li>
+            </ul>
+        </nav>
+
         <section class="destinos-section">
-            
+
             <asp:Label ID="lblMensaje" runat="server" CssClass="mensaje-indicador"></asp:Label>
 
             <h2>Opciones Disponibles</h2>

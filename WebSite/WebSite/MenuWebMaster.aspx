@@ -33,6 +33,13 @@
                 </li>
 
                 <li>
+                    <asp:LinkButton runat="server" ID="btnBitacora"
+                        Text="Bitácora" CssClass="nav-link"
+                        data-key="btn_Bitacora" CausesValidation="false"
+                        OnClick="btnBitacora_Click"></asp:LinkButton>
+                </li>
+
+                <li>
                     <asp:LinkButton runat="server" ID="btnClave"
                         Text="Cambiar Clave" CssClass="nav-link"
                         data-key="btn_clave" CausesValidation="false"
@@ -57,7 +64,7 @@
                     <asp:LinkButton
                         ID="btnES"
                         runat="server"
-                        CausesValidation ="false"
+                        CausesValidation="false"
                         CssClass="nav-link idioma-btn"
                         OnClick="btnES_Click">ES</asp:LinkButton>
 
@@ -66,7 +73,7 @@
                     <asp:LinkButton
                         ID="btnEN"
                         runat="server"
-                        CausesValidation ="false"
+                        CausesValidation="false"
                         CssClass="nav-link idioma-btn"
                         OnClick="btnEN_Click">EN</asp:LinkButton>
                 </li>
