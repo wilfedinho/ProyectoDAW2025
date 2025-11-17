@@ -16,7 +16,7 @@ public partial class ReservarBoleto : System.Web.UI.Page
     {
         UsuarioBLL gestorUsuario = new UsuarioBLL();
         boletoCargado = null;
-        ClienteCargado = gestorUsuario.BuscarClientePorDNI("77.777.777");
+        ClienteCargado = gestorUsuario.BuscarClientePorDNI(Session["dni"].ToString());
         BoletoBLL gestorBoleto = new BoletoBLL();
         gestorBoleto.LiberarBoletosVencidos();
         if (!IsPostBack)

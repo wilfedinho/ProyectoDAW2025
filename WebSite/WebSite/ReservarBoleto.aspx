@@ -8,221 +8,227 @@
     <title>Reservar Boleto</title>
 
     <style>
-        /* Estilos Globales para el cuerpo */
+    /* Estilos Globales para el cuerpo */
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif; /* Usamos la fuente de Vuelos */
+        background-color: #1a2233; /* Fondo oscuro de Sanza Flights */
+        color: #e6eaf6; /* Color de texto claro general */
+        margin: 0; /* Quitamos el margin del body, lo manejamos en el contenedor */
+        padding: 0;
+    }
 
-        .boton-accion {
-            padding: 6px 14px;
-            border-radius: 6px;
-            text-decoration: none;
+    /* Contenedor Principal (Panel/Card) */
+    #contenedorPrincipal {
+        width: 95%;
+        max-width: 1400px;
+        margin: 40px auto; /* Centrado y margen vertical */
+        background-color: #f4f6fa; /* Fondo claro de la sección de contenido de Vuelos */
+        padding: 30px;
+        border-radius: 12px; /* Coherente con las cards de Vuelos */
+        box-shadow: 0 4px 24px #001a3388; /* Sombra sutil de Vuelos */
+        color: #1a2233; /* Texto oscuro dentro del contenedor claro */
+    }
+
+    /* Título de la Sección (h2) */
+    h2 {
+        color: #274472; /* Color azul oscuro de Vuelos para el título */
+        font-size: 2em;
+        font-weight: 500;
+        border-bottom: 2px solid #4169a1; /* Línea de acento azul */
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    /* PANEL DE FILTROS */
+    .panel-filtros {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+        background-color: #ffffff; /* Fondo blanco más limpio para los filtros */
+        border-radius: 8px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .grupo-filtro {
+        display: flex;
+        flex-direction: column;
+        min-width: 180px;
+    }
+
+        .grupo-filtro label {
             font-weight: 600;
-            font-size: 13px;
-            display: inline-block;
-            transition: 0.2s ease;
+            margin-bottom: 5px;
+            color: #274472; /* Etiquetas en azul oscuro para destacar */
+            font-size: 0.9em;
         }
 
-        .boton-reservar {
-            background-color: #4caf50;
-            color: white;
+    /* Controles de Input y Select */
+    .control-input, .control-select {
+        padding: 10px;
+        border: 1px solid #c9d0d9; /* Borde más suave */
+        border-radius: 4px;
+        background-color: #f9f9f9; /* Fondo muy claro para los inputs */
+        color: #1a2233;
+        font-size: 1em;
+        transition: border-color 0.2s;
+    }
+
+        .control-input:focus, .control-select:focus {
+            border-color: #4169a1; /* Acento azul al enfocar */
+            outline: none;
         }
 
-            .boton-reservar:hover {
-                background-color: #43a047;
-                transform: translateY(-1px);
-            }
+    /* CHECKBOX */
+    .grupo-filtro.checkbox-control {
+        flex-direction: row;
+        align-items: center;
+        margin-top: 15px;
+        min-width: 100px;
+    }
 
-        .boton-beneficio {
-            background-color: #0288d1;
-            color: white;
+        .grupo-filtro.checkbox-control label {
+            margin-right: 10px;
+            margin-bottom: 0;
+            color: #1a2233; /* Texto del checkbox en color oscuro */
+            font-weight: normal;
         }
 
-            .boton-beneficio:hover {
-                background-color: #0277bd;
-                transform: translateY(-1px);
-            }
+    /* ACCIONES (Botones de Filtrar/Restablecer) */
+    .acciones-filtros {
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+        margin-top: 10px;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            margin: 20px;
+    .boton-primario, .boton-secundario {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px; /* Ligeramente más redondo */
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    /* Botón FILTRAR (Primario) */
+    .boton-primario {
+        background-color: #4169a1; /* Azul principal de Sanza Flights */
+        color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+        .boton-primario:hover {
+            background-color: #274472; /* Azul oscuro de hover */
+            transform: translateY(-1px);
         }
 
-        .contenedor-principal {
-            background-color: #34495e;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4p x 8px rgba(0, 0, 0, 0.2);
-            max-width: 1200px;
-            margin: 0 auto;
+    /* Botón RESTABLECER (Secundario) */
+    .boton-secundario {
+        background-color: #95a5a6;
+        color: #1a2233;
+    }
+
+        .boton-secundario:hover {
+            background-color: #7f8c8d;
+            transform: translateY(-1px);
         }
 
-        h2 {
+    /* TABLA DE RESULTADOS (GridView) */
+    .contenedor-tabla {
+        overflow-x: auto;
+    }
+
+    .gridview {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #ffffff; /* Fondo de tabla blanco */
+        color: #1a2233; /* Texto de tabla oscuro */
+        margin-top: 15px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .gridview th {
+            background-color: #4169a1; /* Azul principal en cabecera */
             color: #ffffff;
-            border-bottom: 2px solid #2ecc71;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            padding: 12px 10px;
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
         }
 
-        .panel-filtros {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
-            background-color: #2c3e50;
-            border-radius: 6px;
-            margin-bottom: 30px;
+        .gridview td {
+            padding: 10px 10px;
+            border-bottom: 1px solid #e0e0e0; /* Líneas divisorias suaves */
+            text-align: left;
         }
 
-        .grupo-filtro {
-            display: flex;
-            flex-direction: column;
-            min-width: 180px;
+        .gridview tr:nth-child(even) {
+            background-color: #f9f9f9; /* Raya alterna muy suave */
         }
 
-            .grupo-filtro label {
-                font-weight: bold;
-                margin-bottom: 5px;
-                color: #bdc3c7;
-                font-size: 0.9em;
-            }
-
-        .control-input, .control-select {
-            padding: 10px;
-            border: 1px solid #7f8c8d;
-            border-radius: 4px;
-            background-color: #3f556d;
-            color: #ecf0f1;
-            font-size: 1em;
+        .gridview tr:hover td {
+            background-color: #eaf1f8; /* Un ligero cambio de color al pasar el ratón (azul claro) */
         }
 
-        .grupo-filtro.checkbox-control {
-            flex-direction: row;
-            align-items: center;
-            margin-top: 15px;
-            min-width: 100px;
+        .gridview a {
+            color: #4169a1; /* color de link en azul */
+        }
+        
+    /* BOTONES DE ACCIÓN DENTRO DEL GRID */
+    .boton-accion {
+        padding: 6px 14px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 13px;
+        display: inline-block;
+        transition: 0.2s ease;
+        white-space: nowrap; /* Evita que el texto del botón se rompa */
+    }
+
+    /* Botón RESERVAR (Acción principal) */
+    .boton-reservar {
+        background-color: #2ecc71; /* Dejamos un color llamativo (verde/éxito) para RESERVAR */
+        color: white;
+    }
+
+        .boton-reservar:hover {
+            background-color: #27ae60;
+            transform: translateY(-1px);
         }
 
-            .grupo-filtro.checkbox-control label {
-                margin-right: 10px;
-                margin-bottom: 0;
-            }
+    /* Botón RESERVAR CON BENEFICIO (Acción secundaria) */
+    .boton-beneficio {
+        background-color: #4a78c1; /* Azul secundario para la acción de Beneficio */
+        color: white;
+    }
 
-        .acciones-filtros {
-            display: flex;
-            align-items: flex-end;
-            gap: 10px;
-            margin-top: 10px;
+        .boton-beneficio:hover {
+            background-color: #3a5a99;
+            transform: translateY(-1px);
         }
 
-        .boton-primario, .boton-secundario {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
+        /* Asegurar que los botones deshabilitados se vean correctamente */
+        a[id*='btnReservarBeneficio'][style*='opacity: 0.4'] {
+            pointer-events: none;
+            cursor: default;
+            background-color: #4a78c1 !important; /* Mantiene el color base, solo cambia la opacidad */
         }
 
-        .boton-primario {
-            background-color: #3498db;
-            color: white;
-        }
-
-            .boton-primario:hover {
-                background-color: #2980b9;
-            }
-
-        .boton-secundario {
-            background-color: #95a5a6;
-            color: #2c3e50;
-        }
-
-            .boton-secundario:hover {
-                background-color: #7f8c8d;
-            }
-
-        .contenedor-tabla {
-            overflow-x: auto;
-        }
-
-        .data-grid {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-            .data-grid th, .data-grid td {
-                padding: 12px 8px;
-                text-align: left;
-                border-bottom: 1px solid #4a637d;
-                word-wrap: break-word;
-            }
-
-            .data-grid thead th {
-                background-color: #2c3e50;
-                color: #ecf0f1;
-                text-transform: uppercase;
-                font-size: 0.9em;
-                font-weight: bold;
-            }
-
-            .data-grid tr {
-                background-color: #34495e;
-            }
-
-                .data-grid tr:nth-child(even) {
-                    background-color: #3a536b;
-                }
-
-                .data-grid tr:hover {
-                    background-color: #4a637d;
-                }
-
-        #contenedorPrincipal {
-            width: 95%;
-            max-width: 1400px;
-            margin: 0 auto;
-            background-color: #263238;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.4);
-            margin-top: 40px;
-            margin-bottom: 40px;
-        }
-
-        .gridview {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #37474f;
-            color: white;
-        }
-
-            .gridview th {
-                background-color: #455a64;
-                padding: 10px;
-                text-align: center;
-            }
-
-            .gridview td {
-                padding: 8px 10px;
-                border-bottom: 1px solid #546e7a;
-            }
-
-            .gridview tr:hover td {
-                background-color: #546e7a;
-            }
-
-            .gridview a {
-                color: #82b1ff; /* color del link clásico */
-            }
-    </style>
+</style>
 </head>
 
 <body>
     <form id="contenedorPrincipal" runat="server">
         <div class="contenedor-principal">
 
-            <h2>Reservar Boleto: Consulta de Boletos</h2>
+            <h2>Reservar Boletos</h2>
 
             <!-- 🔹 PANEL DE FILTROS -->
             <div class="panel-filtros">
@@ -472,6 +478,7 @@
             </div>
 
         </div>
+
     </form>
 
     <!-- JavaScript para habilitar/deshabilitar fechas -->

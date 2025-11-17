@@ -11,69 +11,39 @@
     <form id="form1" runat="server">
         <div id="navbarPrincipal" runat="server" class="navbar">
             <asp:Button CssClass="nav-item" ID="btnCambiarClave" runat="server" Text="Cambiar Clave" OnClick="btnCambiarClave_Click" CausesValidation="false" />
-            <asp:Button CssClass="nav-item" ID="btnIniciarSesion" runat="server" Text="Iniciar Sesion" OnClick="btnInicio_Click" CausesValidation="false" />
-            <asp:Button CssClass="nav-item" ID="btnMenuAdministrador" runat="server" Text="Menu Administrador" OnClick="btnMenuAdministrador_Click" CausesValidation="false" Visible="false" CommandName="Ver Menu Administrador"/>
-            <asp:Button CssClass="nav-item" ID="btnMenuWebMaster" runat="server" Text="Menu WebMaster" OnClick="btnMenuWebMaster_Click" CausesValidation="false" Visible="false" CommandName="Ver Menu WebMaster"/>
+            
+            <asp:Button CssClass="nav-item" ID="btnMenuAdministrador" runat="server" Text="Menu Administrador" OnClick="btnMenuAdministrador_Click" CausesValidation="false" Visible="false" CommandName="Ver Menu Administrador" />
+            <asp:Button CssClass="nav-item" ID="btnMenuWebMaster" runat="server" Text="Menu WebMaster" OnClick="btnMenuWebMaster_Click" CausesValidation="false" Visible="false" CommandName="Ver Menu WebMaster" />
             <asp:Button CssClass="nav-item nav-right" ID="btnCerrarSesion" runat="server" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" CausesValidation="false" />
         </div>
-        <section class="search-section">
-            <div class="search-box">
-                <h2>Buscar Vuelos</h2>
-                <div class="search-fields">
-                    <input type="text" class="search-input" placeholder="Origen" />
-                    <input type="text" class="search-input" placeholder="Destino" />
-                    <input type="date" class="search-input" />
-                    <input type="date" class="search-input" />
-                    <select class="search-input">
-                        <option>1 persona, Económica</option>
-                        <option>2 personas, Económica</option>
-                        <option>1 persona, Ejecutiva</option>
-                    </select>
-                    <button type="button" class="search-btn">Buscar</button>
-                </div>
-            </div>
-        </section>
         <section class="destinos-section">
-            <h2>Vuelos baratos para los mejores destinos</h2>
+            
+            <asp:Label ID="lblMensaje" runat="server" CssClass="mensaje-indicador"></asp:Label>
+
+            <h2>Opciones Disponibles</h2>
+
             <div class="destinos-grid">
-                <div class="destino-card">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Santiago de Chile" />
-                    <div class="destino-info">
-                        <span class="destino-label">VUELO</span>
-                        <h3>Vuelos a Santiago de Chile</h3>
-                        <p>Saliendo desde Buenos Aires</p>
-                        <span class="destino-precio">$249.911</span>
-                    </div>
-                </div>
-                <div class="destino-card">
-                    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Mendoza" />
-                    <div class="destino-info">
-                        <span class="destino-label">VUELO</span>
-                        <h3>Vuelos a Mendoza</h3>
-                        <p>Saliendo desde Buenos Aires</p>
-                        <span class="destino-precio">$71.726</span>
-                    </div>
-                </div>
-                <div class="destino-card">
-                    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=400&q=80" alt="Salta" />
-                    <div class="destino-info">
-                        <span class="destino-label">VUELO</span>
-                        <h3>Vuelos a Salta</h3>
-                        <p>Saliendo desde Buenos Aires</p>
-                        <span class="destino-precio">$83.073</span>
-                    </div>
-                </div>
-                <div class="destino-card">
-                    <img src="https://images.unsplash.com/photo-1465156799763-2c087c332922?auto=format&fit=crop&w=400&q=80" alt="Córdoba" />
-                    <div class="destino-info">
-                        <span class="destino-label">VUELO</span>
-                        <h3>Vuelos a Córdoba</h3>
-                        <p>Saliendo desde Buenos Aires</p>
-                        <span class="destino-precio">$50.795</span>
-                    </div>
-                </div>
+                <asp:Repeater ID="repVuelos" runat="server">
+                    <ItemTemplate>
+                        <div class="destino-card"
+                            onclick="window.location.href='<%# Eval("Url") %>'">
+
+                            <img src="<%# Eval("Imagen") %>" alt="<%# Eval("Titulo") %>" />
+
+                            <div class="destino-info">
+                                <h3><%# Eval("Titulo") %></h3>
+                                <p><%# Eval("Descripcion") %></p>
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+
             </div>
         </section>
+        <footer class="main-footer">
+            <p>&copy; 2025 Sanza Flights | Todos los derechos reservados.</p>
+            <p>Contacto: <a href="mailto:soporte@sanzaflights.com">soporte@sanzaflights.com</a></p>
+        </footer>
     </form>
 </body>
 </html>
