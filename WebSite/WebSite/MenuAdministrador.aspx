@@ -86,9 +86,9 @@
             </ul>
         </nav>
 
-        <div class="panel-central">
-            <h2 class="panel-titulo" data-key="Bienvenido al panel de Administrador">Bienvenido al panel de Administrador</h2>
-            <p class="panel-subtitulo" data-key="Seleccione una opcion del menu para comenzar">Seleccioná una opción del menú para comenzar</p>
+        <div class="panel-central" runat="server">
+            <h2 class="panel-titulo" runat="server" data-key="Bienvenido al panel de Administrador">Bienvenido al panel de Administrador</h2>
+            <p class="panel-subtitulo" runat="server" data-key="Seleccione una opcion del menu para comenzar">Seleccioná una opción del menú para comenzar</p>
         </div>
     </form>
 </body>
