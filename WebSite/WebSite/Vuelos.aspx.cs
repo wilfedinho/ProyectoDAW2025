@@ -215,14 +215,14 @@ public partial class Vuelos : System.Web.UI.Page
         {
             string idioma = Session["idioma"]?.ToString() ?? "ES";
 
-            // NAVBAR
+            
             if (ctrl.ID == "navbarPrincipal")
             {
                 TraducirNavbar(ctrl, traductor);
             }
             else
             {
-                // 🔥 1. Obtener la data-key para CUALQUIER tipo de control
+                
                 string dataKey = null;
 
                 if (ctrl is WebControl wc)
@@ -230,7 +230,7 @@ public partial class Vuelos : System.Web.UI.Page
                 else if (ctrl is HtmlControl hc)
                     dataKey = hc.Attributes["data-key"];
 
-                // 🔥 2. Si existe key, traducir según tipo
+                
                 if (!string.IsNullOrEmpty(dataKey))
                 {
                     string traduccion = traductor.Traducir(dataKey, idioma);
@@ -261,7 +261,7 @@ public partial class Vuelos : System.Web.UI.Page
                     }
                 }
             }
-            // Recursividad
+           
             if (ctrl.HasControls())
                 TraducirPagina(ctrl, traductor);
         }
@@ -274,7 +274,7 @@ public partial class Vuelos : System.Web.UI.Page
 
         foreach (Control ctrl in navbar.Controls)
         {
-            // Caso A: es un HtmlAnchor <a runat="server">
+            
             if (ctrl is HtmlAnchor anchor)
             {
                 string key = anchor.Attributes["data-key"];
@@ -284,7 +284,7 @@ public partial class Vuelos : System.Web.UI.Page
                 }
             }
 
-            // Caso B: es un LinkButton (si lo usás más adelante)
+           
             else if (ctrl is LinkButton lb)
             {
                 string key = lb.Attributes["data-key"];
@@ -294,7 +294,7 @@ public partial class Vuelos : System.Web.UI.Page
                 }
             }
 
-            // Recursivo para <ul>, <li>, etc.
+          
             if (ctrl.HasControls())
             {
                 TraducirNavbar(ctrl, traductor);

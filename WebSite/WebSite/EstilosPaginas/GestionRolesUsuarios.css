@@ -5,7 +5,7 @@
     color: #fff;
 }
 
-/* NAVBAR */
+
 .navbar {
     background-color: #0d1b2a;
     padding: 12px 0;
@@ -39,7 +39,7 @@
         font-weight: bold;
     }
 
-/* CONTENIDO */
+
 .contenedor {
     display: flex;
     justify-content: space-between;
@@ -171,10 +171,10 @@
 }
 
 .detalle .aspNetTreeSelectedNode a {
-    color: #ffd700 !important; /* dorado si seleccionás alguno */
+    color: #ffd700 !important; 
 }
 
-/* CONTENEDOR DE EDICIÓN */
+
 .edicion-permiso {
     margin-top: 20px;
     background: #1b2a49;
@@ -183,7 +183,7 @@
     box-shadow: 0 3px 8px rgba(0,0,0,0.25);
 }
 
-/* LABEL PRINCIPAL */
+
 .etiqueta-profesional {
     font-size: 14px;
     font-weight: 600;
@@ -192,7 +192,7 @@
     color: #9bbcff;
 }
 
-/* INPUT */
+
 .input-profesional {
     width: 95%;
     padding: 10px;
@@ -209,7 +209,7 @@
         box-shadow: 0 0 5px rgba(58,134,255,0.5);
     }
 
-/* DESCRIPCIÓN CHICA */
+
 .descripcion-profesional {
     display: block;
     margin-top: 6px;
@@ -217,7 +217,7 @@
     font-size: 12px;
 }
 
-/* ERRORES */
+
 .error-profesional {
     color: #ff4d4d;
     font-weight: bold;
