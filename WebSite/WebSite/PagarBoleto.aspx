@@ -198,7 +198,7 @@
                     BorderWidth="0"
                     OnRowCommand="gvBoletosPorPagar_RowCommand">
                     <EmptyDataTemplate>
-                        <div style="padding: 20px; background-color: #0f1e33; border: 2px solid #49ff58; border-radius: 10px; text-align: center; color: #49ff58; font-size: 20px;">
+                        <div style="padding: 20px; background-color: #0f1e33; border: 2px solid #49ff58; border-radius: 10px; text-align: center; color: #49ff58; font-size: 20px;" runat="server" data-key="noPoseeBoletos">
                             El Usuario No Posee Boletos Por Pagar.
                         </div>
                     </EmptyDataTemplate>
@@ -225,6 +225,7 @@
                                     runat="server"
                                     Text="Pagar"
                                     CommandName="Pagar"
+                                    data-key="btn_pagar"
                                     CommandArgument='<%# Eval("NumeroBoleto") %>'
                                     CssClass="boton-accion">
                                 </asp:LinkButton>
