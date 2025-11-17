@@ -15,6 +15,17 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
     GestorPermisos gp = new GestorPermisos();
     List<string> lista;
     UsuarioBLL lu = new UsuarioBLL();
+    private bool isRol
+    {
+        get
+        {
+            return ViewState["isRol"] != null ? (bool)ViewState["isRol"] : false;
+        }
+        set
+        {
+            ViewState["isRol"] = value;
+        }
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -163,10 +174,7 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
                     lista.Add(p.DevolverNombrePermiso());
                 }
             }
-            ViewState["permisosInicialesRol"] = chkPermisos.Items.Cast<ListItem>()
-                    .Where(i => i.Selected)
-                    .Select(i => i.Text)
-                    .ToList();
+            ViewState["permisosInicialesRol"] = permisoRaiz.listaPermisos.Select(p => p.DevolverNombrePermiso()).ToList();
         }
         else
         {
@@ -186,28 +194,40 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
             if (ddlRoles.SelectedIndex == -1 || ddlRoles.SelectedItem.Text == "-- Seleccione un rol --")
                 throw new Exception("Debe seleccionar un rol.");
 
-            // Permisos que tenía el rol ANTES
-            var iniciales = ViewState["permisosInicialesRol"] as List<string> ?? new List<string>();
-
-            // Permisos seleccionados AHORA
-            var actuales = chkPermisos.Items.Cast<ListItem>()
-                                .Where(i => i.Selected)
-                                .Select(i => i.Text)
-                                .ToList();
-
-            // Permisos que se agregaron
-            var agregados = actuales.Except(iniciales).ToList();
-
-            // Permisos que se quitaron
-            var quitados = iniciales.Except(actuales).ToList();
-
-            // 🔥 ESTO ES LO CORRECTO PARA TU BLL 🔥
-            gp.ActualizarPermisos(
-                ddlRoles.SelectedItem.Text,
-                actuales,   // LISTA FINAL COMPLETA
-                quitados    // LO QUE HAY QUE BORRAR
-            );
-
+            List<string> permisosCheckeados = new List<string>();
+            List<string> permisosCheckeadosNivel1 = new List<string>();
+            foreach (ListItem item in chkPermisos.Items)
+            {
+                if (item.Selected)
+                {
+                    permisosCheckeados.Add(item.Text);
+                    permisosCheckeadosNivel1.Add(item.Text);
+                    EntidadPermiso permiso = gp.ObtenerPermisosArbol().Find(x => x.DevolverNombrePermiso() == item.Text);
+                    if(permiso != null && permiso.isComposite())
+                    {
+                        AgregarHijosRecursivosWeb((EntidadPermisoCompuesto)permiso, permisosCheckeados);
+                    }
+                }
+            }
+            var diferencia = permisosCheckeadosNivel1.Where(u => !lista.Any(x => x == u)).ToList();
+            gp.ActualizarPermisos(ddlRoles.SelectedItem.Text, permisosCheckeadosNivel1, diferencia);
+            foreach (ListItem item2 in chkPermisos.Items)
+            {
+                if (item2.Selected)
+                {
+                    if (!lista.Contains(item2.Text))
+                    {
+                        lista.Add(item2.Text);
+                    }
+                }
+                else
+                {
+                    if (lista.Contains(item2.Text))
+                    {
+                        lista.Remove(item2.Text);
+                    }
+                }
+            }
             Response.Redirect(Request.RawUrl);
         }
         catch (Exception ex)
@@ -299,6 +319,7 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
         panelCrearCompuesto.Visible = true;
         txtNombreCompuesto.Text = "";
         lblErrorCompuesto.Visible = false;
+        isRol = true;
     }
 
     protected void btnConfirmarCompuesto_Click(object sender, EventArgs e)
@@ -313,7 +334,7 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
             if (string.IsNullOrWhiteSpace(nombrePermiso))
                 throw new Exception("Debe ingresar un nombre para el permiso.");
             // 3. Crear el permiso compuesto
-            CrearPermisoCompuesto(nombrePermiso, true);
+            CrearPermisoCompuesto(nombrePermiso, isRol);
             // 4. Recargar la página
             Response.Redirect(Request.RawUrl);
         }
@@ -351,6 +372,7 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
         panelCrearCompuesto.Visible = true;
         txtNombreCompuesto.Text = "";
         lblErrorCompuesto.Visible = false;
+        isRol = false;
     }
 
     protected void btnEliminar_Click(object sender, EventArgs e)
@@ -383,37 +405,39 @@ public partial class GestionRolesUsuarios : System.Web.UI.Page
 
     protected void btnInicio_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("MenuAdministrador.aspx");
     }
 
     protected void btnUsuarios_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("GestionUsuarios.aspx");
     }
 
     protected void btnBeneficios_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("GestionBeneficios.aspx");
     }
 
     protected void btnBoletos_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("GestionBoletos.aspx");
     }
 
     protected void btnClave_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("CambiarClave.aspx");
     }
 
     protected void btnVuelos_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("Vuelos.aspx");
     }
 
     protected void btnCerrarSesion_Click(object sender, EventArgs e)
     {
-
+        Session.Clear();
+        Session.Abandon();
+        Response.Redirect("Login.aspx");
     }
 
     protected void btnES_Click(object sender, EventArgs e)
