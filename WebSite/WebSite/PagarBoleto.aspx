@@ -9,68 +9,111 @@
 
     <style>
         body {
-            background-color: #0f223d;
-            color: white;
-            font-family: Arial;
+            background-color: #1a2233;
+            color: #e6eaf6;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 30px;
         }
 
+
         .contenedor-principal {
-            background-color: #11263f;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4);
+            background-color: #232b3e;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 24px #00000088;
             display: flex;
             flex-direction: column;
-            gap: 35px;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
+
 
         .titulo-seccion {
-            font-size: 26px;
-            font-weight: bold;
-            color: #49ff58;
-            border-bottom: 2px solid #49ff58;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-
-        /* CONTENEDOR GRID */
-        .grid-container {
-            padding: 15px;
-        }
-
-        /* GRIDVIEW */
-        .estilo-grid header {
-            background-color: #49ff58 !important;
-        }
-
-        .gvEstilo th {
-            background-color: #49ff58 !important;
-            color: black !important;
-            padding: 10px;
+            font-size: 2em;
+            font-weight: 500;
+            color: #4169a1;
+            border-bottom: 2px solid #274472;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
             text-align: center;
         }
 
-        .gvEstilo td {
-            background-color: #11263f;
-            color: white;
-            padding: 8px;
+
+        .grid-container {
+            padding: 15px;
+           
+            display: flex;
+            justify-content: center; 
+          
         }
 
-        .gvEstilo tr:nth-child(even) td {
-            background-color: #0f1e33;
+        .gvEstilo {
+            width: 70%; 
+            border-collapse: collapse;
+            color: #e6eaf6;
+            border-radius: 8px;
+            overflow: hidden;
+            
+            display: table; 
+            margin: 0; 
         }
+
+            .gvEstilo th {
+                background-color: #4169a1 !important;
+                color: white !important;
+                padding: 12px 10px;
+                text-align: center;
+                font-weight: 600;
+                font-size: 0.9em;
+            }
+
+            .gvEstilo td {
+                background-color: #232b3e;
+                color: #e6eaf6;
+                padding: 10px;
+                border-bottom: 1px solid #3a5a99;
+            }
+
+            .gvEstilo tr:nth-child(even) td {
+                background-color: #1a2233;
+            }
+
+            .gvEstilo tr:hover td {
+                background-color: #2c3654;
+            }
+
 
         .boton-accion {
-            background-color: #49ff58;
-            color: black;
+            background-color: #4a78c1;
+            color: white;
             border: none;
             padding: 6px 12px;
             border-radius: 6px;
             font-weight: bold;
             cursor: pointer;
+            transition: background-color 0.2s;
+            text-decoration: none;
         }
+
+            .boton-accion:hover {
+                background-color: #274472;
+            }
+
+
+        .gvEstilo + div {
+            padding: 20px;
+            background-color: #1a2233 !important;
+            border: 2px solid #4169a1 !important;
+            border-radius: 10px;
+            text-align: center;
+            color: #4169a1 !important;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+
 
         .form-pago {
             display: grid;
@@ -80,33 +123,55 @@
         }
 
         .label-txt {
-            color: #49ff58;
-            font-size: 18px;
-            font-weight: bold;
+            color: #e6eaf6;
+            font-size: 1em;
+            font-weight: 600;
             margin-bottom: 5px;
             display: block;
         }
 
         .input-txt {
-            background-color: #0f1e33;
-            border: 2px solid #49ff58;
+            background-color: #1a2233;
+            border: 1px solid #3a5a99;
             color: white;
-            padding: 8px;
+            padding: 10px;
             width: 90%;
             border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.2s;
         }
 
+            .input-txt:focus {
+                border-color: #4169a1;
+                outline: none;
+            }
+
+
         .boton-pagar {
-            background-color: #49ff58;
+            background-color: #2ecc71;
             color: black;
             padding: 14px 22px;
             font-size: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
             border: none;
             cursor: pointer;
             font-weight: bold;
             width: 260px;
             align-self: center;
+            grid-column: 1 / span 2;
+            margin-top: 10px;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+            .boton-pagar:hover {
+                background-color: #27ae60;
+                transform: translateY(-1px);
+            }
+
+
+        input[type='radio'] + label {
+            color: #e6eaf6 !important;
+            font-size: 1.1em !important;
         }
     </style>
 
@@ -117,10 +182,9 @@
 
         <div class="contenedor-principal">
 
-            <!-- Título -->
+
             <div class="titulo-seccion">Boletos por Pagar</div>
 
-            <!-- GRIDVIEW -->
             <div class="grid-container">
 
                 <asp:GridView ID="gvBoletosPorPagar" runat="server" Width="100%"
@@ -169,7 +233,7 @@
 
             </div>
 
-            <!-- SECCIÓN DATOS DE PAGO -->
+
             <div class="titulo-seccion">Datos de Pago</div>
 
             <div class="form-pago">
