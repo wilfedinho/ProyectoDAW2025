@@ -28,15 +28,16 @@ namespace BLL.Negocio
         public bool Baja(int ID)
         {
             BeneficioDAL gestorBeneficio = new BeneficioDAL();
-            return gestorBeneficio.Baja(ID);
+            bool a =  gestorBeneficio.Baja(ID);
             DigitoVerificador digitoVerificador = new DigitoVerificador();
             digitoVerificador.ActualizarDVV("Beneficio");
+            return a;
         }
 
 
         public void Modificacion(Beneficio BeneficioModificado)
         {
-           BeneficioDAL gestorBeneficio = new BeneficioDAL();
+            BeneficioDAL gestorBeneficio = new BeneficioDAL();
             gestorBeneficio.Modificacion(BeneficioModificado);
             DigitoVerificador digitoVerificador = new DigitoVerificador();
             digitoVerificador.ActualizarDVH(BeneficioModificado, "Beneficio");

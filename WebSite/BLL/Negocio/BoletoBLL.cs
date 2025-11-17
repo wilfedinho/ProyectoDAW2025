@@ -24,7 +24,6 @@ namespace BLL.Negocio
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.Alta(BoletoAgregar);
             DigitoVerificador digitoVerificador = new DigitoVerificador();
-            digitoVerificador.ActualizarDVH(BoletoAgregar, "Boleto");
         }
 
 
@@ -33,7 +32,6 @@ namespace BLL.Negocio
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.Baja(IDBoleto);
             DigitoVerificador digitoVerificador = new DigitoVerificador();
-            digitoVerificador.ActualizarDVV("Boleto");
         }
 
         public void Modificar(Boleto BoletoModificado)
@@ -41,7 +39,6 @@ namespace BLL.Negocio
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.Modificar(BoletoModificado);
             DigitoVerificador digitoVerificador = new DigitoVerificador();
-            digitoVerificador.ActualizarDVH(BoletoModificado, "Boleto");
         }
         public bool ExisteBoletoAsignar(int idBoleto)
         {
@@ -54,7 +51,6 @@ namespace BLL.Negocio
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.AsignarBoletoCliente(boletoAsignar, clienteAsignar);
             DigitoVerificador digitoVerificador = new DigitoVerificador();
-            digitoVerificador.ActualizarDVH(boletoAsignar, "Boleto");
         }
 
         public void AsignarBoletoClienteRegistrar(Boleto boletoAsignar, Usuario clienteAsignar)
@@ -62,7 +58,6 @@ namespace BLL.Negocio
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.AsignarBoletoClienteRegistrar(boletoAsignar, clienteAsignar);
             DigitoVerificador digitoVerificador = new DigitoVerificador();
-            digitoVerificador.ActualizarDVH(boletoAsignar, "Boleto");
         }
 
         public void GenerarBoletoCompra(Boleto boletoGenerar)
@@ -70,16 +65,16 @@ namespace BLL.Negocio
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.GenerarBoletoCompra(boletoGenerar);
             DigitoVerificador digitoVerificador = new DigitoVerificador();
-            digitoVerificador.ActualizarDVH(boletoGenerar, "Boleto");
         }
 
         public void LiberarBoletosVencidos()
         {
+            
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.LiberarBoletosVencidos();
             DigitoVerificador digitoVerificador = new DigitoVerificador();
-            Boleto boleto = new Boleto();
-            digitoVerificador.ActualizarDVH(boleto, "Boleto");
+            Boleto boleto = new Boleto("1","","",DateTime.Now, DateTime.Now, false, 0, null, 0, null, null);
+
         }
         public bool ExisteBoletoEnAsiento(Boleto boletoVerificarExistencia)
         {
@@ -186,7 +181,6 @@ namespace BLL.Negocio
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.CobrarBoleto(BoletoCobrado);
             DigitoVerificador digitoVerificador = new DigitoVerificador();
-            digitoVerificador.ActualizarDVH(BoletoCobrado, "Boleto");
         }
 
 

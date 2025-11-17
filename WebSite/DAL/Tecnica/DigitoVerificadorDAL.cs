@@ -54,7 +54,7 @@ namespace DAL
                 var cmd = new SqlCommand(
                     "UPDATE DigitoVerificador SET CR = @CR WHERE Tabla = @Tabla", cone);
                 cmd.Parameters.AddWithValue("@CR", CalcularCount(nombreTabla));
-                cmd.Parameters.AddWithValue("@TAbla", nombreTabla);
+                cmd.Parameters.AddWithValue("@Tabla", nombreTabla);
                 cone.Open();
                 cmd.ExecuteNonQuery();
             }
