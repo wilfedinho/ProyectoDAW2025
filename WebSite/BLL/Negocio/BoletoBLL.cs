@@ -53,24 +53,33 @@ namespace BLL.Negocio
         {
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.AsignarBoletoCliente(boletoAsignar, clienteAsignar);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVH(boletoAsignar, "Boleto");
         }
 
         public void AsignarBoletoClienteRegistrar(Boleto boletoAsignar, Usuario clienteAsignar)
         {
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.AsignarBoletoClienteRegistrar(boletoAsignar, clienteAsignar);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVH(boletoAsignar, "Boleto");
         }
 
         public void GenerarBoletoCompra(Boleto boletoGenerar)
         {
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.GenerarBoletoCompra(boletoGenerar);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVH(boletoGenerar, "Boleto");
         }
 
         public void LiberarBoletosVencidos()
         {
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.LiberarBoletosVencidos();
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            Boleto boleto = new Boleto();
+            digitoVerificador.ActualizarDVH(boleto, "Boleto");
         }
         public bool ExisteBoletoEnAsiento(Boleto boletoVerificarExistencia)
         {
@@ -176,6 +185,8 @@ namespace BLL.Negocio
         {
             BoletoDAL gestorBoleto = new BoletoDAL();
             gestorBoleto.CobrarBoleto(BoletoCobrado);
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            digitoVerificador.ActualizarDVH(BoletoCobrado, "Boleto");
         }
 
 

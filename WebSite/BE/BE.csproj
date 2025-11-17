@@ -51,6 +51,8 @@
     <Compile Include="Boleto.cs" />
     <Compile Include="BoletoIDA.cs" />
     <Compile Include="BoletoIDAVUELTA.cs" />
+    <Compile Include="DecoracionBeneficio.cs" />
+    <Compile Include="DecoracionBoleto.cs" />
     <Compile Include="Factura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />

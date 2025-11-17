@@ -346,7 +346,9 @@ namespace BLL.Tecnica
         {
             UsuarioDAL clienteDAL490WC = new UsuarioDAL();
             clienteDAL490WC.ModificarEstrellasCliente(DNI490WC, EstrellasReducir490WC);
-            
+            DigitoVerificador digitoVerificador = new DigitoVerificador();
+            Usuario usuario = clienteDAL490WC.BuscarClientePorDNI(DNI490WC);
+            digitoVerificador.ActualizarDVH(usuario, "Boleto");
         }
 
 

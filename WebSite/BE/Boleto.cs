@@ -36,5 +36,10 @@ namespace BE
             NumeroAsiento = numeroAsiento;
             BeneficioAplicado = beneficioAplicado;
         }
+
+        public Boleto()
+        {
+
+        }
     }
 }
