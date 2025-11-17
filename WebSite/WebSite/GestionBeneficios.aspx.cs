@@ -262,6 +262,9 @@ public partial class GestionBeneficios : System.Web.UI.Page
             chk.Checked = false;
         }
         CargarBeneficios();
+        BitacoraBLL gestorBitacora = new BitacoraBLL();
+        Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Beneficios", "Serialización", 3);
+        gestorBitacora.Alta(eventoGenerado);
     }
 
     protected void btnDeserializar_Click(object sender, EventArgs e)
@@ -314,6 +317,9 @@ public partial class GestionBeneficios : System.Web.UI.Page
 
             lblMensaje.Text = "Datos cargados correctamente desde XML.";
             lblMensaje.Visible = true;
+            BitacoraBLL gestorBitacora = new BitacoraBLL();
+            Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Gestion Beneficios", "Deserialización", 3);
+            gestorBitacora.Alta(eventoGenerado);
         }
         catch (Exception ex)
         {

@@ -133,6 +133,9 @@ public partial class PagarBoleto : System.Web.UI.Page
                                                 gestorFactura490WC.GenerarFactura(facturaAlta490WC);
 
                                                 gestorBoleto490WC.GenerarBoleto490WC(boletoCobrar);
+                                                BitacoraBLL gestorBitacora = new BitacoraBLL();
+                                                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Pago de Boleto", "Pagar Boleto", 2);
+                                                gestorBitacora.Alta(eventoGenerado);
                                             }
                                             else
                                             {
@@ -143,6 +146,9 @@ public partial class PagarBoleto : System.Web.UI.Page
                                                 gestorFactura490WC.GenerarFactura(facturaAlta490WC);
 
                                                 gestorBoleto490WC.GenerarBoleto490WC(boletoCobrar);
+                                                BitacoraBLL gestorBitacora = new BitacoraBLL();
+                                                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Pago de Boleto", "Pagar Boleto", 2);
+                                                gestorBitacora.Alta(eventoGenerado);
 
                                             }
                                         }

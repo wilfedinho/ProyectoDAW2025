@@ -100,6 +100,9 @@ public partial class CanjearBeneficio : System.Web.UI.Page
                     clienteCargado = gestorUsuario.BuscarClientePorDNI(clienteCargado.DNI);
                     CargarInfoUsuario();
                     Mostrar490WC();
+                    BitacoraBLL gestorBitacora = new BitacoraBLL();
+                    Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Canje de Beneficio", "Canjear Beneficio", 2);
+                    gestorBitacora.Alta(eventoGenerado);
                 }
                 else
                 {

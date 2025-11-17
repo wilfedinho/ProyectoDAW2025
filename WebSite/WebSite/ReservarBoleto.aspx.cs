@@ -218,6 +218,9 @@ public partial class ReservarBoleto : System.Web.UI.Page
         {
             case "Reservar":
                 gestorBoleto.AsignarBoletoCliente(boletoCargado, ClienteCargado);
+                BitacoraBLL gestorBitacora = new BitacoraBLL();
+                Bitacora eventoGenerado = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Reserva de Boletos", "Reservación de Boletos", 3);
+                gestorBitacora.Alta(eventoGenerado);
                 Mostrar490WC();
                 break;
 
@@ -230,6 +233,9 @@ public partial class ReservarBoleto : System.Web.UI.Page
 
 
                 gestorBoleto.AsignarBoletoCliente(boletoCargado, ClienteCargado);
+                BitacoraBLL gestorBitacora2 = new BitacoraBLL();
+                Bitacora eventoGenerado2 = new Bitacora(Session["usuario"].ToString(), DateTime.Parse(DateTime.Now.Date.ToString(@"yyyy-MM-dd")), TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss")), "Reserva de Boletos", "Reservación de Boletos con Beneficios", 3);
+                gestorBitacora2.Alta(eventoGenerado2);
                 Mostrar490WC();
                 break;
         }
