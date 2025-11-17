@@ -236,4 +236,21 @@
     margin-top: 10px;
 }
 
+.idioma-btn {
+    font-weight: 500;
+    opacity: 0.6;
+}
+
+    .idioma-btn:hover {
+        opacity: 1;
+    }
+
+    .idioma-btn.activo {
+        font-weight: 700;
+        opacity: 1;
+        text-decoration: underline;
+        cursor: default;
+    }
+
+
 

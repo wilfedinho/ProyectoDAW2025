@@ -59,13 +59,29 @@
                 data-key="btn_cerrarSesion" CausesValidation="false"
                 OnClick="btnCerrarSesion_Click"></asp:LinkButton>
         </li>
+        <li style="display:inline-block; margin-left:40px;">
+
+            <asp:LinkButton 
+                ID="btnES" 
+                runat="server" 
+                CssClass="nav-link idioma-btn"
+                OnClick="btnES_Click">ES</asp:LinkButton>
+
+            <span style="margin: 0 8px; color:#888;">|</span>
+
+            <asp:LinkButton 
+                ID="btnEN" 
+                runat="server" 
+                CssClass="nav-link idioma-btn"
+                OnClick="btnEN_Click">EN</asp:LinkButton>
+        </li>
     </ul>
 </nav>
 
 
-        <div class="contenedor">
-            <div class="columna izquierda">
-                <h3 data-key="Roles y grupos">Roles y grupos</h3>
+        <div class="contenedor" runat="server">
+            <div class="columna izquierda" runat="server">
+                <h3 data-key="Roles y grupos" runat="server" id="RolesGrupos">Roles y grupos</h3>
                 <asp:DropDownList ID="ddlRoles" runat="server" CssClass="combo" OnSelectedIndexChanged="ddlRoles_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 <div class="edicion-permiso" runat="server" id="panelEdicion" visible="false">
 
@@ -80,7 +96,7 @@
 
                 </div>
                 <asp:Label ID="lblError" runat="server" CssClass="error-profesional" Visible="false" ForeColor="Red"></asp:Label>
-                <asp:Button ID="btnVer" runat="server" Text="📄 Ver Detalle" CssClass="boton primario" data-key="📄 Ver Detalle" OnClick="btnVer_Click"/>
+                <asp:Button ID="btnVer" runat="server" Text="📄 Ver Detalle" CssClass="boton primario" data-key="Ver Detalle" OnClick="btnVer_Click"/>
                 <asp:Button 
                     ID="btnModificar" 
                     runat="server" 
@@ -115,16 +131,16 @@
                 </div>
              </div>
 
-            <div class="columna centro">
-                <h3 data-key="Lista de permisos">Lista de permisos</h3>
+            <div class="columna centro" runat="server">
+                <h3 data-key="Lista de permisos" runat="server" id="ListaPermisos">Lista de permisos</h3>
                 <asp:CheckBoxList ID="chkPermisos" runat="server" CssClass="lista"></asp:CheckBoxList>
                 <asp:Button ID="btnEliminar" runat="server" Text="Eliminar Selección" CssClass="boton eliminar" data-key="Eliminar Seleccion" OnClick="btnEliminar_Click"/>
                 <asp:Label ID="Label1" runat="server" CssClass="error-profesional" Visible="false"></asp:Label>
                 <asp:Label ID="lblInfo" runat="server" CssClass="info-profesional" Visible="false"></asp:Label>
             </div>
 
-            <div class="columna derecha">
-                <h3 data-key="Detalles">Detalles</h3>
+            <div class="columna derecha" runat="server">
+                <h3 data-key="Detalles" runat="server" id="detalles">Detalles</h3>
 
                 <asp:TreeView 
                     ID="tvDetalles" 
@@ -183,6 +199,7 @@
                 </div>
             </div>
         </div>
+            </div>
 
     </form>
 </body>
