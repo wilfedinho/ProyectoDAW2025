@@ -82,8 +82,8 @@
             </div>
         </section>
         <footer class="main-footer">
-            <p>&copy; 2025 Sanza Flights | Todos los derechos reservados.</p>
-            <p>Contacto: <a href="mailto:soporte@sanzaflights.com">soporte@sanzaflights.com</a></p>
+            <p runat="server" data-key="copyright">&copy; 2025 Sanza Flights | Todos los derechos reservados.</p>
+            <p runat="server" data-key="contacto">Contacto: <a href="mailto:soporte@sanzaflights.com">soporte@sanzaflights.com</a></p>
         </footer>
     </form>
 </body>
