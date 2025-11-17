@@ -39,7 +39,14 @@
         margin-bottom: 32px; /* Margen mayor para separar */
         text-align: center; /* Centrar para un estilo más limpio */
     }
-
+    .boton-primario, .boton-secundario {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px; /* Ligeramente más redondo */
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
     /* PANEL GENERAL */
     .contenedor-beneficios {
         display: flex;
@@ -198,7 +205,7 @@
                 </div>
 
             </div>
-
+            <asp:Button ID="btnVolver" data-key="btn-volver" runat="server" Text="Volver" CssClass="boton-primario" OnClick="BT_Volver_Click"/>
         </div>
 
     </form>

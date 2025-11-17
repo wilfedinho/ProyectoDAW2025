@@ -43,21 +43,18 @@
 
         .grid-container {
             padding: 15px;
-           
             display: flex;
-            justify-content: center; 
-          
+            justify-content: center;
         }
 
         .gvEstilo {
-            width: 70%; 
+            width: 70%;
             border-collapse: collapse;
             color: #e6eaf6;
             border-radius: 8px;
             overflow: hidden;
-            
-            display: table; 
-            margin: 0; 
+            display: table;
+            margin: 0;
         }
 
             .gvEstilo th {
@@ -101,6 +98,14 @@
                 background-color: #274472;
             }
 
+        .boton-primario, .boton-secundario {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px; /* Ligeramente más redondo */
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
 
         .gvEstilo + div {
             padding: 20px;
@@ -282,6 +287,8 @@
                     <label class="label-txt">Apellido Titular</label>
                     <asp:TextBox ID="txtApellidoTitular" runat="server" CssClass="input-txt"></asp:TextBox>
                 </div>
+
+                <asp:Button ID="btnVolver" data-key="btn-volver" runat="server" Text="Volver" CssClass="boton-primario" OnClick="BT_Volver_Click" />
     </form>
 
 </body>

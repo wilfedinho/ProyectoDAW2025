@@ -217,4 +217,9 @@ public partial class ReservarBoleto : System.Web.UI.Page
     }
 
 
+
+    protected void BT_Volver_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Vuelos.aspx");
+    }
 }
