@@ -90,39 +90,39 @@
             <h2 runat="server" id="tituloPrincipal" data-key="Gestion de Boletos">Gestion De Boletos</h2>
             <div class="filtros-form">
                 <div class="filtro-group">
-                    <label for="txtOrigen" class="filtro-label" data-key="Origen">Origen"</label>
-                    <asp:TextBox ID="txtOrigen" runat="server" CssClass="filtro-input" placeholder="Origen"></asp:TextBox>
+                    <label for="txtOrigen" class="filtro-label" runat="server" data-key="Origen">Origen"</label>
+                    <asp:TextBox ID="txtOrigen" runat="server" CssClass="filtro-input"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvOrigen" runat="server" ControlToValidate="txtOrigen"
                         ErrorMessage="El Origen del boleto es obligatorio" CssClass="validador-error" Display="Dynamic" data-key="El origen del boleto es obligatorio" />
                 </div>
                 <div class="filtro-group">
-                    <label for="txtDestino" class="filtro-label" data-key="Destino">Destino</label>
-                    <asp:TextBox ID="txtDestino" runat="server" CssClass="filtro-input" placeholder="Destino"></asp:TextBox>
+                    <label for="txtDestino" class="filtro-label" runat="server" data-key="Destino">Destino</label>
+                    <asp:TextBox ID="txtDestino" runat="server" CssClass="filtro-input"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvDestino" runat="server" ControlToValidate="txtDestino"
                         ErrorMessage="El Destino del boleto es obligatorio" CssClass="validador-error" Display="Dynamic" data-key="El Destino del boleto es obligatorio" />
                 </div>
-                <div class="filtro-group">
-                    <label for="txtFechaInicioIDA" class="filtro-label" data-key="Fecha Desde">Fecha Desde</label>
+                <div class="filtro-group" runat="server">
+                    <label for="txtFechaInicioIDA" class="filtro-label" data-key="Fecha Desde" runat="server">Fecha Desde</label>
                     <asp:TextBox ID="txtFechaInicioIDA" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha inicio IDA"></asp:TextBox>
                 </div>
-                <div class="filtro-group">
-                    <label for="txtFechaInicioVUELTA" class="filtro-label" data-key="Fecha Desde Vuelta">Fecha Desde Vuelta</label>
+                <div class="filtro-group" runat="server">
+                    <label for="txtFechaInicioVUELTA" class="filtro-label" data-key="Fecha Desde Vuelta" runat="server">Fecha Desde Vuelta</label>
                     <asp:TextBox ID="txtFechaInicioVUELTA" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha inicio VUELTA"></asp:TextBox>
                 </div>
-                <div class="filtro-group">
-                    <label for="txtFechaFinIDA" class="filtro-label" data-key="Fecha Hasta">Fecha Hasta</label>
+                <div class="filtro-group" runat="server">
+                    <label for="txtFechaFinIDA" class="filtro-label" runat="server" data-key="Fecha Hasta" runat="server">Fecha Hasta</label>
                     <asp:TextBox ID="txtFechaFinIDA" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha fin IDA"></asp:TextBox>
                 </div>
-                <div class="filtro-group">
-                    <label for="txtFechaFinVUELTA" class="filtro-label" data-key="Fecha Hasta Vuelta">Fecha Hasta Vuelta</label>
+                <div class="filtro-group" runat="server">
+                    <label for="txtFechaFinVUELTA" class="filtro-label" runat="server" data-key="Fecha Hasta Vuelta">Fecha Hasta Vuelta</label>
                     <asp:TextBox ID="txtFechaFinVUELTA" runat="server" CssClass="filtro-input" TextMode="Date" placeholder="Fecha fin VUELTA"></asp:TextBox>
                 </div>
-                <div class="filtro-group">
-                    <label for="chkFiltrarFecha" class="filtro-label" data-key="Modalidad IDA - VUELTA">Modalidad IDA - VUELTA</label>
+                <div class="filtro-group" runat="server">
+                    <label for="chkFiltrarFecha" class="filtro-label" runat="server" data-key="Modalidad IDA - VUELTA">Modalidad IDA - VUELTA</label>
                     <asp:CheckBox ID="chkFiltrarFecha" runat="server" CssClass="filtro-checkbox" onclick="toggleFechas()" />
                 </div>
-                <div class="filtro-group">
-                    <label for="ddlClaseBoleto" class="filtro-label" data-key="Clase Boleto">Clase Boleto</label>
+                <div class="filtro-group" runat="server">
+                    <label for="ddlClaseBoleto" class="filtro-label" runat="server" data-key="Clase Boleto">Clase Boleto</label>
                     <asp:DropDownList ID="ddlClaseBoleto" runat="server" CssClass="filtro-input">
                         <asp:ListItem Text="-- Seleccione --" Value="" data-key="-- Seleccione --" />
                         <asp:ListItem Text="Turista" Value="Turista" data-key="Turista" />
@@ -130,27 +130,27 @@
                         <asp:ListItem Text="Primera Clase" Value="Primera Clase" data-key="Primera Clase" />
                     </asp:DropDownList>
                 </div>
-                <div class="filtro-group">
-                    <label class="filtro-label" data-key="Peso Del Equipaje Permitido">Peso Del Equipaje Permitido</label>
+                <div class="filtro-group" runat="server">
+                    <label class="filtro-label" runat="server" data-key="Peso Del Equipaje Permitido">Peso Del Equipaje Permitido</label>
                     <asp:TextBox ID="txtPesoEquipaje" runat="server" CssClass="filtro-input" TextMode="Number" min="0" />
                     <asp:RequiredFieldValidator ID="rfvCodigo" runat="server" ControlToValidate="txtPesoEquipaje"
                         ErrorMessage="El equipaje del boleto es obligatorio" CssClass="validador-error" Display="Dynamic" data-key="El equipaje del boleto es obligatorio" />
                 </div>
-                <div class="filtro-group">
-                    <label class="filtro-label">Precio</label>
+                <div class="filtro-group" runat="server">
+                    <label runat="server" data-key="precio" class="filtro-label">Precio</label>
                     <asp:TextBox ID="txtPrecio" runat="server" CssClass="filtro-input" TextMode="Number" min="0" />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPrecio"
-                        ErrorMessage="El precio es obligatorio" CssClass="validador-error" Display="Dynamic" data-key="El precio es obligatorio" />
+                        ErrorMessage="El precio es obligatorio" CssClass="validador-error" Display="Dynamic" data-key="preObligatorio" />
                 </div>
-                <div class="filtro-group">
-                    <label for="txtNumeroAsiento" class="filtro-label" data-key="Numero Asiento">Numero Asiento</label>
-                    <asp:TextBox ID="txtNumeroAsiento" runat="server" CssClass="filtro-input" placeholder="Numero Asiento"></asp:TextBox>
+                <div class="filtro-group" runat="server">
+                    <label for="txtNumeroAsiento" class="filtro-label" runat="server" data-key="Numero Asiento">Numero Asiento</label>
+                    <asp:TextBox ID="txtNumeroAsiento" runat="server" CssClass="filtro-input"></asp:TextBox>
                 </div>
                 <div class="filtro-group filtro-botones">
                     <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="filtro-btn" OnClick="btnAgregar_Click" data-key="btn_agregar" />
                     <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="filtro-btn" OnClick="btnModificar_Click" data-key="btn_modificar" />
                     <asp:Button ID="btnBorrar" runat="server" Text="Borrar" CssClass="filtro-btn" OnClick="btnBorrar_Click" data-key="btn_borrar" />
-                    <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" CssClass="filtro-btn" OnClick="btnLimpiar_Click" CausesValidation="false" data-key="btnLimpiar" />
+                    <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" CssClass="filtro-btn" OnClick="btnLimpiar_Click" CausesValidation="false" data-key="btn_limpiar" />
                 </div>
 
                 <div class="eventos-table-container">
