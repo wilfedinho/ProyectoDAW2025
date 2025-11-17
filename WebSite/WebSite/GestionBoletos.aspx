@@ -92,17 +92,17 @@
                         OnSelectedIndexChanged="gvBoletos_SelectedIndexChanged">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" SelectText="&#8594;" ButtonType="Link" ItemStyle-ForeColor="#2196F3" ItemStyle-Font-Size="Large" />
-                            <asp:TemplateField HeaderText="NumeroBoleto"><ItemTemplate><span runat="server" data-key="Numero Boleto"><%# Eval("Nombre") %></span></ItemTemplate></asp:TemplateField>
-                            <asp:TemplateField HeaderText="Origen"><ItemTemplate><span runat="server" data-key="Origen"><%# Eval("Origen") %></span></ItemTemplate></asp:TemplateField>
-                            <asp:TemplateField HeaderText="Destino"><ItemTemplate><span runat="server" data-key="Destino"><%# Eval("Destino") %></span></ItemTemplate></asp:TemplateField>
-                            <asp:TemplateField HeaderText="FechaPartidaIDA"><ItemTemplate><span runat="server" data-key="Fecha Partida IDA"><%# Eval("FechaPartidaIDA", "{0:dd/MM/yyyy}") %></span></ItemTemplate></asp:TemplateField>
-                            <asp:TemplateField HeaderText="FechaLlegadaIDA"><ItemTemplate><span runat="server" data-key="Fecha Llegada IDA"><%# Eval("FechaLlegadaIDA", "{0:dd/MM/yyyy}") %></span></ItemTemplate></asp:TemplateField>
-                            <asp:TemplateField HeaderText="FechaPartidaVUELTA"><ItemTemplate><span runat="server" data-key="Fecha Partida VUELTA"><%# Eval("FechaPartidaVUELTA", "{0:dd/MM/yyyy}") %></span></ItemTemplate></asp:TemplateField>
-                            <asp:TemplateField HeaderText="FechaLlegadaVUELTA"><ItemTemplate><span runat="server" data-key="Fecha Llegada VUELTA"><%# Eval("FechaLlegadaVUELTA", "{0:dd/MM/yyyy}") %></span></ItemTemplate></asp:TemplateField>
-                            <asp:TemplateField HeaderText="Hora"><ItemTemplate><span runat="server" data-key="Clase Boleto"><%# Eval("ClaseBoleto") %></span></ItemTemplate></asp:TemplateField>
-                            <asp:TemplateField HeaderText="Peso Equipaje"><ItemTemplate><span runat="server" data-key="Peso Equipaje"><%# Eval("PesoEquipaje") %></span></ItemTemplate></asp:TemplateField>
-                            <asp:TemplateField HeaderText="Precio"><ItemTemplate><span runat="server" data-key="Precio"><%# Eval("Precio") %></span></ItemTemplate></asp:TemplateField>
-                            <asp:TemplateField HeaderText="NumeroAsiento"><ItemTemplate><span runat="server" data-key="Numero Asiento"><%# Eval("NumeroAsiento") %></span></ItemTemplate></asp:TemplateField>
+                            <asp:BoundField DataField="ID" HeaderText="NumeroBoleto"></asp:BoundField>
+                            <asp:BoundField DataField="Origen" HeaderText="Origen"></asp:BoundField>
+                            <asp:BoundField DataField="Destino" HeaderText="Destino"></asp:BoundField>
+                            <asp:BoundField DataField="FechaPartidaIDA" HeaderText="FechaPartidaIDA"></asp:BoundField>
+                            <asp:BoundField DataField="FechaLlegadaIDA" HeaderText="FechaLlegadaIDA"></asp:BoundField>
+                            <asp:BoundField DataField="FechaPartidaVUELTA" HeaderText="FechaPartidaVUELTA"></asp:BoundField>
+                            <asp:BoundField DataField="FechaLlegadaVUELTA" HeaderText="FechaLlegadaVUELTA"></asp:BoundField>
+                            <asp:BoundField DataField="ClaseBoleto" HeaderText="Clase"></asp:BoundField>
+                            <asp:BoundField DataField="PesoEquipaje" HeaderText="Peso Equipaje"></asp:BoundField>
+                            <asp:BoundField DataField="Precio" HeaderText="Precio"></asp:BoundField>
+                            <asp:BoundField DataField="NumeroAsiento" HeaderText="NumeroAsiento"></asp:BoundField>
                         </Columns>
                     </asp:GridView>
 

@@ -4,25 +4,89 @@ using BLL.Tecnica;
 using SERVICIOS;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Serialization;
 
 public partial class GestionBeneficios : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-        if (Session["usuario"] != null && Session["rol"].ToString() == "Admin")
+        if (!IsPostBack)
         {
-            CargarBeneficios();
+            if (Session["usuario"] != null && Session["rol"].ToString() == "Admin")
+            {
+                CargarBeneficios();
+            }
+            else
+            {
+                Response.Redirect("Vuelos.aspx");
+            }
+            ChequearAccesibilidadDeTodosLosControles();
+
         }
-        else
+    }
+
+    public void ChequearAccesibilidadDeTodosLosControles()
+    {
+        GestorPermisos gp = new GestorPermisos();
+        ChequearAccesibilidadRecursiva(Page, gp);
+        ChequearAccesibilidadNavbar(navbarPrincipal, gp);
+    }
+
+    private void ChequearAccesibilidadNavbar(Control navbar, GestorPermisos gp)
+    {
+        foreach (Control ctrl in navbar.Controls)
         {
-            Response.Redirect("Vuelos.aspx");
+            if (ctrl is Button btn)
+            {
+                string permiso = btn.CommandName;
+
+                if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
+                {
+                    btn.Visible = false;
+                }
+            }
+            else if (ctrl is LinkButton linkBtn)
+            {
+                string permiso = linkBtn.CommandName;
+
+                if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
+                {
+                    linkBtn.Visible = false;
+                }
+            }
+            else if (ctrl.HasControls())
+            {
+                ChequearAccesibilidadNavbar(ctrl, gp);
+            }
         }
+    }
+
+    public void ChequearAccesibilidadRecursiva(Control contenedor, GestorPermisos gp)
+    {
+        foreach (Control ctrl in contenedor.Controls)
+        {
+            if (ctrl is Button)
+            {
+                ChequearAccesibilidad(ctrl as Button, gp);
+                if (ctrl.HasControls())
+                {
+                    ChequearAccesibilidadRecursiva(ctrl, gp);
+                }
+            }
+        }
+    }
+
+    public void ChequearAccesibilidad(Button boton, GestorPermisos gp)
+    {
+        boton.Visible = gp.Configurar_Control(boton.CommandName.ToString(), Session["rol"].ToString(), gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto);
     }
 
     public void CargarBeneficios()
@@ -34,9 +98,9 @@ public partial class GestionBeneficios : System.Web.UI.Page
         {
             CodigoBeneficio = e.CodigoBeneficio,
             Nombre = e.Nombre,
-            Precio = e.PrecioEstrella,
-            CantidadCanjeada = e.CantidadBeneficioReclamo,
-            Descuento = e.DescuentoAplicar,
+            PrecioEstrella = e.PrecioEstrella,
+            CantidadBeneficioReclamo = e.CantidadBeneficioReclamo,
+            DescuentoAplicar = e.DescuentoAplicar,
         }).ToList();
         gvBeneficios.DataSource = listaAdaptada;
         gvBeneficios.DataBind();
@@ -142,6 +206,7 @@ public partial class GestionBeneficios : System.Web.UI.Page
     protected void btnLimpiar_Click(object sender, EventArgs e)
     {
         LimpiarCampos();
+        CargarBeneficios();
     }
     protected void gvBeneficios_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -191,5 +256,127 @@ public partial class GestionBeneficios : System.Web.UI.Page
         Session.Clear();
         Session.Abandon();
         Response.Redirect("Login.aspx");
+    }
+
+    protected void btnSerializar_Click(object sender, EventArgs e)
+    {
+        List<Beneficio> beneficiosASerializar = new List<Beneficio>();
+        foreach (GridViewRow row in gvBeneficios.Rows) 
+        {
+            CheckBox chk = (CheckBox)row.FindControl("chkSeleccionar");
+            if(chk != null && chk.Checked)
+            {
+                int rowIndex = row.RowIndex;
+                int codigo = Convert.ToInt32(gvBeneficios.DataKeys[rowIndex]["CodigoBeneficio"]);
+                string nombre = gvBeneficios.DataKeys[rowIndex]["Nombre"].ToString();
+                int precio = int.Parse(gvBeneficios.DataKeys[rowIndex]["PrecioEstrella"].ToString());
+                int cantidad = int.Parse(gvBeneficios.DataKeys[rowIndex]["CantidadBeneficioReclamo"].ToString());
+                float descuento = float.Parse(gvBeneficios.DataKeys[rowIndex]["DescuentoAplicar"].ToString());
+                Beneficio beneficio = new Beneficio
+                {
+                    CodigoBeneficio = codigo,
+                    Nombre = nombre,
+                    PrecioEstrella = precio,
+                    CantidadBeneficioReclamo = cantidad,
+                    DescuentoAplicar = descuento
+                };
+
+                beneficiosASerializar.Add(beneficio);
+            }
+        }
+
+        if (beneficiosASerializar.Count > 0)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string direc = Path.Combine(path, "BeneficiosSerializados");
+            if (!Directory.Exists(direc))
+            {
+                Directory.CreateDirectory(direc);
+            }
+            string horaNow = DateTime.Now.ToString("HHmmss");
+            string file = $"BeneficioSerializado_{horaNow}.xml";
+            string fullPath = Path.Combine(direc, file);
+            WebService ws = new WebService();
+            ws.Serializar(fullPath, beneficiosASerializar);
+            lblMensaje.Text = $"Se han serializado {beneficiosASerializar.Count} beneficios.";
+            lblMensaje.Visible = true;
+        }
+        else
+        {
+            lblMensaje.Text = "No has seleccionado ningún beneficio para serializar.";
+            lblMensaje.Visible = true;
+        }
+    
+        foreach(GridViewRow row in gvBeneficios.Rows)
+        {
+            CheckBox chk = (CheckBox)row.FindControl("chkSeleccionar");
+            chk.Checked = false;
+        }
+        CargarBeneficios();
+    }
+
+    protected void btnDeserializar_Click(object sender, EventArgs e)
+    {
+        if (!fuArchivoXML.HasFile)
+        {
+            lblMensaje.Text = "No se seleccionó ningún archivo.";
+            lblMensaje.Visible = true;
+            return;
+        }
+
+        string fileExtension = Path.GetExtension(fuArchivoXML.FileName);
+        if (!fileExtension.Equals(".xml", StringComparison.OrdinalIgnoreCase))
+        {
+            lblMensaje.Text = "Error: El archivo seleccionado no es un .xml";
+            lblMensaje.Visible = true;
+            return;
+        }
+
+        if (fuArchivoXML.PostedFile.ContentLength == 0)
+        {
+            lblMensaje.Text = "Error: El archivo XML que seleccionaste está vacío (0 bytes).";
+            lblMensaje.Visible = true;
+            return;
+        }
+
+        string tempFilePath = "";
+
+        try
+        {
+            string tempFileName = Guid.NewGuid().ToString() + ".xml";
+            tempFilePath = Path.Combine(Path.GetTempPath(), tempFileName);
+
+            fuArchivoXML.SaveAs(tempFilePath);
+
+            WebService ws = new WebService();
+            List<Beneficio> beneficios = ws.Deserializar(tempFilePath);
+
+            var listaAdaptada = beneficios.Select(e => new
+            {
+                CodigoBeneficio = e.CodigoBeneficio,
+                Nombre = e.Nombre,
+                PrecioEstrella = e.PrecioEstrella,
+                CantidadBeneficioReclamo = e.CantidadBeneficioReclamo,
+                DescuentoAplicar = e.DescuentoAplicar
+            }).ToList();
+
+            gvBeneficios.DataSource = listaAdaptada;
+            gvBeneficios.DataBind();
+
+            lblMensaje.Text = "Datos cargados correctamente desde XML.";
+            lblMensaje.Visible = true;
+        }
+        catch (Exception ex)
+        {
+            lblMensaje.Text = "Error al procesar el archivo: " + ex.Message;
+            lblMensaje.Visible = true;
+        }
+        finally
+        {
+            if (!string.IsNullOrEmpty(tempFilePath) && File.Exists(tempFilePath))
+            {
+                File.Delete(tempFilePath);
+            }
+        }
     }
 }
