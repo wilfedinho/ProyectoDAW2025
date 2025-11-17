@@ -11,13 +11,11 @@ using System.Web.UI.WebControls;
 
 public partial class Vuelos : System.Web.UI.Page
 {
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-        GestorPermisos gp = new GestorPermisos();
-        var p = gp.DevolverPermisoConHijos("Admin");
-        ChequearAccesibilidadDeTodosLosControles();
-        if (Session["usuario"] == null)
+        if(Session["usuario"] == null)
         {
             btnIniciarSesion.Visible = true;
             btnCambiarClave.Visible = false;
@@ -29,6 +27,7 @@ public partial class Vuelos : System.Web.UI.Page
             btnCambiarClave.Visible = true;
             btnCerrarSesion.Visible = true;
         }
+        ChequearAccesibilidadDeTodosLosControles();
 
         /*if (Session["usuario"] == null)
         {
@@ -62,7 +61,6 @@ public partial class Vuelos : System.Web.UI.Page
     public void ChequearAccesibilidadDeTodosLosControles()
     {
         GestorPermisos gp = new GestorPermisos();
-        gp.ActualizarGeneral();
         ChequearAccesibilidadRecursiva(Page, gp);
         ChequearAccesibilidadNavbar(navbarPrincipal, gp);
     }
@@ -74,35 +72,19 @@ public partial class Vuelos : System.Web.UI.Page
             if (ctrl is Button btn)
             {
                 string permiso = btn.CommandName;
-                if(permiso == "")
-                {
-                    btn.Visible = true;
-                    continue;
-                }
+
                 if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
                 {
-                    btn.Visible = false;
-                }
-                else
-                {
-                    btn.Visible = true;
+                    btn.Visible = false; 
                 }
             }
             else if (ctrl is LinkButton linkBtn)
             {
                 string permiso = linkBtn.CommandName;
-                if (permiso == "")
-                {
-                    linkBtn.Visible = true;
-                    continue;
-                }
+
                 if (!gp.TienePermiso(permiso, gp.DevolverPermisoConHijos(Session["rol"].ToString()) as EntidadPermisoCompuesto))
                 {
                     linkBtn.Visible = false;
-                }
-                else
-                {
-                    linkBtn.Visible = true;
                 }
             }
             else if (ctrl.HasControls())
